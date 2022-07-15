@@ -1,0 +1,26 @@
+/* @font-face {
+    font-family: Arciform Sans;
+    src: url("/static/fonts/Arciform.ttf") ;
+  }
+   */
+
+:root {
+    --primary-color: #eee643;
+    --secondary-color: #094e93;
+    --secondary-color-dark: #074583;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+  
+body {
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    justify-content: center;
+}
