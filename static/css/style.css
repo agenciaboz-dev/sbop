@@ -5,7 +5,7 @@
    */
 
 :root {
-    --primary-color: #eee643;
+    --primary-color: #ffffff;
     --secondary-color: #094e93;
     --secondary-color-dark: #074583;
 }
@@ -19,8 +19,21 @@
   
 body {
     display: flex;
+    flex-direction: column;
     max-width: 100%;
     margin: 0 auto;
     height: 100vh;
-    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+
 }
