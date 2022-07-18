@@ -4,9 +4,15 @@ from src.mysql_handler import Mysql
 
 
 class Connection():
-    def __init__(self, ip, id):
+    def __init__(self, ip, data):
         self.ip = ip
-        self.id = id
+        self.id = data[0]
+        self.user = data[1]
+        self.password = data[2]
+        self.name = data[3]
+        self.address = data[4]
+        self.member = data[5]
+
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
 
     def isExpired(self):
@@ -37,7 +43,13 @@ class Session():
             if data:
                 if password == data[2]:
                     id = data[0]
-                    self.connections.append(Connection(ip, id))
+
+                    # check if user is already logged and update it' connection if it exists
+                    is_logged = self.getConnection(ip)
+                    if is_logged and is_logged.id == id:
+                        self.connections.remove(is_logged)
+
+                    self.connections.append(Connection(ip, data))
                     return str(id)
         except Exception as error:
             print(error)
