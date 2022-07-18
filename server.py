@@ -25,7 +25,7 @@ def home():
         if 'login' in request.form:
             user = request.form['user']
             password = request.form['password']
-            id = session.login(user, password)
+            id = session.login(user, password, ip)
             if id:
                 error = 'Sucesso'
                 return render_template('home.html', error=error)
@@ -34,6 +34,19 @@ def home():
                 return render_template('home.html', error=error)
 
     return render_template('home.html')
+
+
+# url to see current session connections
+@app.route('/session/', methods=['GET'])
+def session_url():
+    text = '<h2>Connections</h2>'
+    for connection in session.connections:
+        text += f'<h3>connection n {session.connections.index(connection)+1}</h3>'
+        text += f'<p>ip: {connection.ip}</p>'
+        text += f'<p>id: {connection.id}</p>'
+        text += f'<p>expira: {connection.expira}</p>'
+    print(text)
+    return text
 
 
 if __name__ == '__main__':

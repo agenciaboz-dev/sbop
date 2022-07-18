@@ -4,7 +4,7 @@ from src.mysql_handler import Mysql
 
 
 class Connection():
-    def __init__(self, ip, id, loja=0):
+    def __init__(self, ip, id):
         self.ip = ip
         self.id = id
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
@@ -31,12 +31,13 @@ class Session():
                 else:
                     self.connections.remove(connection)
 
-    def login(self, user, password):
+    def login(self, user, password, ip):
         try:
             data = self.database.fetchTable(1, 'Membros', 'USUÁRIO', user)[0]
             if data:
                 if password == data[2]:
                     id = data[0]
+                    self.connections.append(Connection(ip, id))
                     return str(id)
         except Exception as error:
             print(error)
