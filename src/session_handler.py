@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from config import TIMELIMIT
+from src.config import TIMELIMIT
 
 
 class Connection():
@@ -23,3 +23,8 @@ def getConnection(session, ip):
                 return connection
             else:
                 session.remove(connection)
+
+
+class Session():
+    def __init__(self):
+        self.connections = []

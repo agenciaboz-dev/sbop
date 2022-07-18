@@ -1,5 +1,7 @@
 from flask import Flask, request, url_for, redirect, render_template, request
+from src.session_handler import Session, Connection
 
+session = Session()
 app = Flask(__name__)
 
 
@@ -11,6 +13,14 @@ def index():
 
 @app.route('/home/', methods=['GET', 'POST'])
 def home():
+
+    ip = str(request.remote_addr)
+    if request.method == 'POST':
+        global session
+        if 'login' in request.form:
+            user = request.form['user']
+            password = request.form['password']
+
     return render_template('home.html')
 
 
