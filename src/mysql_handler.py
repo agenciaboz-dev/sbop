@@ -64,34 +64,11 @@ class Mysql():
         cursor.close()
         return data
 
-    def insertClient(self, data, parceiro):
-        ''' Função utilizada para inserir novo cliente no banco de dados.
-        DATA requer (ID, NOME, CPF, CUPONS, TELEFONE, SENHA, EMAIL) '''
+    def insertMember(self, data):
+        ''' Função utilizada para inserir novo membro no banco de dados.
+        DATA requer (ID, USUÁRIO, SENHA, NOME, ENDEREÇO, TIPO DE MEMBRO) '''
 
-        table = str(parceiro)+'_Clientes'
-        sql = f"INSERT INTO {table} (ID, NOME, CPF, CUPONS, TELEFONE, SENHA, EMAIL) VALUES {data}"
-        cursor = self.connection.cursor()
-        cursor.execute(sql)
-        self.connection.commit()
-        cursor.close()
-
-    def insertParceiro(self, data, id):
-        ''' Função utilizada para inserir novo cliente no banco de dados.
-        DATA requer (ID, NOME, CPF, CUPONS, TELEFONE, SENHA, EMAIL) '''
-        sql = f"INSERT INTO Parceiros (ID, LOJA, CNPJ, ENDEREÇO, TELEFONE, SENHA, EMAIL) VALUES {data}"
-        cursor = self.connection.cursor()
-        cursor.execute(sql)
-        self.connection.commit()
-        cursor.close()
-
-        sql = f"CREATE TABLE {id}_Clientes LIKE Clientes;"
-        cursor = self.connection.cursor()
-        cursor.execute(sql)
-        self.connection.commit()
-        cursor.close()
-
-    def insertHistory(self, data):
-        sql = f"INSERT INTO Historicos (ID_PARCEIRO, ID_CLIENTE, DATA, HORARIO, QUANTIDADE, PEDIDO) VALUES {data}"
+        sql = f"INSERT INTO Membros (ID, NOME, CPF, CUPONS, TELEFONE, SENHA, EMAIL) VALUES {data}"
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()
@@ -104,10 +81,3 @@ class Mysql():
         self.connection.commit()
         # cursor.close()
         print("Record Updated successfully ")
-
-# database = Mysql()
-# database.connect(config.mysql_bapkasor_cupons)
-# id = len(database.fetchTable(0, 'Historico'))
-# data = (0, 0, '09/05/222', '10:51', 2, id)
-# # data = (id, 'Teste', '12345678901', 0, '41988776655', '123', '@')
-# database.insertHistory(str(data))

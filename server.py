@@ -22,10 +22,16 @@ def home():
 
     ip = str(request.remote_addr)
     if request.method == 'POST':
-        global session
         if 'login' in request.form:
             user = request.form['user']
             password = request.form['password']
+            id = session.login(user, password)
+            if id:
+                error = 'Sucesso'
+                return render_template('home.html', error=error)
+            else:
+                error = 'Usuário ou senha inválidos'
+                return render_template('home.html', error=error)
 
     return render_template('home.html')
 
