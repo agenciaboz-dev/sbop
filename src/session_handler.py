@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
-from src.config import TIMELIMIT
+from src.config import TIMELIMIT, database_auth
+from src.mysql_handler import Mysql
 
 
 class Connection():
@@ -28,3 +29,8 @@ def getConnection(session, ip):
 class Session():
     def __init__(self):
         self.connections = []
+        self.database = Mysql()
+        self.database.connect(database_auth)
+
+    def reconnectDatabase(self):
+        self.database.connect(database_auth)

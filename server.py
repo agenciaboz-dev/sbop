@@ -1,5 +1,8 @@
 from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
+from src.mysql_handler import Mysql
+import src.config as cfg
+
 
 session = Session()
 app = Flask(__name__)
@@ -13,6 +16,9 @@ def index():
 
 @app.route('/home/', methods=['GET', 'POST'])
 def home():
+    # reconnect to database if it timed out
+    if not session.database.connection.is_connected():
+        session.reconnectDatabase()
 
     ip = str(request.remote_addr)
     if request.method == 'POST':
