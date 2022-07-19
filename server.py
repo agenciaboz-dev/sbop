@@ -65,11 +65,11 @@ def map():
         if request.method == 'POST':
             if 'name-search' in request.form:
                 text = request.form['name']
-                return render_template('map.html', name_feedback=text)
+                # return render_template('map.html', name_feedback=text)
 
             elif 'cep-search' in request.form:
                 text = request.form['cep']
-                return render_template('map.html', cep_feedback=text)
+                # return render_template('map.html', cep_feedback=text)
 
         return render_template('map.html')
 
@@ -86,19 +86,29 @@ def logout():
     return redirect('/home/')
 
 
-@app.route('/membros/', methods=['GET'])
+@app.route('/membros/', methods=['GET', 'POST'])
 def members():
     session.getMembers()
-    text = ''
-    for member in session.member_list:
-        text += f'<h3>Membro {session.member_list.index(member)+1}</h3>'
-        text += f"<p>ID: {member['id']}</p>"
-        text += f"<p>Nome: {member['name']}</p>"
-        text += f"<p>UF: {member['uf']}</p>"
-        text += f"<p>Usuário: {member['user']}</p>"
-        text += f"<p>Membro: {member['member']}</p>"
+    if request.method == 'GET':
+        text = ''
+        for member in session.member_list:
+            text += f'<h3>Membro {session.member_list.index(member)+1}</h3>'
+            text += f"<p>ID: {member['id']}</p>"
+            text += f"<p>Nome: {member['name']}</p>"
+            text += f"<p>UF: {member['uf']}</p>"
+            text += f"<p>Usuário: {member['user']}</p>"
+            text += f"<p>Membro: {member['member']}</p>"
 
-    return text
+        return text
+    else:
+        print(request.form)
+        if request.form['search'] == 'name':
+            result = 'None'
+            for member in session.member_list:
+                if request.form['name'] == member['name']:
+                    result = member
+
+        return result
 
 
 if __name__ == '__main__':

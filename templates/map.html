@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <script type="text/javascript" src="/static/brython/brython.js"></script>
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
+    <script type="text/python" src="/static/brython/name_search.py"></script>
     <title>Sbop - Mapa</title>
 </head>
 <body onload="brython()">
@@ -337,18 +338,17 @@
         </div>
         <div class="search-container">
             <h1>busca aqui</h1>
-            <form method="post" class="search-container">
-                <label for="name">Localize pelo CEP</label>
-                <input type="text" name="cep" placeholder="00000-000" required>
-                <button type="submit" name="cep-search">Buscar</button>
-                <p>{{cep_feedback}}</p>
-            </form>     
-            <form method="post" class="search-container">
-                <label for="name">Localize pelo nome</label>
-                <input type="text" name="name" placeholder="João" required>
-                <button type="submit" name="name-search">Buscar</button>
-                <p>{{name_feedback}}</p>
-            </form>     
+            <label for="name">Localize pelo CEP</label>
+            <input type="text" id="cep-search-form" name="cep" placeholder="00000-000" required>
+            <button type="submit" id="cep-search-button" name="cep-search">Buscar</button>
+            <p>{{cep_feedback}}</p>
+
+            <label for="name">Localize pelo nome</label>
+            <input type="text" id="name-search-form" name="name" placeholder="João" required>
+            <button type="submit" id="name-search-button" name="name-search">Buscar</button>
+            <div id="name-feedback">
+                
+            </div>
         </div>
     </div>
 </body>
