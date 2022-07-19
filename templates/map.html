@@ -19,10 +19,16 @@
         <div class="search-container">
             <h1>busca aqui</h1>
             <form method="post" class="search-container">
-                <label for="name">Nome do médico</label>
+                <label for="name">Localize pelo CEP</label>
+                <input type="text" name="cep" placeholder="00000-000" required>
+                <button type="submit" name="cep-search">Buscar</button>
+                <p>{{cep_feedback}}</p>
+            </form>     
+            <form method="post" class="search-container">
+                <label for="name">Localize pelo nome</label>
                 <input type="text" name="name" placeholder="João" required>
                 <button type="submit" name="name-search">Buscar</button>
-                <p>{{feedback}}</p>
+                <p>{{name_feedback}}</p>
             </form>     
         </div>
     </div>

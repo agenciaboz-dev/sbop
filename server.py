@@ -64,7 +64,12 @@ def map():
         if request.method == 'POST':
             if 'name-search' in request.form:
                 text = request.form['name']
-                return render_template('map.html', feedback=text)
+                return render_template('map.html', name_feedback=text)
+
+            elif 'cep-search' in request.form:
+                text = request.form['cep']
+                return render_template('map.html', cep_feedback=text)
+
         return render_template('map.html')
 
 
