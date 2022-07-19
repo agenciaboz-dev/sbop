@@ -33,11 +33,9 @@ def home():
                 error = 'Usuário ou senha inválidos'
                 return render_template('home.html', error=error)
     else:
-        try:
-            connection = session.getConnection(ip)
-            session.connections.remove(connection)
-        except:
-            pass
+        if session.getConnection(ip):
+            # redirecionar para pagina do perfil?
+            return redirect('/mapa/')
 
     return render_template('home.html')
 
@@ -61,6 +59,18 @@ def session_url():
 def map():
 
     return render_template('map.html')
+
+
+@app.route('/logout/', methods=['GET'])
+def logout():
+    ip = str(request.remote_addr)
+    try:
+        connection = session.getConnection(ip)
+        session.connections.remove(connection)
+    except:
+        pass
+
+    return redirect('/home/')
 
 
 if __name__ == '__main__':
