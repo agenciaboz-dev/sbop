@@ -32,6 +32,19 @@ body {
 
 }
 
+.top-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.map-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
 .container form {
     display: flex;
     flex-direction: column;
