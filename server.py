@@ -105,7 +105,7 @@ def members():
         if request.form['search'] == 'name':
             result = 'None'
             for member in session.member_list:
-                if request.form['name'] == member['name']:
+                if request.form['name'].lower() == member['name'].lower():
                     result = member
 
         return result
