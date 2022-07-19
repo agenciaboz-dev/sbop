@@ -42,8 +42,6 @@ class Session():
             }
             self.member_list.append(data)
 
-        print(self.member_list)
-
     def reconnectDatabase(self):
         self.database.connect(database_auth)
 
