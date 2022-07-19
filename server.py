@@ -57,8 +57,11 @@ def session_url():
 
 @app.route('/mapa/', methods=['GET', 'POST'])
 def map():
-
-    return render_template('map.html')
+    ip = str(request.remote_addr)
+    if session.getConnection(ip):
+        return render_template('map.html')
+    else:
+        return redirect('/home/')
 
 
 @app.route('/logout/', methods=['GET'])
