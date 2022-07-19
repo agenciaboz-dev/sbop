@@ -10,7 +10,7 @@ class Connection():
         self.user = data[1]
         self.password = data[2]
         self.name = data[3]
-        self.address = data[4]
+        self.uf = data[4]
         self.member = data[5]
 
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
@@ -29,7 +29,19 @@ class Session():
         self.getMembers()
 
     def getMembers(self):
-        self.member_list = self.database.fetchTable(0, 'Membros')
+        self.member_list = []
+        members = self.database.fetchTable(0, 'Membros')
+
+        for member in members:
+            data = {
+                'id': member[0],
+                'user': member[1],
+                'name': member[3],
+                'uf': member[4],
+                'member': member[5]
+            }
+            self.member_list.append(data)
+
         print(self.member_list)
 
     def reconnectDatabase(self):

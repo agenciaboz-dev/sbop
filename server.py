@@ -89,7 +89,16 @@ def logout():
 @app.route('/membros/', methods=['GET'])
 def members():
     session.getMembers()
-    return str(session.member_list)
+    text = ''
+    for member in session.member_list:
+        text += f'<h3>Membro {session.member_list.index(member)+1}</h3>'
+        text += f"<p>ID: {member['id']}</p>"
+        text += f"<p>Nome: {member['name']}</p>"
+        text += f"<p>UF: {member['uf']}</p>"
+        text += f"<p>Usuário: {member['user']}</p>"
+        text += f"<p>Membro: {member['member']}</p>"
+
+    return text
 
 
 if __name__ == '__main__':
