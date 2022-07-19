@@ -5,9 +5,9 @@
    */
 
 :root {
-    --primary-color: #ffffff;
+    --primary-color: #707070;
     --secondary-color: #094e93;
-    --secondary-color-dark: #074583;
+    --primary-color-dark: #515151;
 }
   
 * {
@@ -39,11 +39,24 @@ body {
     margin: 20px;
 }
 
-.map-container {
+.body-container {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
 }
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#svg-map path { fill: var(--primary-color); } 
+#svg-map text { fill:#fff; font:12px Arial-BoldMT, sans-serif; cursor:pointer }
+#svg-map a{ text-decoration:none }
+#svg-map a:hover { cursor:pointer; text-decoration:none }
+#svg-map a:hover path{ fill: var(--secondary-color) !important } 
+#svg-map .circle { fill: var(--primary-color-dark) }
+#svg-map a:hover .circle { fill: var(--secondary-color) !important; cursor:pointer } 
 
 .search-container {
     display: flex;
