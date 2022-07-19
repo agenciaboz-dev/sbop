@@ -45,8 +45,18 @@ body {
     justify-content: space-evenly;
 }
 
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container form {
     display: flex;
     flex-direction: column;
 
+}
+
+input {
+    border: 1px solid;
 }

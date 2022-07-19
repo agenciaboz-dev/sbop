@@ -18,6 +18,12 @@
         </div>
         <div class="search-container">
             <h1>busca aqui</h1>
+            <form method="post" class="search-container">
+                <label for="name">Nome do médico</label>
+                <input type="text" name="name" placeholder="João" required>
+                <button type="submit" name="name-search">Buscar</button>
+                <p>{{feedback}}</p>
+            </form>     
         </div>
     </div>
 </body>
