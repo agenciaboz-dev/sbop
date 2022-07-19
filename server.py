@@ -1,3 +1,4 @@
+from operator import methodcaller
 from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
@@ -83,6 +84,12 @@ def logout():
         pass
 
     return redirect('/home/')
+
+
+@app.route('/membros/', methods=['GET'])
+def members():
+    session.getMembers()
+    return str(session.member_list)
 
 
 if __name__ == '__main__':

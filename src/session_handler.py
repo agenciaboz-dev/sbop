@@ -23,8 +23,14 @@ class Connection():
 class Session():
     def __init__(self):
         self.connections = []
+        self.member_list = []
         self.database = Mysql()
         self.database.connect(database_auth)
+        self.getMembers()
+
+    def getMembers(self):
+        self.member_list = self.database.fetchTable(0, 'Membros')
+        print(self.member_list)
 
     def reconnectDatabase(self):
         self.database.connect(database_auth)
