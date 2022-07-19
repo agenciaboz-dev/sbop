@@ -28,10 +28,16 @@ def home():
             id = session.login(user, password, ip)
             if id:
                 error = 'Sucesso'
-                return render_template('home.html', error=error)
+                return redirect('/mapa/')
             else:
                 error = 'Usuário ou senha inválidos'
                 return render_template('home.html', error=error)
+    else:
+        try:
+            connection = session.getConnection(ip)
+            session.connections.remove(connection)
+        except:
+            pass
 
     return render_template('home.html')
 
