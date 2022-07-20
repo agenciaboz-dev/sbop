@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <script type="text/javascript" src="/static/brython/brython.js"></script>
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
-    <script type="text/python" src="/static/brython/name_search.py"></script>
     <title>Sbop - Mapa</title>
 </head>
 <body onload="brython()">
@@ -17,7 +16,6 @@
     </div>
     <div class="body-container">
         <div class="map-container">
-            <h1>mapa aqui</h1>
             <!-- MAPA SVG -->
             <svg version="1.1" id="svg-map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="450px" height="460px" viewBox="0 0 450 460" enable-background="new 0 0 450 460" xml:space="preserve">
                 <g>
@@ -336,20 +334,30 @@
             </svg>
             <!-- FIM DO SVG -->
         </div>
+        <!-- Search Containter -->
         <div class="search-container">
-            <h1>busca aqui</h1>
-            <label for="name">Localize pelo CEP</label>
-            <input type="text" id="cep-search-form" name="cep" placeholder="00000-000" required>
-            <button type="submit" id="cep-search-button" name="cep-search">Buscar</button>
-            <p>{{cep_feedback}}</p>
+            <!-- CEP search -->
+            <form id="cep-search-form" class="search-container">
+                <label for="cep-search-input">Localize pelo CEP</label>
+                <input type="number" id="cep-search-input" placeholder="00000-000" required>
+                <button type="submit" id="cep-search-button" name="cep-search">Buscar</button>
+            </form>
+            
+            <!-- Name search -->
+            <form id="name-search-form" class="search-container">
+                <label for="name-search-input">Localize pelo nome</label>
+                <input type="text" id="name-search-input" placeholder="João" required>
+                <button type="submit" id="name-search-button" name="">Buscar</button>
+            </form>
 
-            <label for="name">Localize pelo nome</label>
-            <input type="text" id="name-search-form" name="name" placeholder="João" required>
-            <button type="submit" id="name-search-button" name="name-search">Buscar</button>
-            <div id="name-feedback">
-                
+            <!-- Result field -->
+            <div id="result">
+                <p id="searching"></p>
             </div>
         </div>
     </div>
 </body>
+<footer>
+    <script type="text/python" src="/static/brython/map_search.py"></script>
+</footer>
 </html>
