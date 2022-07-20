@@ -105,14 +105,9 @@ def members():
 
         # name search request
         if request.form['search'] == 'name':
+            searched = request.form['name'].lower()
             for member in session.member_list:
-                match = False
-                names = member['name'].split()
-                for name in names:
-                    if request.form['name'].lower() == name.lower():
-                        match = True
-                        break
-                if match:
+                if searched in member['name'].lower():
                     result.append(member)
 
         # cep search request
