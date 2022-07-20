@@ -1,4 +1,4 @@
-import reqcheq
+# import reqcheq
 from operator import methodcaller
 from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
@@ -60,19 +60,16 @@ def session_url():
 @app.route('/mapa/', methods=['GET', 'POST'])
 def map():
     ip = str(request.remote_addr)
-    if not session.getConnection(ip):
-        return redirect('/home/')
-    else:
-        if request.method == 'POST':
-            if 'name-search' in request.form:
-                text = request.form['name']
-                # return render_template('map.html', name_feedback=text)
+    if request.method == 'POST':
+        if 'name-search' in request.form:
+            text = request.form['name']
+            # return render_template('map.html', name_feedback=text)
 
-            elif 'cep-search' in request.form:
-                text = request.form['cep']
-                # return render_template('map.html', cep_feedback=text)
+        elif 'cep-search' in request.form:
+            text = request.form['cep']
+            # return render_template('map.html', cep_feedback=text)
 
-        return render_template('map.html')
+    return render_template('map.html')
 
 
 @app.route('/logout/', methods=['GET'])
@@ -97,6 +94,7 @@ def members():
             text += f"<p>ID: {member['id']}</p>"
             text += f"<p>Nome: {member['name']}</p>"
             text += f"<p>UF: {member['uf']}</p>"
+            text += f"<p>CEP: {member['cep']}</p>"
             text += f"<p>Usuário: {member['user']}</p>"
             text += f"<p>Membro: {member['member']}</p>"
 
