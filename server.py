@@ -116,6 +116,11 @@ def members():
                 if request.form['cep'].lower() == member['cep'].lower():
                     result.append(member)
 
+        elif request.form['search'] == 'uf':
+            for member in session.member_list:
+                if request.form['uf'] == member['uf'].lower():
+                    result.append(member)
+
         return str(result)
 
 

@@ -67,3 +67,25 @@ def nameSearch(ev):
     }
     document['searching'].text = 'Pesquisando'
     ajaxSearch(data)
+
+
+class Estado():
+    def __init__(self, uf):
+        self.uf = uf
+        self.id = f'#estado-{uf}'
+
+        @bind(self.id, 'click')
+        def searchMap(ev):
+            clearResult()
+
+            data = {
+                'search': 'uf',
+                'uf': uf
+            }
+            document['searching'].text = 'Pesquisando'
+            ajaxSearch(data)
+
+
+for estado in document.select('.estado'):
+    uf = estado.attrs['id'][7:]
+    estado_ = Estado(uf)
