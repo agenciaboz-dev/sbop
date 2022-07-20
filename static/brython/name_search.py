@@ -1,4 +1,4 @@
-from browser import document, html, bind, window, alert, ajax
+from browser import document, ajax, html, bind, window, alert
 
 
 def showResult(req):

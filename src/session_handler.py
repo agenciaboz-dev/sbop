@@ -12,7 +12,6 @@ class Connection():
         self.name = data[3]
         self.uf = data[4]
         self.member = data[5]
-        self.cep = data[6]
 
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
 
@@ -39,8 +38,7 @@ class Session():
                 'user': member[1],
                 'name': member[3],
                 'uf': member[4],
-                'member': member[5],
-                'cep': member[6]
+                'member': member[5]
             }
             self.member_list.append(data)
 
