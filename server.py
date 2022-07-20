@@ -51,6 +51,8 @@ def session_url():
         text += f'<p>ip: {connection.ip}</p>'
         text += f'<p>id: {connection.id}</p>'
         text += f'<p>name: {connection.name}</p>'
+        text += f'<p>uf: {connection.uf}</p>'
+        text += f'<p>cep: {connection.cep}</p>'
         text += f'<p>member: {connection.member}</p>'
         text += f'<p>expira: {connection.expira}</p>'
     print(text)
