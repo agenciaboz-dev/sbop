@@ -66,6 +66,33 @@ def member_page():
     return render_template('profile.html')
 
 
+@app.route('/template_restrito/', methods=['GET', 'POST'])
+def template_restrito():
+    ip = str(request.remote_addr)
+    if request.method == 'POST':
+
+        connection = session.getConnection(ip)
+        if not connection:
+            return 'False'
+
+        data = {
+            'id': connection.id,
+            'name': connection.name,
+            'uf': connection.uf,
+            'cep': connection.cep,
+            'member': connection.member
+        }
+
+        return data
+
+    elif request.method == 'GET':
+        connection = session.getConnection(ip)
+        if not connection:
+            return redirect('/home/')
+
+    return render_template('template_restrito.html')
+
+
 # url to see current session connections
 @app.route('/session/', methods=['GET'])
 def session_url():
