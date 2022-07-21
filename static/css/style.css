@@ -37,7 +37,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-
+    align-items: center
 }
 
 .body-container {
@@ -68,6 +68,9 @@ body {
 
 .search-container * {
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center
 }
 
 .container form {

@@ -62,6 +62,20 @@ def template_restrito():
     return render_template('template_restrito.html')
 
 
+@app.route('/cadastrar/', methods=['GET', 'POST'])
+def cadastro():
+    ip = str(request.remote_addr)
+
+    if request.method == 'GET':
+        if session.getConnection(ip):
+            return redirect('/home/')
+
+        return render_template('signup.html')
+
+    else:
+        return '<h1>Sucesso</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+
+
 # url to see current session connections
 @app.route('/session/', methods=['GET'])
 def session_url():
