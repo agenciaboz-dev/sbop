@@ -13,9 +13,10 @@
         <form method="post">
             <input type="text" name="user" placeholder="usuario" required>
             <input type="password" name="password" placeholder="senha" required>
-            <button type="submit" class="button" name="login" class="btn">Entrar</button>
+            <button type="submit" name="login">Entrar</button>
         </form>
         <p>{{error}}</p>
+        <button onclick="window.location.href='/cadastro/'">Cadastre-se</button>
         <button onclick="window.location.href='/mapa/'">Mapa</button>
     </div>
 </body>

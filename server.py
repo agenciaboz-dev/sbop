@@ -27,39 +27,23 @@ def home():
             password = request.form['password']
             id = session.login(user, password, ip)
             if id:
-                return redirect('/membro/')
+                return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'
                 return render_template('home.html', error=error)
     else:
         if session.getConnection(ip):
             # redirecionar para pagina do perfil?
-            return redirect('/membro/')
+            return redirect('/perfil/')
 
     return render_template('home.html')
 
 
-@app.route('/membro/', methods=['GET', 'POST'])
+@app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
     ip = str(request.remote_addr)
 
-    if request.method == 'POST':
-
-        connection = session.getConnection(ip)
-        if not connection:
-            return 'False'
-
-        data = {
-            'id': connection.id,
-            'name': connection.name,
-            'uf': connection.uf,
-            'cep': connection.cep,
-            'member': connection.member
-        }
-
-        return data
-
-    elif request.method == 'GET':
+    if request.method == 'GET':
         connection = session.getConnection(ip)
         if not connection:
             return redirect('/home/')
@@ -69,23 +53,8 @@ def member_page():
 @app.route('/template_restrito/', methods=['GET', 'POST'])
 def template_restrito():
     ip = str(request.remote_addr)
-    if request.method == 'POST':
 
-        connection = session.getConnection(ip)
-        if not connection:
-            return 'False'
-
-        data = {
-            'id': connection.id,
-            'name': connection.name,
-            'uf': connection.uf,
-            'cep': connection.cep,
-            'member': connection.member
-        }
-
-        return data
-
-    elif request.method == 'GET':
+    if request.method == 'GET':
         connection = session.getConnection(ip)
         if not connection:
             return redirect('/home/')
@@ -135,6 +104,25 @@ def logout():
         pass
 
     return redirect('/home/')
+
+
+@app.route('/get_member/', methods=['GET'])
+def get_member():
+    ip = str(request.remote_addr)
+
+    connection = session.getConnection(ip)
+    if not connection:
+        return 'False'
+
+    data = {
+        'id': connection.id,
+        'name': connection.name,
+        'uf': connection.uf,
+        'cep': connection.cep,
+        'member': connection.member
+    }
+
+    return data
 
 
 @app.route('/membros/', methods=['GET', 'POST'])

@@ -21,7 +21,7 @@ def showData(req):
 def ajaxRestrito():
     req = ajax.Ajax()
     req.bind('complete', showData)
-    req.open('POST', '/template_restrito/', True)
+    req.open('GET', '/get_member/', True)
     req.set_header('content-type', 'application/x-www-form-urlencoded')
     req.send({})
 
