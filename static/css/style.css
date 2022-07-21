@@ -19,6 +19,12 @@
 button {
     padding: 1px 6px;
 }
+
+abbr {
+    color: red;
+    cursor: help;
+    text-decoration: none;
+}
   
 body {
     display: flex;
@@ -33,7 +39,8 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    margin: 20px;
+    margin: 5px 0 20px 0;
+    padding-bottom: 15px;
     border-bottom: 1px solid;
 }
 
@@ -84,4 +91,13 @@ body {
 
 input {
     border: 1px solid;
+}
+
+#signup-form {
+    text-align: right;
+}
+
+.required * {
+    margin-left: 0;
+    margin-right: 0;
 }

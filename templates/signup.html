@@ -16,18 +16,30 @@
 
     <div class="container">
         <h2 id="user-title">Cadastre-se</h2>
-        <form action="/cadastrar/" method="post">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome">
-            <label for="sobrenome">Sobrenome</label>
-            <input type="text" id="sobrenome" name="sobrenome">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email">
-            <label for="telefone">Telefone</label>
-            <input type="number" id="telefone" name="telefone">
+        <form action="/cadastrar/" method="post" id="signup-form">
+            <div class="required">
+                <label for="nome">Nome</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="text" id="nome" name="nome" required>
+            <div class="required">
+                <label for="sobrenome">Sobrenome</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="text" id="sobrenome" name="sobrenome" required>
+            <div class="required">
+                <label for="email">E-mail</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="email" id="email" name="email" required>
+            <div class="required">
+                <label for="telefone">Telefone</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="number" id="telefone" name="telefone" required>
             <label for="celular">Celular</label>
             <input type="number" id="celular" name="celular">
-            <p>Pessoa</p>
+            <p>Pessoa (opcional)</p>
             <div style="text-align: center;">
                 <label for="fisica">Fisica</label>
                 <input type="radio" id="fisica" name="fisica">
@@ -35,18 +47,33 @@
                 <input type="radio" id="juridica" name="juridica">
 
             </div>
-            <label for="endereco">Endereco</label>
-            <input type="text" id="endereco" name="endereco">
-            <label for="numero">Numero</label>
-            <input type="number" id="numero" name="numero">
+            <div class="required">
+                <label for="endereco">Endereco</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="text" id="endereco" name="endereco" required>
+            <div class="required">
+                <label for="numero">Numero</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="number" id="numero" name="numero" required>
             <label for="complemento">Complemento</label>
             <input type="text" id="complemento" name="complemento">
-            <label for="bairro">Bairro</label>
-            <input type="text" id="bairro" name="bairro">
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade">
-            <label for="estado">Estado</label>
-            <select id="estado" name="estado">
+            <div class="required">
+                <label for="bairro">Bairro</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="text" id="bairro" name="bairro" required>
+            <div class="required">
+                <label for="cidade">Cidade</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="text" id="cidade" name="cidade" required>
+            <div class="required">
+                <label for="estado">Estado</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <select id="estado" name="estado" required>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
                 <option value="AP">Amapá</option>
@@ -62,7 +89,7 @@
                 <option value="MG">Minas Gerais</option>
                 <option value="PA">Pará</option>
                 <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
+                <option value="PR" selected>Paraná</option>
                 <option value="PE">Pernambuco</option>
                 <option value="PI">Piauí</option>
                 <option value="RJ">Rio de Janeiro</option>
@@ -75,12 +102,18 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
-            <label for="pais">PaÍs</label>
+            <div class="required">
+                <label for="pais">PaÍs</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
             <select id="pais" name="pais" disabled>
                 <option value="BR">Brasil</option>
             </select>
-            <label for="cep">CEP</label>
-            <input type="number" id="cep" name="cep">
+            <div class="required">
+                <label for="cep">CEP</label>
+                <abbr title="obrigatório">*</abbr>
+            </div>
+            <input type="number" id="cep" name="cep" required>
             <label for="crm">CRM</label>
             <input type="number" id="crm" name="crm">
             <label for="curriculum">Mini curriculum</label>
