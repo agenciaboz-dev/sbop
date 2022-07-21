@@ -14,7 +14,10 @@
     margin: 10px;
     padding: 0;
     box-sizing: border-box;
-    border: none;
+}
+
+button {
+    padding: 1px 6px;
 }
   
 body {
