@@ -103,9 +103,9 @@ def cadastro():
         }
         feedback, signedup = session.signup(data)
         if not signedup:
-            render_template('signup.html', error=feedback)
-
-        return '<h1>Sucesso</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+            return render_template('signup.html', feedback=feedback)
+        else:
+            return '<h1>Sucesso</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
 
 
 # url to see current session connections

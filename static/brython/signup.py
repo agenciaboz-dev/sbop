@@ -12,7 +12,7 @@ def validate(ev):
         document['error'].text = ''
     else:
         button.disabled = True
-        document['error'].text = 'Senha diferente da confirmação de senha'
+        document['error'].text = 'Senhas não conferem'
 
 
 # só aceita input numerico no input type text
@@ -20,5 +20,7 @@ def validate(ev):
 def cep(ev):
     try:
         int(document['cep'].value[-1:])
+        if len(document['cep'].value) == 5:
+            document['cep'].value += '-'
     except:
         document['cep'].value = document['cep'].value[:-1]

@@ -84,7 +84,7 @@ class Session():
                 return 'Usuário já cadastrado', False
 
             email = self.database.fetchTable(
-                1, 'Membros', 'USUÁRIO', data['email'])[0]
+                1, 'Membros', 'EMAIL', data['email'])[0]
             if email:
                 return 'E-mail já cadastrado', False
 
