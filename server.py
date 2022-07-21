@@ -1,4 +1,3 @@
-from operator import methodcaller
 from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
@@ -28,17 +27,43 @@ def home():
             password = request.form['password']
             id = session.login(user, password, ip)
             if id:
-                error = 'Sucesso'
-                return redirect('/mapa/')
+                return redirect('/membro/')
             else:
                 error = 'Usuário ou senha inválidos'
                 return render_template('home.html', error=error)
     else:
         if session.getConnection(ip):
             # redirecionar para pagina do perfil?
-            return redirect('/mapa/')
+            return redirect('/membro/')
 
     return render_template('home.html')
+
+
+@app.route('/membro/', methods=['GET', 'POST'])
+def member_page():
+    ip = str(request.remote_addr)
+
+    if request.method == 'POST':
+
+        connection = session.getConnection(ip)
+        if not connection:
+            return 'False'
+
+        data = {
+            'id': connection.id,
+            'name': connection.name,
+            'uf': connection.uf,
+            'cep': connection.cep,
+            'member': connection.member
+        }
+
+        return data
+
+    elif request.method == 'GET':
+        connection = session.getConnection(ip)
+        if not connection:
+            return redirect('/home/')
+    return render_template('profile.html')
 
 
 # url to see current session connections
