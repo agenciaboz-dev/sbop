@@ -75,3 +75,20 @@ class Session():
         except Exception as error:
             print(error)
             return None
+
+    def signup(self, data):
+        try:
+            usuario = self.database.fetchTable(
+                1, 'Membros', 'USUÁRIO', data['usuario'])[0]
+            if usuario:
+                return 'Usuário já cadastrado', False
+
+            email = self.database.fetchTable(
+                1, 'Membros', 'USUÁRIO', data['email'])[0]
+            if email:
+                return 'E-mail já cadastrado', False
+
+        except:
+            data.update({'id': len(self.member_list)})
+            self.database.insertMember(data)
+            return 'Usuário cadastrado', True

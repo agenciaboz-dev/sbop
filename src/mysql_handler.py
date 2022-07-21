@@ -68,7 +68,7 @@ class Mysql():
         ''' Função utilizada para inserir novo membro no banco de dados.
         DATA requer (ID, USUÁRIO, SENHA, NOME, ENDEREÇO, TIPO DE MEMBRO) '''
 
-        sql = f"INSERT INTO Membros (ID, NOME, CPF, CUPONS, TELEFONE, SENHA, EMAIL) VALUES {data}"
+        sql = f"INSERT INTO Membros (ID, USUÁRIO, SENHA, NOME, UF, MEMBRO, CEP, EMAIL, TELEFONE, CELULAR, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, PAIS, CRM, CURRICULUM, PESSOA) VALUES ({data['id']}, '{data['usuario']}', '{data['senha']}', '{data['nome']}', '{data['uf']}', '{data['membro']}', '{data['cep']}', '{data['email']}', '{data['telefone']}', '{data['celular']}', '{data['endereco']}', '{data['numero']}', '{data['complemento']}', '{data['bairro']}', '{data['cidade']}', '{data['pais']}', '{data['crm']}', '{data['curriculum']}', '{data['pessoa']}')"
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()

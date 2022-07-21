@@ -73,6 +73,38 @@ def cadastro():
         return render_template('signup.html')
 
     else:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+
+        try:
+            pessoa = request.form['pessoa']
+        except:
+            pessoa = 'None'
+
+        data = {
+            'nome': request.form['nome'],
+            'email': request.form['email'],
+            'usuario': request.form['usuario'],
+            'senha': request.form['senha'],
+            'telefone': request.form['telefone'],
+            'celular': request.form['celular'],
+            'pessoa': pessoa,
+            'endereco': request.form['endereco'],
+            'numero': request.form['numero'],
+            'complemento': request.form['complemento'],
+            'bairro': request.form['bairro'],
+            'cidade': request.form['cidade'],
+            'uf': request.form['estado'],
+            'pais': request.form['pais'],
+            'cep': request.form['cep'],
+            'crm': request.form['crm'],
+            'curriculum': request.form['curriculum'],
+            'membro': request.form['membro']
+        }
+        feedback, signedup = session.signup(data)
+        if not signedup:
+            render_template('signup.html', error=feedback)
+
         return '<h1>Sucesso</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
 
 
