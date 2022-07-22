@@ -74,6 +74,13 @@ class Mysql():
         self.connection.commit()
         cursor.close()
 
+    def insertPost(self, data):
+        sql = f"INSERT INTO Blog (ID, MEMBRO, TITULO, CONTEUDO, AUTOR, DATA) VALUES {data}"
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        self.connection.commit()
+        cursor.close()
+
     def updateTable(self, table, id, column, value, id_column):
         command = f'Update {table} set {column} = {value} where {id_column} = {id}'
         cursor = self.connection.cursor()

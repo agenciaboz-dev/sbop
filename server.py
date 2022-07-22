@@ -110,10 +110,52 @@ def cadastro():
 
 @app.route('/blog_post/', methods=['GET', 'POST'])
 def blog_post():
+
+    if request.method == 'POST':
+        data = {
+            'member': request.form['member-type'],
+            'title': request.form['title'],
+            'content': request.form['content']
+        }
+        print(data)
+        session.blogPost(data)
+
     return render_template('blog_post.html')
 
 
+@app.route('/blog/', methods=['GET', 'POST'])
+def blog():
+
+    ip = str(request.remote_addr)
+
+    if request.method == 'GET':
+        if not session.getConnection(ip):
+            return redirect('/home/')
+
+        return render_template('blog.html')
+
+    else:
+        connection = session.getConnection(ip)
+        if not connection:
+            return 'False'
+        else:
+            return connection.member
+
+
+@app.route('/get_blog/', methods=['GET'])
+def get_blog():
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    if not connection:
+        return 'False'
+    else:
+        blog_list = session.get_blog(connection.member)
+        if blog_list:
+            return str(blog_list)
+
 # url to see current session connections
+
+
 @app.route('/session/', methods=['GET'])
 def session_url():
     text = '<h2>Connections</h2>'

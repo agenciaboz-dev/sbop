@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta title="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Sbop - Blog Post</title>
+</head>
+<body>
+    <div class="top-container">
+        <button onclick="window.location.href='/logout/'">Sair</button>
+    </div>
+    <div class="container">
+        <form action="/blog_post/" method="post">
+            <label for="member-type">Membro:</label>
+            <select name="member-type" id="member-type">
+                <option value="Aspirante">Aspirante</option>
+                <option value="Titular">Titular</option>
+                <option value="Associado">Associado</option>
+            </select>
+            
+            <label for="title">Titulo</label>
+            <input type="text" id="title" name="title">
+            
+            <label for="content">Conteúdo</label>
+            <textarea id="content" name="content" rows="20" cols="100"></textarea>
+            <button type="submit">Postar</button>
+        </form>
+    </div>
+</body>
+</html>

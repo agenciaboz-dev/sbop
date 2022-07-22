@@ -7,24 +7,22 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <script type="text/javascript" src="/static/brython/brython.js"></script>
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
-    <title>Sbop - Perfil</title>
+    <title>Sbop - Blog</title>
 </head>
 <body onload="brython()">
     <div class="top-container">
-        <button onclick="window.location.href='/blog/'">Blog</button>
-        <button onclick="window.location.href='/template_restrito/'">Vídeos</button>
+        <button onclick="window.location.href='/perfil/'">Perfil</button>
         <button onclick="window.location.href='/logout/'">Sair</button>
     </div>
 
     <div class="container">
-        <h2 id="user-title">Carregando seus dados</h2>
-        <p id="user-name"></p>
-        <p id="user-uf"></p>
-        <p id="user-member"></p>
-        <p id="user-cep"></p>
+        <h2 id="user-title">Carregando seu conteúdo</h2>
+        <div id="content-container" class="content-container">
+            <p style="text-align: center;" id="user-content"></p>
+        </div>
     </div>
 </body>
 <footer>
-    <script type="text/python" src="/static/brython/profile.py"></script>
+    <script type="text/python" src="/static/brython/blog.py"></script>
 </footer>
 </html>

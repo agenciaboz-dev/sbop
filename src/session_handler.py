@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from src.config import TIMELIMIT, database_auth
 from src.mysql_handler import Mysql
 
@@ -92,3 +92,17 @@ class Session():
             data.update({'id': len(self.member_list)})
             self.database.insertMember(data)
             return 'Usuário cadastrado', True
+
+    def get_blog(self, membro):
+        try:
+            blog_list = self.database.fetchTable(0, 'Blog', 'MEMBRO', membro)
+            if blog_list:
+                return blog_list
+        except:
+            return None
+
+    def blogPost(self, data):
+        id = len(self.database.fetchTable(0, 'Blog'))
+        data = (id, data['member'], data['title'],
+                data['content'], 'Fernando', str(date.today()))
+        self.database.insertPost(data)
