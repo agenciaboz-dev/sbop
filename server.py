@@ -108,6 +108,11 @@ def cadastro():
             return '<h1>Sucesso</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
 
 
+@app.route('/blog_post/', methods=['GET', 'POST'])
+def blog_post():
+    return render_template('blog_post.html')
+
+
 # url to see current session connections
 @app.route('/session/', methods=['GET'])
 def session_url():

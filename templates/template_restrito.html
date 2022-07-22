@@ -17,8 +17,12 @@
 
     <div class="container">
         <h2 id="user-title">Carregando seu conteúdo</h2>
-        <div class="content-container">
+        <div id="content-container" class="content-container">
             <p style="text-align: center;" id="user-content"></p>
+            <iframe id="youtube" width="800" height="600" src="" frameborder="0" ></iframe>
+            <script>
+                youtube = document.getElementById("youtube").contentDocument;
+            </script>
         </div>
     </div>
 </body>

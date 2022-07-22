@@ -17,6 +17,13 @@ def showData(req):
     document['user-title'].text = f'Você tem acesso a conteúdo do nível: {member.member}'
     document['user-content'].text = f'Conteúdo virá aqui \/'
 
+    document['youtube'].src = 'https://youtube.com/embed/k3WkJq478To?autoplay=1&controls=0'
+    # youtube = window.youtube.to_dict()
+    # print(youtube['ytp-caption-window-container'])
+
+    # video = html.Iframe()
+    # document['content-container'] <= video
+
 
 def ajaxRestrito():
     req = ajax.Ajax()
