@@ -101,3 +101,25 @@ input {
     margin-left: 0;
     margin-right: 0;
 }
+
+.content-container {
+    display: flex;
+}
+
+.video {
+    border: 1px solid;
+
+}
+
+#video {
+    object-fit: fill;
+    position: relative;
+    display: block;
+    visibility: hidden;
+}
+
+.list-items {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #094e93;
+}

@@ -2,7 +2,7 @@ from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
 import src.config as cfg
-
+import os
 
 session = Session()
 app = Flask(__name__)
@@ -152,6 +152,20 @@ def get_blog():
         blog_list = session.get_blog(connection.member)
         if blog_list:
             return str(blog_list)
+
+
+@app.route('/get_videos/', methods=['GET'])
+def get_videos():
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    if not connection:
+        return 'False'
+    else:
+        # titular-1.mp4
+        videos_list = os.listdir(f'static/videos/{connection.member}')
+
+        print(videos_list)
+        return str(videos_list)
 
 # url to see current session connections
 
