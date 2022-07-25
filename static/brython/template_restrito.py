@@ -55,7 +55,7 @@ def showData(req):
 def showVideo(src):
     video = Video(document['video'], src)
     document['list-container'] <= html.P(
-        f'{video.name.replace("_", " ")}', Id=f'video-{video.name}', Class='list-items')
+        f'{video.name.replace("_", " ")}', Id=f'video-{video.name}', Class='list-items', Style={'color': '#094e93'})
 
     @bind(f'#video-{video.name}', 'click')
     def load_video(ev):
