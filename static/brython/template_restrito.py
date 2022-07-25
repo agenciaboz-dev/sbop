@@ -46,6 +46,9 @@ def showData(req):
 
     def showList(req):
         videos = eval(req.text)
+        if videos:
+            document['user-content'].text = f'Videos disponíveis'
+
         for item in videos:
             showVideo(item)
 
