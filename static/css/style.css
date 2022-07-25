@@ -102,6 +102,10 @@ input {
     margin-right: 0;
 }
 
+.blog-post {
+    border: 1px solid;
+}
+
 .video-container {
     display: flex;
 }

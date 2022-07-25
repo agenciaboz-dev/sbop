@@ -9,15 +9,17 @@ def showData(req):
     document['user-content'].text = f'Posts: {len(data)}'
 
     for post in data:
+        div = html.DIV('', Class='blog-post')
         title = html.H3(f'Titulo: {post[2]}')
         content = html.P(f'Conteúdo: {post[3]}')
         autor = html.P(f'Autor: {post[4]}')
         date = html.P(f'Data: {post[5]}', style={'margin-bottom': '30px'})
 
-        document['content-container'] <= title
-        document['content-container'] <= content
-        document['content-container'] <= autor
-        document['content-container'] <= date
+        document['content-container'] <= div
+        div <= title
+        div <= content
+        div <= autor
+        div <= date
 
 
 def ajaxBlog():
