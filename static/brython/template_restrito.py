@@ -13,9 +13,10 @@ class Member():
 
 
 class Video():
-    def __init__(self, element, src):
+    element = document['video']
+
+    def __init__(self, src):
         self.playing = False
-        self.element = element
         self.fullscreen = False
         self.src = src
         self.name = src[:-4]
@@ -56,7 +57,7 @@ def showData(req):
 
 
 def showVideo(src):
-    video = Video(document['video'], src)
+    video = Video(src)
     document['list-container'] <= html.P(
         f'{video.name.replace("_", " ")}', Id=f'video-{video.name}', Class='list-items', Style={'color': '#094e93'})
 
@@ -69,10 +70,6 @@ def showVideo(src):
             item.style.color = '#094e93'
 
         ev.target.style.color = '#74ace4'
-
-        @bind('#video', 'contextmenu')
-        def no_rightclick(ev):
-            ev.preventDefault()
 
     # @bind('#player-button', 'click')
     # def player_button(ev):
@@ -104,3 +101,8 @@ def ajaxRestrito():
 
 
 ajaxRestrito()
+
+
+@bind('#video', 'contextmenu')
+def no_rightclick(ev):
+    ev.preventDefault()
