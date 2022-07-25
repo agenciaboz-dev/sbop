@@ -102,7 +102,7 @@ input {
     margin-right: 0;
 }
 
-.content-container {
+.video-container {
     display: flex;
 }
 
@@ -116,6 +116,11 @@ input {
     position: relative;
     display: block;
     visibility: hidden;
+}
+
+#list-container {
+    border: 1px solid;
+    height: fit-content;
 }
 
 .list-items {
