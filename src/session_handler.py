@@ -103,6 +103,8 @@ class Session():
 
     def blogPost(self, data):
         id = len(self.database.fetchTable(0, 'Blog'))
+        date = datetime.now()
+        date = f'{date.day}/{date.month}/{date.year} - {date.hour}:{date.minute}'
         data = (id, data['member'], data['title'],
-                data['content'], 'Fernando', str(date.today()))
+                data['content'], 'Fernando', date)
         self.database.insertPost(data)

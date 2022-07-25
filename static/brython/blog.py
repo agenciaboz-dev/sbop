@@ -1,19 +1,9 @@
 from browser import document, ajax, html, bind, window, alert
-import datetime
-
-
-# class Member():
-#     def __init__(self, data):
-#         self.id = data['id']
-#         self.name = data['name']
-#         self.uf = data['uf']
-#         self.cep = data['cep']
-#         self.member = data['member']
 
 
 def showData(req):
     data = eval(req.text)
-    # member = Member(data)
+    data.reverse()
 
     document['user-title'].text = f'Blog'
     document['user-content'].text = f'Posts: {len(data)}'
@@ -22,10 +12,12 @@ def showData(req):
         title = html.H3(f'Titulo: {post[2]}')
         content = html.P(f'Conteúdo: {post[3]}')
         autor = html.P(f'Autor: {post[4]}')
+        date = html.P(f'Data: {post[5]}', style={'margin-bottom': '30px'})
 
         document['content-container'] <= title
         document['content-container'] <= content
         document['content-container'] <= autor
+        document['content-container'] <= date
 
 
 def ajaxBlog():
