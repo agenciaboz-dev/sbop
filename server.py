@@ -162,7 +162,6 @@ def get_videos():
         return 'False'
     else:
         # titular-1.mp4
-        print('current dir: ', os.listdir())
         videos_list = os.listdir(f'static/videos/{connection.member}')
 
         print(videos_list)
