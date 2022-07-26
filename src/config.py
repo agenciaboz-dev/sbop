@@ -8,3 +8,10 @@ database_auth = {
     'user': 'python',
     'password': 'SucessoZOP2022!'
 }
+
+database_old = {
+    'host': '162.214.166.106',
+    'database': 'sbop_database',
+    'user': 'python',
+    'password': 'SucessoZOP2022!'
+}

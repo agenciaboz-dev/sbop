@@ -91,6 +91,7 @@ class Session():
         except:
             data.update({'id': len(self.member_list)})
             self.database.insertMember(data)
+            self.member_list.append(data)
             return 'Usuário cadastrado', True
 
     def get_blog(self, membro):
