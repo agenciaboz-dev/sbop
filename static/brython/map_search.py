@@ -61,12 +61,26 @@ def nameSearch(ev):
     ev.preventDefault()
     input = document["cep-search-input"]
     input.blur()
+    cep = input.value
+    # removing hyphen from text
+    cep = cep[:5] + cep[-3:]
     data = {
         'search': 'cep',
-        'cep': input.value
+        'cep': cep
     }
     document['searching'].text = 'Pesquisando'
     ajaxSearch(data)
+
+
+@bind('#cep-search-input', 'input')
+def cep(ev):
+    element = document['cep-search-input']
+    try:
+        int(element.value[-1:])
+        if len(element.value) == 5:
+            element.value += '-'
+    except:
+        element.value = element.value[:-1]
 
 
 class Estado():
