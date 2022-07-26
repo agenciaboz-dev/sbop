@@ -126,7 +126,6 @@ def blog_post():
             'title': request.form['title'],
             'content': request.form['content']
         }
-        print(data)
         session.blogPost(data)
 
     return render_template('blog_post.html')
@@ -173,7 +172,6 @@ def get_videos():
         # titular-1.mp4
         videos_list = os.listdir(f'static/videos/{connection.member}')
 
-        print(videos_list)
         return str(videos_list)
 
 # url to see current session connections
