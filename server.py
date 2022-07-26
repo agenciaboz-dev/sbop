@@ -41,6 +41,10 @@ def home():
 
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
+    # reconnect to database if it timed out
+    if not session.database.connection.is_connected():
+        session.reconnectDatabase()
+
     ip = str(request.remote_addr)
 
     if request.method == 'GET':
@@ -64,6 +68,8 @@ def template_restrito():
 
 @app.route('/cadastrar/', methods=['GET', 'POST'])
 def cadastro():
+    if not session.database.connection.is_connected():
+        session.reconnectDatabase()
     ip = str(request.remote_addr)
 
     if request.method == 'GET':
@@ -73,13 +79,14 @@ def cadastro():
         return render_template('signup.html')
 
     else:
-        if not session.database.connection.is_connected():
-            session.reconnectDatabase()
 
         try:
             pessoa = request.form['pessoa']
         except:
             pessoa = 'None'
+
+        cep = request.form['cep']
+        cep = cep[:5] + cep[-3:]
 
         data = {
             'nome': request.form['nome'],
@@ -96,7 +103,7 @@ def cadastro():
             'cidade': request.form['cidade'],
             'uf': request.form['estado'],
             'pais': request.form['pais'],
-            'cep': request.form['cep'],
+            'cep': cep,
             'crm': request.form['crm'],
             'curriculum': request.form['curriculum'],
             'membro': request.form['membro']
@@ -105,7 +112,7 @@ def cadastro():
         if not signedup:
             return render_template('signup.html', feedback=feedback)
         else:
-            return '<h1>Sucesso</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+            return f'<h1>{feedback}</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
 
 
 @app.route('/blog_post/', methods=['GET', 'POST'])
