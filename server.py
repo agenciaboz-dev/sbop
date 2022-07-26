@@ -121,6 +121,7 @@ def blog_post():
 
     if request.method == 'POST':
         data = {
+            'author': request.form['author'],
             'member': request.form['member-type'],
             'title': request.form['title'],
             'content': request.form['content']

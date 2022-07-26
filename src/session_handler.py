@@ -106,5 +106,5 @@ class Session():
         date = datetime.now()
         date = f'{date.day}/{date.month}/{date.year} - {date.hour}:{date.minute}'
         data = (id, data['member'], data['title'],
-                data['content'], 'Fernando', date)
+                data['content'], data['author'], date)
         self.database.insertPost(data)

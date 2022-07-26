@@ -13,7 +13,7 @@ def showData(req):
         title = html.H3(f'Titulo: {post[2]}')
         content = html.P(f'Conteúdo: {post[3]}')
         autor = html.P(f'Autor: {post[4]}')
-        date = html.P(f'Data: {post[5]}', style={'margin-bottom': '30px'})
+        date = html.P(f'Data: {post[5]}')
 
         document['content-container'] <= div
         div <= title
