@@ -85,9 +85,9 @@ def cadastro():
         except:
             pessoa = 'None'
 
-        cep = request.form['cep']
+        cep = request.form['cep'].replace('-', '')
         # removing hyphen from text
-        cep = cep[:5] + cep[-3:]
+        # cep = cep[:5] + cep[-3:]
 
         data = {
             'nome': request.form['nome'],

@@ -61,9 +61,9 @@ def nameSearch(ev):
     ev.preventDefault()
     input = document["cep-search-input"]
     input.blur()
-    cep = input.value
+    cep = input.value.replace('-', '')
     # removing hyphen from text
-    cep = cep[:5] + cep[-3:]
+    # cep = cep[:5] + cep[-3:]
     data = {
         'search': 'cep',
         'cep': cep
