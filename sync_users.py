@@ -6,7 +6,7 @@ import json
 
 def collect(user, key, user_dict, old_key):
     try:
-        user.update({key: user_dict[old_key]})
+        user.update({key: str(user_dict[old_key])})
     except:
         user.update({key: None})
 
