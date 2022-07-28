@@ -278,5 +278,26 @@ def members():
         return str(result)
 
 
+@app.route('/get_map_status/', methods=['GET'])
+def get_map_status():
+    users = session.database.fetchTable(0, 'Membros')
+    estados = []
+    cidades = []
+
+    for item in users:
+        if item[4] not in estados:
+            estados.append(item[4])
+
+        if item[14] not in cidades:
+            cidades.append(item[14])
+
+    data = {
+        'medicos': len(users) // 10 * 10,
+        'estados': len(estados) // 5 * 5,
+        'cidades': len(cidades) // 5 * 5
+    }
+    return data
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")

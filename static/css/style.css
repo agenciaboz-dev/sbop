@@ -6,8 +6,12 @@
 
 :root {
     --primary-color: #707070;
-    --secondary-color: #094e93;
     --primary-color-dark: #515151;
+    --secondary-color: #0071BB;
+    --terciary-color: #7ADCB4;
+    --background-color: rgba(228,228,228,1);
+    --map-outline: #D8D8D8;
+    --map-hover: #9F183B;
 }
   
 * {
@@ -27,11 +31,12 @@ abbr {
 }
   
 body {
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     max-width: 100%;
     margin: 0 auto;
-    height: 100vh;
+    height: 95vh;
     align-items: center;
 }
 
@@ -53,34 +58,120 @@ body {
 .body-container {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-evenly;
 }
+
+/* MAP CONTAINERS */
 
 .map-container {
     display: flex;
     flex-direction: column;
 }
 
-#svg-map path { fill: var(--primary-color); } 
-#svg-map text { fill:#fff; font:12px Arial-BoldMT, sans-serif; cursor:pointer }
+.map-text {display: none;}
+.circle {display: none;}
+#svg-map path { fill: white; stroke: var(--map-outline); transition: 0.5s;} 
+#svg-map text { fill:var(--secondary-color); font:12px Arial-BoldMT, sans-serif; cursor:pointer }
 #svg-map a{ text-decoration:none }
 #svg-map a:hover { cursor:pointer; text-decoration:none }
-#svg-map a:hover path{ fill: var(--secondary-color) !important } 
-#svg-map .circle { fill: var(--primary-color-dark) }
-#svg-map a:hover .circle { fill: var(--secondary-color) !important; cursor:pointer } 
+#svg-map a:hover path{ fill: var(--map-hover) !important } 
+#svg-map .circle { fill: var(--map-outline) }
+#svg-map a:hover .circle { fill: var(--map-hover) !important; cursor:pointer } 
+
+#map-status {
+    display: flex;
+    flex-direction: column;
+}
+.map-status {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.7);
+}
+
+#status-1-background {
+    fill: #7BDCB5;
+    transform: scale(1);
+    
+}
+#status-2-background {
+    fill: #E12454;
+    transform: scale(1);
+    
+}
+#status-3-background {
+    fill: var(--secondary-color);
+    transform: scale(1);
+    
+}
+
+.status-icon {
+    fill: white;
+    left: 50%;
+    transform: scale(1);
+    transform: translate(6%, 12%);
+}
 
 .search-container {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     align-items: center;
     margin: 10px;
+    width: 30%;
+    height: auto;
+}
+
+.search-container form {
+    background-color: var(--secondary-color);
+    transition: 0.5s;
+    border-radius: 30px;
+    width: 100%;
+    height: 9%;
+}
+
+.search-container form input {
+    border-radius: 30px;
+    width: 70%;
+    height: 80%;
+    border: none;
+    justify-self: center;
+    outline: none;
+}
+
+.search-container form:hover {
+    background-color: var(--terciary-color);
+
 }
 
 .search-container * {
     margin: 5px;
     display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    color: white;
+    text-align: center;
+    width: 30%;
+    /* margin-left: 10%; */
+}
+
+#result {
+    display: flex;
     flex-direction: column;
-    text-align: center
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 30px;
+    filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
 }
 
 .container form {

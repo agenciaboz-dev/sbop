@@ -23,6 +23,12 @@ def showResult(req):
             element.style.margin = '5px 5px 25px 5px'
             container <= element
 
+        container <= html.BUTTON('Reset', Id='reset-button', Class='result')
+
+        @bind('#reset-button', 'click')
+        def resetResult(ev):
+            clearResult()
+
     else:
         container <= html.P('Médico não encontrado', Class='result')
 
@@ -33,6 +39,19 @@ def ajaxSearch(data):
     req.open('POST', '/membros/', True)
     req.set_header('content-type', 'application/x-www-form-urlencoded')
     req.send(data)
+
+
+def ajaxPreLoad():
+    req = ajax.Ajax()
+    req.bind('complete', initialRender)
+    req.open('GET', '/get_map_status/', True)
+    req.set_header('content-type', 'application/x-www-form-urlencoded')
+    req.send({})
+
+
+def initialRender(req):
+    data = eval(req.text)
+    print(data)
 
 
 def clearResult():
@@ -103,3 +122,5 @@ class Estado():
 for estado in document.select('.estado'):
     uf = estado.attrs['id'][7:]
     estado_ = Estado(uf)
+
+ajaxPreLoad()
