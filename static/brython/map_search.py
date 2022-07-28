@@ -1,12 +1,25 @@
 from browser import document, ajax, html, bind, window, alert
 
 
+def initialRender(req):
+    data = eval(req.text)
+    document['map-status-medicos'].text = data['medicos']
+    document['map-status-estados'].text = data['estados']
+    document['map-status-cidades'].text = data['cidades']
+
+
 def showResult(req):
     member_list = eval(req.text)
-    document['searching'].text = ''
-    container = document['result']
+    title = member_list.pop(0).upper()
+    document['search-title'].text = 'Resultados para: '
+    document['searched-value'].text = title
     if member_list:
         for member in member_list:
+            # defining a member container
+            container = html.DIV(
+                '', Id=f'container-medico-{member["id"]}', Class='result member-container')
+            document['result'] <= container
+
             # adding name to DOM
             element = html.P(
                 f'Nome: {member["name"]}', Id=f'medico-{member["id"]}', Class='result')
@@ -16,6 +29,9 @@ def showResult(req):
             element = html.P(f'UF: {member["uf"]}', Class='result')
             container <= element
 
+            element = html.P(f'Cidade: {member["cidade"]}', Class='result')
+            container <= element
+
             # formatting cep string
             cep = member["cep"][:-3]+"-"+member["cep"][-3:]
             # adding cep to DOM
@@ -23,14 +39,14 @@ def showResult(req):
             element.style.margin = '5px 5px 25px 5px'
             container <= element
 
-        container <= html.BUTTON('Reset', Id='reset-button', Class='result')
-
-        @bind('#reset-button', 'click')
-        def resetResult(ev):
-            clearResult()
-
     else:
         container <= html.P('Médico não encontrado', Class='result')
+
+    container <= html.BUTTON('Reset', Id='reset-button', Class='result')
+
+    @bind('#reset-button', 'click')
+    def resetResult(ev):
+        clearResult(idle=True)
 
 
 def ajaxSearch(data):
@@ -49,57 +65,20 @@ def ajaxPreLoad():
     req.send({})
 
 
-def initialRender(req):
-    data = eval(req.text)
-    print(data)
+def clearResult(idle=False):
+    if idle:
+        document['map-status'].style.display = 'flex'
+        document['map-status'].style.visibility = 'visible'
+    else:
+        document['map-status'].style.display = 'none'
+        document['map-status'].style.visibility = 'none'
 
-
-def clearResult():
     for element in document.select(".result"):
         element.style.display = 'none'
         element.style.visibility = 'none'
 
-
-@bind('#name-search-form', 'submit')
-def nameSearch(ev):
-    clearResult()
-    ev.preventDefault()
-    input = document["name-search-input"]
-    input.blur()
-    data = {
-        'search': 'name',
-        'name': input.value
-    }
-    document['searching'].text = 'Pesquisando'
-    ajaxSearch(data)
-
-
-@bind('#cep-search-form', 'submit')
-def nameSearch(ev):
-    clearResult()
-    ev.preventDefault()
-    input = document["cep-search-input"]
-    input.blur()
-    cep = input.value.replace('-', '')
-    # removing hyphen from text
-    # cep = cep[:5] + cep[-3:]
-    data = {
-        'search': 'cep',
-        'cep': cep
-    }
-    document['searching'].text = 'Pesquisando'
-    ajaxSearch(data)
-
-
-@bind('#cep-search-input', 'input')
-def cep(ev):
-    element = document['cep-search-input']
-    try:
-        int(element.value[-1:])
-        if len(element.value) == 5:
-            element.value += '-'
-    except:
-        element.value = element.value[:-1]
+    document['name-search-input'].value = ''
+    document['cep-search-input'].value = ''
 
 
 class Estado():
@@ -109,18 +88,61 @@ class Estado():
 
         @bind(self.id, 'click')
         def searchMap(ev):
-            clearResult()
 
             data = {
                 'search': 'uf',
-                'uf': uf
+                'value': uf
             }
-            document['searching'].text = 'Pesquisando'
+            document['search-title'].text = 'Pesquisando'
+            clearResult()
             ajaxSearch(data)
 
 
 for estado in document.select('.estado'):
     uf = estado.attrs['id'][7:]
     estado_ = Estado(uf)
+
+
+@bind('#name-search-form', 'submit')
+def nameSearch(ev):
+    ev.preventDefault()
+    input = document["name-search-input"]
+    input.blur()
+    data = {
+        'search': 'name',
+        'value': input.value
+    }
+    document['search-title'].text = 'Pesquisando'
+    clearResult()
+    ajaxSearch(data)
+
+
+@bind('#cep-search-form', 'submit')
+def nameSearch(ev):
+    ev.preventDefault()
+    input = document["cep-search-input"]
+    input.blur()
+    cep = input.value.replace('-', '')
+    # removing hyphen from text
+    # cep = cep[:5] + cep[-3:]
+    data = {
+        'search': 'cep',
+        'value': cep
+    }
+    document['search-title'].text = 'Pesquisando'
+    clearResult()
+    ajaxSearch(data)
+
+
+# @bind('#cep-search-input', 'input')
+# def cep(ev):
+#     element = document['cep-search-input']
+#     try:
+#         int(element.value[-1:])
+#         if len(element.value) == 5:
+#             element.value += '-'
+#     except:
+#         element.value = element.value[:-1]
+
 
 ajaxPreLoad()

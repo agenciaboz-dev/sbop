@@ -42,6 +42,7 @@ class Session():
                 'user': member[1],
                 'name': member[3],
                 'uf': member[4],
+                'cidade': member[14],
                 'member': member[5],
                 'cep': member[6]
             }

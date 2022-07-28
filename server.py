@@ -195,6 +195,8 @@ def session_url():
 
 @app.route('/mapa/', methods=['GET', 'POST'])
 def map():
+    if not session.database.connection.is_connected():
+        session.reconnectDatabase()
 
     if request.method == 'POST':
         if 'name-search' in request.form:
@@ -249,17 +251,19 @@ def members():
             text += f"<p>ID: {member['id']}</p>"
             text += f"<p>Nome: {member['name']}</p>"
             text += f"<p>UF: {member['uf']}</p>"
+            text += f"<p>Cidade: {member['cidade']}</p>"
             text += f"<p>CEP: {member['cep']}</p>"
             text += f"<p>Usuário: {member['user']}</p>"
             text += f"<p>Membro: {member['member']}</p>"
 
         return text
     else:
-        result = []
+        result = [request.form['value']]
 
         # name search request
         if request.form['search'] == 'name':
-            searched = request.form['name'].lower()
+            searched = request.form['value'].lower()
+            print(searched)
             for member in session.member_list:
                 if searched in member['name'].lower():
                     result.append(member)
@@ -267,12 +271,12 @@ def members():
         # cep search request
         elif request.form['search'] == 'cep':
             for member in session.member_list:
-                if request.form['cep'].lower() == member['cep'].lower():
+                if request.form['value'].lower() == member['cep'].lower():
                     result.append(member)
 
         elif request.form['search'] == 'uf':
             for member in session.member_list:
-                if request.form['uf'] == member['uf'].lower():
+                if request.form['value'] == member['uf'].lower():
                     result.append(member)
 
         return str(result)
@@ -280,6 +284,8 @@ def members():
 
 @app.route('/get_map_status/', methods=['GET'])
 def get_map_status():
+    if not session.database.connection.is_connected():
+        session.reconnectDatabase()
     users = session.database.fetchTable(0, 'Membros')
     estados = []
     cidades = []
@@ -294,7 +300,10 @@ def get_map_status():
     data = {
         'medicos': len(users) // 10 * 10,
         'estados': len(estados) // 5 * 5,
-        'cidades': len(cidades) // 5 * 5
+        'cidades': len(cidades) // 5 * 5,
+        'real_medicos': len(users),
+        'real_estados': len(estados),
+        'real_cidades': len(cidades)
     }
     return data
 
