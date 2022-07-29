@@ -396,6 +396,21 @@
         </div>
         
     </div>
+    <script>
+        function fixMap() {
+            width = document.documentElement.clientWidth;
+            factor = width / 1116;
+            map = document.getElementById('svg-map');
+            map.style.transform = `scale(${factor})`;
+    
+            margin = (width - 1140) / 24;
+            map.style.marginTop = `${margin}%`;
+        }
+        if (document.documentElement.clientWidth > 768) {
+            window.addEventListener("resize", fixMap);
+
+        }
+    </script>
     <script type="text/python" src="/static/brython/map_search.py"></script>
 </body>
 </html>
