@@ -130,8 +130,6 @@ body {
 
 }
 
-
-
 .search-button {
     margin: 0;
     padding: 0;
@@ -144,6 +142,22 @@ body {
     text-align: center;
     width: 30%;
     /* margin-left: 10%; */
+}
+
+#reset-button {
+    display: none;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    background-color: var(--secondary-color);
+    border-radius: 2vw;;
+    border: none;
+    color: white;
+    font-size: 2vh;
+    width: 40%;
+    height: 2vw;
+    transition: 1s;
 }
 
 #result {

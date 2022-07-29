@@ -56,9 +56,6 @@ def showResult(req):
     else:
         document['result'] <= html.P('Médico não encontrado', Class='result')
 
-    document['result'] <= html.BUTTON(
-        'Reset', Id='reset-button', Class='result')
-
     @bind('#reset-button', 'click')
     def resetResult(ev):
         clearResult(idle=True)
@@ -86,12 +83,16 @@ def clearResult(idle=False):
         document['map-status'].style.visibility = 'visible'
         document['search-result'].style.display = 'none'
         document['search-result'].style.visibility = 'none'
+        document['reset-button'].style.display = 'none'
+        document['reset-button'].style.visibility = 'none'
         document['searched-value'].text = ''
     else:
         document['map-status'].style.display = 'none'
         document['map-status'].style.visibility = 'none'
         document['search-result'].style.display = 'block'
         document['search-result'].style.visibility = 'visible'
+        document['reset-button'].style.display = 'flex'
+        document['reset-button'].style.visibility = 'visible'
         document['searched-value'].text = 'Pesquisando'
 
     for element in document.select(".result"):
