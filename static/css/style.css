@@ -279,7 +279,7 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-bottom: 2.5vh;
 }
 
 #search-title {
@@ -305,8 +305,8 @@ body {
     width: 80%;
     align-self: center;
     border: 1px solid var(--dividing-line);
-    margin-top: 4vh;
-    margin-bottom: 3vh;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
 }
 
 .member-container {
@@ -341,7 +341,7 @@ body {
 }
 
 .member-data-container p {
-    margin-left: 0;
+    margin: 2px 0 2px 0;
 }
 
 /* END OF MAP SEARCH RESULT */

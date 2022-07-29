@@ -39,16 +39,20 @@ def showResult(req):
                 f'Nome: {member["name"]}', Id=f'medico-{member["id"]}', Class='result')
             data_container <= element
 
-            # adding UF to DOM
-            element = html.P(f'UF: {member["uf"]}', Class='result')
+            # adding phone to DOM
+            telefone = member["telefone"]
+            telefone = f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
+            element = html.P(
+                f'Contato: {telefone} | {member["email"]}', Class='result')
             data_container <= element
 
-            element = html.P(f'Cidade: {member["cidade"]}', Class='result')
+            # formating and adding address to DOM
+            endereco = f'{member["cidade"]} | {member["endereco"]}, {member["numero"]} | {member["complemento"]}'
+            element = html.P(f'Endereço: {endereco}', Class='result')
             data_container <= element
 
-            # formatting cep string
+            # formating cep string and adding to DOM
             cep = member["cep"][:-3]+"-"+member["cep"][-3:]
-            # adding cep to DOM
             element = html.P(f'CEP: {cep}', Class='result')
             data_container <= element
 
@@ -57,7 +61,7 @@ def showResult(req):
             member_container_wrapper <= line
 
     else:
-        document['result'] <= html.P('Médico não encontrado', Class='result')
+        document['result'] <= html.P('Nenhum resultado', Class='result')
 
     @bind('#reset-button', 'click')
     def resetResult(ev):
