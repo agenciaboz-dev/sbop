@@ -94,18 +94,26 @@ body {
     width: 30%;
 }
 
+.search-container * {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
 .search-container form {
     display: flex;
     background-color: var(--secondary-color);
     transition: 0.5s;
-    border-radius: 30px;
+    border-radius: 2vw;
     width: 100%;
     height: 6.925vh;
     margin-bottom: 10px;
 }
 
 .search-container form input {
-    border-radius: 30px;
+    border-radius: 2vw;
+    margin: 0.36vw;
     width: 70%;
     height: 80%;
     border: none;
@@ -122,12 +130,7 @@ body {
 
 }
 
-.search-container * {
-    margin: 5px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
+
 
 .search-button {
     margin: 0;
