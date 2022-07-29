@@ -20,29 +20,44 @@ def showResult(req):
                 '', Id=f'container-medico-{member["id"]}', Class='result member-container')
             document['result'] <= container
 
+            # importing image
+            doctor_icon = html.IMG(
+                '', Src='/static/image/doctor_icon.svg', Alt='Doctor Icon', Class='result doctor-icon')
+            container <= doctor_icon
+
+            # defining a data container
+            data_container = html.DIV(
+                '', Id=f'data-container-medico-{member["id"]}', Class='result member-data-container')
+            container <= data_container
+
             # adding name to DOM
             element = html.P(
                 f'Nome: {member["name"]}', Id=f'medico-{member["id"]}', Class='result')
-            container <= element
+            data_container <= element
 
             # adding UF to DOM
             element = html.P(f'UF: {member["uf"]}', Class='result')
-            container <= element
+            data_container <= element
 
             element = html.P(f'Cidade: {member["cidade"]}', Class='result')
-            container <= element
+            data_container <= element
 
             # formatting cep string
             cep = member["cep"][:-3]+"-"+member["cep"][-3:]
             # adding cep to DOM
             element = html.P(f'CEP: {cep}', Class='result')
-            element.style.margin = '5px 5px 25px 5px'
-            container <= element
+            element.style.margin = '5px 0 25px 0'
+            data_container <= element
+
+            # adding line in end of container
+            # line = html.HR('', Class='result')
+            # container <= line
 
     else:
-        container <= html.P('Médico não encontrado', Class='result')
+        document['result'] <= html.P('Médico não encontrado', Class='result')
 
-    container <= html.BUTTON('Reset', Id='reset-button', Class='result')
+    document['result'] <= html.BUTTON(
+        'Reset', Id='reset-button', Class='result')
 
     @bind('#reset-button', 'click')
     def resetResult(ev):
@@ -69,9 +84,11 @@ def clearResult(idle=False):
     if idle:
         document['map-status'].style.display = 'flex'
         document['map-status'].style.visibility = 'visible'
+        document['searched-value'].text = ''
     else:
         document['map-status'].style.display = 'none'
         document['map-status'].style.visibility = 'none'
+        document['searched-value'].text = 'Pesquisando'
 
     for element in document.select(".result"):
         element.style.display = 'none'
@@ -80,7 +97,6 @@ def clearResult(idle=False):
     document['name-search-input'].value = ''
     document['cep-search-input'].value = ''
     document['search-title'].text = ''
-    document['searched-value'].text = ''
 
 
 class Estado():
