@@ -15,10 +15,14 @@ def showResult(req):
     document['searched-value'].text = title
     if member_list:
         for member in member_list:
+            member_container_wrapper = html.DIV(
+                '', Class="result member-container-wrapper")
+            document['result'] <= member_container_wrapper
+
             # defining a member container
             container = html.DIV(
                 '', Id=f'container-medico-{member["id"]}', Class='result member-container')
-            document['result'] <= container
+            member_container_wrapper <= container
 
             # importing image
             doctor_icon = html.IMG(
@@ -49,8 +53,8 @@ def showResult(req):
             data_container <= element
 
             # adding line in end of container
-            # line = html.HR('', Class='result')
-            # container <= line
+            line = html.HR('', Class='result dividing-line')
+            member_container_wrapper <= line
 
     else:
         document['result'] <= html.P('Médico não encontrado', Class='result')
