@@ -79,6 +79,8 @@ def clearResult(idle=False):
 
     document['name-search-input'].value = ''
     document['cep-search-input'].value = ''
+    document['search-title'].text = ''
+    document['searched-value'].text = ''
 
 
 class Estado():
