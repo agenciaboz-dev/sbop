@@ -266,18 +266,21 @@ def members():
             print(searched)
             for member in session.member_list:
                 if searched in member['name'].lower():
-                    result.append(member)
+                    if member['member'] == 'Titular':
+                        result.append(member)
 
         # cep search request
         elif request.form['search'] == 'cep':
             for member in session.member_list:
                 if request.form['value'].lower() == member['cep'].lower():
-                    result.append(member)
+                    if member['member'] == 'Titular':
+                        result.append(member)
 
         elif request.form['search'] == 'uf':
             for member in session.member_list:
                 if request.form['value'] == member['uf'].lower():
-                    result.append(member)
+                    if member['member'] == 'Titular':
+                        result.append(member)
 
         return str(result)
 
@@ -287,21 +290,25 @@ def get_map_status():
     if not session.database.connection.is_connected():
         session.reconnectDatabase()
     users = session.database.fetchTable(0, 'Membros')
+
+    medicos = []
     estados = []
     cidades = []
 
     for item in users:
-        if item[4] not in estados:
-            estados.append(item[4])
+        if item[5] == 'Titular':
+            medicos.append(users)
+            if item[4] not in estados:
+                estados.append(item[4])
 
-        if item[14] not in cidades:
-            cidades.append(item[14])
+            if item[14] not in cidades:
+                cidades.append(item[14])
 
     data = {
-        'medicos': len(users) // 10 * 10,
+        'medicos': len(medicos) // 10 * 10,
         'estados': len(estados) // 5 * 5,
         'cidades': len(cidades) // 5 * 5,
-        'real_medicos': len(users),
+        'real_medicos': len(medicos),
         'real_estados': len(estados),
         'real_cidades': len(cidades)
     }
