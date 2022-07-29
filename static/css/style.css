@@ -1,8 +1,8 @@
-/* @font-face {
-    font-family: Arciform Sans;
+@font-face {
+    font-family: Montserrats;
     src: url("/static/fonts/Arciform.ttf") ;
   }
-   */
+  
 
 :root {
     --primary-color: #707070;
@@ -13,6 +13,7 @@
     --background-color: rgba(228,228,228,1);
     --map-outline: #D8D8D8;
     --map-hover: #9F183B;
+    --dividing-line: rgb(141, 141, 141, 0.5);
 }
   
 * {
@@ -141,7 +142,8 @@ body {
     color: white;
     text-align: center;
     width: 30%;
-    /* margin-left: 10%; */
+    height: 100%;
+    cursor: pointer;
 }
 
 #reset-button {
@@ -192,6 +194,7 @@ body {
     margin-top: 3vh;
     margin-bottom: 3vh;
     align-self: center;
+    border: 1px solid var(--dividing-line);
 }
 
 .map-status-svg {

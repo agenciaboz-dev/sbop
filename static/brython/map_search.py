@@ -86,6 +86,7 @@ def clearResult(idle=False):
         document['reset-button'].style.display = 'none'
         document['reset-button'].style.visibility = 'none'
         document['searched-value'].text = ''
+        document['search-title'].text = ''
     else:
         document['map-status'].style.display = 'none'
         document['map-status'].style.visibility = 'none'
@@ -93,7 +94,8 @@ def clearResult(idle=False):
         document['search-result'].style.visibility = 'visible'
         document['reset-button'].style.display = 'flex'
         document['reset-button'].style.visibility = 'visible'
-        document['searched-value'].text = 'Pesquisando'
+        document['searched-value'].text = ''
+        document['search-title'].text = 'Pesquisando'
 
     for element in document.select(".result"):
         element.style.display = 'none'
@@ -101,7 +103,6 @@ def clearResult(idle=False):
 
     document['name-search-input'].value = ''
     document['cep-search-input'].value = ''
-    document['search-title'].text = ''
 
 
 class Estado():
