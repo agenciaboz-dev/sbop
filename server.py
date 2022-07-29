@@ -17,8 +17,11 @@ def index():
 @app.route('/home/', methods=['GET', 'POST'])
 def home():
     # reconnect to database if it timed out
-    if not session.database.connection.is_connected():
-        session.reconnectDatabase()
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
 
     ip = str(request.remote_addr)
     if request.method == 'POST':
@@ -42,8 +45,11 @@ def home():
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
     # reconnect to database if it timed out
-    if not session.database.connection.is_connected():
-        session.reconnectDatabase()
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
 
     ip = str(request.remote_addr)
 
@@ -68,8 +74,11 @@ def template_restrito():
 
 @app.route('/cadastrar/', methods=['GET', 'POST'])
 def cadastro():
-    if not session.database.connection.is_connected():
-        session.reconnectDatabase()
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
     ip = str(request.remote_addr)
 
     if request.method == 'GET':
@@ -195,8 +204,11 @@ def session_url():
 
 @app.route('/mapa/', methods=['GET', 'POST'])
 def map():
-    if not session.database.connection.is_connected():
-        session.reconnectDatabase()
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
 
     if request.method == 'POST':
         if 'name-search' in request.form:
@@ -287,8 +299,11 @@ def members():
 
 @app.route('/get_map_status/', methods=['GET'])
 def get_map_status():
-    if not session.database.connection.is_connected():
-        session.reconnectDatabase()
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
     users = session.database.fetchTable(0, 'Membros')
 
     medicos = []

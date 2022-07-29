@@ -46,7 +46,6 @@ def showResult(req):
             cep = member["cep"][:-3]+"-"+member["cep"][-3:]
             # adding cep to DOM
             element = html.P(f'CEP: {cep}', Class='result')
-            element.style.margin = '5px 0 25px 0'
             data_container <= element
 
             # adding line in end of container
@@ -90,7 +89,7 @@ def clearResult(idle=False):
     else:
         document['map-status'].style.display = 'none'
         document['map-status'].style.visibility = 'none'
-        document['search-result'].style.display = 'block'
+        document['search-result'].style.display = 'flex'
         document['search-result'].style.visibility = 'visible'
         document['reset-button'].style.display = 'flex'
         document['reset-button'].style.visibility = 'visible'

@@ -30,8 +30,11 @@ class Session():
         self.getMembers()
 
     def getMembers(self):
-        if not self.database.connection.is_connected():
-            self.reconnectDatabase()
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
 
         self.member_list = []
         members = self.database.fetchTable(0, 'Membros')
