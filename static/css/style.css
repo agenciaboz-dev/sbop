@@ -91,7 +91,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    width: 35%;
+    width: 30%;
 }
 
 .search-container form {
@@ -146,7 +146,9 @@ body {
 #result {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     width: 100%;
+    height: 60vh;
     background-color: white;
     border-radius: 30px;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
@@ -159,21 +161,25 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: space-between;
     color: var(--primary-color);
     text-align: center;
-    font-size: 2.5vh;
-    margin-left: 55px;
-    margin-right: 0;
+    width: 100%;
+    font-size: 2.3vh;
+    padding: 0 2.864585vw;
 }
+
 
 .map-status hr {
     width: 70%;
-    margin-right: 10%;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     align-self: center;
 }
 
 .map-status-svg {
-    transform: scale(1);
+    width: 5vw;
+    
 }
 
 .map-status-text {
@@ -193,7 +199,7 @@ body {
 
 .status-number {
     font-weight: bold;
-    font-size: 3vh;
+    font-size: 2.8vh;
 }
 
 .status-1 {
@@ -211,6 +217,11 @@ body {
 
 .status-icon {
     fill: white;
+}
+
+#search-result {
+    display: none;
+    visibility: hidden;
 }
 
 #search-title {
