@@ -13,6 +13,18 @@ class Connection():
         self.uf = data[4]
         self.member = data[5]
         self.cep = data[6]
+        self.email = data[7]
+        self.telefone = data[8]
+        self.celular = data[9]
+        self.endereco = data[10]
+        self.numero = data[11]
+        self.complemento = data[12]
+        self.bairro = data[13]
+        self.cidade = data[14]
+        self.pais = data[15]
+        self.crm = data[16]
+        self.curriculum = data[17]
+        self.pessoa = data[18]
 
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
 
@@ -45,9 +57,20 @@ class Session():
                 'user': member[1],
                 'name': member[3],
                 'uf': member[4],
-                'cidade': member[14],
                 'member': member[5],
-                'cep': member[6]
+                'cep': member[6],
+                'email': member[7],
+                'telefone': member[8],
+                'celular': member[9],
+                'endereco': member[10],
+                'numero': member[11],
+                'complemento': member[12],
+                'bairro': member[13],
+                'cidade': member[14],
+                'pais': member[15],
+                'crm': member[16],
+                'curriculum': member[17],
+                'pessoa': member[18]
             }
             self.member_list.append(data)
 

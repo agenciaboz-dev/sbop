@@ -247,7 +247,19 @@ def get_member():
         'name': connection.name,
         'uf': connection.uf,
         'cep': connection.cep,
-        'member': connection.member
+        'member': connection.member,
+        'email': connection.email,
+        'telefone': connection.telefone,
+        'celular': connection.celular,
+        'endereco': connection.endereco,
+        'numero': connection.numero,
+        'complemento': connection.complemento,
+        'bairro': connection.bairro,
+        'cidade': connection.cidade,
+        'pais': connection.pais,
+        'crm': connection.crm,
+        'curriculum': connection.curriculum,
+        'pessoa': connection.pessoa
     }
 
     return data
