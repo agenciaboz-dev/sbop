@@ -166,6 +166,12 @@ body {
     margin-right: 0;
 }
 
+.map-status hr {
+    width: 70%;
+    margin-right: 10%;
+    align-self: center;
+}
+
 .map-status-svg {
     transform: scale(1);
 }
