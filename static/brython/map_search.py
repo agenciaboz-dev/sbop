@@ -84,14 +84,14 @@ def clearResult(idle=False):
     if idle:
         document['map-status'].style.display = 'flex'
         document['map-status'].style.visibility = 'visible'
-        document['search-result'].style.display = 'flex'
-        document['search-result'].style.visibility = 'visible'
+        document['search-result'].style.display = 'none'
+        document['search-result'].style.visibility = 'none'
         document['searched-value'].text = ''
     else:
         document['map-status'].style.display = 'none'
         document['map-status'].style.visibility = 'none'
-        document['search-result'].style.display = 'none'
-        document['search-result'].style.visibility = 'none'
+        document['search-result'].style.display = 'block'
+        document['search-result'].style.visibility = 'visible'
         document['searched-value'].text = 'Pesquisando'
 
     for element in document.select(".result"):
