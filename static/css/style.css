@@ -1,6 +1,6 @@
 @font-face {
     font-family: Montserrats;
-    src: url("/static/fonts/Arciform.ttf") ;
+    src: url("/static/fonts/Montserrat-Regular.otf") ;
 }
   
 /* width */
@@ -18,7 +18,7 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--terciary-color);
+    background: rgb(203, 203, 203);
     border-radius: 10px;
   }
 
@@ -43,6 +43,7 @@
     margin: 10px;
     padding: 0;
     box-sizing: border-box;
+    font-family: Montserrats;
 }
 
 button {
@@ -202,8 +203,8 @@ body {
     margin-top: 20px;
     align-items: center;
     font-size: 2.5vh;
-    overflow: auto;
-    scrollbar-width: 1px
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .map-status {
@@ -215,7 +216,7 @@ body {
     text-align: center;
     width: 97%;
     height: 100%;
-    font-size: 2.3vh;
+    font-size: 2vh;
     padding: 0 2.864585vw;
 }
 
@@ -253,7 +254,7 @@ body {
 
 .status-number {
     font-weight: bold;
-    font-size: 2.8vh;
+    font-size: 2.2vh;
 }
 
 .status-1 {
@@ -279,7 +280,6 @@ body {
     justify-content: center;
     width: 100%;
     margin-top: 3vh;
-    margin-bottom: 2.5vh;
 }
 
 #search-title {
@@ -314,7 +314,14 @@ body {
     align-self: flex-start;
     justify-content: flex-start;
     color: var(--primary-color-dark);
-    height: 10vh;
+    max-width: 100%;
+    align-items: center;
+    padding: 2vh 0;
+    cursor: pointer;
+}
+
+.member-container:hover {
+    background-color: var(--terciary-color);
 }
 
 .member-container hr {
@@ -325,23 +332,31 @@ body {
 
 .doctor-icon {
     width: fit-content;
-    margin-left: -1vh;
+    margin-left: auto;
     margin-right: -1vh;
+    height: 10vh;
 }
 
 .member-data-container {
     display: flex;
     flex-direction: column;
     color: var(--primary-color-dark);
-    margin-left: 0;
+    margin-left: auto;
     justify-content: center;
     align-items: flex-start;
-    font-size: 2vh;
+    font-size: 1.7vh;
     flex-shrink: 0;
+    width: 70%;
 }
 
+
 .member-data-container p {
-    margin: 2px 0 2px 0;
+    margin: 2px 0 6px;
+    text-align: start;
+}
+
+.member-name {
+    font-weight: bold;
 }
 
 /* END OF MAP SEARCH RESULT */

@@ -36,7 +36,7 @@ def showResult(req):
 
             # adding name to DOM
             element = html.P(
-                f'Nome: {member["name"]}', Id=f'medico-{member["id"]}', Class='result')
+                f'Nome: {member["name"]}', Id=f'medico-{member["id"]}', Class='result member-name')
             data_container <= element
 
             # adding phone to DOM
@@ -47,13 +47,14 @@ def showResult(req):
             data_container <= element
 
             # formating and adding address to DOM
-            endereco = f'{member["cidade"]} | {member["endereco"]}, {member["numero"]} | {member["complemento"]}'
+            endereco = f'{member["endereco"]}, {member["numero"]} | {member["complemento"]}'
             element = html.P(f'Endereço: {endereco}', Class='result')
             data_container <= element
 
             # formating cep string and adding to DOM
             cep = member["cep"][:-3]+"-"+member["cep"][-3:]
-            element = html.P(f'CEP: {cep}', Class='result')
+            element = html.P(
+                f'Cidade: {member["cidade"]} - {member["uf"]} | CEP: {cep}', Class='result')
             data_container <= element
 
             # adding line in end of container
