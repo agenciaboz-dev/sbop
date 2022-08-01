@@ -38,6 +38,7 @@
     --map-hover: #9F183B;
     --map-tooltip-background: #E12454;
     --dividing-line: rgb(141, 141, 141, 0.5);
+    --triangle-size: 15px
 }
   
 * {
@@ -111,29 +112,27 @@ body {
 #svg-map .circle { fill: var(--map-outline) }
 #svg-map a:hover .circle { fill: var(--map-hover) !important; cursor:pointer } 
 
-.map-tooltip-wrapper {
-    position: relative;
-    display: contents;
-}
-
 #map-tooltip
 {
+    display: none;
     position: absolute;
     z-index: 5;
-    display: none;
     width: 20vw;
     height: 12vw;
     background-color: var(--map-tooltip-background);
     border-radius: 1.25vw;
 }
 
-#map-tooltip .triangle {
+#map-tooltip::before {
+    content: '';
     position: absolute;
-    top: -15px;
+    top: calc(var(--triangle-size) * -2);;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    background-color: transparent;
+    border: var(--triangle-size) solid transparent;
+    border-bottom-color: var(--map-tooltip-background);
 }
-
 
 /* MAP SEARCH */
 .search-container {

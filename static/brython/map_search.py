@@ -231,4 +231,3 @@ def mapTooltipIn_(ev):
 
 ajaxPreLoad()
 tooltip = jQuery("#map-tooltip")
-# tooltip.remove()
