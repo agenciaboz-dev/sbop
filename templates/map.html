@@ -74,6 +74,12 @@
                     <span id="searched-value"></span>
                 </div>
             </div>
+            
+            <div id="member-tooltip">
+                <div class="tooltip-data-container">
+                    
+                </div>
+            </div>
             <button id="reset-button">Limpar Pesquisa</button>
         </div>
 
@@ -395,10 +401,26 @@
                 </g>
             </svg>
             <!-- FIM DO SVG -->
+            <div id="map-tooltip">
+                
+            </div>
         </div>
         
     </div>
     <script>
+        function getTop(element) {
+            var top = element.getBoundingClientRect().top + document.documentElement.scrollTop;
+            return top
+        }
+        function getLeft(element) {
+            var left = element.getBoundingClientRect().left + document.documentElement.scrollLeft;
+            return left
+        }
+        function getAbsolutePosition(element) {
+            var top = getTop(element);
+            var left = getLeft(element);
+            return {top, left}
+        }
         function fixMap() {
             width = document.documentElement.clientWidth;
             factor = width / 1116;

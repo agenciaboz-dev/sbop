@@ -36,6 +36,7 @@
     --background-color: rgba(228,228,228,1);
     --map-outline: #D8D8D8;
     --map-hover: #9F183B;
+    --map-tooltip-background: #E12454;
     --dividing-line: rgb(141, 141, 141, 0.5);
 }
   
@@ -63,6 +64,7 @@ body {
     max-width: 100%;
     margin: 0 auto;
     align-items: center;
+    overflow: hidden;
 }
 
 .top-container {
@@ -109,8 +111,17 @@ body {
 #svg-map .circle { fill: var(--map-outline) }
 #svg-map a:hover .circle { fill: var(--map-hover) !important; cursor:pointer } 
 
-/* MAP SEARCH */
+#map-tooltip {
+    position: absolute;
+    z-index: 5;
+    display: none;
+    width: 20vw;
+    height: 12vw;
+    background-color: var(--map-tooltip-background);
+    border-radius: 1.25vw;
+}
 
+/* MAP SEARCH */
 .search-container {
     display: flex;
     flex-direction: column;
@@ -168,7 +179,7 @@ body {
     width: 30%;
     height: 100%;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 2vw;
 }
 
 #reset-button {
@@ -199,7 +210,7 @@ body {
     width: 100%;
     height: 55vh;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 1.25vw;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
     margin-top: 20px;
     align-items: center;
@@ -263,8 +274,8 @@ body {
     color: var(--status-1-color);
 }
 .status-2 {
-    fill: #E12454;
-    color: #E12454;
+    fill: var(--map-tooltip-background);
+    color: var(--map-tooltip-background);
 }
 .status-3 {
     fill: var(--secondary-color);
@@ -359,6 +370,29 @@ body {
 
 .member-name {
     font-weight: bold;
+}
+
+#member-tooltip {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--status-1-color);
+    width: 30vw;
+    height: 55vh;
+    border-radius: 1.25vw;
+    padding: 0.3vw;
+    z-index: 5;
+}
+
+.tooltip-data-container {
+    display: flex;
+    border-radius: 1vw;
+    width: 100%;
+    height: 80%;
+    background-color: white;
+    margin: 0;
 }
 
 /* END OF MAP SEARCH RESULT */

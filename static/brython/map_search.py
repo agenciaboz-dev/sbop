@@ -61,6 +61,24 @@ def showResult(req):
             line = html.HR('', Class='result dividing-line')
             member_container_wrapper <= line
 
+            # mouse over binding
+            tooltip = document['member-tooltip']
+
+            def memberMouseIn(ev):
+                print(f'{ev.target.abs_left}, {ev.target.abs_top}')
+                print(f'{ev.target.width}, {ev.target.height}')
+                tooltip.left = ev.target.abs_left + ev.target.width + 20
+                tooltip.top = document['result'].abs_top
+                tooltip.style.display = 'flex'
+                tooltip.style.visibility = 'visible'
+
+            def memberMouseOut(ev):
+                tooltip.style.display = 'none'
+                tooltip.style.visibility = 'none'
+
+            container.bind('mouseenter', memberMouseIn)
+            container.bind('mouseleave', memberMouseOut)
+
     else:
         document['result'] <= html.P('Nenhum resultado', Class='result')
 
@@ -114,9 +132,12 @@ def clearResult(idle=False):
 
 
 class Estado():
-    def __init__(self, uf):
+    def __init__(self, uf, element):
         self.uf = uf
         self.id = f'#estado-{uf}'
+        self.element = element
+        self.left = self.element.abs_left
+        self.top = self.element.abs_top
 
         @bind(self.id, 'click')
         def searchMap(ev):
@@ -129,10 +150,26 @@ class Estado():
             clearResult()
             ajaxSearch(data)
 
+        @bind(self.id, 'mouseenter')
+        def mapTooltipIn(ev):
+            print(
+                f'mouse em cima de {self.uf} em {ev.target.abs_left} {ev.target.abs_top} com tamanho {ev.target.style.width}')
+
+            document['map-tooltip'].left = ev.target.abs_left
+            document['map-tooltip'].top = ev.y
+            document['map-tooltip'].style.display = 'flex'
+            document['map-tooltip'].style.visibility = 'visible'
+
+        @bind(self.id, 'mouseleave')
+        def mapTooltipOut(ev):
+            print(f'mouse saiu de {self.uf}')
+            document['map-tooltip'].style.display = 'none'
+            document['map-tooltip'].style.visibility = 'hidden'
+
 
 for estado in document.select('.estado'):
     uf = estado.attrs['id'][7:]
-    estado_ = Estado(uf)
+    estado_ = Estado(uf, estado)
 
 
 @bind('#name-search-form', 'submit')
@@ -166,6 +203,13 @@ def nameSearch(ev):
     ajaxSearch(data)
 
 
+@bind('map-tooltip', 'mouseenter')
+def mapTooltipIn_(ev):
+    ev.preventDefault()
+    print(f'mouse em cima da tooltip')
+    # document['map-tooltip'].style.display = 'flex'
+    # document['map-tooltip'].style.visibility = 'visible'
+
 # @bind('#cep-search-input', 'input')
 # def cep(ev):
 #     element = document['cep-search-input']
@@ -176,5 +220,5 @@ def nameSearch(ev):
 #     except:
 #         element.value = element.value[:-1]
 
-document
+
 ajaxPreLoad()
