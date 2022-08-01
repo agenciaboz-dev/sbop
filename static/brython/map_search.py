@@ -1,5 +1,7 @@
 from browser import document, ajax, html, bind, window, alert
 
+jQuery = window.jQuery
+
 
 def initialRender(req):
     data = eval(req.text)
@@ -105,8 +107,7 @@ def ajaxPreLoad():
 
 def clearResult(idle=False):
     if idle:
-        document['map-status'].style.display = 'flex'
-        document['map-status'].style.visibility = 'visible'
+        jQuery("#map-status").fadeIn()
         document['search-result'].style.display = 'none'
         document['search-result'].style.visibility = 'none'
         document['reset-button'].style.display = 'none'
@@ -114,8 +115,9 @@ def clearResult(idle=False):
         document['searched-value'].text = ''
         document['search-title'].text = ''
     else:
-        document['map-status'].style.display = 'none'
-        document['map-status'].style.visibility = 'none'
+        jQuery("#map-status").fadeOut()
+        # document['map-status'].style.display = 'none'
+        # document['map-status'].style.visibility = 'none'
         document['search-result'].style.display = 'flex'
         document['search-result'].style.visibility = 'visible'
         document['reset-button'].style.display = 'flex'
@@ -123,9 +125,10 @@ def clearResult(idle=False):
         document['searched-value'].text = ''
         document['search-title'].text = 'Pesquisando'
 
-    for element in document.select(".result"):
-        element.style.display = 'none'
-        element.style.visibility = 'none'
+    # for element in document.select(".result"):
+    #     element.style.display = 'none'
+    #     element.style.visibility = 'none'
+    jQuery(".result").remove()
 
     document['name-search-input'].value = ''
     document['cep-search-input'].value = ''
@@ -152,19 +155,20 @@ class Estado():
 
         @bind(self.id, 'mouseenter')
         def mapTooltipIn(ev):
-            print(
-                f'mouse em cima de {self.uf} em {ev.target.abs_left} {ev.target.abs_top} com tamanho {ev.target.style.width}')
+            global tooltip
+            uf = jQuery(self.id)
+            targetOffset = uf.offset()
+            print(targetOffset.left, targetOffset.top)
 
-            document['map-tooltip'].left = ev.target.abs_left
-            document['map-tooltip'].top = ev.y
-            document['map-tooltip'].style.display = 'flex'
-            document['map-tooltip'].style.visibility = 'visible'
+            tooltip.css('left', f'{int(targetOffset.left + uf.width()/2)}px')
+            tooltip.css('transform', 'translateX(-50%)')
+            tooltip.css(
+                'top', f'{int(targetOffset.top + uf.height()/2) + 20}px')
+            tooltip.show()
 
         @bind(self.id, 'mouseleave')
         def mapTooltipOut(ev):
-            print(f'mouse saiu de {self.uf}')
-            document['map-tooltip'].style.display = 'none'
-            document['map-tooltip'].style.visibility = 'hidden'
+            tooltip.hide()
 
 
 for estado in document.select('.estado'):
@@ -203,12 +207,16 @@ def nameSearch(ev):
     ajaxSearch(data)
 
 
-@bind('map-tooltip', 'mouseenter')
+@bind('#map-tooltip', 'mouseenter')
 def mapTooltipIn_(ev):
     ev.preventDefault()
     print(f'mouse em cima da tooltip')
-    # document['map-tooltip'].style.display = 'flex'
-    # document['map-tooltip'].style.visibility = 'visible'
+    jQuery('#map-tooltip').show()
+
+
+@bind('#map-tooltip', 'mouseleave')
+def mapTooltipIn_(ev):
+    tooltip.hide()
 
 # @bind('#cep-search-input', 'input')
 # def cep(ev):
@@ -222,3 +230,5 @@ def mapTooltipIn_(ev):
 
 
 ajaxPreLoad()
+tooltip = jQuery("#map-tooltip")
+# tooltip.remove()

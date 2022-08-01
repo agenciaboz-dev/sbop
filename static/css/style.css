@@ -111,7 +111,13 @@ body {
 #svg-map .circle { fill: var(--map-outline) }
 #svg-map a:hover .circle { fill: var(--map-hover) !important; cursor:pointer } 
 
-#map-tooltip {
+.map-tooltip-wrapper {
+    position: relative;
+    display: contents;
+}
+
+#map-tooltip
+{
     position: absolute;
     z-index: 5;
     display: none;
@@ -120,6 +126,14 @@ body {
     background-color: var(--map-tooltip-background);
     border-radius: 1.25vw;
 }
+
+#map-tooltip .triangle {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
 
 /* MAP SEARCH */
 .search-container {
