@@ -382,6 +382,7 @@ body {
     width: 30vw;
     height: 55vh;
     border-radius: 1.25vw;
+    margin: 0;
     padding: 0.3vw;
     z-index: 5;
 }
