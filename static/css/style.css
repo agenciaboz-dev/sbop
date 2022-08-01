@@ -132,6 +132,7 @@ body {
     background-color: transparent;
     border: var(--triangle-size) solid transparent;
     border-bottom-color: var(--map-tooltip-background);
+    pointer-events: none;
 }
 
 /* MAP SEARCH */

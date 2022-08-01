@@ -1,6 +1,10 @@
-from browser import document, ajax, html, bind, window, alert
+from browser import document, ajax, html, bind, window, aio
 
 jQuery = window.jQuery
+
+
+def slowIncreaseTo(element, n):
+    aio.sleep()
 
 
 def initialRender(req):
@@ -107,10 +111,8 @@ def ajaxPreLoad():
 
 def clearResult(idle=False):
     if idle:
-        document['search-result'].style.display = 'none'
-        document['search-result'].style.visibility = 'none'
-        document['reset-button'].style.display = 'none'
-        document['reset-button'].style.visibility = 'none'
+        jQuery('#search-result').hide()
+        jQuery('#reset-button').hide()
         document['searched-value'].text = ''
         document['search-title'].text = ''
         jQuery("#map-status").fadeIn()
@@ -120,13 +122,12 @@ def clearResult(idle=False):
         document['reset-button'].style.display = 'flex'
         document['reset-button'].style.visibility = 'visible'
         document['searched-value'].text = ''
-        # document['search-title'].text = 'Pesquisando'
         document['search-title'].text = ''
 
-        def teste():
-            print('asdfadfsa')
+        def statusFadeOut():
             document['search-title'].text = 'Pesquisando'
-        jQuery("#map-status").fadeOut(teste)
+
+        jQuery("#map-status").fadeOut(statusFadeOut)
 
     jQuery(".result").remove()
 
