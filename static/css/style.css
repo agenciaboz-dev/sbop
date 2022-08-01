@@ -168,6 +168,7 @@ body {
     width: 30%;
     height: 100%;
     cursor: pointer;
+    border-radius: 30px;
 }
 
 #reset-button {
@@ -315,8 +316,9 @@ body {
     justify-content: flex-start;
     color: var(--primary-color-dark);
     max-width: 100%;
+    width: 98%;
     align-items: center;
-    padding: 2vh 0;
+    padding: 2vh 2vw 2vh 0;
     cursor: pointer;
 }
 
@@ -326,7 +328,7 @@ body {
 
 .member-container hr {
     width: 70%;
-    margin-right: 10%;
+    /* margin-right: 10%; */
     align-self: center;
 }
 
