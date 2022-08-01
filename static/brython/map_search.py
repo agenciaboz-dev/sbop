@@ -107,27 +107,27 @@ def ajaxPreLoad():
 
 def clearResult(idle=False):
     if idle:
-        jQuery("#map-status").fadeIn()
         document['search-result'].style.display = 'none'
         document['search-result'].style.visibility = 'none'
         document['reset-button'].style.display = 'none'
         document['reset-button'].style.visibility = 'none'
         document['searched-value'].text = ''
         document['search-title'].text = ''
+        jQuery("#map-status").fadeIn()
     else:
-        jQuery("#map-status").fadeOut()
-        # document['map-status'].style.display = 'none'
-        # document['map-status'].style.visibility = 'none'
         document['search-result'].style.display = 'flex'
         document['search-result'].style.visibility = 'visible'
         document['reset-button'].style.display = 'flex'
         document['reset-button'].style.visibility = 'visible'
         document['searched-value'].text = ''
-        document['search-title'].text = 'Pesquisando'
+        # document['search-title'].text = 'Pesquisando'
+        document['search-title'].text = ''
 
-    # for element in document.select(".result"):
-    #     element.style.display = 'none'
-    #     element.style.visibility = 'none'
+        def teste():
+            print('asdfadfsa')
+            document['search-title'].text = 'Pesquisando'
+        jQuery("#map-status").fadeOut(teste)
+
     jQuery(".result").remove()
 
     document['name-search-input'].value = ''
