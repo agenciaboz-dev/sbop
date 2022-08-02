@@ -317,7 +317,5 @@ def mapTooltipIn_(ev):
 #     except:
 #         element.value = element.value[:-1]
 
-jQuery('body').append('<p id="loading">CARREGANDO</p>')
-jQuery('#loading').css('font-size', '10vw')
 ajaxPreLoad()
 ajaxEstados()
