@@ -38,7 +38,8 @@
     --map-hover: #9F183B;
     --map-tooltip-background: #E12454;
     --dividing-line: rgb(141, 141, 141, 0.5);
-    --triangle-size: 15px
+    --triangle-size: 15px;
+    --text-member-tooltip: #959595;
 }
   
 * {
@@ -83,7 +84,18 @@ body {
     align-items: center
 }
 
+.body-wrapper {
+    display: none;
+    width: 100%;
+}
+
 .body-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.map-body-container {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
@@ -456,11 +468,73 @@ body {
 
 .tooltip-data-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 1vw;
     width: 100%;
-    height: 80%;
+    height: 85%;
     background-color: white;
     margin: 0;
+    color: var(--primary-color-dark);
+    font-size: 0.9vw;
+}
+
+.tooltip-data-info {
+    display: flex;
+    width: 100%;
+    padding-left: 1vw;
+    padding-top: 1vw;
+}
+
+.tooltip-data-info img {
+    width: 35%;
+    flex-shrink: 0;
+}
+
+.tooltip-data-info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tooltip-data-info>div>p {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tooltip-data-info>div>p>span {
+    font-weight: normal;
+    color: var(--text-member-tooltip);
+    text-align: start;
+}
+
+#tooltip-email {
+    display: contents
+}
+#tooltip-email>span {
+    margin: 0;
+    margin-top: -0.4vw;
+}
+
+.tooltip-data-container>hr {
+    width: 75%;
+}
+
+.tooltip-data-container>p {
+    font-weight: bold;
+}
+
+#tooltip-curriculum-container {
+    overflow-y: auto;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#tooltip-curriculum-container>p {
+    color: var(--text-member-tooltip);
+    text-align: justify;
 }
 
 /* END OF MAP SEARCH RESULT */

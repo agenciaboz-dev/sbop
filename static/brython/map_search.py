@@ -2,6 +2,8 @@ from browser import document, ajax, html, bind, window, aio
 
 jQuery = window.jQuery
 tooltip = jQuery("#map-tooltip")
+member_tooltip = document['member-tooltip']
+members = []
 
 
 def slowIncreaseTo(element, n):
@@ -14,6 +16,115 @@ def initialRender(req):
     document['map-status-estados'].text = data['estados']
     document['map-status-cidades'].text = data['cidades']
 
+    def renderMap():
+        jQuery('.body-wrapper').fadeIn()
+
+    jQuery('#loading').fadeOut(renderMap)
+
+
+class Member():
+    def __init__(self, data):
+        self.id = data['id']
+        self.img = None
+        self.name = data['name']
+        self.telefone = data['telefone']
+        self.email = data['email']
+        self.endereco = data['endereco']
+        self.numero = data['numero']
+        self.complemento = data['complemento']
+        self.cep = data['cep']
+        self.cidade = data['cidade']
+        self.uf = data['uf']
+        self.crm = data['crm']
+        self.curriculum = data['curriculum']
+
+        self.member_container_wrapper = None
+        self.container = None
+        self.data_container = None
+        self.clicked = False
+        self.endereco_formatado = None
+
+        self.printResult()
+        self.container.bind('click', self.tooltipHandler)
+
+    def printResult(self):
+        member_container_wrapper = html.DIV(
+            '', Class="result member-container-wrapper")
+        document['result'] <= member_container_wrapper
+        self.member_container_wrapper = member_container_wrapper
+
+        # defining a member container
+        container = html.DIV(
+            '', Id=f'container-medico-{self.id}', Class='result member-container')
+        member_container_wrapper <= container
+        self.container = container
+
+        # importing image
+        doctor_icon = html.IMG(
+            '', Src='/static/image/doctor_icon.svg', Alt='Doctor Icon', Class='result doctor-icon')
+        container <= doctor_icon
+
+        # defining a data container
+        data_container = html.DIV(
+            '', Id=f'data-container-medico-{self.id}', Class='result member-data-container')
+        container <= data_container
+        self.data_container = data_container
+
+        # adding name to DOM
+        element = html.P(
+            f'Nome: {self.name}', Id=f'medico-{self.id}', Class='result member-name')
+        data_container <= element
+
+        # adding phone to DOM
+        telefone = self.telefone
+        telefone = f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
+        self.telefone = telefone
+        element = html.P(
+            f'Contato: {telefone} | {self.email}', Class='result')
+        data_container <= element
+
+        # formating and adding address to DOM
+        endereco = f'{self.endereco}, {self.numero} | {self.complemento}'
+        self.endereco_formatado = endereco
+        element = html.P(f'Endereço: {endereco}', Class='result')
+        data_container <= element
+
+        # formating cep string and adding to DOM
+        cep = self.cep[:-3]+"-"+self.cep[-3:]
+        element = html.P(
+            f'Cidade: {self.cidade} - {self.uf} | CEP: {cep}', Class='result')
+        data_container <= element
+
+        # adding line in end of container
+        line = html.HR('', Class='result dividing-line')
+        member_container_wrapper <= line
+
+    def tooltipHandler(self, ev):
+        if not self.clicked:
+            for item in members:
+                item.clicked = False
+            self.clicked = True
+
+            member_tooltip.style.display = 'flex'
+            member_tooltip.style.visibility = 'visible'
+            member_tooltip.left = document['result'].abs_left + \
+                document['result'].width + 25
+            member_tooltip.top = document['result'].abs_top
+
+            tooltip_arrow = jQuery('#member-tooltip::before')
+
+            jQuery('#tooltip-nome').text(self.name)
+            jQuery('#tooltip-especialidade>span').text('Sem dados')
+            jQuery('#tooltip-crm>span').text(self.crm)
+            jQuery('#tooltip-contato>span').text(self.telefone)
+            jQuery('#tooltip-email>span').text(self.email)
+            jQuery('#tooltip-endereco>span').text(self.endereco_formatado)
+
+            jQuery('#tooltip-curriculum').text(self.curriculum)
+        else:
+            self.clicked = False
+            jQuery('#member-tooltip').hide()
+
 
 def showResult(req):
     member_list = eval(req.text)
@@ -21,74 +132,9 @@ def showResult(req):
     document['search-title'].text = 'Resultados para: '
     document['searched-value'].text = title
     if member_list:
-        for member in member_list:
-            member_container_wrapper = html.DIV(
-                '', Class="result member-container-wrapper")
-            document['result'] <= member_container_wrapper
-
-            # defining a member container
-            container = html.DIV(
-                '', Id=f'container-medico-{member["id"]}', Class='result member-container')
-            member_container_wrapper <= container
-
-            # importing image
-            doctor_icon = html.IMG(
-                '', Src='/static/image/doctor_icon.svg', Alt='Doctor Icon', Class='result doctor-icon')
-            container <= doctor_icon
-
-            # defining a data container
-            data_container = html.DIV(
-                '', Id=f'data-container-medico-{member["id"]}', Class='result member-data-container')
-            container <= data_container
-
-            # adding name to DOM
-            element = html.P(
-                f'Nome: {member["name"]}', Id=f'medico-{member["id"]}', Class='result member-name')
-            data_container <= element
-
-            # adding phone to DOM
-            telefone = member["telefone"]
-            telefone = f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
-            element = html.P(
-                f'Contato: {telefone} | {member["email"]}', Class='result')
-            data_container <= element
-
-            # formating and adding address to DOM
-            endereco = f'{member["endereco"]}, {member["numero"]} | {member["complemento"]}'
-            element = html.P(f'Endereço: {endereco}', Class='result')
-            data_container <= element
-
-            # formating cep string and adding to DOM
-            cep = member["cep"][:-3]+"-"+member["cep"][-3:]
-            element = html.P(
-                f'Cidade: {member["cidade"]} - {member["uf"]} | CEP: {cep}', Class='result')
-            data_container <= element
-
-            # adding line in end of container
-            line = html.HR('', Class='result dividing-line')
-            member_container_wrapper <= line
-
-            # mouse over binding
-            tooltip = document['member-tooltip']
-
-            def memberMouseIn(ev):
-                print(f'{ev.target.abs_left}, {ev.target.abs_top}')
-                print(f'{ev.target.width}, {ev.target.height}')
-                tooltip.left = ev.target.abs_left + ev.target.width + 25
-                tooltip.top = document['result'].abs_top
-                tooltip.style.display = 'flex'
-                tooltip.style.visibility = 'visible'
-
-                arrow_top = ev.target.abs_top + ev.target.height / 2
-                tooltip_arrow = jQuery('#member-tooltip::before')
-                tooltip_arrow.css('top', int(arrow_top))
-
-            def memberMouseOut(ev):
-                tooltip.style.display = 'none'
-                tooltip.style.visibility = 'none'
-
-            container.bind('mouseenter', memberMouseIn)
-            container.bind('mouseleave', memberMouseOut)
+        for item in member_list:
+            member = Member(item)
+            members.append(member)
 
     else:
         document['result'] <= html.P('Nenhum resultado', Class='result')
@@ -124,8 +170,9 @@ def ajaxEstados():
 
 def clearResult(idle=False):
     if idle:
-        jQuery('#search-result').hide()
-        jQuery('#reset-button').hide()
+        jQuery('#member-tooltip').fadeOut()
+        jQuery('#search-result').fadeOut()
+        jQuery('#reset-button').fadeOut()
         document['searched-value'].text = ''
         document['search-title'].text = ''
         jQuery("#map-status").fadeIn()
@@ -270,5 +317,7 @@ def mapTooltipIn_(ev):
 #     except:
 #         element.value = element.value[:-1]
 
+jQuery('body').append('<p id="loading">CARREGANDO</p>')
+jQuery('#loading').css('font-size', '10vw')
 ajaxPreLoad()
 ajaxEstados()
