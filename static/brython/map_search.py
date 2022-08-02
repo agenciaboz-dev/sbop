@@ -1,6 +1,7 @@
 from browser import document, ajax, html, bind, window, aio
 
 jQuery = window.jQuery
+tooltip = jQuery("#map-tooltip")
 
 
 def slowIncreaseTo(element, n):
@@ -73,10 +74,14 @@ def showResult(req):
             def memberMouseIn(ev):
                 print(f'{ev.target.abs_left}, {ev.target.abs_top}')
                 print(f'{ev.target.width}, {ev.target.height}')
-                tooltip.left = ev.target.abs_left + ev.target.width + 20
+                tooltip.left = ev.target.abs_left + ev.target.width + 25
                 tooltip.top = document['result'].abs_top
                 tooltip.style.display = 'flex'
                 tooltip.style.visibility = 'visible'
+
+                arrow_top = ev.target.abs_top + ev.target.height / 2
+                tooltip_arrow = jQuery('#member-tooltip::before')
+                tooltip_arrow.css('top', int(arrow_top))
 
             def memberMouseOut(ev):
                 tooltip.style.display = 'none'
@@ -109,6 +114,14 @@ def ajaxPreLoad():
     req.send({})
 
 
+def ajaxEstados():
+    req = ajax.Ajax()
+    req.bind('complete', estadosData)
+    req.open('GET', '/estados_data/', True)
+    req.set_header('content-type', 'application/x-www-form-urlencoded')
+    req.send({})
+
+
 def clearResult(idle=False):
     if idle:
         jQuery('#search-result').hide()
@@ -136,9 +149,11 @@ def clearResult(idle=False):
 
 
 class Estado():
-    def __init__(self, uf, element):
+    def __init__(self, uf, element, name, count):
         self.uf = uf
         self.id = f'#estado-{uf}'
+        self.name = name
+        self.count = count
         self.element = element
         self.left = self.element.abs_left
         self.top = self.element.abs_top
@@ -165,6 +180,27 @@ class Estado():
             tooltip.css('transform', 'translateX(-50%)')
             tooltip.css(
                 'top', f'{int(targetOffset.top + uf.height()/2) + 20}px')
+
+            jQuery('#map-tooltip>div>p').text(self.name)
+
+            if self.count == 0:
+                jQuery('#map-tooltip>div>div>p').text('')
+                jQuery(
+                    '#map-tooltip>div>div>p').append('<span></span> médico cadastrado em nosso sistema')
+                jQuery('#map-tooltip>div>div>p>span').text('Nenhum')
+
+            elif self.count == 1:
+                jQuery('#map-tooltip>div>div>p').text('')
+                jQuery(
+                    '#map-tooltip>div>div>p').append('<span></span> médico cadastrado em nosso sistema')
+                jQuery('#map-tooltip>div>div>p>span').text(self.count)
+
+            else:
+                jQuery('#map-tooltip>div>div>p').text('')
+                jQuery(
+                    '#map-tooltip>div>div>p').append('<span></span> médicos cadastrado em nosso sistema')
+                jQuery('#map-tooltip>div>div>p>span').text(self.count)
+
             tooltip.show()
 
         @bind(self.id, 'mouseleave')
@@ -172,9 +208,13 @@ class Estado():
             tooltip.hide()
 
 
-for estado in document.select('.estado'):
-    uf = estado.attrs['id'][7:]
-    estado_ = Estado(uf, estado)
+def estadosData(req):
+    estados = eval(req.text)
+    for estado in document.select('.estado'):
+        uf = estado.attrs['id'][7:]
+        name = estado.attrs['name']
+        count = estados.count(uf)
+        estado_ = Estado(uf, estado, name, count)
 
 
 @bind('#name-search-form', 'submit')
@@ -219,6 +259,7 @@ def mapTooltipIn_(ev):
 def mapTooltipIn_(ev):
     tooltip.hide()
 
+
 # @bind('#cep-search-input', 'input')
 # def cep(ev):
 #     element = document['cep-search-input']
@@ -229,6 +270,5 @@ def mapTooltipIn_(ev):
 #     except:
 #         element.value = element.value[:-1]
 
-
 ajaxPreLoad()
-tooltip = jQuery("#map-tooltip")
+ajaxEstados()

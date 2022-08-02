@@ -342,5 +342,14 @@ def get_map_status():
     return data
 
 
+@app.route('/estados_data/', methods=['GET'])
+def estados_data():
+    estados = []
+    for item in session.member_list:
+        if item['member'] == 'Titular':
+            estados.append(item['uf'].lower())
+    return str(estados)
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
