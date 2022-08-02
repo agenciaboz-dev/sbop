@@ -121,6 +121,7 @@ body {
     height: 12vw;
     background-color: var(--map-tooltip-background);
     border-radius: 1.25vw;
+    pointer-events: none;
 }
 
 #map-tooltip::before {
