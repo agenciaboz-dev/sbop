@@ -245,7 +245,7 @@ class Estado():
             else:
                 jQuery('#map-tooltip>div>div>p').text('')
                 jQuery(
-                    '#map-tooltip>div>div>p').append('<span></span> médicos cadastrado em nosso sistema')
+                    '#map-tooltip>div>div>p').append('<span></span> médicos cadastrados em nosso sistema')
                 jQuery('#map-tooltip>div>div>p>span').text(self.count)
 
             tooltip.show()
