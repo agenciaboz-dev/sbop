@@ -244,6 +244,7 @@ def get_member():
 
     data = {
         'id': connection.id,
+        'user': connection.user,
         'name': connection.name,
         'uf': connection.uf,
         'cep': connection.cep,

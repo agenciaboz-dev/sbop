@@ -16,57 +16,83 @@
         <button onclick="window.location.href='/template_restrito/'">Vídeos</button>
         <button onclick="window.location.href='/logout/'">Sair</button>
     </div>
-
+    <div id="loading-screen">
+        <h1>CARREGANDO</h1>
+    </div>
     <div class="body-container">
         <div class="body-toolbar">
             <div class="toolbar" id="toolbar-profile">
-                <h1>Perfil</h1>
+                <h1>Dados Cadastrais</h1>
                 <p>Informações para o site</p>
             </div>
+            <hr>
             <div class="toolbar" id="toolbar-safety">
                 <h1>Segurança</h1>
                 <p>Alteração de senha e e-mail</p>
             </div>
+            <hr>
             <div class="toolbar" id="toolbar-plans">
                 <h1>Planos</h1>
                 <p>Anuidades e pedidos do site</p>
             </div>
+            <hr>
             <div class="toolbar" id="toolbar-restrict">
                 <h1>Acesso Restrito</h1>
                 <p>Conteúdos exclusivos para membros</p>
             </div>
+            <hr>
             <div class="toolbar" id="toolbar-requests">
                 <h1>Solicitações</h1>
                 <p>Artigos JPOS e 2ª via de certificados</p>
             </div>
         </div>
-        <hr>
         <div id="profile-container" class="main-container">
-            <img src="" alt="Foto">
-            <div class="container">
-                <h2 id="user-title">Carregando seus dados</h2>
-                <p id="user-name"></p>
-                <p id="user-uf"></p>
-                <p id="user-member"></p>
-                <p id="user-cep"></p>
+            <div class="info-container-wrapper">
+                <img src="/static/image/doctor_icon.svg" alt="Foto">
+                <div class="info-container">
+                    <div>
+                        <h1>Nome (Público)</h1>
+                        <p id="data-name">name-value</p>
+
+                        <h1>CRM</h1>
+                        <p id="data-crm">crm-value</p>
+
+                        <h1>Contato</h1>
+                        <p id="data-phone">phone-value</p>
+
+                        <h1>Endereço</h1>
+                        <p id="data-address">address-value</p>
+                    </div>
+                    <div>
+                        <h1>Nome de Usuário (Privado)</h1>
+                        <p id="data-username">username-value</p>
+                        
+                        <h1>Especialidade</h1>
+                        <p id="data-specialization">specialization-value</p>
+                        
+                        <h1>E-mail</h1>
+                        <p id="data-email">email-value</p>
+                    </div>
+                </div>
+                <img src="/static/image/estados_icon.svg" alt="Foto">
+            </div>
+            <hr>
+            <div class="curriculum-container">
+                <h1>Curriculum</h1>
+                <p id="data-curriculum">blabla</p>
             </div>
         </div>
         <div id="safety-container" class="main-container">
-
+            <h1>Lorem Ipsum</h1>
         </div>
         <div id="plans-container" class="main-container">
-
+            <h1>Lorem Ipsum</h1>
         </div>
         <div id="restrict-container" class="main-container">
-
+            <h1>Lorem Ipsum</h1>
         </div>
         <div id="requests-container" class="main-container">
-
-        </div>
-        <hr>
-        <div class="curriculum-container">
-            <h1>Curriculum</h1>
-            <p>blabla</p>
+            <h1>Lorem Ipsum</h1>
         </div>
     </div>
 </body>
