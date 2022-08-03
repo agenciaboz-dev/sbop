@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="top-container">
-        <button onclick="window.location.href='/cadastrar/'">Cadastre-se</button>
         <button onclick="window.location.href='/mapa/'">Mapa</button>
         <button onclick="window.location.href='/blog_post/'">Blog Post</button>
     </div>
@@ -25,9 +24,9 @@
             <p>Bem vindo! Por favor preencha os campos de nome de usuário e senhas para acessar sua conta.</p>
             <form method="post">
                 <label for="username-input">Nome de Usuário ou email</label>
-                <input id="username-input" type="text" name="user" placeholder="usuario" required>
+                <input id="username-input" type="text" name="user" placeholder="Nome de Usuário" required>
                 <label for="password-input">Senha</label>
-                <input id="password-input" type="password" name="password" placeholder="senha" required>
+                <input id="password-input" type="password" name="password" placeholder="Ssenha" required>
                 <button type="submit" name="login">Entrar</button>
             </form>
             <p>{{error}}</p>
