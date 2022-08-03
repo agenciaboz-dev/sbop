@@ -34,9 +34,9 @@ abbr {
     margin: 0;
 }
 
-body {
+/* body {
     overflow: hidden;
-}
+} */
 
 .body-container {
     display: flex;
