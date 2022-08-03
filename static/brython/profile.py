@@ -12,6 +12,27 @@ class Member():
         self.member = data['member']
 
 
+class Tool():
+    def __init__(self, toolbar, content_id):
+        self.toolbar = toolbar
+        self.name = content_id
+        self.content = document[f'{content_id}-container']
+
+        self.toolbar.bind('click', self.switchTool)
+
+    def switchTool(self, ev):
+        alert(self.name)
+
+
+def initialRender():
+    jQuery('.main-container').hide()
+    jQuery('#toolbar-profile').css('background-color', 'white')
+    jQuery('#profile-container').show()
+
+    for element in document.select('.toolbar'):
+        tool = Tool(element, element.attrs['id'][8:])
+
+
 def showData(req):
     data = eval(req.text)
     member = Member(data)
@@ -21,6 +42,8 @@ def showData(req):
     document['user-uf'].text = f'UF: {member.uf}'
     document['user-cep'].text = f'CEP: {member.cep}'
     document['user-member'].text = f'Membro: {member.member}'
+
+    initialRender()
 
 
 def ajaxMember():

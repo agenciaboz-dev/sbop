@@ -29,6 +29,21 @@ body {
     border-bottom-right-radius: 0;
 }
 
-.profile-container {
+.toolbar {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#toolbar-profile {
+    border-top-left-radius: 1.5vw;
+}
+
+#toolbar-requests {
+    border-top-right-radius: 1.5vw;
+}
+
+.main-container {
     display: flex;
 }
