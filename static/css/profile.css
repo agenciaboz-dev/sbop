@@ -103,6 +103,7 @@ p {
 
 .toolbar-active {
     background-color: white;
+    cursor: default;
 }
 
 /* main containers */

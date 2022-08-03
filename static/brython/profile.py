@@ -1,4 +1,4 @@
-from browser import document, ajax, html, bind, window, alert
+from browser import document, ajax, html, bind, window, alert, timer
 
 jQuery = window.jQuery
 
@@ -41,12 +41,20 @@ class Tool():
 
         self.toolbar.bind('click', self.switchTool)
 
+    def activateScreen(self):
+        jQuery(self.toolbar).addClass('toolbar-active')
+        jQuery(self.content).fadeIn()
+        # timer.set_timeout(, 500)
+
     def switchTool(self, ev):
+        if not self.content.style.display == 'none':
+            return None
+
         jQuery('.main-container').hide()
         jQuery('.toolbar').removeClass('toolbar-active')
 
         jQuery(self.toolbar).addClass('toolbar-active')
-        jQuery(self.content).show()
+        jQuery(self.content).slideToggle('slow')
 
 
 def initialRender():
@@ -57,7 +65,7 @@ def initialRender():
     for element in document.select('.toolbar'):
         tool = Tool(element, element.attrs['id'][8:])
 
-    jQuery('#loading-screen').fadeOut('slow')
+    jQuery('#loading-screen').slideToggle('slow')
 
 
 def loadProfile(member):
