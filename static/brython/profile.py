@@ -1,5 +1,7 @@
 from browser import document, ajax, html, bind, window, alert
 
+jQuery = window.jQuery
+
 
 class Member():
     def __init__(self, data):

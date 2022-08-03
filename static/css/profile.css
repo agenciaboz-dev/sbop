@@ -1,0 +1,34 @@
+:root {
+    --line-color: #8D8D8D;
+    --toolbar-color: #F5F5F5;
+}
+
+
+body {
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+.body-container {
+    display: flex; 
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1.5vw;
+}
+
+.body-container > hr {
+    margin: 0;
+}
+
+.body-toolbar {
+    display: flex;
+    background-color: var(--toolbar-color);
+    margin: 0;
+    border-radius: 1.5vw;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.profile-container {
+    display: flex;
+}
