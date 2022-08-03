@@ -72,7 +72,7 @@ def template_restrito():
     return render_template('template_restrito.html')
 
 
-@app.route('/cadastrar/', methods=['GET', 'POST'])
+@app.route('/cadastro/', methods=['GET', 'POST'])
 def cadastro():
     try:
         if not session.database.connection.is_connected():

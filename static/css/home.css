@@ -1,0 +1,143 @@
+:root {
+    --primary-color: #0C6397;
+    --input-background: #E4E4E4;
+    --primary-text-color: #8D8D8D;
+    --secondary-text-color: #6B6B6B;
+    --line-color: #707070;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--input-background) inset !important;
+}
+
+body {
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+.body-container {
+    display: flex;
+    background-color: var(--primary-color);
+    width: 70%;
+    height: 65vh;
+    border-radius: 1.5vw;
+    margin-top: 4vw;
+}
+
+.body-container>img {
+    object-fit: cover;
+    width: 30%;
+    height: auto;
+    margin: 5vw 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.4vw;
+    background-color: white;
+    width: 100%;
+    padding: 3vw;
+    border-radius: 1.5vw;
+    align-items: center;
+    color: var(--primary-text-color);
+}
+
+.container * {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.titles {
+    display: flex;
+    width: 100%;
+    color: var(--secondary-text-color);
+}
+
+.titles hr {
+    border: transparent;
+    border-left: 2px solid var(--line-color);
+}
+
+.titles hr+a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    text-align: start;
+    display: contents;
+}
+
+a>h1 {
+    opacity: 0.3;
+    transition: 0.3s;
+}
+
+a>h1:hover {
+    opacity: 1;
+}
+
+label {
+    margin: 0;
+    font-weight: bold;
+}
+
+input {
+    border-radius: 1.5vw;
+    height: 6vh;
+    background-color: var(--input-background);
+    opacity: 0.5;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    color: var(--primary-text-color);
+}
+
+::placeholder {
+    color: var(--primary-text-color);
+    opacity: 0.9;
+}
+
+.container button {
+    background-color: var(--primary-color);
+    border-radius: 1.5vw;
+    border: none;
+    color: white;
+    font-weight: bold;
+    height: 6vh;
+    margin-bottom: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container button:hover {
+    background-color: #094a6f;
+}
+
+.container > a {
+    margin: 0;
+    text-decoration: none;
+    color: var(--primary-text-color);
+    font-weight: bold;
+    opacity: 0.3;
+    font-size: 1vw;
+    transition: 0.3s;
+}
+
+.container > a:hover {
+    opacity: 1;
+}
+
+.container > p {
+    margin-top: 0;
+    font-size: 1vw;
+    color: var(--primary-text-color)
+}
