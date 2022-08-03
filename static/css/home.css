@@ -99,6 +99,7 @@ input {
     outline: none;
     padding: 1vw;
     color: var(--primary-text-color);
+    font-size: 1vw;
 }
 
 ::placeholder {
