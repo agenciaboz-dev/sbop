@@ -17,8 +17,9 @@ def initialRender(req):
     document['map-status-cidades'].text = data['cidades']
 
     def renderMap():
-        jQuery('.body-wrapper').fadeIn()
+        jQuery('.body-wrapper').fadeIn('slow')
 
+    jQuery('#member-tooltip').hide()
     jQuery('#loading').fadeOut(renderMap)
 
 
@@ -105,8 +106,7 @@ class Member():
                 item.clicked = False
             self.clicked = True
 
-            member_tooltip.style.display = 'flex'
-            member_tooltip.style.visibility = 'visible'
+            jQuery('#member-tooltip').fadeIn()
             member_tooltip.left = document['result'].abs_left + \
                 document['result'].width + 25
             member_tooltip.top = document['result'].abs_top
@@ -123,7 +123,7 @@ class Member():
             jQuery('#tooltip-curriculum').text(self.curriculum)
         else:
             self.clicked = False
-            jQuery('#member-tooltip').hide()
+            jQuery('#member-tooltip').fadeOut()
 
 
 def showResult(req):
@@ -169,26 +169,27 @@ def ajaxEstados():
 
 
 def clearResult(idle=False):
-    if idle:
-        jQuery('#member-tooltip').fadeOut()
-        jQuery('#search-result').fadeOut()
-        jQuery('#reset-button').fadeOut()
-        document['searched-value'].text = ''
-        document['search-title'].text = ''
-        jQuery("#map-status").fadeIn()
-    else:
+    def statusFadeOut():
+        document['search-title'].text = 'Pesquisando'
+        jQuery('.reset-button-wrapper').fadeIn()
         document['search-result'].style.display = 'flex'
         document['search-result'].style.visibility = 'visible'
-        document['reset-button'].style.display = 'flex'
-        document['reset-button'].style.visibility = 'visible'
+
+    def statusFadeIn():
+        jQuery("#map-status").fadeIn()
+
+    if idle:
+        jQuery('.reset-button-wrapper').fadeOut(statusFadeIn)
+        jQuery('#search-result').fadeOut()
         document['searched-value'].text = ''
         document['search-title'].text = ''
-
-        def statusFadeOut():
-            document['search-title'].text = 'Pesquisando'
+    else:
+        document['searched-value'].text = ''
+        document['search-title'].text = ''
 
         jQuery("#map-status").fadeOut(statusFadeOut)
 
+    jQuery('#member-tooltip').fadeOut()
     jQuery(".result").remove()
 
     document['name-search-input'].value = ''
@@ -245,7 +246,7 @@ class Estado():
             else:
                 jQuery('#map-tooltip>div>div>p').text('')
                 jQuery(
-                    '#map-tooltip>div>div>p').append('<span></span> médicos cadastrado em nosso sistema')
+                    '#map-tooltip>div>div>p').append('<span></span> médicos cadastrados em nosso sistema')
                 jQuery('#map-tooltip>div>div>p>span').text(self.count)
 
             tooltip.show()
