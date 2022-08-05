@@ -134,7 +134,34 @@ p {
 
 .info-container-wrapper img:first-of-type {
     /* margin-left: 2vw; */
-    width: 20vw;
+    width: 23vw;
+    /* margin-top: -1.5vw; */
+    /* align-self: center; */
+}
+
+.camera-icon-container {
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    position: absolute;
+    z-index: 5;
+    margin: 0;
+    cursor: pointer;
+    filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
+    border-radius: 80vw;
+    left: 19.5vw;
+    margin-top: 1vh;
+    transition: 0.5s;
+}
+
+.camera-icon-container:hover {
+    transform: scale(1.1)
+}
+
+#camera-icon {
+    width: 2.5vw;
+    margin: 0.55vw;
+    /* left: -5vw; */
 }
 
 .info-container-wrapper img:last-of-type {
