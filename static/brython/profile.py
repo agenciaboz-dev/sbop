@@ -95,4 +95,9 @@ def ajaxMember():
     req.send()
 
 
+@bind('#camera-icon-container', 'click')
+def uploadPicture(ev):
+    alert('caixa de diálogo pra upload de foto')
+
+
 ajaxMember()
