@@ -88,7 +88,7 @@ class Mysql():
         cursor.close()
 
     def updateTable(self, table, id, column, value, id_column):
-        command = f'Update {table} set {column} = {value} where {id_column} = {id}'
+        command = f'Update {table} set {column} = "{value}" where {id_column} = {id}'
         cursor = self.connection.cursor()
         cursor.execute(command)
         self.connection.commit()

@@ -1,5 +1,7 @@
 :root {
     --primary-color: #0C6397;
+    --secondary-color: #7BDCB5;
+    /* --secondary-color: #91a9b8; */
     --line-color: #8D8D8D;
     --toolbar-color: #F5F5F5;
     --text-primary: #959595;
@@ -283,7 +285,9 @@ button:hover {
 #plans-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     margin: 2vw 3vw;
+    height: 100%;
 
 }
 
@@ -307,7 +311,7 @@ button:hover {
     font-weight: bold;
 }
 
-#plans-container button {
+.deactivated-button {
     opacity: 0.5;
     pointer-events: none;
 }
@@ -353,8 +357,8 @@ button:hover {
     margin: 0 2vw;
     font-weight: bold;
     font-size: 1.1vw;
-    color: var(--primary-color);
     text-align: center;
+    margin-left: auto;
 }
 
 #active-plan-icon {
@@ -363,6 +367,9 @@ button:hover {
     left: 2vw;
 }
 
+.selected-plan {
+    border: 0.3vw solid var(--secondary-color);
+}
 
 
 /* ----- = ----- */

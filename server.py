@@ -352,5 +352,12 @@ def estados_data():
     return str(estados)
 
 
+@app.route('/change_plan/', methods=['POST'])
+def change_plan():
+    return 'True'
+    session.database.updateTable(
+        'Membros', request.form['id'], 'MEMBRO', request.form['plan'], 'ID')
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")

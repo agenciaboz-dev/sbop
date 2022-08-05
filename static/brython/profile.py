@@ -1,6 +1,8 @@
 from browser import document, ajax, html, bind, window, alert, timer
 
 jQuery = window.jQuery
+member = []
+selected_plan = None
 
 
 class Member():
@@ -57,6 +59,31 @@ class Tool():
         jQuery(self.toolbar).addClass('toolbar-active')
         jQuery(self.content).fadeToggle('slow')
 
+        # reset selected plan
+        jQuery('.selected-plan').removeClass('selected-plan')
+        jQuery('#plans-container > button').addClass('deactivated-button')
+
+
+class Plan():
+    def __init__(self, element):
+        self.element = element
+        self.name = self.element.attrs['id']
+
+        self.element.bind('click', self.selectPlan)
+
+    def selectPlan(self, ev):
+        global selected_plan
+        jQuery('.selected-plan').removeClass('selected-plan')
+
+        if self.name == member.type.lower():
+            jQuery('#plans-container > button').addClass('deactivated-button')
+            selected_plan = None
+            return None
+
+        jQuery(self.element).addClass('selected-plan')
+        jQuery('#plans-container > button').removeClass('deactivated-button')
+        selected_plan = self
+
 
 def initialRender():
     jQuery('.main-container').hide()
@@ -85,6 +112,23 @@ def loadActivePlan(member):
     jQuery('.active-plan > .plan-title').append('<p>Plano Atual</p>')
     jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
+    # iterate plans divs
+    for element in document.select('.plans'):
+        plan = Plan(element)
+
+    @bind('#plans-container > button', 'click')
+    def ajaxPlan(ev):
+        req = ajax.Ajax()
+        req.bind('complete', changePlanFeedback)
+        req.open('POST', '/change_plan/', True)
+        req.set_header('content-type', 'application/x-www-form-urlencoded')
+        req.send({'id': member.id, 'plan': selected_plan.name})
+
+    def changePlanFeedback(req):
+        jQuery('.selected-plan').removeClass('selected-plan')
+        jQuery('#plans-container > button').addClass('deactivated-button')
+        alert('seguir pro pagamento?')
+
 
 def loadProfile(member):
     document['data-name'].text = member.name
@@ -98,6 +142,8 @@ def loadProfile(member):
 
 
 def preLoad(req):
+    global member
+
     data = eval(req.text)
     member = Member(data)
 
