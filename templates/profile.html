@@ -11,6 +11,7 @@
     <title>Sbop - Perfil</title>
 </head>
 <body onload="brython()">
+    <!-- TOP TOOLBAR -->
     <div class="top-container">
         <button onclick="window.location.href='/blog/'">Blog</button>
         <button onclick="window.location.href='/template_restrito/'">Vídeos</button>
@@ -46,6 +47,7 @@
                 <p>Artigos JPOS e 2ª via de certificados</p>
             </div>
         </div>
+        <!-- PROFILE CONTAINER -->
         <div id="profile-container" class="main-container">
             <div class="info-container-wrapper">
                 <img src="/static/image/doctor_icon.svg" alt="Foto">
@@ -85,22 +87,72 @@
                 <p id="data-curriculum">blabla</p>
             </div>
         </div>
+        <!-- SAFETY CONTAINER -->
         <div id="safety-container" class="main-container">
             <form method="post">
                 <h1>Redefinir Senha</h1>
                 <p>Por favor, preencha os campos para a senha atual, a nova senha e em seguida confirme para redefini-la.</p>
-                <label for="input-password">Senha Atual</label>
-                <input type="text" id="input-password">
+                <label for="input-current-password">Senha atual</label>
+                <input type="text" id="input-current-password" placeholder="Senha atual">
+
+                <label for="input-new-password">Nova senha</label>
+                <input type="password" id="input-new-password" placeholder="Nova senha">
+
+                <label for="input-new-password-confirmation">Confirmar nova senha</label>
+                <input type="password" id="input-new-password-confirmation" placeholder="Confirmar nova senha">
+
+                <button type="submit">Redefinir Senha</button>
             </form>
             <form method="post">
-                <h1>Redefinir Senha</h1>
-                <p>Por favor, preencha os campos para a senha atual, a nova senha e em seguida confirme para redefini-la.</p>
-                <label for="input-password">Senha Atual</label>
-                <input type="text" id="input-password">
+                <h1>Redefinir e-mail</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <label for="input-current-email">E-mail atual</label>
+                <input type="text" id="input-current-email" placeholder="E-mail atual">
+
+                <label for="input-new-email">Novo e-mail</label>
+                <input type="text" id="input-new-email" placeholder="Novo e-mail">
+
+                <label for="input-new-email-confirmation">Confirmar novo e-mail</label>
+                <input type="text" id="input-new-email-confirmation" placeholder="Confirmar novo e-mail">
+
+                <button type="submit">Redefinir E-mail</button>
             </form>
         </div>
+        <!-- PLANS CONTAINER -->
         <div id="plans-container" class="main-container">
-            <h1>Para gastar dinheiros</h1>
+            <h1>Mude seu plano de afiliação</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div id="titular" class="plans">
+                <div class="plan-title">
+                    <h1>Membro Titular</h1>
+                </div>
+                <hr>
+                <p>
+                    Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do membro), Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP.
+                    <span>BRL 360.00 / ano</span>
+                </p>
+            </div>
+            <div id="associado" class="plans">
+                <div class="plan-title">
+                    <h1>Membro Associado</h1>
+                </div>
+                <hr>
+                <p>
+                    Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do membro), Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP. 
+                    <span>BRL 360.00 / ano</span>
+                </p>
+            </div>
+            <div id="aspirante" class="plans">
+                <div class="plan-title">
+                    <h1>Membro Aspirante</h1>
+                </div>
+                <hr>
+                <p>
+                    Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP. 
+                    <span>BRL 200.00 / ano</span>
+                </p>
+            </div>
+            <button>Continuar</button>
         </div>
         <div id="restrict-container" class="main-container">
             <h1>Só os VIP</h1>

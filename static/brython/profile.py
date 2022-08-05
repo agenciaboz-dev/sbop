@@ -19,6 +19,7 @@ class Member():
         self.uf = data['uf']
         self.crm = data['crm']
         self.curriculum = data['curriculum']
+        self.type = data['member']
 
         self.member_container_wrapper = None
         self.container = None
@@ -54,7 +55,7 @@ class Tool():
         jQuery('.toolbar').removeClass('toolbar-active')
 
         jQuery(self.toolbar).addClass('toolbar-active')
-        jQuery(self.content).slideToggle('slow')
+        jQuery(self.content).fadeToggle('slow')
 
 
 def initialRender():
@@ -66,6 +67,23 @@ def initialRender():
         tool = Tool(element, element.attrs['id'][8:])
 
     jQuery('#loading-screen').slideToggle('slow')
+
+
+def loadActivePlan(member):
+    member_type = f'#{member.type.lower()}'
+    jQuery(member_type).addClass('active-plan')
+
+    # icon
+    icon = html.IMG('', Id='active-plan-icon',
+                    Src='/static/image/active-plan-icon.svg')
+    document[member_type[1:]] <= icon
+    height = jQuery(member_type).height()
+    jQuery(icon).css('transform', f'translateY({height/4}px)')
+
+    # text
+    vigente = ''
+    jQuery('.active-plan > .plan-title').append('<p>Plano Atual</p>')
+    jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
 
 def loadProfile(member):
@@ -84,6 +102,7 @@ def preLoad(req):
     member = Member(data)
 
     loadProfile(member)
+    loadActivePlan(member)
     initialRender()
 
 
