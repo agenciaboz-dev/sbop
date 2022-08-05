@@ -140,7 +140,9 @@ p {
 .info-container-wrapper img:last-of-type {
     /* margin-right: 2vw; */
     align-self: flex-start;
-    width: 5vw;
+    object-fit: cover;
+    width: 10vw;
+    margin-top: -6vh;
 }
 
 .info-container {
@@ -183,11 +185,20 @@ p {
     font-size: 1vw;
 }
 
-/*  */
+/* SAFETY CONTAINER */
 
 #safety-container {
-    background-color: green;
+    display: flex;
+    background-color: rgb(150, 239, 150);
 }
+
+#safety-container > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*  */
 
 #plans-container {
     background-color: purple;
