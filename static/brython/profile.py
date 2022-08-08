@@ -44,11 +44,6 @@ class Tool():
 
         self.toolbar.bind('click', self.switchTool)
 
-    def activateScreen(self):
-        jQuery(self.toolbar).addClass('toolbar-active')
-        jQuery(self.content).fadeIn()
-        # timer.set_timeout(, 500)
-
     def switchTool(self, ev):
         if not self.content.style.display == 'none':
             return None
@@ -62,6 +57,28 @@ class Tool():
         # reset selected plan
         jQuery('.selected-plan').removeClass('selected-plan')
         jQuery('#plans-container > button').addClass('deactivated-button')
+
+
+class RestrictTool():
+    def __init__(self, element, content_id):
+        self.toolbar = element
+        self.name = content_id
+        self.content_id = f'{content_id}-container'
+        self.content = document[self.content_id]
+
+        print(self.name, self.content_id)
+
+        self.toolbar.bind('click', self.switchTool)
+
+    def switchTool(self, ev):
+        if not self.content.style.display == 'none':
+            return None
+
+        jQuery('.restrict-content').hide()
+        jQuery('.restrict-toolbar > h1').removeClass('active-restrict-tool')
+
+        jQuery(self.toolbar).addClass('active-restrict-tool')
+        jQuery(self.content).fadeToggle('slow')
 
 
 class Plan():
@@ -83,6 +100,62 @@ class Plan():
         jQuery(self.element).addClass('selected-plan')
         jQuery('#plans-container > button').removeClass('deactivated-button')
         selected_plan = self
+
+
+def addVideo(src):
+    video_wrapper = html.DIV('', Class='video-wrapper')
+    jQuery('#videos-container').append(video_wrapper)
+
+    video = f'<video controls controlsList="nodownload" disablePictureInPicture id="video" width="400" height="200" src="/static/videos/{member.type}/{src}"></video>'
+    jQuery(video_wrapper).append(video)
+
+    video_text_container = html.DIV('', Class='video-text-container')
+    jQuery(video_wrapper).append(video_text_container)
+
+    title = f'<h1>{src.split(".")[0]}</h1>'
+    description = f'<p>balbalblalbalbalbal</p>'
+    jQuery(video_text_container).append(title)
+    jQuery(video_text_container).append(description)
+
+    jQuery('#videos-container').append('<hr>')
+
+
+def videosList(req):
+    videos = eval(req.text)
+    print(videos)
+    if not videos:
+        return None
+    for item in videos:
+        addVideo(item)
+
+
+def addRestrictContent(post):
+    restrict_content_wrapper = html.DIV('', Class='restrict-content-wrapper')
+    jQuery('#publicacoes-container').append(restrict_content_wrapper)
+
+    img = f'<img width="400" height="200" src="/static/posts/img.png" alt"imagem"></img>'
+    jQuery(restrict_content_wrapper).append(img)
+
+    restrict_content_text_container = html.DIV(
+        '', Class='restrict-content-text-container')
+    jQuery(restrict_content_wrapper).append(restrict_content_text_container)
+
+    title = f'<h1>{post[2]}</h1>'
+    autor = html.P(f'{post[4]} - {post[5]}', Class='restrict-content-author')
+    description = f'<p>{post[3]}</p>'
+    jQuery(restrict_content_text_container).append(title)
+    jQuery(restrict_content_text_container).append(autor)
+    jQuery(restrict_content_text_container).append(description)
+
+    jQuery('#publicacoes-container').append('<hr>')
+
+
+def restrictContentList(req):
+    data = eval(req.text)
+    data.reverse()
+
+    for post in data:
+        addRestrictContent(post)
 
 
 def initialRender():
@@ -141,6 +214,13 @@ def loadProfile(member):
     document['data-curriculum'].text = member.curriculum
 
 
+def loadRestrict(member):
+    jQuery('#videos-container').hide()
+
+    for element in document.select('.restrict-toolbar > h1'):
+        tool = RestrictTool(element, element.attrs['name'][:-5])
+
+
 def preLoad(req):
     global member
 
@@ -149,7 +229,26 @@ def preLoad(req):
 
     loadProfile(member)
     loadActivePlan(member)
+    loadRestrict(member)
+    ajaxVideos()
+    ajaxBlog()
     initialRender()
+
+
+def ajaxBlog():
+    req = ajax.Ajax()
+    req.bind('complete', restrictContentList)
+    req.open('GET', '/get_blog/', True)
+    req.set_header('content-type', 'application/x-www-form-urlencoded')
+    req.send({})
+
+
+def ajaxVideos():
+    req = ajax.Ajax()
+    req.bind('complete', videosList)
+    req.open('GET', '/get_videos/', True)
+    req.set_header('content-type', 'application/x-www-form-urlencoded')
+    req.send({})
 
 
 def ajaxMember():

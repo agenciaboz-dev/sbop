@@ -13,9 +13,7 @@
 <body onload="brython()">
     <!-- TOP TOOLBAR -->
     <div class="top-container">
-        <button onclick="window.location.href='/blog/'">Blog</button>
-        <button onclick="window.location.href='/template_restrito/'">Vídeos</button>
-        <button onclick="window.location.href='/logout/'">Sair</button>
+        <button style="padding: 5px; width: 10vw" onclick="window.location.href='/logout/'">Sair</button>
     </div>
     <div id="loading-screen">
         <h1>CARREGANDO</h1>
@@ -154,8 +152,23 @@
             </div>
             <button class="deactivated-button">Continuar</button>
         </div>
+        <!-- RESTRICT CONTAINER -->
         <div id="restrict-container" class="main-container">
-            <h1>Só os VIP</h1>
+            <div class="side-bar">
+                <h1>Categorias</h1>
+            </div>
+            <hr>
+            <div class="content-container">
+                <div class="restrict-toolbar">
+                    <h1 class="active-restrict-tool" name="publicacoes-tool">Publicações</h1>
+                    <hr>
+                    <h1 name="videos-tool">Videos</h1>
+                </div>
+                <div class="restrict-content" id="publicacoes-container">
+                </div>
+                <div class="restrict-content" id="videos-container">
+                </div>
+            </div>
         </div>
         <div id="requests-container" class="main-container">
             <h1>Sai um certificado na chapa</h1>
