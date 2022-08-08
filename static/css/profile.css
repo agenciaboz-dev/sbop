@@ -230,7 +230,7 @@ button:hover {
     justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
-    height: 15vh;
+    height: 16vh;
     margin: 10px 2vw 5px;
 }
 
@@ -341,7 +341,7 @@ button:hover {
 }
 
 .active-plan {
-    border: 0.3vw solid var(--primary-color);
+    outline: 0.3vw solid var(--primary-color);
 }
 
 .active-plan > div {
@@ -368,7 +368,7 @@ button:hover {
 }
 
 .selected-plan {
-    border: 0.3vw solid var(--secondary-color);
+    outline: 0.3vw solid var(--secondary-color);
 }
 
 
