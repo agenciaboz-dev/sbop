@@ -221,6 +221,15 @@ def loadRestrict(member):
         tool = RestrictTool(element, element.attrs['name'][:-5])
 
 
+def loadRequests():
+    jQuery('.new-request-container').hide()
+
+    @bind('.requests-toggle-button', 'click')
+    def renderNewRequestPage(ev):
+        jQuery('.visualization-container').fadeToggle()
+        jQuery('.new-request-container').fadeToggle()
+
+
 def preLoad(req):
     global member
 
@@ -232,6 +241,7 @@ def preLoad(req):
     loadRestrict(member)
     ajaxVideos()
     ajaxBlog()
+    loadRequests()
     initialRender()
 
 

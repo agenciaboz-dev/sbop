@@ -496,5 +496,20 @@ button:hover {
 /* ----- Requests Container ----- */
 
 #requests-container {
-    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 5vw;
+}
+
+#requests-container > div {
+    display: flex;
+}
+
+#new-request-button {
+    width: 25%;
+}
+
+.new-request-container {
+    display: flex;
+    flex-direction: column;
 }
