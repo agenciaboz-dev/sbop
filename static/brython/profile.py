@@ -224,10 +224,15 @@ def loadRestrict(member):
 def loadRequests():
     jQuery('.new-request-container').hide()
 
-    @bind('.requests-toggle-button', 'click')
+    @bind('#visualization-button', 'click')
+    def renderRequestsPage(ev):
+        jQuery(
+            '.new-request-container').fadeToggle(jQuery('.visualization-container').fadeToggle)
+
+    @bind('#new-request-button', 'click')
     def renderNewRequestPage(ev):
-        jQuery('.visualization-container').fadeToggle()
-        jQuery('.new-request-container').fadeToggle()
+        jQuery(
+            '.visualization-container').fadeToggle(jQuery('.new-request-container').fadeToggle)
 
 
 def preLoad(req):
