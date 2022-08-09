@@ -22,6 +22,8 @@ class Member():
         self.crm = data['crm']
         self.curriculum = data['curriculum']
         self.type = data['member']
+        self.solicitacoes = data['solicitacoes']
+        print(self.solicitacoes)
 
         self.member_container_wrapper = None
         self.container = None
@@ -221,9 +223,24 @@ def loadRestrict(member):
         tool = RestrictTool(element, element.attrs['name'][:-5])
 
 
-def loadRequests():
-    jQuery('.new-request-container').hide()
+def loadRequests(req):
+    data = eval(req.text)
 
+    # populate select list with options from database
+    for item in data:
+        option = f'<option value="{item[0]}">{item[1]}</option>'
+        jQuery('#solicitacao').append(option)
+
+    # populating request history
+    for solicitacao in member.solicitacoes:
+        row = f'<tr><td>{solicitacao[0]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td><td>{solicitacao[5]}</td><td>ICONE</td></tr>'
+        jQuery('#requests-history').append(row)
+
+    # hiding elements
+    jQuery('.new-request-container').hide()
+    jQuery('.new-request-toggles').hide()
+
+    # binding buttons
     @bind('#visualization-button', 'click')
     def renderRequestsPage(ev):
         jQuery(
@@ -233,6 +250,21 @@ def loadRequests():
     def renderNewRequestPage(ev):
         jQuery(
             '.visualization-container').fadeToggle(jQuery('.new-request-container').fadeToggle)
+
+    @bind('#submit-request-button', 'click')
+    def submitRequest(ev):
+        alert('e agora?')
+        jQuery('#solicitacao').val('')
+        jQuery('.new-request-toggles').hide()
+        jQuery('.new-request-container').hide()
+        jQuery('.visualization-container').fadeToggle()
+
+    # rendering description when changing the select list
+
+    @bind('#solicitacao', 'change')
+    def getRequestValue(ev):
+        document['solicitacao-desc'].text = data[int(ev.target.value)][2]
+        jQuery('.new-request-toggles').fadeIn()
 
 
 def preLoad(req):
@@ -246,8 +278,16 @@ def preLoad(req):
     loadRestrict(member)
     ajaxVideos()
     ajaxBlog()
-    loadRequests()
+    ajaxSolicitacoes()
     initialRender()
+
+
+def ajaxSolicitacoes():
+    req = ajax.Ajax()
+    req.bind('complete', loadRequests)
+    req.open('GET', '/available_requests/', True)
+    req.set_header('content-type', 'application/x-www-form-urlencoded')
+    req.send({})
 
 
 def ajaxBlog():

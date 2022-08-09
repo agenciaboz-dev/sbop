@@ -4,7 +4,7 @@ from src.mysql_handler import Mysql
 
 
 class Connection():
-    def __init__(self, ip, data):
+    def __init__(self, ip, data, database):
         self.ip = ip
         self.id = data[0]
         self.user = data[1]
@@ -25,6 +25,8 @@ class Connection():
         self.crm = data[16]
         self.curriculum = data[17]
         self.pessoa = data[18]
+        self.solicitacoes = database.fetchTable(
+            0, 'Solicitacoes', 'USUARIO', self.id)
 
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
 
@@ -37,9 +39,15 @@ class Session():
     def __init__(self):
         self.connections = []
         self.member_list = []
+        self.solicitacoes_disponiveis = []
         self.database = Mysql()
         self.database.connect(database_auth)
         self.getMembers()
+        self.getSolicitacoes()
+
+    def getSolicitacoes(self):
+        self.solicitacoes_disponiveis = self.database.fetchTable(
+            0, 'available_requests')
 
     def getMembers(self):
         try:
@@ -97,7 +105,8 @@ class Session():
                     if is_logged and is_logged.id == id:
                         self.connections.remove(is_logged)
 
-                    self.connections.append(Connection(ip, data))
+                    self.connections.append(
+                        Connection(ip, data, self.database))
                     return str(id)
         except Exception as error:
             print(error)

@@ -260,7 +260,8 @@ def get_member():
         'pais': connection.pais,
         'crm': connection.crm,
         'curriculum': connection.curriculum,
-        'pessoa': connection.pessoa
+        'pessoa': connection.pessoa,
+        'solicitacoes': connection.solicitacoes
     }
 
     return data
@@ -350,6 +351,11 @@ def estados_data():
         if item['member'] == 'Titular':
             estados.append(item['uf'].lower())
     return str(estados)
+
+
+@app.route('/available_requests/', methods=['GET'])
+def available_requests():
+    return str(session.solicitacoes_disponiveis)
 
 
 @app.route('/change_plan/', methods=['POST'])

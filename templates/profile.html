@@ -174,12 +174,40 @@
         <div id="requests-container" class="main-container">
             <div class="visualization-container">
                 <button class="requests-toggle-button" id="new-request-button">Incluir Solicitação</button>
+                <h1>Histórico de Solicitações</h1>
+                <p>Para visualizar os detalhes de cada solicitação, clique no seu número.</p>
+                <div class="requests-history">
+                    <table id="requests-history">
+                        <tr>
+                            <thead class="table-header">
+                                <th>Solicitação</th>
+                                <th>Tipo</th>
+                                <th>Situação</th>
+                                <th>Data</th>
+                                <th>Documentação</th>
+                                <th>Cancelar</th>
+                            </thead>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class="new-request-container">
                 <div class="new-request-data">
                     <h1>Preencha o formulário abaixo:</h1>
+                    <p>Para visualizar os detalhes de cada solicitação, clique no seu número.</p>
+                    <select name="solicitacao" id="solicitacao">
+                        <option disabled selected value="">Selecione o tipo de solicitação</option>
+                    </select>
+                    <div class="new-request-description new-request-toggles">
+                        <h1>Descrição Completa:</h1>
+                        <p id="solicitacao-desc"></p>
+                    </div>
                 </div>
-                <button class="requests-toggle-button" id="visualization-button">Voltar</button>
+                <hr>
+                <div class="new-request-buttons">
+                    <button class="requests-toggle-button" id="visualization-button">Voltar</button>
+                    <button class="new-request-toggles" id="submit-request-button">Confirmar</button>
+                </div>
             </div>
         </div>
     </div>
