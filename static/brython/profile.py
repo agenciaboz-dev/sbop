@@ -109,10 +109,12 @@ def toggleContainer(selection, mode=None):
     if mode == 'blur':
         for item in selection:
             jQuery(item).css('opacity', '0.5')
+            # jQuery(item).css('filter', 'blur(2px)')
             jQuery(item).css('pointer-events', 'none')
     else:
         for item in selection:
             jQuery(item).css('opacity', '1')
+            # jQuery(item).css('filter', 'blur(0)')
             jQuery(item).css('pointer-events', 'auto')
 
 
@@ -319,8 +321,16 @@ def loadRequests(req):
 
     # populating request history
     for solicitacao in member.solicitacoes:
-        row = f'<tr><td>{solicitacao[0]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td><td>{solicitacao[5]}</td><td>ICONE</td></tr>'
+        row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[0]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
+
         jQuery('#requests-history').append(row)
+
+        if solicitacao[5]:
+            jQuery(
+                f'#request-{solicitacao[0]}').append(f'<td><a download="{solicitacao[0]}.{solicitacao[5].split(".")[1]}" href="/static/documents/{member.id}/{solicitacao[5]}" title="Download"><img src="/static/image/download_icon.svg"></img></a></td>')
+        else:
+            jQuery(f'#request-{solicitacao[0]}').append(
+                f'<td><img src="/static/image/x_icon.svg"></img></td>')
 
     # hiding elements
     jQuery('.new-request-container').hide()
