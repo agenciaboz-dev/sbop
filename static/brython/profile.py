@@ -3,12 +3,14 @@ from browser import document, ajax, html, bind, window, alert, timer
 jQuery = window.jQuery
 member = []
 selected_plan = None
+POPUP = jQuery('#floating-popup')
 
 
 class Member():
     def __init__(self, data):
         self.id = data['id']
         self.username = data['user']
+        self.password = data['password']
         self.img = None
         self.name = data['name']
         self.telefone = data['telefone']
@@ -23,7 +25,6 @@ class Member():
         self.curriculum = data['curriculum']
         self.type = data['member']
         self.solicitacoes = data['solicitacoes']
-        print(self.solicitacoes)
 
         self.member_container_wrapper = None
         self.container = None
@@ -104,6 +105,17 @@ class Plan():
         selected_plan = self
 
 
+def toggleContainer(selection, mode=None):
+    if mode == 'blur':
+        for item in selection:
+            jQuery(item).css('opacity', '0.5')
+            jQuery(item).css('pointer-events', 'none')
+    else:
+        for item in selection:
+            jQuery(item).css('opacity', '1')
+            jQuery(item).css('pointer-events', 'auto')
+
+
 def addVideo(src):
     video_wrapper = html.DIV('', Class='video-wrapper')
     jQuery('#videos-container').append(video_wrapper)
@@ -160,6 +172,20 @@ def restrictContentList(req):
         addRestrictContent(post)
 
 
+def renderPopUp():
+    height = jQuery('#profile-container').height()
+    width = jQuery('#profile-container').width()
+    POPUP.css('transform',
+              f'translateY({height/2}px) translateX({width/3}px)')
+
+    POPUP.fadeToggle()
+
+    @bind('#floating-popup > button', 'click')
+    def togglePopUp(ev):
+        POPUP.fadeToggle()
+        toggleContainer(['.main-container', '.body-toolbar'])
+
+
 def initialRender():
     jQuery('.main-container').hide()
     jQuery('#toolbar-profile').addClass('toolbar-active')
@@ -167,6 +193,8 @@ def initialRender():
 
     for element in document.select('.toolbar'):
         tool = Tool(element, element.attrs['id'][8:])
+
+    renderPopUp()
 
     jQuery('#loading-screen').slideToggle('slow')
 
@@ -214,6 +242,64 @@ def loadProfile(member):
     document['data-specialization'].text = 'Sem dados'
     document['data-email'].text = member.email
     document['data-curriculum'].text = member.curriculum
+
+
+def loadSafety():
+    def clearInputs():
+        document['input-current-password'].value = ''
+        document['input-new-password'].value = ''
+        document['input-new-password-confirmation'].value = ''
+        document['input-current-email'].value = ''
+        document['input-new-email'].value = ''
+        document['input-new-email-confirmation'].value = ''
+
+    def successSafetyPopup(req):
+        response = eval(req.text)
+        safetyPopup(response[0], response[1])
+
+    def safetyPopup(h1, p):
+        POPUP.fadeToggle()
+        toggleContainer(['.main-container', '.body-toolbar'], 'blur')
+        POPUP.find('h1').text(h1)
+        POPUP.find('p').text(p)
+
+    @bind('#change-password-button', 'click')
+    def change_password_button(ev):
+        current = document['input-current-password'].value
+        new = document['input-new-password'].value
+        new_confirmation = document['input-new-password-confirmation'].value
+
+        if current and new and new_confirmation:
+            if current == member.password:
+                if new == new_confirmation:
+                    _ajax('/change_password/', successSafetyPopup, 'POST',
+                          data={'id': member.id, 'new_password': new})
+                else:
+                    safetyPopup(
+                        'ERRO', 'Nova senha não confere com a confirmação')
+            else:
+                safetyPopup('ERRO', 'Senha atual inválida')
+
+            timer.set_timeout(clearInputs, 500)
+
+    @bind('#change-email-button', 'click')
+    def change_email_button(ev):
+        current = document['input-current-email'].value
+        new = document['input-new-email'].value
+        new_confirmation = document['input-new-email-confirmation'].value
+
+        if current and new and new_confirmation:
+            if current == member.email:
+                if new == new_confirmation:
+                    _ajax('/change_email/', successSafetyPopup, 'POST',
+                          data={'id': member.id, 'new_email': new})
+                else:
+                    safetyPopup(
+                        'ERRO', 'Novo e-mail não confere com a confirmação')
+            else:
+                safetyPopup('ERRO', 'e-mail atual inválido')
+
+            timer.set_timeout(clearInputs, 500)
 
 
 def loadRestrict(member):
@@ -274,44 +360,21 @@ def preLoad(req):
     member = Member(data)
 
     loadProfile(member)
+    loadSafety()
     loadActivePlan(member)
     loadRestrict(member)
-    ajaxVideos()
-    ajaxBlog()
-    ajaxSolicitacoes()
+    _ajax('/get_videos/', videosList)
+    _ajax('/get_blog/', restrictContentList)
+    _ajax('/available_requests/', loadRequests)
     initialRender()
 
 
-def ajaxSolicitacoes():
+def _ajax(url, onComplete, method='GET', data={}):
     req = ajax.Ajax()
-    req.bind('complete', loadRequests)
-    req.open('GET', '/available_requests/', True)
+    req.bind('complete', onComplete)
+    req.open(method, url, True)
     req.set_header('content-type', 'application/x-www-form-urlencoded')
-    req.send({})
-
-
-def ajaxBlog():
-    req = ajax.Ajax()
-    req.bind('complete', restrictContentList)
-    req.open('GET', '/get_blog/', True)
-    req.set_header('content-type', 'application/x-www-form-urlencoded')
-    req.send({})
-
-
-def ajaxVideos():
-    req = ajax.Ajax()
-    req.bind('complete', videosList)
-    req.open('GET', '/get_videos/', True)
-    req.set_header('content-type', 'application/x-www-form-urlencoded')
-    req.send({})
-
-
-def ajaxMember():
-    req = ajax.Ajax()
-    req.bind('complete', preLoad)
-    req.open('GET', '/get_member/', True)
-    req.set_header('content-type', 'application/x-www-form-urlencoded')
-    req.send()
+    req.send(data)
 
 
 @bind('#camera-icon-container', 'click')
@@ -319,4 +382,4 @@ def uploadPicture(ev):
     alert('caixa de diálogo pra upload de foto')
 
 
-ajaxMember()
+_ajax('/get_member/', preLoad)

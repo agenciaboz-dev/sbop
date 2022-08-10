@@ -45,6 +45,12 @@
                 <p>Artigos JPOS e 2ª via de certificados</p>
             </div>
         </div>
+        <!-- Floating Popup -->
+        <div id="floating-popup">
+            <h1>TESTE TESTE</h1>
+            <p></p>
+            <button>OK</button>
+        </div>
         <!-- PROFILE CONTAINER -->
         <div id="profile-container" class="main-container">
             <div class="info-container-wrapper">
@@ -87,33 +93,33 @@
         </div>
         <!-- SAFETY CONTAINER -->
         <div id="safety-container" class="main-container">
-            <form method="post">
+            <form action="javascript:void(0);">
                 <h1>Redefinir Senha</h1>
                 <p>Por favor, preencha os campos para a senha atual, a nova senha e em seguida confirme para redefini-la.</p>
                 <label for="input-current-password">Senha atual</label>
-                <input type="text" id="input-current-password" placeholder="Senha atual">
+                <input type="password" id="input-current-password" required>
 
                 <label for="input-new-password">Nova senha</label>
-                <input type="password" id="input-new-password" placeholder="Nova senha">
+                <input type="password" id="input-new-password" required>
 
                 <label for="input-new-password-confirmation">Confirmar nova senha</label>
-                <input type="password" id="input-new-password-confirmation" placeholder="Confirmar nova senha">
+                <input type="password" id="input-new-password-confirmation" required>
 
-                <button type="submit">Redefinir Senha</button>
+                <button type="submit" id="change-password-button" name="change-password">Redefinir Senha</button>
             </form>
-            <form method="post">
+            <form action="javascript:void(0);">
                 <h1>Redefinir e-mail</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <label for="input-current-email">E-mail atual</label>
-                <input type="text" id="input-current-email" placeholder="E-mail atual">
+                <input type="email" id="input-current-email" placeholder="email_atual@sbop.com.br" required>
 
                 <label for="input-new-email">Novo e-mail</label>
-                <input type="text" id="input-new-email" placeholder="Novo e-mail">
+                <input type="email" id="input-new-email" placeholder="novo_email@sbop.com.br" required>
 
                 <label for="input-new-email-confirmation">Confirmar novo e-mail</label>
-                <input type="text" id="input-new-email-confirmation" placeholder="Confirmar novo e-mail">
+                <input type="email" id="input-new-email-confirmation" placeholder="novo_email@sbop.com.br" required>
 
-                <button type="submit">Redefinir E-mail</button>
+                <button type="submit" id="change-email-button" name="change email">Redefinir E-mail</button>
             </form>
         </div>
         <!-- PLANS CONTAINER -->

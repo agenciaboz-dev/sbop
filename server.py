@@ -245,6 +245,7 @@ def get_member():
     data = {
         'id': connection.id,
         'user': connection.user,
+        'password': connection.password,
         'name': connection.name,
         'uf': connection.uf,
         'cep': connection.cep,
@@ -363,6 +364,26 @@ def change_plan():
     return 'True'
     session.database.updateTable(
         'Membros', request.form['id'], 'MEMBRO', request.form['plan'], 'ID')
+
+
+@app.route('/change_password/', methods=['POST'])
+def change_password():
+    try:
+        session.database.updateTable(
+            'Membros', request.form['id'], 'SENHA', request.form['new_password'], 'ID')
+        return str(['Sucesso', 'Sua senha foi alterada'])
+    except Exception as error:
+        return str(['Erro', error])
+
+
+@app.route('/change_email/', methods=['POST'])
+def change_email():
+    try:
+        session.database.updateTable(
+            'Membros', request.form['id'], 'EMAIL', request.form['new_email'], 'ID')
+        return str(['Sucesso', 'Seu e-mail foi alterado'])
+    except Exception as error:
+        return str(['Erro', error])
 
 
 if __name__ == '__main__':
