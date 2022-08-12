@@ -155,7 +155,9 @@ button:hover {
 }
 
 #floating-popup button {
-    width: 60%;
+    width: 50%;
+    height: 3.5vh;
+    flex-shrink: 0;
 }
 
 /* main containers */

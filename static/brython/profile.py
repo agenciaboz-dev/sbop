@@ -321,6 +321,7 @@ def loadRequests(req):
 
     # populating request history
     def populateRequestHistory():
+        count = 1
         for solicitacao in member.solicitacoes:
             row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[6]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
 
@@ -332,6 +333,10 @@ def loadRequests(req):
             else:
                 jQuery(f'#request-{solicitacao[0]}').append(
                     f'<td><img src="/static/image/x_icon.svg"></img></td>')
+
+            count += 1
+            if count > 5:
+                break
 
     populateRequestHistory()
 
@@ -373,6 +378,7 @@ def loadRequests(req):
             POPUP.find('p').text(p)
             if not data[0] == 'error':
                 addRequestToTable(data[2], data[3], data[4])
+            POPUP.find('button').fadeToggle()
 
         data = {
             'id': member.id,
@@ -383,6 +389,7 @@ def loadRequests(req):
         POPUP.fadeToggle()
         POPUP.find('h1').text('Carregando')
         POPUP.find('p').text('Gerando solicitação')
+        POPUP.find('button').hide()
 
         _ajax('/new_request/', newRequest, method='POST', data=data)
         jQuery('#solicitacao').val('')
