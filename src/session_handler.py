@@ -26,8 +26,9 @@ class Connection():
         self.curriculum = data[17]
         self.pessoa = data[18]
         self.solicitacoes = database.fetchTable(
-            0, 'Solicitacoes', 'USUARIO', self.id)
+            0, 'Solicitacoes', 'USUARIO', self.id, ordered='ID')
 
+        self.solicitacoes.reverse()
         self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
 
     def isExpired(self):

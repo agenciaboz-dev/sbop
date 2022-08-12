@@ -576,6 +576,7 @@ button:hover {
 
 .table-header th {
     padding: 1vh 2vw;
+    background-color: var(--input-background);
 }
 
 .table-header th:first-of-type {

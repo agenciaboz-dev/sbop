@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
@@ -384,6 +385,39 @@ def change_email():
         return str(['Sucesso', 'Seu e-mail foi alterado'])
     except Exception as error:
         return str(['Erro', error])
+
+
+@app.route('/new_request/', methods=['POST'])
+def new_request():
+    solicitacao = session.database.fetchTable(
+        1, 'available_requests', 'ID', request.form['request'])[0][1]
+    request_id = len(session.database.fetchTable(0, 'Solicitacoes'))
+    time = datetime.today()
+    day = time.day
+    month = time.month
+    year = time.year
+
+    if len(str(day)) == 1:
+        day = f'0{day}'
+
+    if len(str(month)) == 1:
+        month = f'0{month}'
+
+    today = f'{day}/{month}/{year}'
+
+    protocolo = f'{request.form["id"]}.{request.form["request"]}.{request_id}.{day}.{month}.{year}'
+
+    data = (request_id,
+            request.form['id'], solicitacao, 'Em Andamento', today, '', protocolo)
+    try:
+        # ID, USUARIO, SOLICITACAO, SITUACAO, DATA, URL
+        session.database.insertRequest(data)
+        new = [request_id, request.form['id'],
+               solicitacao, 'Em Andamento', today, '', protocolo]
+        session.getConnection(request.remote_addr).solicitacoes.insert(0, new)
+        return str(['Sucesso', 'Sua solicitação foi registrada', solicitacao, today, protocolo])
+    except Exception as error:
+        return str([error, error, error, error, error])
 
 
 if __name__ == '__main__':

@@ -34,7 +34,7 @@ class Mysql():
             self.connection.close()
             print("MySQL connection is closed")
 
-    def fetchTable(self, rows, table, condition=None, value=None, reversed=None):
+    def fetchTable(self, rows, table, condition=None, value=None, reversed=None, ordered=None):
         ''' Fetch a number of rows from a table that exists in database.
         Number of rows and table defined in config file.
         if number of rows equals to 0, will try to fetch all rows.'''
@@ -45,6 +45,9 @@ class Mysql():
                 sql = f'SELECT * FROM `{table}` WHERE {condition} = "{value}" ORDER BY {reversed} DESC'
         else:
             sql = f"SELECT * FROM `{table}` WHERE 1"
+
+        if ordered:
+            sql = f'{sql} ORDER BY {ordered} ASC'
 
         cursor = self.connection.cursor(buffered=True)
         cursor.execute(sql)
@@ -82,6 +85,13 @@ class Mysql():
 
     def insertPost(self, data):
         sql = f"INSERT INTO Blog (ID, MEMBRO, TITULO, CONTEUDO, AUTOR, DATA) VALUES {data}"
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        self.connection.commit()
+        cursor.close()
+
+    def insertRequest(self, data):
+        sql = f"INSERT INTO Solicitacoes (ID, USUARIO, SOLICITACAO, SITUACAO, DATA, URL, PROTOCOLO) VALUES {data}"
         cursor = self.connection.cursor()
         cursor.execute(sql)
         self.connection.commit()

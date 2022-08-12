@@ -105,7 +105,7 @@ class Plan():
         selected_plan = self
 
 
-def toggleContainer(selection, mode=None):
+def toggleContainer(selection=['.main-container', '.body-toolbar'], mode=None):
     if mode == 'blur':
         for item in selection:
             jQuery(item).css('opacity', '0.5')
@@ -185,7 +185,7 @@ def renderPopUp():
     @bind('#floating-popup > button', 'click')
     def togglePopUp(ev):
         POPUP.fadeToggle()
-        toggleContainer(['.main-container', '.body-toolbar'])
+        toggleContainer()
 
 
 def initialRender():
@@ -261,7 +261,7 @@ def loadSafety():
 
     def safetyPopup(h1, p):
         POPUP.fadeToggle()
-        toggleContainer(['.main-container', '.body-toolbar'], 'blur')
+        toggleContainer(mode='blur')
         POPUP.find('h1').text(h1)
         POPUP.find('p').text(p)
 
@@ -320,17 +320,20 @@ def loadRequests(req):
         jQuery('#solicitacao').append(option)
 
     # populating request history
-    for solicitacao in member.solicitacoes:
-        row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[0]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
+    def populateRequestHistory():
+        for solicitacao in member.solicitacoes:
+            row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[6]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
 
-        jQuery('#requests-history').append(row)
+            jQuery('#requests-history').append(row)
 
-        if solicitacao[5]:
-            jQuery(
-                f'#request-{solicitacao[0]}').append(f'<td><a download="{solicitacao[0]}.{solicitacao[5].split(".")[1]}" href="/static/documents/{member.id}/{solicitacao[5]}" title="Download"><img src="/static/image/download_icon.svg"></img></a></td>')
-        else:
-            jQuery(f'#request-{solicitacao[0]}').append(
-                f'<td><img src="/static/image/x_icon.svg"></img></td>')
+            if solicitacao[5]:
+                jQuery(
+                    f'#request-{solicitacao[0]}').append(f'<td><a download="{solicitacao[6]}.{solicitacao[5].split(".")[1]}" href="/static/documents/{member.id}/{solicitacao[5]}" title="Download"><img src="/static/image/download_icon.svg"></img></a></td>')
+            else:
+                jQuery(f'#request-{solicitacao[0]}').append(
+                    f'<td><img src="/static/image/x_icon.svg"></img></td>')
+
+    populateRequestHistory()
 
     # hiding elements
     jQuery('.new-request-container').hide()
@@ -347,9 +350,41 @@ def loadRequests(req):
         jQuery(
             '.visualization-container').fadeToggle(jQuery('.new-request-container').fadeToggle)
 
+    # NOVA SOLICITAÇÃO
     @bind('#submit-request-button', 'click')
     def submitRequest(ev):
-        alert('e agora?')
+        def addRequestToTable(solicitacao, today, protocolo):
+            new = [len(member.solicitacoes), member.id,
+                   solicitacao, 'Em Andamento', today, '', protocolo]
+            member.solicitacoes.insert(0, new)
+
+            jQuery('#requests-history tr:not(.table-header > tr)').remove()
+            populateRequestHistory()
+            jQuery('.requests-history tr:nth-child(odd)').css('background-color',
+                                                              'white')
+            jQuery('.requests-history tr:nth-child(even)').css('background-color',
+                                                               'var(--table-row-background)')
+
+        def newRequest(req):
+            data = eval(req.text)
+            h1 = data[0]
+            p = data[1]
+            POPUP.find('h1').text(h1)
+            POPUP.find('p').text(p)
+            if not data[0] == 'error':
+                addRequestToTable(data[2], data[3], data[4])
+
+        data = {
+            'id': member.id,
+            'request': document['solicitacao'].value
+        }
+
+        toggleContainer(mode='blur')
+        POPUP.fadeToggle()
+        POPUP.find('h1').text('Carregando')
+        POPUP.find('p').text('Gerando solicitação')
+
+        _ajax('/new_request/', newRequest, method='POST', data=data)
         jQuery('#solicitacao').val('')
         jQuery('.new-request-toggles').hide()
         jQuery('.new-request-container').hide()
