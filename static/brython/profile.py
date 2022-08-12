@@ -25,6 +25,7 @@ class Member():
         self.curriculum = data['curriculum']
         self.type = data['member']
         self.solicitacoes = data['solicitacoes']
+        self.temporario = data['temporario']
 
         self.member_container_wrapper = None
         self.container = None
@@ -36,6 +37,20 @@ class Member():
         self.telefone = telefone
         endereco = f'{self.endereco}, {self.numero} | {self.complemento}'
         self.endereco_formatado = endereco
+
+    def updatePassword(self):
+        POPUP.fadeToggle()
+        POPUP.find('h1').text('Atualize sua senha')
+        POPUP.find('p').text(
+            'O sistema foi atualizado e sua senha precisa ser redefinida.')
+
+        pass_input = '<label for="input-new-password-temp">Nova senha</label><input type="password" id="input-new-password-temp" required>'
+        pass_input_confirmation = '<label for="input-new-password-temp-conf">Confirme a nova senha</label><input type="password" id="input-new-password-temp-conf" required>'
+        button = POPUP.find('button')
+        button.remove()
+        POPUP.append(pass_input)
+        POPUP.append(pass_input_confirmation)
+        POPUP.append(button)
 
 
 class Tool():
@@ -199,6 +214,10 @@ def initialRender():
     renderPopUp()
 
     jQuery('#loading-screen').slideToggle('slow')
+
+    if member.temporario:
+        toggleContainer(mode='blur')
+        member.updatePassword()
 
 
 def loadActivePlan(member):

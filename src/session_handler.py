@@ -25,6 +25,7 @@ class Connection():
         self.crm = data[16]
         self.curriculum = data[17]
         self.pessoa = data[18]
+        self.temporario = data[19]
         self.solicitacoes = database.fetchTable(
             0, 'Solicitacoes', 'USUARIO', self.id, ordered='ID')
 

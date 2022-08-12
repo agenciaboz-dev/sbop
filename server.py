@@ -263,6 +263,7 @@ def get_member():
         'crm': connection.crm,
         'curriculum': connection.curriculum,
         'pessoa': connection.pessoa,
+        'temporario': connection.temporario,
         'solicitacoes': connection.solicitacoes
     }
 
