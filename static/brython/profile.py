@@ -264,7 +264,7 @@ def loadProfile(member):
     document['data-phone'].text = member.telefone
     document['data-address'].text = member.endereco_formatado
     document['data-username'].text = member.username
-    document['data-specialization'].text = 'Sem dados'
+    document['data-specialization'].text = 'Estrabismo, plástica ocular'
     document['data-email'].text = member.email
     document['data-curriculum'].text = member.curriculum
 
