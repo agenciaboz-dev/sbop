@@ -189,6 +189,10 @@ def restrictContentList(req):
         addRestrictContent(post)
 
 
+def resizePopUp(width_factor=1, height_factor=3.5, translate_factor=1.75/2):
+    jQuery('#floating-popup').height(jQuery('#floating-popup').height() * height_factor)
+
+
 def renderPopUp():
     height = jQuery('#profile-container').height()
     width = jQuery('#profile-container').width()
