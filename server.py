@@ -388,6 +388,17 @@ def change_email():
         return str(['Erro', error])
 
 
+@app.route('/cancel_request/', methods=['POST'])
+def cancel_request():
+    id = request.form['id']
+    try:
+        session.database.updateTable(
+            'Solicitacoes', id, 'SITUACAO', 'Encerrado', 'ID')
+        return str(['Sucesso', 'Solicitação cancelada, me dá um email pra notificar'])
+    except Exception as error:
+        print(error)
+        return str(['Erro', error])
+
 @app.route('/new_request/', methods=['POST'])
 def new_request():
     solicitacao = session.database.fetchTable(
@@ -416,7 +427,7 @@ def new_request():
         new = [request_id, request.form['id'],
                solicitacao, 'Em Andamento', today, '', protocolo]
         session.getConnection(request.remote_addr).solicitacoes.insert(0, new)
-        return str(['Sucesso', 'Sua solicitação foi registrada', solicitacao, today, protocolo])
+        return str(['Sucesso', 'Sua solicitação foi registrada, me dá um email pra notificar', solicitacao, today, protocolo])
     except Exception as error:
         return str([error, error, error, error, error])
 

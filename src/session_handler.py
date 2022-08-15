@@ -65,6 +65,7 @@ class Session():
             data = {
                 'id': member[0],
                 'user': member[1],
+                'password': member[2],
                 'name': member[3],
                 'uf': member[4],
                 'member': member[5],

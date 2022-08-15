@@ -576,6 +576,9 @@ button:hover {
     width: 100%;
 }
 
+.requests-history table td img {
+    cursor: pointer;
+}
 .table-header th {
     padding: 1vh 2vw;
     background-color: var(--input-background);

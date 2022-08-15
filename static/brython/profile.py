@@ -4,6 +4,8 @@ jQuery = window.jQuery
 member = []
 selected_plan = None
 POPUP = jQuery('#floating-popup')
+container_height = jQuery('#profile-container').height()
+container_width = jQuery('#profile-container').width()
 
 
 class Member():
@@ -51,6 +53,19 @@ class Member():
         POPUP.append(pass_input)
         POPUP.append(pass_input_confirmation)
         POPUP.append(button)
+        resizePopUp(height_factor=3.5)
+        POPUP.css('transform',
+                  f'translateY({container_height/4}px) translateX({container_width/3}px)')
+
+        # def updatePasswordButton(ev):
+        #     print('eita')
+        #     POPUP.find('button').unbind('click', updatePasswordButton)
+
+        # POPUP.find('button').bind('click', updatePasswordButton)
+
+        # new_password = document['input-new-password-temp'].value
+        # if not new_password:
+        #     POPUP.find('p').text('Insira uma senha')
 
 
 class Tool():
@@ -194,10 +209,8 @@ def resizePopUp(width_factor=1, height_factor=3.5, translate_factor=1.75/2):
 
 
 def renderPopUp():
-    height = jQuery('#profile-container').height()
-    width = jQuery('#profile-container').width()
     POPUP.css('transform',
-              f'translateY({height/2}px) translateX({width/3}px)')
+              f'translateY({container_height/2}px) translateX({container_width/3}px)')
 
     POPUP.fadeToggle()
 
@@ -205,6 +218,10 @@ def renderPopUp():
     def togglePopUp(ev):
         POPUP.fadeToggle()
         toggleContainer()
+
+        # remove inputs
+        POPUP.find('input').fadeOut()
+        POPUP.find('label').fadeOut()
 
 
 def initialRender():
@@ -346,7 +363,7 @@ def loadRequests(req):
     def populateRequestHistory():
         count = 1
         for solicitacao in member.solicitacoes:
-            row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[6]}</td><td>{solicitacao[2]}</td><td>{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
+            row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[6]}</td><td>{solicitacao[2]}</td><td class="request-situation">{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
 
             jQuery('#requests-history').append(row)
 
@@ -355,11 +372,32 @@ def loadRequests(req):
                     f'#request-{solicitacao[0]}').append(f'<td><a download="{solicitacao[6]}.{solicitacao[5].split(".")[1]}" href="/static/documents/{member.id}/{solicitacao[5]}" title="Download"><img src="/static/image/download_icon.svg"></img></a></td>')
             else:
                 jQuery(f'#request-{solicitacao[0]}').append(
-                    f'<td><img src="/static/image/x_icon.svg"></img></td>')
+                    f'<td><img id="cancel-request-{solicitacao[0]}" class="cancel-request" src="/static/image/x_icon.svg"></img></td>')
+
 
             count += 1
             if count > 5:
                 break
+
+        @bind('.cancel-request', 'click')
+        def cancelRequestButton(ev):
+            id = ev.target.attrs['id'].split('-')[2]
+            print(f'clicked {id}')
+
+            def cancelRequest(req):
+                data = eval(req.text)
+                print(f'response: {data}')
+                toggleContainer('blur')
+                POPUP.fadeToggle()
+                POPUP.find('h1').text(data[0])
+                POPUP.find('p').text(data[1])
+                if data[0] == 'Sucesso':
+                    jQuery(
+                        f'#request-{id} > .request-situation').text('Encerrado')
+
+            _ajax('/cancel_request/', cancelRequest,
+                  method='POST', data={'id': id})
+
 
     populateRequestHistory()
 
