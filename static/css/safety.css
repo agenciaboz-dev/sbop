@@ -1,0 +1,36 @@
+/* ----- SAFETY CONTAINER ----- */
+
+#safety-container {
+    display: flex;
+    margin: 0;
+}
+
+#safety-container>form {
+    display: flex;
+    flex-direction: column;
+    margin: 4vw;
+    margin-top: 2vw;
+    font-size: 0.9vw;
+}
+
+#safety-container>form>input {
+    border-radius: 1.5vw;
+    height: 6vh;
+    background-color: var(--input-background);
+    opacity: 0.5;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    color: var(--text-secondary);
+    font-size: 1vw;
+}
+
+#safety-container>form>h1 {
+    font-size: 1.5vw;
+}
+
+#safety-container>form>label {
+    color: var(--text-secondary);
+    font-weight: bold;
+    margin-bottom: 0;
+}

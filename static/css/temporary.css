@@ -1,0 +1,14 @@
+#temporary-container {
+    display: flex;
+}
+
+.falta-pouco {
+    display: flex;
+    flex-direction: column;
+}
+
+.falta-pouco>div {
+    display: flex;
+    border-radius: 2vw;
+    background-color: var(--toolbar-color);
+}

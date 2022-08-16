@@ -57,11 +57,15 @@ class Member():
         POPUP.css('transform',
                   f'translateY({container_height/4}px) translateX({container_width/3}px)')
 
-        # def updatePasswordButton(ev):
-        #     print('eita')
-        #     POPUP.find('button').unbind('click', updatePasswordButton)
+        def updatePasswordButton(ev):
+            print('eita')
+            POPUP.fadeToggle()
+            toggleContainer(selection=['.main-container'])
+            POPUP.find('button').off('click')
+            POPUP.find('button').on('click', togglePopUp)
 
-        # POPUP.find('button').bind('click', updatePasswordButton)
+        POPUP.find('button').off('click')
+        POPUP.find('button').on('click', updatePasswordButton)
 
         # new_password = document['input-new-password-temp'].value
         # if not new_password:
@@ -208,23 +212,26 @@ def resizePopUp(width_factor=1, height_factor=3.5, translate_factor=1.75/2):
     jQuery('#floating-popup').height(jQuery('#floating-popup').height() * height_factor)
 
 
+def togglePopUp(ev):
+    POPUP.fadeToggle()
+    toggleContainer()
+
+    # remove inputs
+    POPUP.find('input').fadeOut()
+    POPUP.find('label').fadeOut()
+
+
 def renderPopUp():
     POPUP.css('transform',
               f'translateY({container_height/2}px) translateX({container_width/3}px)')
 
     POPUP.fadeToggle()
 
-    @bind('#floating-popup > button', 'click')
-    def togglePopUp(ev):
-        POPUP.fadeToggle()
-        toggleContainer()
-
-        # remove inputs
-        POPUP.find('input').fadeOut()
-        POPUP.find('label').fadeOut()
+    POPUP.find('button').on('click', togglePopUp)
 
 
 def initialRender():
+    jQuery('#temporary-container').hide()
     jQuery('.main-container').hide()
     jQuery('#toolbar-profile').addClass('toolbar-active')
     jQuery('#profile-container').show()
@@ -239,6 +246,9 @@ def initialRender():
     if member.temporario:
         toggleContainer(mode='blur')
         member.updatePassword()
+        jQuery('.main-container').hide()
+        toggleContainer(selection=['.body-toolbar'], mode='blur')
+        jQuery('#temporary-container').show()
 
 
 def loadActivePlan(member):
@@ -374,7 +384,6 @@ def loadRequests(req):
                 jQuery(f'#request-{solicitacao[0]}').append(
                     f'<td><img id="cancel-request-{solicitacao[0]}" class="cancel-request" src="/static/image/x_icon.svg"></img></td>')
 
-
             count += 1
             if count > 5:
                 break
@@ -397,7 +406,6 @@ def loadRequests(req):
 
             _ajax('/cancel_request/', cancelRequest,
                   method='POST', data={'id': id})
-
 
     populateRequestHistory()
 

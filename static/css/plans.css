@@ -1,0 +1,90 @@
+/* ----- PLANS CONTAINER ----- */
+
+#plans-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 2vw 3vw;
+    height: 100%;
+
+}
+
+
+#plans-container h1 {
+    color: var(--text-terciary);
+    font-size: 1.1vw;
+    margin: 0;
+}
+
+#plans-container>h1 {
+    margin: 5px 10px 0;
+}
+
+#plans-container p {
+    color: var(--text-secondary);
+    font-size: 0.9vw;
+}
+
+#plans-container p span {
+    font-weight: bold;
+}
+
+.deactivated-button {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.plans {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--toolbar-color);
+    border-radius: 1.5vw;
+    margin: 0.5vw;
+    cursor: pointer;
+    padding: 0 0.5vw;
+}
+
+.plan-title {
+    display: flex;
+    flex-direction: row;
+    margin: 0 -0.5vw;
+    padding: 10px;
+    border-top-left-radius: 1.5vw;
+    border-top-right-radius: 1.5vw;
+}
+
+.plans hr {
+    margin: 0 0.5vw;
+    width: 20%;
+}
+
+.active-plan {
+    outline: 0.3vw solid var(--primary-color);
+}
+
+.active-plan>div {
+    background-color: var(--input-background);
+
+}
+
+.active-plan>hr {
+    display: none;
+}
+
+.active-plan>.plan-title>p {
+    margin: 0 2vw;
+    font-weight: bold;
+    font-size: 1.1vw;
+    text-align: center;
+    margin-left: auto;
+}
+
+#active-plan-icon {
+    position: absolute;
+    width: 2vw;
+    left: 2vw;
+}
+
+.selected-plan {
+    outline: 0.3vw solid var(--secondary-color);
+}
