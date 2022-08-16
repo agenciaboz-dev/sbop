@@ -27,7 +27,8 @@ class Member():
         self.curriculum = data['curriculum']
         self.type = data['member']
         self.solicitacoes = data['solicitacoes']
-        self.temporario = data['temporario']
+        self.temporario = eval(data['temporario'])
+        self.primeiro_acesso = eval(data['primeiro_acesso'])
 
         self.member_container_wrapper = None
         self.container = None
@@ -58,18 +59,38 @@ class Member():
                   f'translateY({container_height/4}px) translateX({container_width/3}px)')
 
         def updatePasswordButton(ev):
-            print('eita')
-            POPUP.fadeToggle()
-            toggleContainer(selection=['.main-container'])
-            POPUP.find('button').off('click')
-            POPUP.find('button').on('click', togglePopUp)
+            print('atualizar senha')
+
+            new_password = jQuery('#input-new-password-temp')
+            new_password_conf = jQuery('#input-new-password-temp-conf')
+            if new_password.val():
+                if new_password.val() == new_password_conf.val():
+                    def onCompletePasswordUpdate(req):
+                        POPUP.fadeToggle()
+                        toggleContainer(selection=['.main-container'])
+                        POPUP.find('button').off('click')
+                        POPUP.find('button').on('click', togglePopUp)
+                        alert(eval(req.text)[0])
+
+                    data = {
+                        'id': member.id,
+                        'new_password': new_password.val(),
+                        'first_access': True
+                    }
+
+                    _ajax('/change_password/', onCompletePasswordUpdate,
+                          method='POST', data=data)
+                else:
+                    POPUP.find('p').text(
+                        'Senhas não conferem. Por favor, tente novamente.')
+                    new_password.val('')
+                    new_password_conf.val('')
+                    new_password.focus()
+            else:
+                POPUP.find('p').text('Insira uma senha')
 
         POPUP.find('button').off('click')
         POPUP.find('button').on('click', updatePasswordButton)
-
-        # new_password = document['input-new-password-temp'].value
-        # if not new_password:
-        #     POPUP.find('p').text('Insira uma senha')
 
 
 class Tool():
@@ -243,9 +264,11 @@ def initialRender():
 
     jQuery('#loading-screen').slideToggle('slow')
 
-    if member.temporario:
+    if member.primeiro_acesso:
         toggleContainer(mode='blur')
         member.updatePassword()
+
+    if member.temporario:
         jQuery('.main-container').hide()
         toggleContainer(selection=['.body-toolbar'], mode='blur')
         jQuery('#temporary-container').show()

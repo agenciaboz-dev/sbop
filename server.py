@@ -243,29 +243,7 @@ def get_member():
     if not connection:
         return 'False'
 
-    data = {
-        'id': connection.id,
-        'user': connection.user,
-        'password': connection.password,
-        'name': connection.name,
-        'uf': connection.uf,
-        'cep': connection.cep,
-        'member': connection.member,
-        'email': connection.email,
-        'telefone': connection.telefone,
-        'celular': connection.celular,
-        'endereco': connection.endereco,
-        'numero': connection.numero,
-        'complemento': connection.complemento,
-        'bairro': connection.bairro,
-        'cidade': connection.cidade,
-        'pais': connection.pais,
-        'crm': connection.crm,
-        'curriculum': connection.curriculum,
-        'pessoa': connection.pessoa,
-        'temporario': connection.temporario,
-        'solicitacoes': connection.solicitacoes
-    }
+    data = vars(connection)
 
     return data
 
@@ -371,8 +349,12 @@ def change_plan():
 @app.route('/change_password/', methods=['POST'])
 def change_password():
     try:
+        id = request.form['id']
         session.database.updateTable(
-            'Membros', request.form['id'], 'SENHA', request.form['new_password'], 'ID')
+            'Membros', id, 'SENHA', request.form['new_password'], 'ID')
+        if 'first_access' in request.form:
+            session.database.updateTable(
+                'Membros', id, 'PRIMEIRO_ACESSO', 'False', 'ID')
         return str(['Sucesso', 'Sua senha foi alterada'])
     except Exception as error:
         return str(['Erro', error])
