@@ -4,9 +4,19 @@ from src.mysql_handler import Mysql
 
 
 class Connection():
-    def __init__(self, ip, data, database):
+    def __init__(self, ip, database, id):
+        self.id = id
+        self.buildAttributes(ip, database)
+
+        self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
+
+    def isExpired(self):
+        if not datetime.now() < self.expira:
+            return True
+
+    def buildAttributes(self, ip, database):
+        data = database.fetchTable(1, 'Membros', 'ID', self.id)[0]
         self.ip = ip
-        self.id = data[0]
         self.user = data[1]
         self.password = data[2]
         self.name = data[3]
@@ -27,16 +37,13 @@ class Connection():
         self.pessoa = data[18]
         self.temporario = data[19]
         self.primeiro_acesso = data[20]
+        self.cpf = data[21]
+        self.especialidades = []
+        for item in data[22].split():
+            self.especialidades.append(item)
         self.solicitacoes = database.fetchTable(
             0, 'Solicitacoes', 'USUARIO', self.id, ordered='ID')
-
         self.solicitacoes.reverse()
-        self.expira = datetime.now() + timedelta(minutes=TIMELIMIT)
-
-    def isExpired(self):
-        if not datetime.now() < self.expira:
-            return True
-
 
 class Session():
     def __init__(self):
@@ -110,7 +117,7 @@ class Session():
                         self.connections.remove(is_logged)
 
                     self.connections.append(
-                        Connection(ip, data, self.database))
+                        Connection(ip, self.database, id))
                     return str(id)
         except Exception as error:
             print(error)

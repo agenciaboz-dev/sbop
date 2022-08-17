@@ -59,57 +59,87 @@
         <!-- TEMPORARY CONTAINER -->
         <div id="temporary-container">
             <div class="temporary-stages">
-                <div>
+                <div class="temporary-stage-1">
                     <div class="circle-number">
                         <h1>1</h1>
                     </div>
                     <h1>Cadastro</h1>
                     <p>Complete seu perfil para desbloquear as funcionalidades do sistema.</p>
                     <button id="stage-1-button">Prosseguir</button>
-                    </div>
-                    <hr>
-                    <div>
-                        <div class="circle-number">
-                            <h1>2</h1>
-                        </div>
-                        <h1>Plano</h1>
-                        <p>Selecione o plano desejado.</p>
-                        <img src="/static/image/exclamacao.svg" alt="">
-                    </div>
-                    <hr>
-                    <div>
-                        <div class="circle-number">
-                            <h1>3</h1>
-                        </div>
-                        <h1>Tudo pronto</h1>
-                        <p>Clique no botão abaixo para finalizar.</p>
-                        <img src="/static/image/exclamacao.svg" alt="">
-                    </div>
                 </div>
+                <hr>
+                <div class="temporary-stage-2">
+                    <div class="circle-number">
+                        <h1>2</h1>
+                    </div>
+                    <h1>Plano</h1>
+                    <p>Selecione o plano desejado.</p>
+                    <img src="/static/image/incomplete_icon.svg" alt="">
+                </div>
+                <hr>
+                <div class="temporary-stage-3">
+                    <div class="circle-number">
+                        <h1>3</h1>
+                    </div>
+                    <h1>Tudo pronto</h1>
+                    <p>Clique no botão abaixo para finalizar.</p>
+                    <img src="/static/image/incomplete_icon.svg" alt="">
+                </div>
+            </div>
             <div class="stage-1-container stages-container">
                 <h1>Atualize seu perfil</h1>
-                <form>
+                <form action="javascript:void(0);">
                     <div>
-                        <label for="member-input-name">Nome Completo</label>
+                        <label for="member-input-name" required>Nome Completo</label>
                         <input type="text" id="member-input-name">
-                        <label for="member-input-cpf">CPF</label>
+                        <label for="member-input-cpf" required>CPF</label>
                         <input type="text" id="member-input-cpf">
-                        <label for="member-input-telefone">Telefone</label>
-                        <input type="text" id="member-input-telefone">
-                        <label for="member-input-email">E-mail</label>
+                        
+                        <label for="member-input-email" required>E-mail</label>
                         <input type="text" id="member-input-email">
                         <label for="member-input-crm">CRM</label>
                         <input type="text" id="member-input-crm">
-                        <label for="member-input-especialidades">Especialidades</label>
-                        <input type="text" id="member-input-especialidades">
+                        <p>Especialidades</p>
+                        <div>
+                            <div>
+                                <label for="member-input-oftalmologia">Oftalmologia Pediátrica</label>
+                                <input type="checkbox" value="Oftalmologia Pediátrica" class="checkbox" id="member-input-oftalmologia">
+                            </div>
+                            <div>
+                                <label for="member-input-estrabismo">Estrabismo</label>
+                                <input type="checkbox" value="Estrabismo" class="checkbox" id="member-input-estrabismo">
+                            </div>
+                            <div>
+                                <label for="member-input-glaucoma">Glaucoma Pediátrico</label>
+                                <input type="checkbox" value="Glaucoma Pediátrico" class="checkbox" id="member-input-glaucoma">
+                            </div>
+                            <div>
+                                <label for="member-input-catarata">Catarata Pediátrica</label>
+                                <input type="checkbox" value="Catarata Pediátrica" class="checkbox" id="member-input-catarata">
+                            </div>
+                            <div>
+                                <label for="member-input-retina">Retina Pediátrica</label>
+                                <input type="checkbox" value="Retina Pediátrica" class="checkbox" id="member-input-retina">
+                            </div>
+                            <div>
+                                <label for="member-input-vias">Vias lacrimais</label>
+                                <input type="checkbox" value="Vias lacrimais" class="checkbox" id="member-input-vias">
+                            </div>
+                            <div>
+                                <label for="member-input-plastica">Plástica Ocular</label>
+                                <input type="checkbox" value="Plástica Ocular" class="checkbox" id="member-input-plastica">
+                            </div>
+                        </div>
                         <label for="member-input-curriculum">Curriculum</label>
                         <input type="text" id="member-input-curriculum">
                     </div>
                     <div>
+                        <label for="member-input-telefone">Telefone</label>
+                        <input type="text" id="member-input-telefone">
                         <label for="member-input-cep">CEP</label>
                         <input type="text" id="member-input-cep">
-                        <label for="member-input-endereço">Endereço</label>
-                        <input type="text" id="member-input-endereço">
+                        <label for="member-input-endereco">Endereço</label>
+                        <input type="text" id="member-input-endereco">
                         <label for="member-input-numero">Número</label>
                         <input type="text" id="member-input-numero">
                         <label for="member-input-complemento">Complemento</label>
@@ -118,11 +148,14 @@
                         <input type="text" id="member-input-bairro">
                         <label for="member-input-cidade">Cidade</label>
                         <input type="text" id="member-input-cidade">
-                        <label for="member-input-estado">Estado</label>
-                        <input type="text" id="member-input-estado">
+                        <label for="member-input-uf">Estado</label>
+                        <input type="text" id="member-input-uf">
                     </div>
                 </form>
                 <button id="submit-stage-1-button">Enviar</button>
+            </div>
+            <div class="stage-2-container stages-container">
+                <h1>fase 2</h1>
             </div>
         </div>
         <!-- PROFILE CONTAINER -->

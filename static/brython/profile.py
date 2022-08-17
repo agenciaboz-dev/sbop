@@ -11,13 +11,17 @@ container_width = jQuery('#profile-container').width()
 class Member():
     def __init__(self, data):
         self.id = data['id']
+        self.cpf = data['cpf']
         self.username = data['user']
         self.password = data['password']
         self.img = None
         self.name = data['name']
         self.telefone = data['telefone']
+        self.telefone_plain = data['telefone']
         self.email = data['email']
         self.endereco = data['endereco']
+        self.rua = data['endereco']
+        self.bairro = data['bairro']
         self.numero = data['numero']
         self.complemento = data['complemento']
         self.cep = data['cep']
@@ -27,6 +31,7 @@ class Member():
         self.curriculum = data['curriculum']
         self.type = data['member']
         self.solicitacoes = data['solicitacoes']
+        self.especialidades = data['especialidades']
         self.temporario = eval(data['temporario'])
         self.primeiro_acesso = eval(data['primeiro_acesso'])
 
@@ -312,6 +317,58 @@ def loadActivePlan(member):
 
 def renderStage1(ev):
     jQuery('.temporary-stages').fadeOut(jQuery('.stage-1-container').fadeIn)
+    jQuery('#submit-stage-1-button').on('click', renderStage2)
+    
+    jQuery('#member-input-name').val(member.name)
+    jQuery('#member-input-cpf').val(member.cpf)
+    jQuery('#member-input-telefone').val(member.telefone)
+    jQuery('#member-input-email').val(member.email)
+    jQuery('#member-input-crm').val(member.crm)
+    jQuery('#member-input-curriculum').val(member.curriculum)
+    jQuery('#member-input-cep').val(member.cep)
+    jQuery('#member-input-endereco').val(member.rua)
+    jQuery('#member-input-numero').val(member.numero)
+    jQuery('#member-input-complemento').val(member.complemento)
+    jQuery('#member-input-bairro').val(member.bairro)
+    jQuery('#member-input-cidade').val(member.cidade)
+    jQuery('#member-input-uf').val(member.uf)
+    
+    
+    
+def renderStage2(ev):
+    if not jQuery('#member-input-cpf').val():
+        alert('Insira um CPF')
+        return None
+    
+    for element in document.select('.checkbox'):
+        if element.checked:
+            member.especialidades.append(element.attrs['value'])
+            
+    member.name = jQuery('#member-input-name').val()
+    member.cpf = jQuery('#member-input-cpf').val()
+    member.telefone = jQuery('#member-input-telefone').val()
+    member.email = jQuery('#member-input-email').val()
+    member.crm = jQuery('#member-input-crm').val()
+    member.curriculum = jQuery('#member-input-curriculum').val()
+    member.cep = jQuery('#member-input-cep').val()
+    member.rua = jQuery('#member-input-endereco').val()
+    member.numero = jQuery('#member-input-numero').val()
+    member.complemento = jQuery('#member-input-complemento').val()
+    member.bairro = jQuery('#member-input-bairro').val()
+    member.cidade = jQuery('#member-input-cidade').val()
+    member.uf = jQuery('#member-input-uf').val()
+    
+    def updateProfileComplete(req):
+        response = eval(req.text)
+        if response:
+            jQuery('.temporary-stage-1').find('button').remove()
+            img = '<img src="/static/image/complete_icon.svg" alt="">'
+            jQuery('.temporary-stage-1').append(img)
+            jQuery('.stage-1-container').fadeOut(jQuery('.temporary-stages').fadeIn)
+    
+    _ajax('/update_profile/', updateProfileComplete, method='POST', data=vars(member))
+    
+    
 
 def loadProfile(member):
     document['data-name'].text = member.name
@@ -319,7 +376,7 @@ def loadProfile(member):
     document['data-phone'].text = member.telefone
     document['data-address'].text = member.endereco_formatado
     document['data-username'].text = member.username
-    document['data-specialization'].text = 'Estrabismo, Plástica Ocular'
+    document['data-specialization'].text = str(member.especialidades)
     document['data-email'].text = member.email
     document['data-curriculum'].text = member.curriculum
 

@@ -102,5 +102,5 @@ class Mysql():
         cursor = self.connection.cursor()
         cursor.execute(command)
         self.connection.commit()
-        # cursor.close()
+        cursor.close()
         print("Record Updated successfully ")

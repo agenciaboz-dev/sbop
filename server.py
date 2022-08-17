@@ -240,6 +240,7 @@ def get_member():
     ip = str(request.remote_addr)
 
     connection = session.getConnection(ip)
+    connection.buildAttributes(ip, session.database)
     if not connection:
         return 'False'
 
@@ -413,6 +414,18 @@ def new_request():
     except Exception as error:
         return str([error, error, error, error, error])
 
-
+@app.route('/update_profile/', methods=['POST'])
+def update_profile():
+    try:
+        sql = f"UPDATE Membros SET NOME='{request.form['name']}', UF='{request.form['uf']}', CEP='{request.form['cep']}', CPF='{request.form['cpf']}', EMAIL='{request.form['email']}', CRM='{request.form['crm']}', CURRICULUM='{request.form['curriculum']}', TELEFONE='{request.form['telefone_plain']}', ENDERECO='{request.form['endereco']}', NUMERO='{request.form['numero']}', COMPLEMENTO='{request.form['complemento']}', BAIRRO='{request.form['bairro']}', CIDADE='{request.form['cidade']}', ESPECIALIDADES='{str(request.form['especialidades'])}', TEMPORARIO='True' WHERE ID={request.form['id']}"
+        cursor = session.database.connection.cursor()
+        cursor.execute(sql)
+        session.database.connection.commit()
+        cursor.close()
+        return 'True'
+    except Exception as error:
+        print(error)
+        return 'False'
+    
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
