@@ -39,7 +39,7 @@ class Connection():
         self.primeiro_acesso = data[20]
         self.cpf = data[21]
         self.especialidades = []
-        for item in data[22].split():
+        for item in data[22].split(','):
             self.especialidades.append(item)
         self.solicitacoes = database.fetchTable(
             0, 'Solicitacoes', 'USUARIO', self.id, ordered='ID')

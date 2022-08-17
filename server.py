@@ -417,11 +417,20 @@ def new_request():
 @app.route('/update_profile/', methods=['POST'])
 def update_profile():
     try:
-        sql = f"UPDATE Membros SET NOME='{request.form['name']}', UF='{request.form['uf']}', CEP='{request.form['cep']}', CPF='{request.form['cpf']}', EMAIL='{request.form['email']}', CRM='{request.form['crm']}', CURRICULUM='{request.form['curriculum']}', TELEFONE='{request.form['telefone_plain']}', ENDERECO='{request.form['endereco']}', NUMERO='{request.form['numero']}', COMPLEMENTO='{request.form['complemento']}', BAIRRO='{request.form['bairro']}', CIDADE='{request.form['cidade']}', ESPECIALIDADES='{str(request.form['especialidades'])}', TEMPORARIO='True' WHERE ID={request.form['id']}"
+        sql = f"UPDATE Membros SET NOME='{request.form['name']}', UF='{request.form['uf']}', CEP='{request.form['cep']}', CPF='{request.form['cpf']}', EMAIL='{request.form['email']}', CRM='{request.form['crm']}', CURRICULUM='{request.form['curriculum']}', TELEFONE='{request.form['telefone_plain']}', ENDERECO='{request.form['endereco']}', NUMERO='{request.form['numero']}', COMPLEMENTO='{request.form['complemento']}', BAIRRO='{request.form['bairro']}', CIDADE='{request.form['cidade']}', ESPECIALIDADES='{request.form['especialidades_str']}', TEMPORARIO='True' WHERE ID={request.form['id']}"
         cursor = session.database.connection.cursor()
         cursor.execute(sql)
         session.database.connection.commit()
         cursor.close()
+        return 'True'
+    except Exception as error:
+        print(error)
+        return 'False'
+    
+@app.route('/remove_temporary/', methods=['POST'])
+def remove_temporary():
+    try:
+        session.database.updateTable('Membros', request.form['id'], 'TEMPORARIO', 'False', 'ID')
         return 'True'
     except Exception as error:
         print(error)

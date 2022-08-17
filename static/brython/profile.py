@@ -32,6 +32,7 @@ class Member():
         self.type = data['member']
         self.solicitacoes = data['solicitacoes']
         self.especialidades = data['especialidades']
+        self.especialidades_str = None
         self.temporario = eval(data['temporario'])
         self.primeiro_acesso = eval(data['primeiro_acesso'])
 
@@ -279,6 +280,9 @@ def initialRender():
         toggleContainer(selection=['.body-toolbar'], mode='blur')
         jQuery('#temporary-container').show()
         jQuery('#stage-1-button').on('click', renderStage1)
+        
+        if member.type:
+            jQuery('.temporary-stage-2').find('img').attr('src','/static/image/complete_icon.svg')
 
 
 def loadActivePlan(member):
@@ -333,6 +337,11 @@ def renderStage1(ev):
     jQuery('#member-input-cidade').val(member.cidade)
     jQuery('#member-input-uf').val(member.uf)
     
+    print(member.especialidades)
+    for element in document.select('.checkbox'):
+        if element.attrs['value'] in member.especialidades:
+            element.checked = True
+    
     
     
 def renderStage2(ev):
@@ -340,9 +349,15 @@ def renderStage2(ev):
         alert('Insira um CPF')
         return None
     
+    member.especialidades = []
     for element in document.select('.checkbox'):
         if element.checked:
             member.especialidades.append(element.attrs['value'])
+    
+    especialidades = ''
+    for item in member.especialidades:
+        especialidades += item+','
+    member.especialidades_str = especialidades.strip(',')
             
     member.name = jQuery('#member-input-name').val()
     member.cpf = jQuery('#member-input-cpf').val()
@@ -361,25 +376,44 @@ def renderStage2(ev):
     def updateProfileComplete(req):
         response = eval(req.text)
         if response:
+            # removing button from stage-1
             jQuery('.temporary-stage-1').find('button').remove()
+            # appending img to stage-1
             img = '<img src="/static/image/complete_icon.svg" alt="">'
             jQuery('.temporary-stage-1').append(img)
+            
+            if member.type:
+                jQuery('.temporary-stage-3').find('img').remove()
+                button = html.BUTTON('Finalizar', Id='finish-temporary-profile-button')
+                jQuery('.temporary-stage-3').append(button)
+                def removeTemporary(ev):
+                    toggleContainer()
+                    jQuery('#temporary-container').fadeOut(jQuery('#profile-container').fadeIn)
+                    loadProfile()
+                    # _ajax('/remove_temporary/', print, method='POST', data={'id': member.id})
+
+                jQuery(button).on('click', removeTemporary)
+            
             jQuery('.stage-1-container').fadeOut(jQuery('.temporary-stages').fadeIn)
     
     _ajax('/update_profile/', updateProfileComplete, method='POST', data=vars(member))
     
     
 
-def loadProfile(member):
+def loadProfile():
     document['data-name'].text = member.name
     document['data-crm'].text = member.crm
     document['data-phone'].text = member.telefone
     document['data-address'].text = member.endereco_formatado
     document['data-username'].text = member.username
-    document['data-specialization'].text = str(member.especialidades)
     document['data-email'].text = member.email
     document['data-curriculum'].text = member.curriculum
 
+    especialidades = ''
+    for item in member.especialidades:
+        especialidades += item+', '
+    member.especialidades_str = especialidades.strip().strip(',')
+    document['data-specialization'].text = member.especialidades_str
 
 def loadSafety():
     def clearInputs():
@@ -565,7 +599,7 @@ def preLoad(req):
     data = eval(req.text)
     member = Member(data)
 
-    loadProfile(member)
+    loadProfile()
     loadSafety()
     loadActivePlan(member)
     loadRestrict(member)
