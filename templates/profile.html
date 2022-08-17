@@ -58,18 +58,71 @@
         </div>
         <!-- TEMPORARY CONTAINER -->
         <div id="temporary-container">
-            <div>
-                <div class="falta-pouco">
-                    <h1>Falta Pouco!</h1>
-                    <h2>Perfil Temporário</h2>
+            <div class="temporary-stages">
+                <div>
+                    <div class="circle-number">
+                        <h1>1</h1>
+                    </div>
+                    <h1>Cadastro</h1>
+                    <p>Complete seu perfil para desbloquear as funcionalidades do sistema.</p>
+                    <button id="stage-1-button">Prosseguir</button>
+                    </div>
+                    <hr>
                     <div>
+                        <div class="circle-number">
+                            <h1>2</h1>
+                        </div>
+                        <h1>Plano</h1>
+                        <p>Selecione o plano desejado.</p>
                         <img src="/static/image/exclamacao.svg" alt="">
-                        <p>Esse é um perfil temporário até que todas as informações necessárias estejam em ordem.</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="circle-number">
+                            <h1>3</h1>
+                        </div>
+                        <h1>Tudo pronto</h1>
+                        <p>Clique no botão abaixo para finalizar.</p>
+                        <img src="/static/image/exclamacao.svg" alt="">
                     </div>
                 </div>
-                <div>
-        
-                </div>
+            <div class="stage-1-container stages-container">
+                <h1>Atualize seu perfil</h1>
+                <form>
+                    <div>
+                        <label for="member-input-name">Nome Completo</label>
+                        <input type="text" id="member-input-name">
+                        <label for="member-input-cpf">CPF</label>
+                        <input type="text" id="member-input-cpf">
+                        <label for="member-input-telefone">Telefone</label>
+                        <input type="text" id="member-input-telefone">
+                        <label for="member-input-email">E-mail</label>
+                        <input type="text" id="member-input-email">
+                        <label for="member-input-crm">CRM</label>
+                        <input type="text" id="member-input-crm">
+                        <label for="member-input-especialidades">Especialidades</label>
+                        <input type="text" id="member-input-especialidades">
+                        <label for="member-input-curriculum">Curriculum</label>
+                        <input type="text" id="member-input-curriculum">
+                    </div>
+                    <div>
+                        <label for="member-input-cep">CEP</label>
+                        <input type="text" id="member-input-cep">
+                        <label for="member-input-endereço">Endereço</label>
+                        <input type="text" id="member-input-endereço">
+                        <label for="member-input-numero">Número</label>
+                        <input type="text" id="member-input-numero">
+                        <label for="member-input-complemento">Complemento</label>
+                        <input type="text" id="member-input-complemento">
+                        <label for="member-input-bairro">Bairro</label>
+                        <input type="text" id="member-input-bairro">
+                        <label for="member-input-cidade">Cidade</label>
+                        <input type="text" id="member-input-cidade">
+                        <label for="member-input-estado">Estado</label>
+                        <input type="text" id="member-input-estado">
+                    </div>
+                </form>
+                <button id="submit-stage-1-button">Enviar</button>
             </div>
         </div>
         <!-- PROFILE CONTAINER -->

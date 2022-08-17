@@ -254,6 +254,7 @@ def renderPopUp():
 def initialRender():
     jQuery('#temporary-container').hide()
     jQuery('.main-container').hide()
+    jQuery('.stages-container').hide()
     jQuery('#toolbar-profile').addClass('toolbar-active')
     jQuery('#profile-container').show()
 
@@ -272,6 +273,7 @@ def initialRender():
         jQuery('.main-container').hide()
         toggleContainer(selection=['.body-toolbar'], mode='blur')
         jQuery('#temporary-container').show()
+        jQuery('#stage-1-button').on('click', renderStage1)
 
 
 def loadActivePlan(member):
@@ -307,6 +309,9 @@ def loadActivePlan(member):
         jQuery('#plans-container > button').addClass('deactivated-button')
         alert('seguir pro pagamento?')
 
+
+def renderStage1(ev):
+    jQuery('.temporary-stages').fadeOut(jQuery('.stage-1-container').fadeIn)
 
 def loadProfile(member):
     document['data-name'].text = member.name
