@@ -35,6 +35,7 @@ class Member():
         self.especialidades_str = None
         self.temporario = eval(data['temporario'])
         self.primeiro_acesso = eval(data['primeiro_acesso'])
+        self.pago = eval(data['pago'])
 
         self.member_container_wrapper = None
         self.container = None
@@ -301,6 +302,10 @@ def loadActivePlan(member):
     jQuery('.active-plan > .plan-title').append('<p>Plano Atual</p>')
     jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
+    # checar vencimento
+    if not member.pago:
+        jQuery('.active-plan').css('outline-color', 'var(--borda-plano-vencido)')
+
     # iterate plans divs
     for element in document.select('.plans'):
         plan = Plan(element)
@@ -387,12 +392,20 @@ def renderStage2(ev):
                 button = html.BUTTON('Finalizar', Id='finish-temporary-profile-button')
                 jQuery('.temporary-stage-3').append(button)
                 def removeTemporary(ev):
-                    toggleContainer()
-                    jQuery('#temporary-container').fadeOut(jQuery('#profile-container').fadeIn)
-                    loadProfile()
-                    # _ajax('/remove_temporary/', print, method='POST', data={'id': member.id})
+                    # toggleContainer()
+                    # jQuery('#temporary-container').fadeOut(jQuery('#profile-container').fadeIn)
+                    # loadMember()
+                    def reloadPage(req):
+                        window.location.href = '/home/'
+                        
+                    _ajax('/remove_temporary/', reloadPage, method='POST', data={'id': member.id})
 
                 jQuery(button).on('click', removeTemporary)
+            else:
+                jQuery('.temporary-stage-2').find('img').remove()
+                button = html.BUTTON('Prosseguir', Id='stage-2-button')
+                jQuery('.temporary-stage-2').append(button)
+            
             
             jQuery('.stage-1-container').fadeOut(jQuery('.temporary-stages').fadeIn)
     
@@ -592,13 +605,7 @@ def loadRequests(req):
         document['solicitacao-desc'].text = data[int(ev.target.value)][2]
         jQuery('.new-request-toggles').fadeIn()
 
-
-def preLoad(req):
-    global member
-
-    data = eval(req.text)
-    member = Member(data)
-
+def loadMember():
     loadProfile()
     loadSafety()
     loadActivePlan(member)
@@ -606,6 +613,15 @@ def preLoad(req):
     _ajax('/get_videos/', videosList)
     _ajax('/get_blog/', restrictContentList)
     _ajax('/available_requests/', loadRequests)
+
+def preLoad(req):
+    global member
+
+    data = eval(req.text)
+    member = Member(data)
+
+    if member.type:
+        loadMember()
     initialRender()
 
 

@@ -15,7 +15,7 @@
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
     <title>Sbop - Perfil</title>
 </head>
-<body onload="brython()">
+<body onload="brython({cache:true})">
     <!-- TOP TOOLBAR -->
     <div class="top-container">
         <button style="padding: 5px; width: 10vw" onclick="window.location.href='/logout/'">Sair</button>
@@ -38,6 +38,7 @@
             <div class="toolbar" id="toolbar-plans">
                 <h1>Planos</h1>
                 <p>Anuidades e pedidos do site</p>
+                <img src="/static/image/exclamacao.svg" alt="">
             </div>
             <hr>
             <div class="toolbar" id="toolbar-restrict">

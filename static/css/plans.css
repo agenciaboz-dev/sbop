@@ -1,5 +1,9 @@
 /* ----- PLANS CONTAINER ----- */
 
+:root {
+    --borda-plano-vencido: #E12454;
+}
+
 #plans-container {
     display: flex;
     flex-direction: column;

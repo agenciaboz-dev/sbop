@@ -136,6 +136,14 @@ button:hover {
     border-top-right-radius: 1.5vw;
 }
 
+#toolbar-plans > img {
+    position: absolute;
+    z-index: 5;
+    width: 1.5vw;
+    margin: auto;
+    margin: 7vh 9% 0;
+}
+
 .toolbar-active {
     background-color: white;
     cursor: default;
