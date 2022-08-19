@@ -17,9 +17,9 @@
 </head>
 <body onload="brython({cache:true})">
     <!-- TOP TOOLBAR -->
-    <div class="top-container">
+    <!-- <div class="top-container">
         <button style="padding: 5px; width: 10vw" onclick="window.location.href='/logout/'">Sair</button>
-    </div>
+    </div> -->
     <div id="loading-screen">
         <h1>CARREGANDO</h1>
     </div>
@@ -38,7 +38,7 @@
             <div class="toolbar" id="toolbar-plans">
                 <h1>Planos</h1>
                 <p>Anuidades e pedidos do site</p>
-                <img src="/static/image/exclamacao.svg" alt="">
+                <img src="/static/image/alert.svg" alt="">
             </div>
             <hr>
             <div class="toolbar" id="toolbar-restrict">
@@ -162,7 +162,7 @@
         <!-- PROFILE CONTAINER -->
         <div id="profile-container" class="main-container">
             <div class="info-container-wrapper">
-                <img src="/static/image/doctor_icon.svg" alt="Foto">
+                <img id="profile-picture" src="/static/image/doctor_icon.svg" alt="Foto">
                 <div id="camera-icon-container" class="camera-icon-container">
                     <img id="camera-icon" src="/static/image/camera.svg" alt="camera_icon">
                 </div>
@@ -189,9 +189,17 @@
                         
                         <h1>E-mail</h1>
                         <p id="data-email">email-value</p>
+
                     </div>
                 </div>
-                <img src="/static/image/logo_blue.png" alt="Logo">
+                <div>
+                    <img id="logo-icon" src="/static/image/logo_blue.webp" alt="Logo">
+                    <div>
+                        <button class="profile-buttons" onclick="window.location.href='/logout/'">Sair</button>
+                        <button class="profile-buttons" onclick="window.location.href='https://sbop.com.br/'">Site</button>
+                    </div>
+                </div>
+
             </div>
             <hr>
             <div class="curriculum-container">

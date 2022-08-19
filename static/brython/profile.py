@@ -73,11 +73,12 @@ class Member():
             if new_password.val():
                 if new_password.val() == new_password_conf.val():
                     def onCompletePasswordUpdate(req):
+                        toggleContainer(selection=['#temporary-container'])
                         POPUP.fadeToggle()
                         toggleContainer(selection=['.main-container'])
                         POPUP.find('button').off('click')
                         POPUP.find('button').on('click', togglePopUp)
-                        alert(eval(req.text)[0])
+                        # alert(eval(req.text)[0])
 
                     data = {
                         'id': member.id,
@@ -120,8 +121,9 @@ class Tool():
         jQuery(self.content).fadeToggle('slow')
 
         # reset selected plan
-        jQuery('.selected-plan').removeClass('selected-plan')
-        jQuery('#plans-container > button').addClass('deactivated-button')
+        if member.pago:
+            jQuery('.selected-plan').removeClass('selected-plan')
+            jQuery('#plans-container > button').addClass('deactivated-button')
 
 
 class RestrictTool():
@@ -151,7 +153,8 @@ class Plan():
         self.element = element
         self.name = self.element.attrs['id']
 
-        self.element.bind('click', self.selectPlan)
+        if member.pago:
+            self.element.bind('click', self.selectPlan)
 
     def selectPlan(self, ev):
         global selected_plan
@@ -264,6 +267,7 @@ def initialRender():
     jQuery('.stages-container').hide()
     jQuery('#toolbar-profile').addClass('toolbar-active')
     jQuery('#profile-container').show()
+    
 
     for element in document.select('.toolbar'):
         tool = Tool(element, element.attrs['id'][8:])
@@ -273,7 +277,7 @@ def initialRender():
     jQuery('#loading-screen').slideToggle('slow')
 
     if member.primeiro_acesso:
-        toggleContainer(mode='blur')
+        toggleContainer(selection=['#temporary-container'], mode='blur')
         member.updatePassword()
 
     if member.temporario:
@@ -299,12 +303,28 @@ def loadActivePlan(member):
 
     # text
     vigente = ''
-    jQuery('.active-plan > .plan-title').append('<p>Plano Atual</p>')
+    jQuery('.active-plan > .plan-title').append('<p>Plano Atual. Vigente até 31/12/2012</p>')
     jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
     # checar vencimento
     if not member.pago:
         jQuery('.active-plan').css('outline-color', 'var(--borda-plano-vencido)')
+        jQuery('#active-plan-icon').attr('src', '/static/image/alert.svg')
+        jQuery('.active-plan > .plan-title > p').text('Plano Atual.')
+        jQuery('.active-plan > .plan-title > p').append('<span>Pagamento do dia 31/12/2022 atrasado!</span>')
+        jQuery('.active-plan > .plan-title > p > span').css('color', 'var(--borda-plano-vencido)')
+        jQuery('.active-plan > .plan-title > p > span').css('font-weight', 'bold')
+
+        jQuery('.plans:not(.active-plan)').css('cursor', 'not-allowed')
+        jQuery('.active-plan').css('cursor', 'auto')
+
+        jQuery('#plans-container > button').removeClass('deactivated-button')
+        jQuery('#plans-container > button').addClass('regularize-button')
+        jQuery('#plans-container > button').text('Regularize Já!')
+        
+    else:
+        jQuery('#toolbar-plans > img').hide()
+        
 
     # iterate plans divs
     for element in document.select('.plans'):
@@ -352,6 +372,12 @@ def renderStage1(ev):
 def renderStage2(ev):
     if not jQuery('#member-input-cpf').val():
         alert('Insira um CPF')
+        return None
+    
+    if not len(jQuery('#member-input-cpf').val()) == 11:
+        alert('CPF inválido')
+        jQuery('#member-input-cpf').val('')
+        jQuery('#member-input-cpf').focus()
         return None
     
     member.especialidades = []

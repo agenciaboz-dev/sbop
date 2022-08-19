@@ -38,6 +38,16 @@
     pointer-events: none;
 }
 
+.regularize-button {
+    background-color: var(--secondary-color);
+    width: 50%;
+    align-self: center;
+}
+
+.regularize-button:hover {
+    background-color: #5ca587;
+}
+
 .plans {
     display: flex;
     flex-direction: column;
@@ -86,7 +96,7 @@
 #active-plan-icon {
     position: absolute;
     width: 2vw;
-    left: 2vw;
+    left: 1.7vw;
 }
 
 .selected-plan {

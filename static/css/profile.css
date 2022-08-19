@@ -47,6 +47,7 @@ body {
     width: 90vw;
     height: 81vh;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
+    margin-top: 8vh;
 
 }
 
@@ -194,12 +195,13 @@ button:hover {
 
 .info-container-wrapper {
     display: flex;
+    justify-content: center;
     margin: 2vw;
 }
 
-.info-container-wrapper img:first-of-type {
+#profile-picture {
     /* margin-left: 2vw; */
-    width: 23vw;
+    width: 15vw;
     /* margin-top: -1.5vw; */
     /* align-self: center; */
 }
@@ -214,7 +216,7 @@ button:hover {
     cursor: pointer;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
     border-radius: 80vw;
-    left: 15vw;
+    left: 20.5vw;
     margin-top: 1.5vh;
     transition: 0.5s;
 }
@@ -229,23 +231,24 @@ button:hover {
     /* left: -5vw; */
 }
 
-.info-container-wrapper img:last-of-type {
+#logo-icon {
     /* margin-right: 2vw; */
     align-self: flex-start;
     object-fit: cover;
-    width: 10vw;
-    margin-top: -6vh;
+    width: 15vw;
+    /* margin: -6vh 10px 0; */
 }
 
 .info-container {
     display: flex;
-    width: 100%;
+    justify-content: center;
+    width: fit-content;
 }
 
 .info-container > div {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 2vw;
 }
 
 .info-container > div > h1 {
@@ -275,4 +278,39 @@ button:hover {
 .curriculum-container p {
     opacity: 1;
     font-size: 1vw;
+}
+
+.profile-buttons {
+    /* position:absolute;  */
+    padding: 5px; 
+    width: 4vw; 
+    border: 2px solid var(--primary-color); 
+    color: var(--primary-color);
+    background-color: white;
+    margin: 0;
+    z-index: 5;
+}
+
+.profile-buttons:hover {
+    /* position:absolute;  */
+    color: white;
+}
+
+/* .info-container-wrapper > div {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} */
+
+.info-container-wrapper > div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-container-wrapper > div:last-of-type > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
