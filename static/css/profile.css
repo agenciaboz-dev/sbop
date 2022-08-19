@@ -207,6 +207,7 @@ button:hover {
 }
 
 .camera-icon-container {
+
     width: fit-content;
     height: fit-content;
     background-color: white;
@@ -216,7 +217,7 @@ button:hover {
     cursor: pointer;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
     border-radius: 80vw;
-    left: 20.5vw;
+    right: 0.5vw;
     margin-top: 1.5vh;
     transition: 0.5s;
 }
@@ -243,6 +244,7 @@ button:hover {
     display: flex;
     justify-content: center;
     width: fit-content;
+    align-self: center;
 }
 
 .info-container > div {
@@ -328,4 +330,9 @@ button:hover {
 
 #edit-curriculum:hover {
     transform: scale(1.2)
+}
+
+.profile-picture-container {
+    position: relative;
+    display: flex;
 }
