@@ -459,6 +459,7 @@ def loadProfile():
     def editCurriculum(ev):
         jQuery('#data-curriculum').fadeOut(jQuery('#profile-input-curriculum').fadeIn)
         jQuery('#profile-input-curriculum').val(member.curriculum)
+        jQuery('#edit-curriculum').attr('src', '/static/image/complete_icon.svg')
         
         def completeCurriculumEdition(ev):
             member.curriculum = jQuery('#profile-input-curriculum').val()
