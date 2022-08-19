@@ -267,6 +267,7 @@ def initialRender():
     jQuery('.stages-container').hide()
     jQuery('#toolbar-profile').addClass('toolbar-active')
     jQuery('#profile-container').show()
+    jQuery('textarea').hide()
     
 
     for element in document.select('.toolbar'):
@@ -453,6 +454,18 @@ def loadProfile():
         especialidades += item+', '
     member.especialidades_str = especialidades.strip().strip(',')
     document['data-specialization'].text = member.especialidades_str
+    
+    @bind('#edit-curriculum', 'click')
+    def editCurriculum(ev):
+        jQuery('#data-curriculum').fadeOut(jQuery('#profile-input-curriculum').fadeIn)
+        jQuery('#profile-input-curriculum').val(member.curriculum)
+        
+        def completeCurriculumEdition(ev):
+            member.curriculum = jQuery('#profile-input-curriculum').val()
+            jQuery('#data-curriculum').text(member.curriculum)
+            jQuery('#profile-input-curriculum').fadeOut(jQuery('#data-curriculum').fadeIn)
+            # _ajax('/change_profile/')
+        jQuery('#profile-input-curriculum').on('blur', completeCurriculumEdition)
 
 def loadSafety():
     def clearInputs():
