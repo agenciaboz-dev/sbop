@@ -463,7 +463,9 @@ def loadProfile():
         jQuery('.curriculum-container').css('height', '22vh')
         
         def completeCurriculumEdition(ev):
-            member.curriculum = jQuery('#profile-input-curriculum').val()
+            if not member.curriculum == jQuery('#profile-input-curriculum').val():
+                member.curriculum = jQuery('#profile-input-curriculum').val()
+                _ajax('/update_profile/', print, method='POST', data=vars(member))
             jQuery('#data-curriculum').text(member.curriculum)
             jQuery('#profile-input-curriculum').fadeOut(jQuery('#data-curriculum').fadeIn)
             jQuery('#edit-curriculum').attr('src', '/static/image/edit.svg')
@@ -471,7 +473,6 @@ def loadProfile():
             jQuery('#edit-curriculum').css('transform', '')
             jQuery('#edit-curriculum').off('click')
             jQuery('#edit-curriculum').on('click', editCurriculum)
-            _ajax('/update_profile/', print, method='POST', data=vars(member))
         jQuery('#edit-curriculum').off('click')
         jQuery('#edit-curriculum').on('click', completeCurriculumEdition)
 
