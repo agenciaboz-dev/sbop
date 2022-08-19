@@ -157,7 +157,7 @@ button:hover {
     flex-direction: column;
     z-index: 5;
     width: 30vw;
-    height: 20vh;
+    height: 25vh;
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--toolbar-color);
