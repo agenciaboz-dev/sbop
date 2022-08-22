@@ -455,17 +455,28 @@ def loadProfile():
     member.especialidades_str = especialidades.strip().strip(',')
     document['data-specialization'].text = member.especialidades_str
     
-    @bind('#edit-curriculum', 'click')
     def editCurriculum(ev):
         jQuery('#data-curriculum').fadeOut(jQuery('#profile-input-curriculum').fadeIn)
         jQuery('#profile-input-curriculum').val(member.curriculum)
+        jQuery('#edit-curriculum').attr('src', '/static/image/complete_icon.svg')
+        jQuery('#edit-curriculum').css('transform', 'scale(0.5')
+        jQuery('.curriculum-container').css('height', '22vh')
         
         def completeCurriculumEdition(ev):
-            member.curriculum = jQuery('#profile-input-curriculum').val()
+            if not member.curriculum == jQuery('#profile-input-curriculum').val():
+                member.curriculum = jQuery('#profile-input-curriculum').val()
+                _ajax('/update_profile/', print, method='POST', data=vars(member))
             jQuery('#data-curriculum').text(member.curriculum)
             jQuery('#profile-input-curriculum').fadeOut(jQuery('#data-curriculum').fadeIn)
-            # _ajax('/change_profile/')
-        jQuery('#profile-input-curriculum').on('blur', completeCurriculumEdition)
+            jQuery('#edit-curriculum').attr('src', '/static/image/edit.svg')
+            jQuery('.curriculum-container').css('height', '19vh')
+            jQuery('#edit-curriculum').css('transform', '')
+            jQuery('#edit-curriculum').off('click')
+            jQuery('#edit-curriculum').on('click', editCurriculum)
+        jQuery('#edit-curriculum').off('click')
+        jQuery('#edit-curriculum').on('click', completeCurriculumEdition)
+
+    jQuery('#edit-curriculum').on('click', editCurriculum)
 
 def loadSafety():
     def clearInputs():
