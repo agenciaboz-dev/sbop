@@ -271,7 +271,7 @@ button:hover {
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 17vh;
+    height: 15vh;
     margin: 10px 5vw 5px;
     transition: 0.3s;
 }
