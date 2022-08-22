@@ -460,7 +460,7 @@ def loadProfile():
         jQuery('#profile-input-curriculum').val(member.curriculum)
         jQuery('#edit-curriculum').attr('src', '/static/image/complete_icon.svg')
         jQuery('#edit-curriculum').css('transform', 'scale(0.5')
-        jQuery('.curriculum-container').css('height', '22vh')
+        jQuery('.curriculum-container').css('height', '20vh')
         
         def completeCurriculumEdition(ev):
             if not member.curriculum == jQuery('#profile-input-curriculum').val():
@@ -469,7 +469,7 @@ def loadProfile():
             jQuery('#data-curriculum').text(member.curriculum)
             jQuery('#profile-input-curriculum').fadeOut(jQuery('#data-curriculum').fadeIn)
             jQuery('#edit-curriculum').attr('src', '/static/image/edit.svg')
-            jQuery('.curriculum-container').css('height', '19vh')
+            jQuery('.curriculum-container').css('height', '17vh')
             jQuery('#edit-curriculum').css('transform', '')
             jQuery('#edit-curriculum').off('click')
             jQuery('#edit-curriculum').on('click', editCurriculum)
