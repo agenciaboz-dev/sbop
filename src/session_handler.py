@@ -106,8 +106,25 @@ class Session():
                     self.connections.remove(connection)
 
     def login(self, user, password, ip):
+        cpf = None
+        email = None
         try:
-            data = self.database.fetchTable(1, 'Membros', 'USUÁRIO', user)[0]
+            cpf = int(user)
+        except:
+            pass
+        
+        if '@' in user:
+            email = True
+        
+        if cpf:
+            column = 'CPF'
+        elif email:
+            column = 'EMAIL'
+        else:
+            column = 'USUÁRIO'
+        
+        try:
+            data = self.database.fetchTable(1, 'Membros', column, user)[0]
             if data:
                 if password == data[2]:
                     id = data[0]
