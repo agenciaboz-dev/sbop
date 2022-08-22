@@ -42,6 +42,7 @@ def home():
 
     return render_template('home.html')
 
+#oi
 
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
