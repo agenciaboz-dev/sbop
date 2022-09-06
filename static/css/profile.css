@@ -84,6 +84,7 @@ button:hover {
     background-color: #094a6f;
 }
 
+
 /* TOOLBAR */
 
 .body-toolbar {
@@ -261,6 +262,19 @@ button:hover {
 .info-container > div > p {
     font-size: 0.9vw;
     margin: 0.5vw 0 1vw;
+}
+
+.legenda-publico {
+    font-size: 2vh;
+    color: red;
+}
+
+abbr {
+    color: red;
+    cursor: help;
+    text-decoration: none;
+    margin: 0;
+    font-size: 1vw;
 }
 
 .curriculum-container {
