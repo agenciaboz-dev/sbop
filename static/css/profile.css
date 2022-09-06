@@ -367,3 +367,8 @@ button:hover {
     padding: 0 5px;
     transition: 0.3s;
 }
+
+.curriculum-container > span {
+    position: absolute;
+    top: 3.3vh;
+}
