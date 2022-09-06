@@ -1,6 +1,8 @@
 :root {
     --primary-color: #0C6397;
     --secondary-color: #7BDCB5;
+    --public-info-color: rgba(16, 141, 98, 0.5);
+    --private-info-color: rgba(24, 16, 141, 0.5);
     /* --secondary-color: #91a9b8; */
     --line-color: #8D8D8D;
     --toolbar-color: #F5F5F5;
@@ -264,17 +266,20 @@ button:hover {
     margin: 0.5vw 0 1vw;
 }
 
-.legenda-publico {
-    font-size: 2vh;
-    color: red;
+.public-info {
+    background-color: var(--public-info-color);
+    border-radius: 2vw;
+    color: white;
+    font-size: 1.5vh;
+    padding: 0 0.5vw;
 }
 
-abbr {
-    color: red;
-    cursor: help;
-    text-decoration: none;
-    margin: 0;
-    font-size: 1vw;
+.private-info {
+    background-color: var(--private-info-color);
+    border-radius: 2vw;
+    color: white;
+    font-size: 1.5vh;
+    padding: 0 0.5vw;
 }
 
 .curriculum-container {
