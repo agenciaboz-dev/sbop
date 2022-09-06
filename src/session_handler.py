@@ -59,19 +59,9 @@ class Session():
     def getSolicitacoes(self):
         self.solicitacoes_disponiveis = self.database.fetchTable(
             0, 'available_requests')
-
-    def getMembers(self):
-        try:
-            if not self.database.connection.is_connected():
-                self.reconnectDatabase()
-        except:
-            pass
-
-        self.member_list = []
-        members = self.database.fetchTable(0, 'Membros')
-
-        for member in members:
-            data = {
+        
+    def buildMember(self, member):
+        data = {
                 'id': member[0],
                 'user': member[1],
                 'password': member[2],
@@ -92,6 +82,20 @@ class Session():
                 'curriculum': member[17],
                 'pessoa': member[18]
             }
+        return data
+
+    def getMembers(self):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
+
+        self.member_list = []
+        members = self.database.fetchTable(0, 'Membros')
+
+        for member in members:
+            data = self.buildMember(member)
             self.member_list.append(data)
 
     def reconnectDatabase(self):

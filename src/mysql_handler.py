@@ -5,6 +5,19 @@ import src.config
 class Mysql():
     # def __init__(self) -> None:
     #     pass
+    
+    def run(self, sql, commit = False):
+        cursor = self.connection.cursor(buffered=True)
+        cursor.execute(sql)
+        data = None
+        if commit:
+            self.connection.commit()   
+        else:
+            data = cursor.fetchall()
+            self.connection.commit()  
+
+        cursor.close()
+        return data
 
     def connect(self, auth):
         ''' Try to connect to a database with auth params defined in config file '''
