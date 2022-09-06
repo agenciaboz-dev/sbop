@@ -298,6 +298,7 @@ def loadActivePlan(member):
     if member.type.lower() == 'titular':
         jQuery('#aspirante').css('visibility', 'hidden')
         jQuery('#associado').css('visibility', 'hidden')
+        jQuery('#plans-container > button').hide()
     elif member.type.lower() == 'associado':
         jQuery('#aspirante').css('visibility', 'hidden')
 
@@ -309,16 +310,18 @@ def loadActivePlan(member):
     jQuery(icon).css('transform', f'translateY({height/4}px)')
 
     # text
-    vigente = ''
-    jQuery('.active-plan > .plan-title').append('<p>Plano Atual. Vigente até 31/12/2012</p>')
+    jQuery('#vigencia-text > span').text('31/12/2012')
+    jQuery('.active-plan > .plan-title').append('<p>Plano Atual</p>')
     jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
     # checar vencimento
     if not member.pago:
+        jQuery('#vigencia-text').text('Pagamento do dia 31/12/2022 atrasado!')
+        jQuery('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)')
+        jQuery('#vigencia-text > span').hide()
         jQuery('.active-plan').css('outline-color', 'var(--borda-plano-vencido)')
         jQuery('#active-plan-icon').attr('src', '/static/image/alert.svg')
         jQuery('.active-plan > .plan-title > p').text('Plano Atual.')
-        jQuery('.active-plan > .plan-title > p').append('<span>Pagamento do dia 31/12/2022 atrasado!</span>')
         jQuery('.active-plan > .plan-title > p > span').css('color', 'var(--borda-plano-vencido)')
         jQuery('.active-plan > .plan-title > p > span').css('font-weight', 'bold')
 

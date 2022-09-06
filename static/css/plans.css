@@ -13,6 +13,39 @@
 
 }
 
+.plans-titles-container {
+    margin: 0 0.5vw 0 1vw;
+    display: flex;
+    align-items: center;
+}
+
+.plans-titles-container div {
+    margin: 0;
+}
+
+.plans-titles-container p {
+    margin-left: 0;
+}
+
+.plans-titles {
+    flex: 0.6;
+}
+
+.vigencia-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.4;
+    background-color: var(--secondary-color);
+    border-radius: 2vw;
+    right: 0;
+    height: 8vh;
+}
+
+#vigencia-text {
+    color: white!important;
+    font-size: 3vh!important;
+}
 
 #plans-container h1 {
     color: var(--text-terciary);
