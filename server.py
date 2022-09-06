@@ -272,7 +272,7 @@ def members():
         # name search request
         if request.form['search'] == 'name':
             searched = request.form['value'].lower()                        
-            sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' ORDER BY NOME ASC"
+            sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
             members = session.database.run(sql)
             for member in members:
                 data = session.buildMember(member)
@@ -287,10 +287,12 @@ def members():
 
         # map search
         elif request.form['search'] == 'uf':
-            for member in session.member_list:
-                if request.form['value'] == member['uf'].lower():
-                    if member['member'] == 'Titular':
-                        result.append(member)
+            print(request.form['value'])
+            sql = f"SELECT * FROM `Membros` WHERE UF = '{request.form['value'].upper()}' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
+            members = session.database.run(sql)
+            for member in members:
+                data = session.buildMember(member)
+                result.append(data)
 
         return str(result)
 
