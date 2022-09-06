@@ -224,10 +224,14 @@ class Estado():
             targetOffset = uf.offset()
             print(targetOffset.left, targetOffset.top)
 
-            tooltip.css('left', f'{int(targetOffset.left + uf.width()/2)}px')
-            tooltip.css('transform', 'translateX(-50%)')
-            tooltip.css(
-                'top', f'{int(targetOffset.top + uf.height()/2) + 20}px')
+            if not self.uf == 'rs' and not self.uf == 'sc':
+                tooltip.css('left', f'{int(targetOffset.left + uf.width()/2)}px')
+                tooltip.css('transform', 'translateX(-50%)')
+                tooltip.css('top', f'{int(targetOffset.top + uf.height()/2) + 20}px')
+            else:
+                tooltip.css('left', f'{int(jQuery(".body-wrapper").width())}px')
+                tooltip.css('top', f'{int(jQuery(".body-wrapper").height())}px')
+                tooltip.css('transform', 'translateX(-100%) translateY(-62%)')
 
             jQuery('#map-tooltip>div>p').text(self.name)
 
