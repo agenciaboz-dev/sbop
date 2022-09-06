@@ -294,6 +294,12 @@ def initialRender():
 def loadActivePlan(member):
     member_type = f'#{member.type.lower()}'
     jQuery(member_type).addClass('active-plan')
+    
+    if member.type.lower() == 'titular':
+        jQuery('#aspirante').css('visibility', 'hidden')
+        jQuery('#associado').css('visibility', 'hidden')
+    elif member.type.lower() == 'associado':
+        jQuery('#aspirante').css('visibility', 'hidden')
 
     # icon
     icon = html.IMG('', Id='active-plan-icon',
