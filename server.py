@@ -287,7 +287,6 @@ def members():
 
         # map search
         elif request.form['search'] == 'uf':
-            print(request.form['value'])
             sql = f"SELECT * FROM `Membros` WHERE UF = '{request.form['value'].upper()}' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
             members = session.database.run(sql)
             for member in members:
