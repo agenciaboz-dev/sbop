@@ -42,7 +42,10 @@ def home():
 
     return render_template('home.html')
 
-#oi
+@app.route('/adm/', methods=['GET'])
+def adm_page():
+    
+    return render_template('adm.html')
 
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
