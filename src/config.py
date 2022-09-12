@@ -1,6 +1,8 @@
 # session time limit in minutes
 TIMELIMIT = 15
 
+google_api_key = 'AIzaSyC51dKaUTWuBQfLyDNtVL3JuXMEeitjqkA'
+
 # MYSQL DATABASE
 database_auth = {
     'host': '162.214.166.106',
