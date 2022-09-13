@@ -65,18 +65,6 @@ def member_page():
     return render_template('profile.html')
 
 
-@app.route('/template_restrito/', methods=['GET', 'POST'])
-def template_restrito():
-    ip = str(request.remote_addr)
-
-    if request.method == 'GET':
-        connection = session.getConnection(ip)
-        if not connection:
-            return redirect('/home/')
-
-    return render_template('template_restrito.html')
-
-
 @app.route('/cadastro/', methods=['GET', 'POST'])
 def cadastro():
     try:
