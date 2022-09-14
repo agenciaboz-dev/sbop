@@ -32,7 +32,7 @@ const searchMember = (event) => {
     });
     cleanList();
     $('.list-wrapper > h1').toggle();
-    
+
     request.done((msg) => {
         data = fromPython(msg);
         $('#searched-text').text(searched);
@@ -77,18 +77,18 @@ const renderProfile = (member) => {
     const container = $('.profile-data-field')
     const editaveis = [
         'name',
-        'cpf', 
-        'uf', 
-        'cep', 
-        'email', 
-        'telefone', 
-        'celular', 
-        'endereco', 
-        'numero', 
-        'complemento', 
-        'bairro', 
-        'cidade', 
-        'pais', 
+        'cpf',
+        'uf',
+        'cep',
+        'email',
+        'telefone',
+        'celular',
+        'endereco',
+        'numero',
+        'complemento',
+        'bairro',
+        'cidade',
+        'pais',
         'crm'
     ];
 
@@ -106,4 +106,4 @@ const renderProfile = (member) => {
 
 $('form').on('submit', searchMember)
 $('document').ready(loadList)
-$('document').ready(renderProfile)
+// $('document').ready(renderProfile)
