@@ -177,7 +177,7 @@ img {
     display:flex;
     height: 90%;
     outline: 2px solid blue;
-    margin-top: 2vh;
+    margin-top: 3vh;
 }
 
 .list-wrapper {
@@ -206,6 +206,7 @@ img {
     overflow-y: scroll;
     padding-right: 1vw;
     gap: 2vh;
+    margin-top: 3vh;
 }
 
 .member-container {
@@ -289,6 +290,7 @@ img {
     border-radius: 2vw;
     border: 0.2vw solid var(--background-color);
     padding: 2vw;
+    padding-right: 1vw;
 }
 
 .profile-data-field {
@@ -297,7 +299,8 @@ img {
     height: 100%;
     overflow-y: scroll;
     gap: 1vh;
-
+    padding-right: 1vw;
+    
     outline: 2px solid yellow;
 }
 
@@ -305,6 +308,7 @@ img {
     display: flex;
     justify-content: space-between;
     margin-top: 3vh;
+    padding-right: 1vw;
 
     outline: 2px solid green;
 }
