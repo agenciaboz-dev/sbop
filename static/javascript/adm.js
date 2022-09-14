@@ -44,5 +44,37 @@ const buildList = (list) => {
     }
 }
 
+const renderProfile = (member) => {
+    const container = $('.profile-data-field')
+    const editaveis = [
+        'name',
+        'cpf', 
+        'uf', 
+        'cep', 
+        'email', 
+        'telefone', 
+        'celular', 
+        'endereco', 
+        'numero', 
+        'complemento', 
+        'bairro', 
+        'cidade', 
+        'pais', 
+        'crm'
+    ];
+
+    for (key of editaveis) {
+        const input_container = `
+            <div class="input-field">
+                <label for="${key}-input">${key}</label>
+                <input id="${key}-input" type="text" placeholder="${key}">
+            </div>
+        `;
+        container.append(input_container)
+    }
+
+}
+
 $('form').on('submit', searchMember)
 $('document').ready(loadList)
+$('document').ready(renderProfile)

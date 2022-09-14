@@ -38,6 +38,7 @@
     --button-secondary-color: #9F9E9E;
     --searched-title: #9F183B;
     --list-text-color: #959595;
+    --profile-text-color: #8D8D8D;
 }
 
 input:-webkit-autofill,
@@ -295,6 +296,7 @@ img {
     flex-direction: column;
     height: 100%;
     overflow-y: scroll;
+    gap: 1vh;
 
     outline: 2px solid yellow;
 }
@@ -324,4 +326,19 @@ img {
 
 .profile-buttons-container > button:first-of-type {
     background-color: var(--button-secondary-color);
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    color: var(--profile-text-color);
+}
+
+.input-field > input {
+    border-radius: 2vw;
+    border: none;
+    outline: none;
+    background-color: var(--background-color);
+    height: 4vh;
+    padding: 0 0.7vw;
 }
