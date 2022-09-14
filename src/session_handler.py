@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, date
 from src.config import TIMELIMIT, database_auth, google_api_key
 from src.mysql_handler import Mysql
-import requests, json
+import json
 
 
 class Connection():
@@ -186,15 +186,15 @@ class Session():
                 data['content'], data['author'], date)
         self.database.insertPost(data)
         
-    def getCepDistance(self, cep1, cep2):
-        url1 = f'https://viacep.com.br/ws/{cep1}/json/'
-        url2 = f'https://viacep.com.br/ws/{cep2}/json/'
-        origem = json.loads(requests.get(url1).text)
-        destino = json.loads(requests.get(url2).text)
-        strOrigem = origem['localidade'] + ' ' + origem['uf']
-        strOrigem = strOrigem.replace(' ', '+')
-        strDestino = destino['localidade'] + ' ' + destino['uf']
-        strDestino = strDestino.replace(' ', '+')
-        url = f'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins={strOrigem}&destinations={strDestino}&key={google_api_key}'
-        distance = requests.get(url).text
-        return distance
+    # def getCepDistance(self, cep1, cep2):
+    #     url1 = f'https://viacep.com.br/ws/{cep1}/json/'
+    #     url2 = f'https://viacep.com.br/ws/{cep2}/json/'
+    #     origem = json.loads(requests.get(url1).text)
+    #     destino = json.loads(requests.get(url2).text)
+    #     strOrigem = origem['localidade'] + ' ' + origem['uf']
+    #     strOrigem = strOrigem.replace(' ', '+')
+    #     strDestino = destino['localidade'] + ' ' + destino['uf']
+    #     strDestino = strDestino.replace(' ', '+')
+    #     url = f'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins={strOrigem}&destinations={strDestino}&key={google_api_key}'
+    #     distance = requests.get(url).text
+    #     return distance
