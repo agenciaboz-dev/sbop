@@ -198,6 +198,10 @@ img {
     font-weight: normal;
 }
 
+#searching-title {
+    display: none;
+}
+
 .list-container {
     display: flex;
     flex-direction: column;

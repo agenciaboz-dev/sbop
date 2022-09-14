@@ -1,10 +1,17 @@
 let members;
+
+const fromPython = (string) => {
+    string = string.replaceAll(`"None"`, null);
+    string = string.replaceAll(`"False"`, false);
+    string = string.replaceAll(`"True"`, true);
+    let data = JSON.parse(string)
+    return data;
+}
+
 const loadList = () => {
     console.log('ready')
     $.ajax('/membros/').done((html) => {
-        data = String.raw`${html}`;
-        data = data.replaceAll(`None`, `null`);
-        data = JSON.parse(data);
+        data = fromPython(html);
         members = data;
 
         buildList(members)
@@ -13,8 +20,26 @@ const loadList = () => {
 
 const searchMember = (event) => {
     event.preventDefault();
-    const searched = $('form > input').val()
-    alert(searched)
+    const searched = $('form > input').val();
+    const request = $.ajax({
+        url: '/membros/',
+        method: 'POST',
+        data: {
+            search: 'name',
+            value: searched,
+            adm: true
+        }
+    });
+    cleanList();
+    $('.list-wrapper > h1').toggle();
+    
+    request.done((msg) => {
+        data = fromPython(msg);
+        $('#searched-text').text(searched);
+        $('.list-wrapper > h1').toggle();
+        data.shift();
+        buildList(data);
+    })
 }
 
 const cleanList = () => {
@@ -24,7 +49,6 @@ const cleanList = () => {
 const buildList = (list) => {
     const container = $('.list-container');
     for (let member of list) {
-        member.pago = member.pago == 'False' ? false : true;
         const member_container = `
             <div class="member-container" id="${member.id}">
                 <img src="/static/image/doctor_icon.svg" alt="Doctor">

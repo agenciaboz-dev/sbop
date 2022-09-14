@@ -251,11 +251,18 @@ def members():
         return nova_data
     else:
         result = [request.form['value']]
+        try:
+            if request.form['adm']:
+                adm = True;
+        except:
+            adm = False;
 
         # name search request
         if request.form['search'] == 'name':
             searched = request.form['value'].lower()                        
             sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
+            if adm:
+                sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' ORDER BY NOME ASC"
             members = session.database.run(sql)
             for member in members:
                 data = session.buildMember(member)
@@ -276,7 +283,8 @@ def members():
                 data = session.buildMember(member)
                 result.append(data)
 
-        return str(result)
+        result = json.dumps(result)
+        return result
 
 
 @app.route('/get_map_status/', methods=['GET'])
