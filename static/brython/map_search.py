@@ -20,7 +20,7 @@ def initialRender(req):
         jQuery('.body-wrapper').fadeIn('slow')
 
     jQuery('#member-tooltip').hide()
-    jQuery('#loading').fadeOut(renderMap)
+    jQuery('#loading-screen').fadeOut(renderMap)
 
 
 class Member():

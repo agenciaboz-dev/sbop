@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/map.css">
+    <link rel="stylesheet" href="/static/css/loading.css">
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet"> -->
     <script type="text/javascript" src="/static/brython/brython.js"></script>
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
@@ -15,7 +16,9 @@
     <!-- <div class="top-container">
         <button onclick="window.location.href='/home/'">Voltar</button>
     </div> -->
-    <p style="font-size: 10vw;" id="loading">CARREGANDO</p>
+    <div id="loading-screen">
+        <img src="/static/image/loading.gif" alt="loading">
+    </div>
     <div class="body-wrapper">
         <div class="map-body-container">
             <!-- Search Containter -->

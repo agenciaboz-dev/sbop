@@ -21,25 +21,13 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px var(--input-background) inset !important;
 }
 
-/* loading */
-#loading-screen {
-    position: absolute;
-    background-color: var(--line-color);
-    width: 100vw;
-    height: 150vh;
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    z-index: 500;
-    overflow: visible;
-}
 
 /* GENERAL */
 
 body {
     justify-content: space-around;
     align-items: space-around;
+    overflow: hidden;
 }
 
 .body-container {
