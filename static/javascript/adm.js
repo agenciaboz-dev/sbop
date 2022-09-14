@@ -66,7 +66,7 @@ const buildList = (list) => {
                     <div class="member-type${member.member == 'Associado' ? ' active-type' : ''}">Associado</div>
                     <div class="member-type${member.member == 'Titular' ? ' active-type' : ''}">Titular</div>
                 </div>
-                <img src="/static/image/${member.pago ? 'complete_icon.svg' : 'exclamacao.svg'}" alt="Ícone">
+                <img src="/static/image/${member.pago ? 'complete_icon.svg' : 'exclamacao2.svg'}" alt="Ícone">
             </div>
         `;
         container.append(member_container)
