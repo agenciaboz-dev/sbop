@@ -275,7 +275,7 @@ def initialRender():
 
     renderPopUp()
 
-    jQuery('#loading-screen').slideToggle('slow')
+    jQuery('#loading-screen').fadeToggle('slow')
 
     if member.primeiro_acesso:
         toggleContainer(selection=['#temporary-container'], mode='blur')
