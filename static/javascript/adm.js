@@ -50,7 +50,7 @@ const buildList = (list) => {
     const container = $('.list-container');
     for (let member of list) {
         const member_container = `
-            <div class="member-container" id="${member.id}">
+            <div class="member-container" id="member-container-${member.id}">
                 <img src="/static/image/doctor_icon.svg" alt="Doctor">
                 <div class="member-info">
                     <p>Nome: <span title="${member.name}" class="member-name">${member.name}</span></p>
@@ -62,54 +62,55 @@ const buildList = (list) => {
                 </div>
                 <hr>
                 <div class="member-type-container">
-                    <div class="member-type${member.member == 'Aspirante' ? ' active-type' : ''}">Aspirante</div>
-                    <div class="member-type${member.member == 'Associado' ? ' active-type' : ''}">Associado</div>
-                    <div class="member-type${member.member == 'Titular' ? ' active-type' : ''}">Titular</div>
+                    <div class="member-type${member.member == 'Aspirante' ? ' active-type' : ''} Aspirante">Aspirante</div>
+                    <div class="member-type${member.member == 'Associado' ? ' active-type' : ''} Associado">Associado</div>
+                    <div class="member-type${member.member == 'Titular' ? ' active-type' : ''} Titular">Titular</div>
                 </div>
                 <img src="/static/image/${member.pago ? 'complete_icon.svg' : 'exclamacao2.svg'}" alt="Ícone">
             </div>
         `;
         container.append(member_container)
     }
-    $('.member-container').on('click', clickMember)
+    $('.member-container').on('click', onclickMember)
+    $('.member-type').on('click', onClickMemberType)
 }
 
-const renderProfile = (member) => {
-    const container = $('.profile-data-field')
-    const editaveis = [
-        'name',
-        'cpf', 
-        'uf', 
-        'cep', 
-        'email', 
-        'telefone', 
-        'celular', 
-        'endereco', 
-        'numero', 
-        'complemento', 
-        'bairro', 
-        'cidade', 
-        'pais', 
-        'crm'
-    ];
-
-    for (key of editaveis) {
-        const input_container = `
-            <div class="input-field">
-                <label for="${key}-input">${key}</label>
-                <input id="${key}-input" type="text" placeholder="${key}">
-            </div>
-        `;
-        container.append(input_container)
-    }
-}
-
-const clickMember = (event) => {
+const onclickMember = (event) => {
     $('.member-container-active').removeClass('member-container-active');
 
     const container = $(event.target).closest('.member-container');
     container.addClass('member-container-active');
+    
+}
 
+const onClickMemberType = (event) => {
+    const container = $(event.target).closest('.member-container');
+    const plan = $(event.target).text();
+    const id = container.attr('id').split('-')[2]
+
+    const member_type_container = $(event.target).closest('.member-type-container');
+    const current_plan_container = member_type_container.children('.active-type');
+
+    const request = $.ajax({
+        url: '/change_plan/',
+        method: 'POST',
+        data: {
+            id: id,
+            plan: plan,
+            adm: true
+        }
+    });
+    
+    member_type_container.addClass('deactivated');
+    current_plan_container.removeClass('active-type');
+    request.done((msg) => {
+        if (msg == 'True') {
+            $(event.target).closest(`.${plan}`).addClass('active-type');
+        } else {
+            current_plan_container.addClass('active-type');
+        }
+        member_type_container.removeClass('deactivated');
+    })
 }
 
 $('form').on('submit', searchMember)

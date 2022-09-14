@@ -366,3 +366,8 @@ img {
     height: 4vh;
     padding: 0 0.7vw;
 }
+
+.deactivated {
+    pointer-events: none;
+    opacity: 0.3;
+}
