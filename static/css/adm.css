@@ -2,11 +2,42 @@
     font-family: Montserrats;
     src: url("/static/fonts/Montserrat-Regular.otf") ;
 }
+@font-face {
+    font-family: Montserrats;
+    src: url("/static/fonts/Montserrat-Bold.otf") ;
+    font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: #F5F1F1;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #D1D1D1;
+    border-radius: 10px;
+  }
+
+  /* Corner */
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
 
 :root {
     --background-color: #E4E4E4;
     --button-color: #0C6397;
     --button-hovered-color: #7BDCB5;
+    --button-secondary-color: #9F9E9E;
+    --searched-title: #9F183B;
+    --list-text-color: #959595;
 }
 
 input:-webkit-autofill,
@@ -104,12 +135,17 @@ img {
     max-height: 30%;
 }
 
-.search-container > input {
+.search-container > form {
+    display: contents;
+}
+
+.search-container > form > input {
     width: 100%;
     height: 60%;
     border-radius: 2vw;
     padding-left: 3vw;
     border: 0.25vw solid var(--background-color);
+    font-family: Montserrats;
 }
 
 .postagens-container {
@@ -137,5 +173,155 @@ img {
 }
 
 .result-container {
+    display:flex;
     height: 90%;
+    outline: 2px solid blue;
+    margin-top: 2vh;
+}
+
+.list-wrapper {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--list-text-color);
+    padding-right: 2vw;
+}
+
+.list-wrapper > h1 {
+    color: var(--searched-title);
+}
+
+.list-wrapper > h1 > span {
+    color: var(--list-text-color);
+    font-weight: normal;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 1vw;
+    gap: 2vh;
+}
+
+.member-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 12vh;
+    border-radius: 5vw;
+    border: 0.25vw solid var(--background-color);
+}
+
+.member-container p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.member-container > img {
+    max-height: 70%;
+    margin: 0 1vw 0 0.5vw;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.member-info > p {
+    font-weight: bold;
+}
+
+.member-info > div {
+    display: flex;
+}
+
+.member-info > div > hr {
+    margin: 0 0.7vw;
+}
+
+.member-container > hr {
+    height: 80%;
+    margin: 0 0.7vw;
+}
+
+.member-type-container {
+    display: flex;
+    border-radius: 3vw;
+    border: 0.25vw solid var(--background-color);
+    width: 25vw;
+    /* padding: 1vh 1vw; */
+    /* justify-content: space-between; */
+}
+
+.member-type {
+    flex: 0.333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5vh 1vw;
+}
+
+.active-type {
+    border-radius: 3vw;
+    background-color: var(--button-color);
+    color: white;
+}
+
+.member-container > img:last-of-type {
+    max-height: 50%;
+    margin: 0 1vw;
+}
+
+.profile-container {
+    flex: 0.4;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2vw;
+    border: 0.2vw solid var(--background-color);
+    padding: 2vw;
+}
+
+.profile-data-field {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+
+    outline: 2px solid yellow;
+}
+
+.profile-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vh;
+
+    outline: 2px solid green;
+}
+
+.profile-buttons-container > button {
+    flex: 0.45;
+    border: none;
+    border-radius: 0.8vw;
+    color: white;
+    background-color: var(--button-color);
+    padding: 0.65vh 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-buttons-container > button:hover {
+    background-color: var(--button-hovered-color);
+}
+
+.profile-buttons-container > button:first-of-type {
+    background-color: var(--button-secondary-color);
 }

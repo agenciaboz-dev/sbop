@@ -3,7 +3,7 @@ from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
 import src.config as cfg
-import os
+import os, json
 
 session = Session()
 app = Flask(__name__)
@@ -245,18 +245,10 @@ def get_member():
 def members():
     session.getMembers()
     if request.method == 'GET':
-        text = ''
-        for member in session.member_list:
-            text += f'<h3>Membro {session.member_list.index(member)+1}</h3>'
-            text += f"<p>ID: {member['id']}</p>"
-            text += f"<p>Nome: {member['name']}</p>"
-            text += f"<p>UF: {member['uf']}</p>"
-            text += f"<p>Cidade: {member['cidade']}</p>"
-            text += f"<p>CEP: {member['cep']}</p>"
-            text += f"<p>Usuário: {member['user']}</p>"
-            text += f"<p>Membro: {member['member']}</p>"
-
-        return text
+        data = session.member_list
+        # data = session.member_list[265]
+        nova_data = json.dumps(data)
+        return nova_data
     else:
         result = [request.form['value']]
 

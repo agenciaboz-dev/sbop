@@ -18,7 +18,9 @@
             </div>
             <div class="search-container">
                 <img src="/static/image/lupa.svg" alt="Lupa">
-                <input type="text" placeholder="Procurar membros">
+                <form>
+                    <input type="text" placeholder="Procurar membros">
+                </form>
             </div>
             <div class="postagens-container">
                 <p>Postagens</p>
@@ -26,16 +28,26 @@
             </div>
         </div>
         <div class="result-container">
-            <div class="list-container">
-                <p>resultado</p>
+            <div class="list-wrapper">
+                <h1>Resultados para: <span id="searched-text">Todos</span></h1>
+                <div class="list-container">
+                    
+                </div>
             </div>
             <div class="profile-container">
+                <div class="profile-data-field">
 
+                </div>
+                <div class="profile-buttons-container">
+                    <button>Cancelar</button>
+                    <button>Salvar</button>
+                </div>
             </div>
         </div>
     </div>
 </body>
 <footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/static/javascript/adm.js"></script>
 </footer>
 </html>

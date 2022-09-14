@@ -81,7 +81,12 @@ class Session():
                 'pais': member[15],
                 'crm': member[16],
                 'curriculum': member[17],
-                'pessoa': member[18]
+                'pessoa': member[18],
+                'temporario': member[19],
+                'primeiro_acesso': member[20],
+                'cpf': member[21],
+                'especialidades': member[22],
+                'pago': member[23],
             }
         return data
 
