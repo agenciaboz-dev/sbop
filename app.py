@@ -151,7 +151,7 @@ def blog():
         else:
             return connection.member
 
-
+# get content
 @app.route('/get_blog/', methods=['GET'])
 def get_blog():
     ip = str(request.remote_addr)
@@ -163,7 +163,7 @@ def get_blog():
         if blog_list:
             return str(blog_list)
 
-
+# get videos
 @app.route('/get_videos/', methods=['GET'])
 def get_videos():
     ip = str(request.remote_addr)
@@ -241,6 +241,7 @@ def get_member():
     return data
 
 
+# search members or get all members
 @app.route('/membros/', methods=['GET', 'POST'])
 def members():
     session.getMembers()
@@ -286,6 +287,7 @@ def members():
         return result
 
 
+# get map statuses
 @app.route('/get_map_status/', methods=['GET'])
 def get_map_status():
     try:
@@ -328,11 +330,13 @@ def estados_data():
     return str(estados)
 
 
+# get available requests
 @app.route('/available_requests/', methods=['GET'])
 def available_requests():
     return str(session.solicitacoes_disponiveis)
 
 
+# change member type/plan
 @app.route('/change_plan/', methods=['POST'])
 def change_plan():
     session.database.updateTable(
@@ -340,6 +344,7 @@ def change_plan():
     return 'True'
 
 
+# change user password
 @app.route('/change_password/', methods=['POST'])
 def change_password():
     try:
@@ -354,6 +359,7 @@ def change_password():
         return str(['Erro', error])
 
 
+# change user email
 @app.route('/change_email/', methods=['POST'])
 def change_email():
     try:
@@ -364,6 +370,7 @@ def change_email():
         return str(['Erro', error])
 
 
+# request to cancel a pending request
 @app.route('/cancel_request/', methods=['POST'])
 def cancel_request():
     id = request.form['id']
@@ -375,6 +382,8 @@ def cancel_request():
         print(error)
         return str(['Erro', error])
 
+
+# make a request
 @app.route('/new_request/', methods=['POST'])
 def new_request():
     solicitacao = session.database.fetchTable(
@@ -407,6 +416,8 @@ def new_request():
     except Exception as error:
         return str([error, error, error, error, error])
 
+
+# update profile data
 @app.route('/update_profile/', methods=['POST'])
 def update_profile():
     try:
@@ -420,6 +431,8 @@ def update_profile():
         print(error)
         return 'False'
     
+    
+# remove temporary flag
 @app.route('/remove_temporary/', methods=['POST'])
 def remove_temporary():
     try:
