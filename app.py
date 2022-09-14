@@ -246,7 +246,6 @@ def members():
     session.getMembers()
     if request.method == 'GET':
         data = session.member_list
-        # data = session.member_list[265]
         nova_data = json.dumps(data)
         return nova_data
     else:

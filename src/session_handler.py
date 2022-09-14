@@ -98,7 +98,8 @@ class Session():
             pass
 
         self.member_list = []
-        members = self.database.fetchTable(0, 'Membros')
+        sql = 'SELECT * FROM Membros ORDER BY NOME ASC'
+        members = self.database.run(sql)
 
         for member in members:
             data = self.buildMember(member)
