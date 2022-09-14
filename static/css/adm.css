@@ -221,6 +221,7 @@ img {
     height: 12vh;
     border-radius: 5vw;
     border: 0.25vw solid var(--background-color);
+    font-size: 2vh;
 }
 
 .member-container p {
