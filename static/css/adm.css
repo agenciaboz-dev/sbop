@@ -222,6 +222,15 @@ img {
     border-radius: 5vw;
     border: 0.25vw solid var(--background-color);
     font-size: 1.6vh;
+    cursor: pointer;
+}
+
+.member-container:hover {
+    border-color: rgba(12, 99, 151, 0.5);
+}
+
+.member-container-active {
+    border-color: var(--button-color)!important;
 }
 
 .member-container p {
@@ -277,6 +286,10 @@ img {
     justify-content: center;
     padding: 1.5vh 1vw;
     font-size: 1.8vh;
+}
+
+.member-type:not(.active-type):hover {
+    text-decoration: underline;
 }
 
 .active-type {

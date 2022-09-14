@@ -71,6 +71,7 @@ const buildList = (list) => {
         `;
         container.append(member_container)
     }
+    $('.member-container').on('click', clickMember)
 }
 
 const renderProfile = (member) => {
@@ -101,9 +102,15 @@ const renderProfile = (member) => {
         `;
         container.append(input_container)
     }
+}
+
+const clickMember = (event) => {
+    $('.member-container-active').removeClass('member-container-active');
+
+    const container = $(event.target).closest('.member-container');
+    container.addClass('member-container-active');
 
 }
 
 $('form').on('submit', searchMember)
 $('document').ready(loadList)
-$('document').ready(renderProfile)
