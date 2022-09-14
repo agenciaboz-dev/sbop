@@ -17,6 +17,10 @@ const searchMember = (event) => {
     alert(searched)
 }
 
+const cleanList = () => {
+    $('.list-container > *').remove();
+}
+
 const buildList = (list) => {
     const container = $('.list-container');
     for (let member of list) {
