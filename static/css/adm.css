@@ -269,11 +269,13 @@ img {
 }
 
 .member-type {
-    flex: 0.333;
+    /* flex: 0.333; */
+    width: 7vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2.5vh 1vw;
+    padding: 2vh 1vw;
+    font-size: 1.8vh;
 }
 
 .active-type {
