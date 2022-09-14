@@ -12,24 +12,24 @@
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background-color: #F5F1F1;
     border-radius: 10px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #D1D1D1;
     border-radius: 10px;
-  }
+}
 
-  /* Corner */
-  ::-webkit-scrollbar-corner {
+/* Corner */
+::-webkit-scrollbar-corner {
     display: none;
-  }
+}
 
 :root {
     --background-color: #E4E4E4;
