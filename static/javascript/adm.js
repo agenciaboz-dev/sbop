@@ -12,6 +12,7 @@ const loadList = () => {
 }
 
 const searchMember = (event) => {
+    event.preventDefault();
     const searched = $('form > input').val()
     alert(searched)
 }
