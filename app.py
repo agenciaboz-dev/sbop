@@ -3,7 +3,8 @@ from flask import Flask, request, url_for, redirect, render_template, request
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
 import src.config as cfg
-import os, json
+import os
+import json
 
 session = Session()
 app = Flask(__name__)
@@ -42,10 +43,18 @@ def home():
 
     return render_template('home.html')
 
+
 @app.route('/adm/', methods=['GET'])
 def adm_page():
-    
+
     return render_template('adm.html')
+
+
+@app.route('/adm_posts/', methods=['GET'])
+def adm_posts_page():
+
+    return render_template('adm_posts.html')
+
 
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
@@ -152,6 +161,8 @@ def blog():
             return connection.member
 
 # get content
+
+
 @app.route('/get_blog/', methods=['GET'])
 def get_blog():
     ip = str(request.remote_addr)
@@ -164,6 +175,8 @@ def get_blog():
             return str(blog_list)
 
 # get videos
+
+
 @app.route('/get_videos/', methods=['GET'])
 def get_videos():
     ip = str(request.remote_addr)
@@ -253,13 +266,13 @@ def members():
         result = [request.form['value']]
         try:
             if request.form['adm']:
-                adm = True;
+                adm = True
         except:
-            adm = False;
+            adm = False
 
         # name search request
         if request.form['search'] == 'name':
-            searched = request.form['value'].lower()                        
+            searched = request.form['value'].lower()
             sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
             if adm:
                 sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' ORDER BY NOME ASC"
@@ -430,17 +443,19 @@ def update_profile():
     except Exception as error:
         print(error)
         return 'False'
-    
-    
+
+
 # remove temporary flag
 @app.route('/remove_temporary/', methods=['POST'])
 def remove_temporary():
     try:
-        session.database.updateTable('Membros', request.form['id'], 'TEMPORARIO', 'False', 'ID')
+        session.database.updateTable(
+            'Membros', request.form['id'], 'TEMPORARIO', 'False', 'ID')
         return 'True'
     except Exception as error:
         print(error)
         return 'False'
-    
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
