@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/adm.css">
+    <link rel="stylesheet" href="/static/css/adm_posts.css">
     <title>Sbop - ADM</title>
 </head>
 
@@ -21,146 +21,26 @@
             <div class="search-container">
                 <img src="/static/image/lupa.svg" alt="Lupa">
                 <form>
-                    <input type="text" placeholder="Procurar membros">
+                    <input type="text" placeholder="Procurar postagens">
                 </form>
             </div>
             <div class="postagens-container">
-                <p>Postagens</p>
-                <img src="/static/image/postagens.svg" alt="Postagens">
+                <p>Administração</p>
+                <img src="/static/image/adm.svg" alt="Administração">
             </div>
         </div>
         <div class="result-container">
             <div class="list-wrapper">
-                <h1 id="searching-title">Pesquisando</h1>
-                <h1 id="search-title">Resultados para: <span id="searched-text">Todos</span></h1>
                 <div class="list-container">
 
                 </div>
             </div>
-            <div class="profile-container">
-                <div class="profile-data-field">
-                    <div class="input-field">
-                        <label for="name-input">Nome Completo</label>
-                        <input id="name-input" type="text" placeholder="Nome Completo">
-                    </div>
-                    <div class="input-field">
-                        <label for="user-input">Nome de Usuário</label>
-                        <input id="user-input" type="text" placeholder="Nome de Usuário">
-                    </div>
-                    <div class="input-field">
-                        <label for="cpf-input">CPF</label>
-                        <input id="cpf-input" type="text" placeholder="CPF">
-                    </div>
-                    <div class="input-field">
-                        <label for="password-input">Senha</label>
-                        <input id="password-input" type="text" placeholder="Senha">
-                    </div>
-                    <div class="input-field">
-                        <label for="uf-input">Unidade da Federação</label>
-                        <select id="uf-input" name="uf-selector">
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR" selected>Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
-                    </div>
-                    <div class="input-field">
-                        <label for="cep-input">CEP</label>
-                        <input id="cep-input" type="text" placeholder="CEP">
-                    </div>
-                    <div class="input-field">
-                        <label for="email-input">Email</label>
-                        <input id="email-input" type="text" placeholder="Email">
-                    </div>
-                    <div class="input-field">
-                        <label for="telefone-input">Telefone</label>
-                        <input id="telefone-input" type="text" placeholder="Telefone">
-                    </div>
-                    <div class="input-field">
-                        <label for="celular-input">Celular</label>
-                        <input id="celular-input" type="text" placeholder="Celular">
-                    </div>
-                    <div class="input-field">
-                        <label for="endereco-input">Endereço</label>
-                        <input id="endereco-input" type="text" placeholder="Endereço">
-                    </div>
-                    <div class="input-field">
-                        <label for="numero-input">Número</label>
-                        <input id="numero-input" type="text" placeholder="Número">
-                    </div>
-                    <div class="input-field">
-                        <label for="complemento-input">Complemento</label>
-                        <input id="complemento-input" type="text" placeholder="Complemento">
-                    </div>
-                    <div class="input-field">
-                        <label for="bairro-input">Bairro</label>
-                        <input id="bairro-input" type="text" placeholder="Bairro">
-                    </div>
-                    <div class="input-field">
-                        <label for="cidade-input">Cidade</label>
-                        <input id="cidade-input" type="text" placeholder="Cidade">
-                    </div>
-                    <div class="input-field">
-                        <label for="pais-input">País</label>
-                        <input id="pais-input" type="text" placeholder="País">
-                    </div>
-                    <div class="input-field">
-                        <label for="crm-input">CRM</label>
-                        <input id="crm-input" type="text" placeholder="CRM">
-                    </div>
-                    <div class="input-field">
-                        <label for="curriculum-input">Currículo</label>
-                        <input id="curriculum-input" type="text" placeholder="Currículo">
-                    </div>
-                    <div class="input-field">
-                        <label for="pessoa-input">Pessoa</label>
-                        <input id="pessoa-input" type="text" placeholder="Pessoa">
-                    </div>
-                    <div class="input-field">
-                        <label for="temporario-input">Temporário</label>
-                        <input id="temporario-input" type="text" placeholder="Temporário">
-                    </div>
-                    <div class="input-field">
-                        <label for="primeiro_acesso-input">Primeiro Acesso</label>
-                        <input id="primeiro_acesso-input" type="text" placeholder="Primeiro Acesso">
-                    </div>
-                    <div class="input-field">
-                        <label for="especialidades-input">Especialidades</label>
-                        <input id="especialidades-input" type="text" placeholder="Especialidades">
-                    </div>
-                    <div class="input-field">
-                        <label for="pago-input">Pago</label>
-                        <input id="pago-input" type="text" placeholder="Pago">
-                    </div>
-                </div>
-                <div class="profile-buttons-container">
-                    <button>Cancelar</button>
-                    <button>Salvar</button>
-                </div>
-            </div>
+        </div>
+        <div class="bottom-container">
+            <a href="#" class="new-post-button">
+                <p>Nova Postagem</p>
+                <img src="/static/image/Icon feather-plus-circle.svg" alt="+">
+            </a>
         </div>
     </div>
 </body>
