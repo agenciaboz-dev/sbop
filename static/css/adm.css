@@ -368,11 +368,11 @@ img {
 #uf-input {
     border-radius: 2vw;
     border: none;
-    opacity: 30%;
+    opacity: 25%;
     outline: none;
     background-color: var(--background-color);
     height: 4vh;
-    padding: 0 0.7vw;
+    padding: 0 0.5vw;
     margin-top: 0.5vh;
 }
 
