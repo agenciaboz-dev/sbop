@@ -140,6 +140,12 @@ const onClickSave = (event) => {
     })
 }
 
+const onClickCancel = (event) => {
+    const id = current_id;
+    const member = members.find(item => item.id == id)
+    buildProfile(member)
+}
+
 const onClickMemberType = (event) => {
     const container = $(event.target).closest('.member-container');
     const plan = $(event.target).text();
@@ -172,4 +178,5 @@ const onClickMemberType = (event) => {
 
 $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)
+$('#profile-reset-button').on('click', onClickCancel)
 $('document').ready(loadList)
