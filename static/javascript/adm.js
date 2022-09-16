@@ -117,6 +117,7 @@ const onclickMember = (event) => {
 }
 
 const onClickSave = (event) => {
+
     const id = current_id;
     const inputs = $('.profile-data-field input');
     let member = {id: id}
@@ -125,19 +126,23 @@ const onClickSave = (event) => {
         member[key] = $(element).val()
     }
     console.log(member)
+
+    const requisicaoUngida = () => {
+        const url = 'http://192.168.18.9:5001/edit_member/';
     
-    const request = $.ajax({
-        url: '/edit_member/',
+        const options = {
         method: 'POST',
-        data: {
-            search: 'name',
-            nome: 'bosta'
-        }
-    });
-    // DAHAN ME AJUDA
-    request.done((data) => {
-        console.log(data)
-    })
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(member)
+        };
+    
+        fetch(url, options)
+        .then(res => res.json())
+        .then(json => console.log(json))
+        .catch(err => console.error('error:' + err));
+    }
+
+    requisicaoUngida()
 }
 
 const onClickCancel = (event) => {

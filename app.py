@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request
+from flask_cors import CORS
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
 import src.config as cfg
@@ -8,7 +9,7 @@ import json
 
 session = Session()
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -461,9 +462,9 @@ def remove_temporary():
         print(error)
         return 'False'
     
-@app.route("/edit_member/", methods=["POST"])
+@app.route('/edit_member/', methods=["POST"])
 def edit_member():
-    data = request.data
+    data = request.get_json()
     print(data)
 
     return json.dumps({'error': 'nada'})
