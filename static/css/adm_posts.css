@@ -101,13 +101,12 @@ img {
   cursor: pointer;
   transition: 0.3s;
 }
+.camera-icon-container img {
+  max-height: 50%;
+}
 
 .camera-icon-container:hover {
   transform: translate(30%, -50%) scale(1.15);
-}
-
-.camera-icon-container > img {
-  max-height: 50%;
 }
 
 .search-container {
@@ -118,18 +117,15 @@ img {
   align-items: center;
   margin: 0 1vw;
 }
-
-.search-container > img {
+.search-container img {
   position: absolute;
   left: 0.8vw;
   max-height: 30%;
 }
-
-.search-container > form {
+.search-container form {
   display: contents;
 }
-
-.search-container > form > input {
+.search-container form input {
   width: 100%;
   height: 60%;
   border-radius: 2vw;
@@ -152,14 +148,13 @@ img {
   cursor: pointer;
   transition: 0.3s;
 }
+.adm-container img {
+  max-height: 80%;
+  margin-left: 0.5vw;
+}
 
 .adm-container:hover {
   background-color: #7BDCB5;
-}
-
-.adm-container > img {
-  max-height: 80%;
-  margin-left: 0.5vw;
 }
 
 .result-container {
@@ -202,6 +197,15 @@ img {
   font-size: 1.6vh;
   cursor: pointer;
 }
+.member-container p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.member-container img {
+  max-height: 80%;
+  margin: 0 1vw 0 0.5vw;
+}
 
 .member-container:hover {
   border-color: rgba(12, 99, 151, 0.5);
@@ -211,17 +215,6 @@ img {
   border-color: #0C6397 !important;
 }
 
-.member-container p {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.member-container > img {
-  max-height: 80%;
-  margin: 0 1vw 0 0.5vw;
-}
-
 .member-info {
   display: flex;
   flex-direction: column;
@@ -229,16 +222,13 @@ img {
   height: 100%;
   justify-content: space-evenly;
 }
-
-.member-info > p {
+.member-info p {
   font-weight: bold;
 }
-
-.member-info > div {
+.member-info div {
   display: flex;
 }
-
-.member-info > div > hr {
+.member-info div hr {
   margin: 0 0.7vw;
 }
 
@@ -250,8 +240,7 @@ img {
   margin-left: auto;
   margin-right: 1vh;
 }
-
-.buttons-container > button {
+.buttons-container button {
   font-family: Montserrats;
   font-weight: 600;
   flex: 0.45;
@@ -263,12 +252,10 @@ img {
   cursor: pointer;
   transition: 0.3s;
 }
-
-.buttons-container > button:hover {
+.buttons-container button:hover {
   background-color: #7BDCB5;
 }
-
-.buttons-container > button:first-of-type {
+.buttons-container button:first-of-type {
   background-color: #9F9E9E;
   margin-right: 3vh;
 }
@@ -290,7 +277,6 @@ img {
   align-items: center;
   text-decoration: none;
 }
-
 .new-post-button img {
   height: 75%;
   margin-left: 0.5vw;

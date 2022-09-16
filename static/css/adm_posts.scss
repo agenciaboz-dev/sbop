@@ -32,15 +32,16 @@ img {
     transform: translate(30%, -50%);
     cursor: pointer;
     transition: 0.3s;
+
+    img {
+        max-height: 50%;
+    }
 }
 
 .camera-icon-container:hover {
     transform: translate(30%, -50%) scale(1.15);
 }
 
-.camera-icon-container>img {
-    max-height: 50%;
-}
 
 .search-container {
     display: flex;
@@ -49,26 +50,27 @@ img {
     height: 100%;
     align-items: center;
     margin: 0 1vw;
+
+    img {
+        position: absolute;
+        left: 0.8vw;
+        max-height: 30%;
+    }
+
+    form {
+        display: contents;
+
+        input {
+            width: 100%;
+            height: 60%;
+            border-radius: 2vw;
+            padding-left: 3vw;
+            border: 0.25vw solid $background-color;
+            font-family: Montserrats;
+        }
+    }
 }
 
-.search-container>img {
-    position: absolute;
-    left: 0.8vw;
-    max-height: 30%;
-}
-
-.search-container>form {
-    display: contents;
-}
-
-.search-container>form>input {
-    width: 100%;
-    height: 60%;
-    border-radius: 2vw;
-    padding-left: 3vw;
-    border: 0.25vw solid $background-color;
-    font-family: Montserrats;
-}
 
 .adm-container {
     display: flex;
@@ -83,16 +85,17 @@ img {
     font-size: 2vh;
     cursor: pointer;
     transition: 0.3s;
+
+    img {
+        max-height: 80%;
+        margin-left: 0.5vw;
+    }
 }
 
 .adm-container:hover {
     background-color: $button-hovered-color;
 }
 
-.adm-container>img {
-    max-height: 80%;
-    margin-left: 0.5vw;
-}
 
 .result-container {
     display: flex;
@@ -133,6 +136,17 @@ img {
     border: 0.25vw solid $background-color;
     font-size: 1.6vh;
     cursor: pointer;
+
+    p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    img {
+        max-height: 80%;
+        margin: 0 1vw 0 0.5vw;
+    }
 }
 
 .member-container:hover {
@@ -143,16 +157,6 @@ img {
     border-color: $button-color!important;
 }
 
-.member-container p {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.member-container>img {
-    max-height: 80%;
-    margin: 0 1vw 0 0.5vw;
-}
 
 .member-info {
     display: flex;
@@ -160,19 +164,21 @@ img {
     width: 30%;
     height: 100%;
     justify-content: space-evenly;
+
+    p {
+        font-weight: bold;
+    }
+
+    div {
+        display: flex;
+
+        hr {
+            margin: 0 0.7vw;
+        }
+    }
 }
 
-.member-info>p {
-    font-weight: bold;
-}
 
-.member-info>div {
-    display: flex;
-}
-
-.member-info>div>hr {
-    margin: 0 0.7vw;
-}
 
 .buttons-container {
     display: flex;
@@ -181,29 +187,32 @@ img {
     padding-right: 1vw;
     margin-left: auto;
     margin-right: 1vh;
+
+    button {
+        font-family: Montserrats;
+        font-weight: 600;
+        flex: 0.45;
+        border: none;
+        border-radius: 1vw;
+        color: white;
+        background-color: $button-color;
+        padding: 1vh 7vh;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: $button-hovered-color;
+    }
+
+    button:first-of-type {
+        background-color: $button-secondary-color;
+        margin-right: 3vh;
+    }
 }
 
-.buttons-container>button {
-    font-family: Montserrats;
-    font-weight: 600;
-    flex: 0.45;
-    border: none;
-    border-radius: 1vw;
-    color: white;
-    background-color: $button-color;
-    padding: 1vh 7vh;
-    cursor: pointer;
-    transition: 0.3s;
-}
 
-.buttons-container>button:hover {
-    background-color: $button-hovered-color;
-}
 
-.buttons-container>button:first-of-type {
-    background-color: $button-secondary-color;
-    margin-right: 3vh;
-}
 
 .bottom-container {
     display: flex;
@@ -221,11 +230,11 @@ img {
     font-weight: 600;
     align-items: center;
     text-decoration: none;
-}
 
-.new-post-button img {
-    height: 75%;
-    margin-left: 0.5vw;
+    img {
+        height: 75%;
+        margin-left: 0.5vw;
+    }
 }
 
 .deactivated {
