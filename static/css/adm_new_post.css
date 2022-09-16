@@ -69,4 +69,24 @@ body {
   padding: 3vw;
 }
 
+.main-container section {
+  display: flex;
+  height: 100%;
+}
+.main-container section .content-info-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+  height: 100%;
+  outline: 1px solid red;
+}
+.main-container section .content-info-container .title-container {
+  display: flex;
+}
+.main-container section .post-content-container {
+  flex: 0.5;
+  height: 100%;
+  outline: 1px solid blue;
+}
+
 /*# sourceMappingURL=adm_new_post.css.map */

@@ -1,4 +1,29 @@
 @import 'colors';
 @import 'adm_container';
 
+.main-container {
+    section {
+        display: flex;
+        height: 100%;
 
+        .content-info-container {
+            display: flex;
+            flex-direction: column;
+            flex: 0.5;
+            height: 100%;
+            
+            outline: 1px solid red;
+
+            .title-container {
+                display: flex;
+            }
+        }
+        
+        .post-content-container {
+            flex: 0.5;
+            height: 100%;
+            
+            outline: 1px solid blue;
+        }
+    }
+}
