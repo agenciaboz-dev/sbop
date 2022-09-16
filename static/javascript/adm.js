@@ -1,4 +1,4 @@
-let members;
+let members = [];
 
 const fromPython = (string) => {
     string = string.replaceAll(`"None"`, null);
@@ -48,7 +48,9 @@ const cleanList = () => {
 
 const buildList = (list) => {
     const container = $('.list-container');
+    members = [];
     for (let member of list) {
+        members.push(member)
         const member_container = `
             <div class="member-container" id="member-container-${member.id}">
                 <img src="/static/image/doctor_icon.svg" alt="Doctor">
@@ -75,11 +77,40 @@ const buildList = (list) => {
     $('.member-type').on('click', onClickMemberType)
 }
 
+const buildProfile = (member) => {
+    $('#name-input').val(member.name)
+    $('#user-input').val(member.user)
+    $('#cpf-input').val(member.cpf)
+    $('#password-input').val(member.password)
+    $('#uf-input').val(member.uf)
+    $('#cep-input').val(member.cep)
+    $('#telefone-input').val(member.telefone)
+    $('#celular-input').val(member.celular)
+    $('#endereco-input').val(member.endereco)
+    $('#numero-input').val(member.numero)
+    $('#complemento-input').val(member.complemento)
+    $('#bairro-input').val(member.bairro)
+    $('#cidade-input').val(member.cidade)
+    $('#pais-input').val(member.pais)
+    $('#crm-input').val(member.crm)
+    $('#curriculum-input').val(member.curriculum)
+    $('#pessoa-input').val(member.pessoa)
+    $('#temporario-input').val(member.temporario)
+    $('#primeiro_acesso-input').val(member.primeiro_acesso)
+    $('#especialidades-input').val(member.especialidades)
+    $('#pago-input').val(member.pago)
+}
+
 const onclickMember = (event) => {
     $('.member-container-active').removeClass('member-container-active');
 
     const container = $(event.target).closest('.member-container');
+    const id = container.attr('id').split('-')[2]
+
     container.addClass('member-container-active');
+    const member = members.find(item => item.id == id)
+    console.log(member)
+    buildProfile(member)
 
 }
 
