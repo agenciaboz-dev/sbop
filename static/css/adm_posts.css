@@ -160,7 +160,7 @@ img {
     width: fit-content;
     height: 60%;
     color: white;
-    font-size: 2vh;
+    font-size: 1.75vh;
     cursor: pointer;
     transition: 0.3s;
 }

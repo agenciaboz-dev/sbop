@@ -25,7 +25,7 @@
                 </form>
             </div>
             <div class="postagens-container">
-                <p>Postagens</p>
+                <p>Ir para Postagens</p>
                 <img src="/static/image/postagens.svg" alt="Postagens">
             </div>
         </div>
@@ -136,33 +136,77 @@
                         <input id="curriculum-input" type="text" placeholder="Currículo">
                     </div>
                     <div class="input-field">
-                        <label for="pessoa-input">Pessoa</label>
-                        <input id="pessoa-input" type="text" placeholder="Pessoa">
+                        <label>Pessoa</label>
+                        <div class="tipo-pessoa-input">
+                            <input name="pessoa-input" id="pessoa-fisica-input" type="radio">
+                            <label for="pessoa-fisica-input">Física</label>
+                            <input name="pessoa-input" id="pessoa-juridica-input" type="radio">
+                            <label for="pessoa-juridica-input">Jurídica</label>
+                        </div>
                     </div>
                     <div class="input-field">
-                        <label for="temporario-input">Temporário</label>
-                        <input id="temporario-input" type="text" placeholder="Temporário">
+                        <label>Especialidades</label>
+                        <div class="especialidades-inputs-container">
+                            <div>
+                                <input type="checkbox" value="Oftalmologia Pediátrica" class="checkbox"
+                                    id="member-input-oftalmologia">
+                                <label for="member-input-oftalmologia">Oftalmologia Pediátrica</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" value="Estrabismo" class="checkbox" id="member-input-estrabismo">
+                                <label for="member-input-estrabismo">Estrabismo</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" value="Glaucoma Pediátrico" class="checkbox"
+                                    id="member-input-glaucoma">
+                                <label for="member-input-glaucoma">Glaucoma Pediátrico</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" value="Catarata Pediátrica" class="checkbox"
+                                    id="member-input-catarata">
+                                <label for="member-input-catarata">Catarata Pediátrica</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" value="Retina Pediátrica" class="checkbox"
+                                    id="member-input-retina">
+                                <label for="member-input-retina">Retina Pediátrica</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" value="Vias lacrimais" class="checkbox" id="member-input-vias">
+                                <label for="member-input-vias">Vias lacrimais</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" value="Plástica Ocular" class="checkbox"
+                                    id="member-input-plastica">
+                                <label for="member-input-plastica">Plástica Ocular</label>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="checkbox-input">
+                                <label for="temporario-input">Temporário</label>
+                                <input id="temporario-input" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="checkbox-input">
+                                <label for="primeiro_acesso-input">Primeiro Acesso</label>
+                                <input id="primeiro_acesso-input" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="checkbox-input">
+                                <label for="pago-input">Pago</label>
+                                <input id="pago-input" type="checkbox">
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-field">
-                        <label for="primeiro_acesso-input">Primeiro Acesso</label>
-                        <input id="primeiro_acesso-input" type="text" placeholder="Primeiro Acesso">
+                    <div class="profile-buttons-container">
+                        <button>Cancelar</button>
+                        <button>Salvar</button>
                     </div>
-                    <div class="input-field">
-                        <label for="especialidades-input">Especialidades</label>
-                        <input id="especialidades-input" type="text" placeholder="Especialidades">
-                    </div>
-                    <div class="input-field">
-                        <label for="pago-input">Pago</label>
-                        <input id="pago-input" type="text" placeholder="Pago">
-                    </div>
-                </div>
-                <div class="profile-buttons-container">
-                    <button>Cancelar</button>
-                    <button>Salvar</button>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 <footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

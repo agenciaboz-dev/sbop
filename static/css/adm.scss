@@ -154,7 +154,7 @@ img {
     width: fit-content;
     height: 60%;
     color: white;
-    font-size: 2vh;
+    font-size: 1.75vh;
     cursor: pointer;
     transition: 0.3s;
 
@@ -247,7 +247,7 @@ img {
 }
 
 .member-container-active {
-    border-color: $button-color !important;
+    border-color: $button-color  !important;
 }
 
 
@@ -347,7 +347,6 @@ img {
     }
 }
 
-
 .input-field {
     display: flex;
     flex-direction: column;
@@ -365,6 +364,45 @@ img {
     }
 }
 
+.checkbox-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+        margin-left: 0.5vw;
+    }
+}
+
+.tipo-pessoa-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+        border-radius: 2vw;
+        margin-left: 5.75vw;
+        margin-right: 0.5vw;
+    }
+}
+
+.especialidades-inputs-container {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    margin: 2vh 0;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        input {
+            margin-left: 8vw;
+            margin-right: 0.5vw;
+        }
+    }
+}
 
 #uf-input {
     border-radius: 2vw;

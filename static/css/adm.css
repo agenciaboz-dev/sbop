@@ -145,7 +145,7 @@ img {
   width: fit-content;
   height: 60%;
   color: white;
-  font-size: 2vh;
+  font-size: 1.75vh;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -334,6 +334,42 @@ img {
   height: 4vh;
   padding: 0 0.7vw;
   margin-top: 0.5vh;
+}
+
+.checkbox-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.checkbox-input input {
+  margin-left: 0.5vw;
+}
+
+.tipo-pessoa-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.tipo-pessoa-input input {
+  border-radius: 2vw;
+  margin-left: 5.75vw;
+  margin-right: 0.5vw;
+}
+
+.especialidades-inputs-container {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  margin: 2vh 0;
+}
+.especialidades-inputs-container div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.especialidades-inputs-container div input {
+  margin-left: 8vw;
+  margin-right: 0.5vw;
 }
 
 #uf-input {
