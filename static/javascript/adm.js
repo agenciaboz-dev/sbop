@@ -176,6 +176,7 @@ const onClickMemberType = (event) => {
     })
 }
 
+$('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
 $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)
 $('#profile-reset-button').on('click', onClickCancel)
