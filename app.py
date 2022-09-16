@@ -455,7 +455,13 @@ def remove_temporary():
     except Exception as error:
         print(error)
         return 'False'
+    
+@app.route("/edit_member/", methods=["POST"])
+def edit_member():
+    data = request.data
+    print(data)
 
+    return json.dumps({'error': 'nada'})
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
