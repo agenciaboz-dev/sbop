@@ -1,0 +1,234 @@
+@import 'colors';
+@import 'adm_container';
+
+img {
+    max-height: 100%;
+}
+
+.top-container {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-container {
+    position: relative;
+    height: 100%;
+}
+
+.camera-icon-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    top: 0;
+    background-color: white;
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    box-shadow: 0px 3px 20px #00000029;
+    transform: translate(30%, -50%);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.camera-icon-container:hover {
+    transform: translate(30%, -50%) scale(1.15);
+}
+
+.camera-icon-container>img {
+    max-height: 50%;
+}
+
+.search-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin: 0 1vw;
+}
+
+.search-container>img {
+    position: absolute;
+    left: 0.8vw;
+    max-height: 30%;
+}
+
+.search-container>form {
+    display: contents;
+}
+
+.search-container>form>input {
+    width: 100%;
+    height: 60%;
+    border-radius: 2vw;
+    padding-left: 3vw;
+    border: 0.25vw solid $background-color;
+    font-family: Montserrats;
+}
+
+.adm-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $button-color;
+    border-radius: 30vw;
+    padding: 0 0.3vw 0 0.7vw;
+    width: fit-content;
+    height: 60%;
+    color: white;
+    font-size: 2vh;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.adm-container:hover {
+    background-color: $button-hovered-color;
+}
+
+.adm-container>img {
+    max-height: 80%;
+    margin-left: 0.5vw;
+}
+
+.result-container {
+    display: flex;
+    height: 80%;
+    margin-top: 3vh;
+}
+
+.list-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $list-text-color;
+}
+
+#searching-title {
+    display: none;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 1vw;
+    gap: 2vh;
+    margin-top: 3vh;
+}
+
+.member-container {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    border-radius: 5vw;
+    border: 0.25vw solid $background-color;
+    font-size: 1.6vh;
+    cursor: pointer;
+}
+
+.member-container:hover {
+    border-color: rgba(12, 99, 151, 0.5);
+}
+
+.member-container-active {
+    border-color: $button-color!important;
+}
+
+.member-container p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.member-container>img {
+    max-height: 80%;
+    margin: 0 1vw 0 0.5vw;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.member-info>p {
+    font-weight: bold;
+}
+
+.member-info>div {
+    display: flex;
+}
+
+.member-info>div>hr {
+    margin: 0 0.7vw;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1vw;
+    margin-left: auto;
+    margin-right: 1vh;
+}
+
+.buttons-container>button {
+    font-family: Montserrats;
+    font-weight: 600;
+    flex: 0.45;
+    border: none;
+    border-radius: 1vw;
+    color: white;
+    background-color: $button-color;
+    padding: 1vh 7vh;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttons-container>button:hover {
+    background-color: $button-hovered-color;
+}
+
+.buttons-container>button:first-of-type {
+    background-color: $button-secondary-color;
+    margin-right: 3vh;
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    justify-content: right;
+    margin-top: 1vh;
+}
+
+.new-post-button {
+    color: #0C6397;
+    display: flex;
+    flex-direction: row;
+    font-family: montserrats;
+    font-weight: 600;
+    align-items: center;
+    text-decoration: none;
+}
+
+.new-post-button img {
+    height: 75%;
+    margin-left: 0.5vw;
+}
+
+.deactivated {
+    pointer-events: none;
+    opacity: 0.3;
+}

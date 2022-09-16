@@ -55,6 +55,11 @@ def adm_posts_page():
 
     return render_template('adm_posts.html')
 
+@app.route('/adm_new_post/', methods=['GET'])
+def adm_new_post_page():
+
+    return render_template('adm_new_post.html')
+
 
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
