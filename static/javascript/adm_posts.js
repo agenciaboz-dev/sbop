@@ -1,0 +1,1 @@
+$('.adm-container').on('click', () => {window.location.href='/adm/'})

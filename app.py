@@ -55,6 +55,11 @@ def adm_posts_page():
 
     return render_template('adm_posts.html')
 
+@app.route('/adm_new_post/', methods=['GET'])
+def adm_new_post_page():
+
+    return render_template('adm_new_post.html')
+
 
 @app.route('/perfil/', methods=['GET', 'POST'])
 def member_page():
@@ -455,7 +460,13 @@ def remove_temporary():
     except Exception as error:
         print(error)
         return 'False'
+    
+@app.route("/edit_member/", methods=["POST"])
+def edit_member():
+    data = request.data
+    print(data)
 
+    return json.dumps({'error': 'nada'})
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")

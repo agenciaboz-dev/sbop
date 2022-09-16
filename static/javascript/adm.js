@@ -1,4 +1,5 @@
 let members = [];
+let current_id;
 
 const fromPython = (string) => {
     string = string.replaceAll(`"None"`, null);
@@ -78,27 +79,28 @@ const buildList = (list) => {
 }
 
 const buildProfile = (member) => {
-    $('#name-input').val(member.name)
-    $('#user-input').val(member.user)
-    $('#cpf-input').val(member.cpf)
-    $('#password-input').val(member.password)
-    $('#uf-input').val(member.uf)
-    $('#cep-input').val(member.cep)
-    $('#telefone-input').val(member.telefone)
-    $('#celular-input').val(member.celular)
-    $('#endereco-input').val(member.endereco)
-    $('#numero-input').val(member.numero)
-    $('#complemento-input').val(member.complemento)
-    $('#bairro-input').val(member.bairro)
-    $('#cidade-input').val(member.cidade)
-    $('#pais-input').val(member.pais)
-    $('#crm-input').val(member.crm)
-    $('#curriculum-input').val(member.curriculum)
-    $('#pessoa-input').val(member.pessoa)
-    $('#temporario-input').val(member.temporario)
-    $('#primeiro_acesso-input').val(member.primeiro_acesso)
-    $('#especialidades-input').val(member.especialidades)
-    $('#pago-input').val(member.pago)
+    current_id = member.id;
+    $('#name-input').val(member.name);
+    $('#user-input').val(member.user);
+    $('#cpf-input').val(member.cpf);
+    $('#password-input').val(member.password);
+    $('#uf-input').val(member.uf);
+    $('#cep-input').val(member.cep);
+    $('#telefone-input').val(member.telefone);
+    $('#celular-input').val(member.celular);
+    $('#endereco-input').val(member.endereco);
+    $('#numero-input').val(member.numero);
+    $('#complemento-input').val(member.complemento);
+    $('#bairro-input').val(member.bairro);
+    $('#cidade-input').val(member.cidade);
+    $('#pais-input').val(member.pais);
+    $('#crm-input').val(member.crm);
+    $('#curriculum-input').val(member.curriculum);
+    $('#pessoa-input').val(member.pessoa);
+    $('#temporario-input').val(member.temporario);
+    $('#primeiro_acesso-input').val(member.primeiro_acesso);
+    $('#especialidades-input').val(member.especialidades);
+    $('#pago-input').val(member.pago);
 }
 
 const onclickMember = (event) => {
@@ -112,6 +114,36 @@ const onclickMember = (event) => {
     console.log(member)
     buildProfile(member)
 
+}
+
+const onClickSave = (event) => {
+    const id = current_id;
+    const inputs = $('.profile-data-field input');
+    let member = {id: id}
+    for (element of inputs) {
+        const key = $(element).attr('id').split('-')[0]
+        member[key] = $(element).val()
+    }
+    console.log(member)
+    
+    const request = $.ajax({
+        url: '/edit_member/',
+        method: 'POST',
+        data: {
+            search: 'name',
+            nome: 'bosta'
+        }
+    });
+    // DAHAN ME AJUDA
+    request.done((data) => {
+        console.log(data)
+    })
+}
+
+const onClickCancel = (event) => {
+    const id = current_id;
+    const member = members.find(item => item.id == id)
+    buildProfile(member)
 }
 
 const onClickMemberType = (event) => {
@@ -144,5 +176,8 @@ const onClickMemberType = (event) => {
     })
 }
 
+$('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
 $('form').on('submit', searchMember)
+$('#profile-save-button').on('click', onClickSave)
+$('#profile-reset-button').on('click', onClickCancel)
 $('document').ready(loadList)
