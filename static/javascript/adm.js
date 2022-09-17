@@ -128,7 +128,7 @@ const onClickSave = (event) => {
     console.log(member)
 
     const requisicaoUngida = () => {
-        const url = 'http://192.168.18.9:5001/edit_member/';
+        const url = '/edit_member/';
     
         const options = {
         method: 'POST',
