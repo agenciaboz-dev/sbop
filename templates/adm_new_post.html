@@ -6,22 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/adm_new_post.css">
-    <title>Sbop - ADM - Posts</title>
+    <title>Sbop - ADM - Nova Postagem</title>
 </head>
 
 <body>
     <div class="main-container">
-        <section>
-            <div class="content-info-container">
-                <div class="title-container">
-                    
+        <div class="column1">
+            <div class="top-container">
+                <div class="img-container">
+                    <img src="/static/image/adm_icon.svg" alt="Foto">
+                    <div class="camera-icon-container">
+                        <img src="/static/image/camera.svg" alt="Camera">
+                    </div>
+                </div>
+                <div class="row1">
+                    <h1>Adicionar nova postagem</h1>
+                    <p>Autor: Lorem Ipsum</p>
                 </div>
             </div>
-            <div class="post-content-container">
-            
+            <div class="radios-container">
+                <div class="post-type-input">
+                    <input name="post-input" id="publish-input" type="radio">
+                    <label for="publish-input">Publicação</label>
+                    <input name="post-input" id="video-input" type="radio">
+                    <label for="video-input">Vídeo</label>
+                </div>
+                <p>Capa do conteúdo que será exibido na página de acesso restrito</p>
             </div>
-        </section>
-    </div>
+            <div class="dashed-box">
+                <div class="search-box">
+                    <p>Arraste e solte o arquivo aqui</p>
+                    <p>ou</p>
+                    <div class="search-button">
+                        <p>Buscar no computador</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 <footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
