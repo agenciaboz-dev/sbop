@@ -96,12 +96,41 @@ const buildProfile = (member) => {
     $('#pais-input').val(member.pais);
     $('#crm-input').val(member.crm);
     $('#curriculum-input').val(member.curriculum);
-    // $('#pessoa-input').val();
+
     if (member.pessoa == 1) {
         $('#pessoa-fisica-input').prop("checked", true);
     } else {
         $('#pessoa-juridica-input').prop("checked", true);
     }
+
+    const especialidades = member.especialidades.split(',');
+
+    $('input[name="especialidades-input"]').prop('checked', false);
+    for (let especialidade of especialidades) {
+        $(`input[value="${especialidade}"]`).prop('checked', true);
+    }
+
+    if (member.temporario) {
+        $('#temporario-input').prop("checked", true);
+    } else {
+        $('#temporario-input').prop("checked", false);
+
+    }
+
+    if (member.primeiro_acesso) {
+        $('#primeiro_acesso-input').prop("checked", true);
+    } else {
+        $('#primeiro_acesso-input').prop("checked", false);
+
+    }
+
+    if (member.pago) {
+        $('#pago-input').prop("checked", true);
+    } else {
+        $('#pago-input').prop("checked", false);
+
+    }
+
     $('#temporario-input').val(member.temporario);
     $('#primeiro_acesso-input').val(member.primeiro_acesso);
     $('#especialidades-input').val(member.especialidades);
@@ -125,11 +154,13 @@ const onClickSave = (event) => {
 
     const id = current_id;
     const inputs = $('.profile-data-field input');
-    let member = {id: id}
+    let member = {id: id, adm_panel: true}
     for (element of inputs) {
         const key = $(element).attr('id').split('-')[0]
         member[key] = $(element).val()
     }
+    member.uf = $('#uf-input').val()
+    member.especialidades = $('input[name="especialidades-input"]:checked')
     console.log(member)
 
     const requisicaoUngida = () => {

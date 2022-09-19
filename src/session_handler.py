@@ -187,8 +187,16 @@ class Session():
         self.database.insertPost(data)
         
     def editMember(self, data):
+        if data.get('adm_panel'):
+            telefone = 'telefone'
+            especialidades = 'especialidades'
+        else:
+            telefone = 'telefone_plain'
+            especialidades = 'especialidades_str'
+
         try:
-            sql = f"UPDATE Membros SET NOME='{data['name']}', UF='{data['uf']}', CEP='{data['cep']}', CPF='{data['cpf']}', EMAIL='{data['email']}', CRM='{data['crm']}', CURRICULUM='{data['curriculum']}', TELEFONE='{data['telefone_plain']}', ENDERECO='{data['endereco']}', NUMERO='{data['numero']}', COMPLEMENTO='{data['complemento']}', BAIRRO='{data['bairro']}', CIDADE='{data['cidade']}', ESPECIALIDADES='{data['especialidades_str']}', TEMPORARIO='{data['temporario']}' WHERE ID={data['id']}"
+            sql = f"UPDATE Membros SET NOME='{data['name']}', UF='{data['uf']}', CEP='{data['cep']}', CPF='{data['cpf']}', EMAIL='{data['email']}', CRM='{data['crm']}', CURRICULUM='{data['curriculum']}', TELEFONE='{data[telefone]}', ENDERECO='{data['endereco']}', NUMERO='{data['numero']}', COMPLEMENTO='{data['complemento']}', BAIRRO='{data['bairro']}', CIDADE='{data['cidade']}', ESPECIALIDADES='{data[especialidades]}', TEMPORARIO='{data['temporario']}' WHERE ID={data['id']}"
+            print(sql)
             cursor = self.database.connection.cursor()
             cursor.execute(sql)
             self.database.connection.commit()
