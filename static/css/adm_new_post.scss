@@ -1,19 +1,25 @@
 @import 'colors';
 @import 'adm_container';
 
-.top-container {
-    // height: 10%;
+.main-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+}
+
+.top-container {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .column1 {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 50%;
 }
 
 img {
@@ -21,6 +27,8 @@ img {
 }
 
 .img-container {
+    display: flex;
+    align-items: center;
     position: relative;
     height: 100%;
 }
@@ -61,7 +69,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    margin-top: 2vh;
+    margin-top: 1vh;
 
     input[type=radio] {
         border: 0px;
@@ -91,7 +99,6 @@ img {
 .post-type-input {
     display: flex;
     flex-direction: row;
-    margin-bottom: 0.5vh;
 }
 
 h1 {
@@ -102,6 +109,13 @@ h1 {
     margin-bottom: 0.75vh;
 }
 
+h2 {
+    color: #6b6b6b;
+    font-family: Montserrats;
+    font-weight: 600;
+    font-size: 120%;
+}
+
 p {
     color: #8d8d8d;
     font-family: Montserrats;
@@ -109,9 +123,9 @@ p {
 }
 
 .dashed-box {
-    margin: 2vh 0;
+    margin: 1.5vh 0;
     outline: #cfcfcf dashed 0.5vh;
-    padding: 2vw;
+    padding: 1.5vw 11vw;
     width: 100%;
 }
 
@@ -133,6 +147,50 @@ p {
         color: #312871;
         font-weight: 600;
     }
+}
+
+.categories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    #category-input {
+        color: #656565;
+        border: none;
+        border-radius: 2vw;
+        font-weight: 600;
+        margin: 1vh 0;
+        outline: #E4E4E4 solid 0.25vw;
+        padding: 1vh 2vh;
+        width: 100%;
+    }
+}
+
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1vh;
+
+    #summary {
+        background-color: #E4E4E4;
+        border: none;
+        border-radius: 2vw;
+        height: 10vh;
+        width: 100%;
+        margin-top: 1vh;
+        padding: 1.5vw;
+    }
+}
+
+.column2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */
