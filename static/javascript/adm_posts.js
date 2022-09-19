@@ -16,7 +16,12 @@ const request = (url, data, done) => {
 const list_container = $('.list-container')
 
 const getPosts = (event) => {
-    event.preventDefault();
+    try {
+        event.preventDefault();
+    } catch {
+
+    }
+        
     const searched = $('.search-container > form > input').val();
     request('/get_posts/', {searched: searched}, (response) => {
         for (post of response) {
@@ -27,23 +32,30 @@ const getPosts = (event) => {
                 <div class="post-info">
                     <p>Nome: <span title="${post.TITULO}" class="post-name">${post.TITULO}</span></p>
                     <div>
-                        <p>Autor: <span title="" class=""></span></p>
+                        <p>Autor: <span title="${post.AUTOR}" class="">${post.AUTOR}</span></p>
                         <hr>
-                        <p>Data: <span title="" class=""></span></p>
+                        <p>Data: <span title="${post.DATA}" class="">${post.DATA}</span></p>
                         <hr>
-                        <p>Categoria: <span title="" class=""></span></p>
+                        <p>Categoria: <span title="${post.MEMBRO}" class="">${post.MEMBRO}</span></p>
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button>Deletar</button>
+                    <button class='delete-button'>Deletar</button>
                     <button>Editar</button>
                 </div>
             </div>
             `
-            list_container.append(element)
+            list_container.append(element);
         }
+        $('.delete-button').on('click', deletePost);
     })
+}
+
+const deletePost = (event) => {
+    const id = $(event.target).closest('.post-container').attr('id').split('-')[2]
+    alert(id)
 }
 
 $('.adm-container').on('click', () => {window.location.href='/adm/'})
 $('form').on('submit', getPosts)
+$('document').ready(getPosts)
