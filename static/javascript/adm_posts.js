@@ -40,14 +40,20 @@ const getPosts = (event) => {
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button>Deletar</button>
+                    <button class='delete-button'>Deletar</button>
                     <button>Editar</button>
                 </div>
             </div>
             `
-            list_container.append(element)
+            list_container.append(element);
         }
+        $('.delete-button').on('click', deletePost);
     })
+}
+
+const deletePost = (event) => {
+    const id = $(event.target).closest('.post-container').attr('id').split('-')[2]
+    alert(id)
 }
 
 $('.adm-container').on('click', () => {window.location.href='/adm/'})
