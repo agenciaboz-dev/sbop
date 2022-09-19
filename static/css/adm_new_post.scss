@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'adm_container';
 
+<<<<<<< HEAD
 .top-container {
     // height: 10%;
     display: flex;
@@ -115,3 +116,31 @@ p {
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */
+=======
+.main-container {
+    section {
+        display: flex;
+        height: 100%;
+
+        .content-info-container {
+            display: flex;
+            flex-direction: column;
+            flex: 0.5;
+            height: 100%;
+            
+            outline: 1px solid red;
+
+            .title-container {
+                display: flex;
+            }
+        }
+        
+        .post-content-container {
+            flex: 0.5;
+            height: 100%;
+            
+            outline: 1px solid blue;
+        }
+    }
+}
+>>>>>>> fe0da5519044aedd5fe248287d3eeec0c99e0fc2

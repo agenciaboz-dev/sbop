@@ -33,8 +33,20 @@ class Member():
         self.solicitacoes = data['solicitacoes']
         self.especialidades = data['especialidades']
         self.especialidades_str = None
+        if data['temporario'] == 'false':
+            data['temporario'] = 'False'
+        elif data['temporario'] == 'true':
+            data['temporario'] = 'True'
         self.temporario = eval(data['temporario'])
+        if data['primeiro_acesso'] == 'false':
+            data['primeiro_acesso'] = 'False'
+        elif data['primeiro_acesso'] == 'true':
+            data['primeiro_acesso'] = 'True'
         self.primeiro_acesso = eval(data['primeiro_acesso'])
+        if data['pago'] == 'false':
+            data['pago'] = 'False'
+        elif data['pago'] == 'true':
+            data['pago'] = 'True'
         self.pago = eval(data['pago'])
 
         self.member_container_wrapper = None
@@ -415,6 +427,7 @@ def renderStage2(ev):
     member.uf = jQuery('#member-input-uf').val()
     
     def updateProfileComplete(req):
+        print(req.text)
         response = eval(req.text)
         if response:
             # removing button from stage-1

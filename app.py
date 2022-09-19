@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request
+from flask_cors import CORS
 from src.session_handler import Session, Connection
 from src.mysql_handler import Mysql
 import src.config as cfg
@@ -8,7 +9,7 @@ import json
 
 session = Session()
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -438,16 +439,9 @@ def new_request():
 # update profile data
 @app.route('/update_profile/', methods=['POST'])
 def update_profile():
-    try:
-        sql = f"UPDATE Membros SET NOME='{request.form['name']}', UF='{request.form['uf']}', CEP='{request.form['cep']}', CPF='{request.form['cpf']}', EMAIL='{request.form['email']}', CRM='{request.form['crm']}', CURRICULUM='{request.form['curriculum']}', TELEFONE='{request.form['telefone_plain']}', ENDERECO='{request.form['endereco']}', NUMERO='{request.form['numero']}', COMPLEMENTO='{request.form['complemento']}', BAIRRO='{request.form['bairro']}', CIDADE='{request.form['cidade']}', ESPECIALIDADES='{request.form['especialidades_str']}', TEMPORARIO='{request.form['temporario']}' WHERE ID={request.form['id']}"
-        cursor = session.database.connection.cursor()
-        cursor.execute(sql)
-        session.database.connection.commit()
-        cursor.close()
-        return 'True'
-    except Exception as error:
-        print(error)
-        return 'False'
+    response = session.editMember(request.form)
+
+    return response
 
 
 # remove temporary flag
@@ -461,12 +455,13 @@ def remove_temporary():
         print(error)
         return 'False'
     
-@app.route("/edit_member/", methods=["POST"])
+@app.route('/edit_member/', methods=["POST"])
 def edit_member():
-    data = request.data
+    data = request.get_json()
     print(data)
+    response = session.editMember(data)
 
-    return json.dumps({'error': 'nada'})
+    return json.dumps(response)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
