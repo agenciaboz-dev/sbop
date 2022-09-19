@@ -126,7 +126,7 @@ img {
     margin-top: 3vh;
 }
 
-.member-container {
+.post-container {
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
@@ -149,16 +149,16 @@ img {
     }
 }
 
-.member-container:hover {
+.post-container:hover {
     border-color: rgba(12, 99, 151, 0.5);
 }
 
-.member-container-active {
+.post-container-active {
     border-color: $button-color!important;
 }
 
 
-.member-info {
+.post-info {
     display: flex;
     flex-direction: column;
     width: 30%;
