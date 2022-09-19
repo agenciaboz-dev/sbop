@@ -171,10 +171,28 @@ p {
   font-size: 100%;
 }
 
-.searchbox {
+.dashed-box {
   margin: 2vh 0;
   outline: #cfcfcf dashed 0.5vh;
-  padding: 5vw;
+  padding: 2vw;
+  width: 100%;
+}
+
+.search-box {
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 2vw;
+  display: flex;
+  flex-direction: column;
+  padding: 3vh;
+}
+.search-box p {
+  color: #8d8d8d;
+}
+
+.search-button p {
+  color: #312871;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */
