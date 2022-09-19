@@ -83,6 +83,7 @@ const buildProfile = (member) => {
     $('#name-input').val(member.name);
     $('#user-input').val(member.user);
     $('#cpf-input').val(member.cpf);
+    $('#email-input').val(member.email);
     $('#password-input').val(member.password);
     $('#uf-input').val(member.uf);
     $('#cep-input').val(member.cep);
@@ -110,7 +111,7 @@ const buildProfile = (member) => {
         $(`input[value="${especialidade}"]`).prop('checked', true);
     }
 
-    if (member.temporario) {
+    if (member.temporario === true || member.temporario === "true") {
         $('#temporario-input').prop("checked", true);
     } else {
         $('#temporario-input').prop("checked", false);
@@ -160,7 +161,15 @@ const onClickSave = (event) => {
         member[key] = $(element).val()
     }
     member.uf = $('#uf-input').val()
-    member.especialidades = $('input[name="especialidades-input"]:checked')
+    member.especialidades = ''
+
+    for (let element of $('input[name="especialidades-input"]:checked')) {
+        member.especialidades += `${$(element).val()},`
+    }
+
+    member.temporario = Boolean($('#temporario-input:checked')[0]);
+    member.primeiro_acesso = Boolean($('#primeiro_acesso-input:checked')[0]);
+    member.pago = Boolean($('#pago-input:checked')[0]);
     console.log(member)
 
     const requisicaoUngida = () => {
@@ -178,7 +187,9 @@ const onClickSave = (event) => {
         .catch(err => console.error('error:' + err));
     }
 
-    requisicaoUngida()
+    if (confirm(`Tem certeza que deseja atualizar os dados do usuário ${member.user}?`)) {
+        requisicaoUngida()
+    }
 }
 
 const onClickCancel = (event) => {
@@ -195,26 +206,28 @@ const onClickMemberType = (event) => {
     const member_type_container = $(event.target).closest('.member-type-container');
     const current_plan_container = member_type_container.children('.active-type');
 
-    const request = $.ajax({
-        url: '/change_plan/',
-        method: 'POST',
-        data: {
-            id: id,
-            plan: plan,
-            adm: true
-        }
-    });
+    if (confirm(`Tem certeza que deseja alterar o tipo do usuário para ${plan}?`)) {
+        const request = $.ajax({
+            url: '/change_plan/',
+            method: 'POST',
+            data: {
+                id: id,
+                plan: plan,
+                adm: true
+            }
+        });
+        member_type_container.addClass('deactivated');
+        current_plan_container.removeClass('active-type');
+        request.done((msg) => {
+            if (msg == 'True') {
+                $(event.target).closest(`.${plan}`).addClass('active-type');
+            } else {
+                current_plan_container.addClass('active-type');
+            }
+            member_type_container.removeClass('deactivated');
+        })
+    }
 
-    member_type_container.addClass('deactivated');
-    current_plan_container.removeClass('active-type');
-    request.done((msg) => {
-        if (msg == 'True') {
-            $(event.target).closest(`.${plan}`).addClass('active-type');
-        } else {
-            current_plan_container.addClass('active-type');
-        }
-        member_type_container.removeClass('deactivated');
-    })
 }
 
 $('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
