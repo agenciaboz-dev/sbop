@@ -186,6 +186,18 @@ class Session():
                 data['content'], data['author'], date)
         self.database.insertPost(data)
         
+    def editMember(self, data):
+        try:
+            sql = f"UPDATE Membros SET NOME='{data['name']}', UF='{data['uf']}', CEP='{data['cep']}', CPF='{data['cpf']}', EMAIL='{data['email']}', CRM='{data['crm']}', CURRICULUM='{data['curriculum']}', TELEFONE='{data['telefone_plain']}', ENDERECO='{data['endereco']}', NUMERO='{data['numero']}', COMPLEMENTO='{data['complemento']}', BAIRRO='{data['bairro']}', CIDADE='{data['cidade']}', ESPECIALIDADES='{data['especialidades_str']}', TEMPORARIO='{data['temporario']}' WHERE ID={data['id']}"
+            cursor = self.database.connection.cursor()
+            cursor.execute(sql)
+            self.database.connection.commit()
+            cursor.close()
+            return 'True'
+        except Exception as error:
+            print(error)
+            return 'False'
+        
     # def getCepDistance(self, cep1, cep2):
     #     url1 = f'https://viacep.com.br/ws/{cep1}/json/'
     #     url2 = f'https://viacep.com.br/ws/{cep2}/json/'

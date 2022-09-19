@@ -415,6 +415,7 @@ def renderStage2(ev):
     member.uf = jQuery('#member-input-uf').val()
     
     def updateProfileComplete(req):
+        print(req.text)
         response = eval(req.text)
         if response:
             # removing button from stage-1

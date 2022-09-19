@@ -96,7 +96,12 @@ const buildProfile = (member) => {
     $('#pais-input').val(member.pais);
     $('#crm-input').val(member.crm);
     $('#curriculum-input').val(member.curriculum);
-    $('#pessoa-input').val(member.pessoa);
+    // $('#pessoa-input').val();
+    if (member.pessoa == 1) {
+        $('#pessoa-fisica-input').prop("checked", true);
+    } else {
+        $('#pessoa-juridica-input').prop("checked", true);
+    }
     $('#temporario-input').val(member.temporario);
     $('#primeiro_acesso-input').val(member.primeiro_acesso);
     $('#especialidades-input').val(member.especialidades);
