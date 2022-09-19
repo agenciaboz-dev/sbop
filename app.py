@@ -463,5 +463,12 @@ def edit_member():
 
     return json.dumps(response)
 
+@app.route('/get_posts/', methods=['POST'])
+def get_posts():
+    data = request.get_json()
+    response = session.getPosts(data)
+
+    return json.dumps(response)
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
