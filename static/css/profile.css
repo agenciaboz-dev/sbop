@@ -370,16 +370,23 @@ button:hover {
 }
 
 #edit-curriculum {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: white;
     position: absolute;
-    width: 3.75vw;
-    top: -2vh;
-    right: 30.5vw;
+    height: 2.5vh;
+    /* width: 3.75vw; */
+    right: 31.75vw;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 1.5vh;
+    padding: 0 0.5vw;
 }
 
 #edit-curriculum:hover {
-    transform: scale(1.2)
+    /* transform: scale(1.2); */
+    background-color: #094a6f;
+    color: white;
 }
 
 .profile-picture-container {

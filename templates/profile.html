@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
     <title>Sbop - Perfil</title>
 </head>
+
 <body onload="brython({cache:true})">
     <!-- TOP TOOLBAR -->
     <!-- <div class="top-container">
@@ -101,7 +103,7 @@
                         <input type="text" id="member-input-name">
                         <label for="member-input-cpf" required>CPF</label>
                         <input type="text" id="member-input-cpf">
-                        
+
                         <label for="member-input-email" required>E-mail</label>
                         <input type="text" id="member-input-email">
                         <label for="member-input-crm">CRM</label>
@@ -110,7 +112,8 @@
                         <div>
                             <div>
                                 <label for="member-input-oftalmologia">Oftalmologia Pediátrica</label>
-                                <input type="checkbox" value="Oftalmologia Pediátrica" class="checkbox" id="member-input-oftalmologia">
+                                <input type="checkbox" value="Oftalmologia Pediátrica" class="checkbox"
+                                    id="member-input-oftalmologia">
                             </div>
                             <div>
                                 <label for="member-input-estrabismo">Estrabismo</label>
@@ -118,15 +121,18 @@
                             </div>
                             <div>
                                 <label for="member-input-glaucoma">Glaucoma Pediátrico</label>
-                                <input type="checkbox" value="Glaucoma Pediátrico" class="checkbox" id="member-input-glaucoma">
+                                <input type="checkbox" value="Glaucoma Pediátrico" class="checkbox"
+                                    id="member-input-glaucoma">
                             </div>
                             <div>
                                 <label for="member-input-catarata">Catarata Pediátrica</label>
-                                <input type="checkbox" value="Catarata Pediátrica" class="checkbox" id="member-input-catarata">
+                                <input type="checkbox" value="Catarata Pediátrica" class="checkbox"
+                                    id="member-input-catarata">
                             </div>
                             <div>
                                 <label for="member-input-retina">Retina Pediátrica</label>
-                                <input type="checkbox" value="Retina Pediátrica" class="checkbox" id="member-input-retina">
+                                <input type="checkbox" value="Retina Pediátrica" class="checkbox"
+                                    id="member-input-retina">
                             </div>
                             <div>
                                 <label for="member-input-vias">Vias lacrimais</label>
@@ -134,7 +140,8 @@
                             </div>
                             <div>
                                 <label for="member-input-plastica">Plástica Ocular</label>
-                                <input type="checkbox" value="Plástica Ocular" class="checkbox" id="member-input-plastica">
+                                <input type="checkbox" value="Plástica Ocular" class="checkbox"
+                                    id="member-input-plastica">
                             </div>
                         </div>
                         <label for="member-input-curriculum">Curriculum</label>
@@ -191,10 +198,11 @@
                     <div>
                         <h1>Nome de Usuário <span class="private-info">Privado</span></h1>
                         <p id="data-username">username-value</p>
-                        
-                        <h1 id="especilidades-data-field">Especialidades <img src="/static/image/edit.svg" alt="editar"><span class="public-info">Público</span></h1>
+
+                        <h1 id="especilidades-data-field">Especialidades <img src="/static/image/edit.svg"
+                                alt="editar"><span class="public-info">Público</span></h1>
                         <p id="data-specialization">specialization-value</p>
-                        
+
                         <h1>E-mail <span class="public-info">Público</span></h1>
                         <p id="data-email">email-value</p>
 
@@ -204,7 +212,8 @@
                     <img id="logo-icon" src="/static/image/logo_blue.webp" alt="Logo">
                     <div>
                         <button class="profile-buttons" onclick="window.location.href='/logout/'">Sair</button>
-                        <button class="profile-buttons" onclick="window.location.href='https://sbop.com.br/'">Site</button>
+                        <button class="profile-buttons"
+                            onclick="window.location.href='https://sbop.com.br/'">Site</button>
                     </div>
                 </div>
 
@@ -213,16 +222,18 @@
             <div class="curriculum-container">
                 <span class="public-info">Público</span>
                 <h1>Curriculum</h1>
-                <img id="edit-curriculum" src="/static/image/edit.svg" alt="editar">
+                <button id="edit-curriculum">Editar</button>
                 <p id="data-curriculum">blabla</p>
-                <textarea name="profile-input-curriculum" id="profile-input-curriculum" cols="160" rows="1000"></textarea>
+                <textarea name="profile-input-curriculum" id="profile-input-curriculum" cols="160"
+                    rows="1000"></textarea>
             </div>
         </div>
         <!-- SAFETY CONTAINER -->
         <div id="safety-container" class="main-container">
             <form action="javascript:void(0);">
                 <h1>Redefinir Senha</h1>
-                <p>Por favor, preencha os campos para a senha atual, a nova senha e em seguida confirme para redefini-la.</p>
+                <p>Por favor, preencha os campos para a senha atual, a nova senha e em seguida confirme para
+                    redefini-la.</p>
                 <label for="input-current-password">Senha atual</label>
                 <input type="password" id="input-current-password" required>
 
@@ -236,7 +247,8 @@
             </form>
             <form action="javascript:void(0);">
                 <h1>Redefinir e-mail</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
                 <label for="input-current-email">E-mail atual</label>
                 <input type="email" id="input-current-email" placeholder="email_atual@sbop.com.br" required>
 
@@ -254,7 +266,8 @@
             <div class="plans-titles-container">
                 <div class="plans-titles">
                     <h1>Mude seu plano de afiliação</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
                 </div>
                 <div class="vigencia-container">
                     <p id="vigencia-text">Vigente até dia<span></span></p>
@@ -266,7 +279,8 @@
                 </div>
                 <hr>
                 <p>
-                    Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do membro), Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP.
+                    Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do
+                    membro), Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP.
                     <span>BRL 400.00 / ano</span>
                 </p>
             </div>
@@ -276,7 +290,8 @@
                 </div>
                 <hr>
                 <p>
-                    Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do membro), Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP. 
+                    Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do
+                    membro), Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP.
                     <span>BRL 400.00 / ano</span>
                 </p>
             </div>
@@ -286,7 +301,7 @@
                 </div>
                 <hr>
                 <p>
-                    Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP. 
+                    Descontos, Acesso ao conteúdo exclusivo, Atualizações de conteúdos da SBOP.
                     <span>BRL 200.00 / ano</span>
                 </p>
             </div>
@@ -355,4 +370,5 @@
     <script type="text/python" src="/static/brython/profile.py"></script>
     <script src="/static/javascript/profile.js"></script>
 </footer>
+
 </html>
