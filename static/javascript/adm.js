@@ -9,6 +9,28 @@ const fromPython = (string) => {
     return data;
 }
 
+const getEspecialidades = () => {
+    const url = '/especialidades/';
+    
+        const options = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        };
+    
+        fetch(url, options)
+        .then(res => res.json())
+        .then(json => console.log(json))
+        .catch(err => console.error('error:' + err));
+
+    element = `
+    <div>
+        <input type="checkbox" value="Plástica Ocular" class="checkbox"
+            id="member-input-plastica" name="especialidades-input">
+        <label for="member-input-plastica">Plástica Ocular</label>
+    </div>
+    `
+}
+
 const loadList = () => {
     console.log('ready')
     $.ajax('/membros/').done((html) => {
@@ -230,6 +252,7 @@ const onClickMemberType = (event) => {
 
 }
 
+$('document').ready(getEspecialidades)
 $('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
 $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)

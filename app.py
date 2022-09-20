@@ -53,6 +53,11 @@ def adm_page():
 
 @app.route('/adm_posts/', methods=['GET'])
 def adm_posts_page():
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
 
     return render_template('adm_posts.html')
 
@@ -469,6 +474,13 @@ def get_posts():
     response = session.getPosts(data)
 
     return json.dumps(response)
+
+@app.route('/especialidades/', methods=['GET'])
+def especialidades():
+    especialidades = session.getEspecialidades()
+
+    return json.dumps(especialidades)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")

@@ -211,6 +211,12 @@ class Session():
         data = self.database.run(sql, json=True)
 
         return data
+    
+    def getEspecialidades(self):
+        sql = 'SELECT nome FROM especialidades;'
+        data = self.database.run(sql, json=True)
+
+        return data
         
     # def getCepDistance(self, cep1, cep2):
     #     url1 = f'https://viacep.com.br/ws/{cep1}/json/'

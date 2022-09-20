@@ -191,6 +191,48 @@ p {
     justify-content: flex-start;
     align-items: flex-start;
     width: 50%;
+
+    textarea {
+        background-color: #E4E4E4;
+        border: none;
+        border-radius: 2vw;
+        height: 100%;
+        width: 100%;
+        margin-top: 1vh;
+        padding: 1.5vw;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 1vw;
+        margin-left: auto;
+        margin-right: 1vh;
+    
+        button {
+            font-family: Montserrats;
+            font-weight: 600;
+            flex: 0.45;
+            border: none;
+            border-radius: 1vw;
+            color: white;
+            background-color: $button-color;
+            padding: 1vh 7vh;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    
+        button:hover {
+            background-color: $button-hovered-color;
+        }
+    
+        button:first-of-type {
+            background-color: $button-secondary-color;
+            margin-right: 3vh;
+        }
+    }
+    
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */

@@ -251,6 +251,42 @@ p {
   align-items: flex-start;
   width: 50%;
 }
+.column2 textarea {
+  background-color: #E4E4E4;
+  border: none;
+  border-radius: 2vw;
+  height: 100%;
+  width: 100%;
+  margin-top: 1vh;
+  padding: 1.5vw;
+}
+.column2 .buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1vw;
+  margin-left: auto;
+  margin-right: 1vh;
+}
+.column2 .buttons-container button {
+  font-family: Montserrats;
+  font-weight: 600;
+  flex: 0.45;
+  border: none;
+  border-radius: 1vw;
+  color: white;
+  background-color: #0C6397;
+  padding: 1vh 7vh;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.column2 .buttons-container button:hover {
+  background-color: #7BDCB5;
+}
+.column2 .buttons-container button:first-of-type {
+  background-color: #9F9E9E;
+  margin-right: 3vh;
+}
 
 /*# sourceMappingURL=adm_new_post.css.map */
 
