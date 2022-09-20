@@ -164,6 +164,27 @@ button:hover {
     flex-shrink: 0;
 }
 
+#js-floating-popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+    width: 30vw;
+    height: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--toolbar-color);
+    border-radius: 2vw;
+    padding: 2vw;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
+}
+
+#js-floating-popup button {
+    width: 50%;
+    height: 3.5vh;
+    flex-shrink: 0;
+}
+
 /* main containers */
 
 .main-container {
@@ -271,9 +292,27 @@ button:hover {
     padding: 0 0.5vw;
 }
 
+#especilidades-data-field {
+    position: relative;
+}
+
+#especilidades-data-field > img {
+    position: absolute;
+    width: 3.75vw;
+    top: -4vh;
+    left: 11.5vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#especilidades-data-field > img:hover {
+    transform: scale(1.2)
+}
+
 .curriculum-container {
     position: relative;
     display: flex;
+    left: 30vw;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

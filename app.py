@@ -480,6 +480,13 @@ def especialidades():
     especialidades = session.getEspecialidades()
 
     return json.dumps(especialidades)
+
+@app.route('/trocar_especialidade/', methods=['POST'])
+def trocar_especialidade():
+    data = request.get_json()
+
+    response = session.setEspecialidades(data)
+    return json.dumps(response)
     
 
 if __name__ == '__main__':
