@@ -219,6 +219,17 @@ class Session():
         print(data)
 
         return data
+    
+    def setEspecialidades(self, data):
+        print(data)
+        sql = f"UPDATE Membros SET ESPECIALIDADES='{data['especialidades']}' WHERE ID={data['id']}"
+        print(sql)
+        try:
+            self.database.run(sql)
+        except Exception as error:
+            print(error)
+        finally:
+            return {'especialidades': data['especialidades']}
         
     # def getCepDistance(self, cep1, cep2):
     #     url1 = f'https://viacep.com.br/ws/{cep1}/json/'

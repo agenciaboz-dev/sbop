@@ -59,6 +59,8 @@ class Member():
         self.telefone = telefone
         endereco = f'{self.endereco}, {self.numero} | {self.complemento}'
         self.endereco_formatado = endereco
+        
+        jQuery('#js-floating-popup').attr('member-id', self.id)
 
     def updatePassword(self):
         POPUP.fadeToggle()
