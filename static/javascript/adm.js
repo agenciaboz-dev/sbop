@@ -252,7 +252,7 @@ const onClickMemberType = (event) => {
 
 }
 
-$('document').ready(getEspecialidades)
+// $('document').ready(getEspecialidades)
 $('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
 $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)
