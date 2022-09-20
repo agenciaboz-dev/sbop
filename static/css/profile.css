@@ -148,7 +148,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     z-index: 5;
-    left: 30vw;
     width: 30vw;
     height: 25vh;
     justify-content: space-evenly;
@@ -169,6 +168,7 @@ button:hover {
     position: absolute;
     display: flex;
     flex-direction: column;
+    left: 30vw;
     z-index: 50;
     width: 30vw;
     height: fit-content;
