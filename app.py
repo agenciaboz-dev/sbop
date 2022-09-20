@@ -32,11 +32,12 @@ def home():
             user = request.form['user']
             password = request.form['password']
             connection = session.login(user, password, ip)
-            if connection[0]:
-                print(connection[1].adm)
-                if connection[1].adm:
-                    return redirect('/adm/')
-                return redirect('/perfil/')
+            if connection:
+                if connection[0]:
+                    print(connection[1].adm)
+                    if connection[1].adm:
+                        return redirect('/adm/')
+                    return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'
                 return render_template('home.html', error=error)
