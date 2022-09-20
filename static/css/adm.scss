@@ -78,11 +78,11 @@ img {
     align-items: center;
     background-color: $button-color;
     border-radius: 30vw;
-    padding: 0 0.3vw 0 0.7vw;
+    padding: 0 0.3vw 0 1.5vw;
     width: fit-content;
     height: 60%;
     color: white;
-    font-size: 1.75vh;
+    font-size: 1.6vh;
     cursor: pointer;
     transition: 0.3s;
 
@@ -129,6 +129,8 @@ h2 {
     font-family: Montserrats;
     font-size: 100%;
     font-weight: 500;
+    margin-top: 2vh;
+    margin-bottom: 0.75vh;
 }
 
 #searching-title {
@@ -187,7 +189,6 @@ h2 {
     border-color: $button-color  !important;
 }
 
-
 .member-info {
     display: flex;
     flex-direction: column;
@@ -207,7 +208,6 @@ h2 {
         }
     }
 }
-
 
 .member-type-container {
     display: flex;
@@ -238,6 +238,16 @@ h2 {
     color: white;
 }
 
+#uf-input {
+    border-radius: 2vw;
+    border: none;
+    opacity: 25%;
+    outline: none;
+    background-color: $background-color;
+    height: 4vh;
+    padding: 0 0.5vw;
+    margin-top: 0.5vh;
+}
 
 .profile-container {
     flex: 0.4;
@@ -307,18 +317,28 @@ h2 {
     align-items: center;
 
     input {
-        margin-left: 0.5vw;
+        margin-right: 0.5vw;
     }
 }
 
 .tipo-pessoa-input {
     display: flex;
     flex-direction: row;
+    font-size: 80%;
     align-items: center;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .pjuridica {
+        margin-left: 9.75vw;
+    }
 
     input {
         border-radius: 2vw;
-        margin-left: 5.75vw;
         margin-right: 0.5vw;
     }
 }
@@ -326,8 +346,7 @@ h2 {
 .especialidades-inputs-container {
     display: flex;
     flex-direction: column;
-    font-size: small;
-    margin: 2vh 0;
+    font-size: 80%;
 
     div {
         display: flex;
@@ -335,21 +354,13 @@ h2 {
         align-items: center;
 
         input {
-            margin-left: 8vw;
             margin-right: 0.5vw;
         }
     }
 }
 
-#uf-input {
-    border-radius: 2vw;
-    border: none;
-    opacity: 25%;
-    outline: none;
-    background-color: $background-color;
-    height: 4vh;
-    padding: 0 0.5vw;
-    margin-top: 0.5vh;
+.sys-info {
+    font-size: 80%;
 }
 
 .deactivated {
