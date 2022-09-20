@@ -16,6 +16,7 @@ const request = (url, data, done) => {
 
 
 $('document').ready(() => {
+    popup.hide();
     $.get('/especialidades/', (response) => {
         const especialidades = JSON.parse(response);
 
