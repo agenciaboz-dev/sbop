@@ -214,7 +214,9 @@ class Session():
     
     def getEspecialidades(self):
         sql = 'SELECT nome FROM especialidades;'
+        print(sql)
         data = self.database.run(sql, json=True)
+        print(data)
 
         return data
         

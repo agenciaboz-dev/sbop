@@ -10,25 +10,21 @@ const fromPython = (string) => {
 }
 
 const getEspecialidades = () => {
-    const url = '/especialidades/';
-    
-        const options = {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        };
-    
-        fetch(url, options)
-        .then(res => res.json())
-        .then(json => console.log(json))
-        .catch(err => console.error('error:' + err));
+    const container = $('.especialidades-inputs-container')
+    $.get('/especialidades', (response) => {
+        const especialidades = JSON.parse(response);
+        for (let especialidade of especialidades) {
+            element = `
+            <div>
+                <input type="checkbox" value="${especialidade.nome}" class="checkbox"
+                    id="member-input-${especialidade.nome.toLowerCase().split(' ')[0]}" name="especialidades-input">
+                <label for="member-input-${especialidade.nome.toLowerCase().split(' ')[0]}">${especialidade.nome}</label>
+            </div>
+            `
+            container.append(element);
+        }
+    })
 
-    element = `
-    <div>
-        <input type="checkbox" value="Plástica Ocular" class="checkbox"
-            id="member-input-plastica" name="especialidades-input">
-        <label for="member-input-plastica">Plástica Ocular</label>
-    </div>
-    `
 }
 
 const loadList = () => {
@@ -37,7 +33,8 @@ const loadList = () => {
         data = fromPython(html);
         members = data;
 
-        buildList(members)
+        buildList(members);
+        getEspecialidades();
     });
 }
 
@@ -252,7 +249,6 @@ const onClickMemberType = (event) => {
 
 }
 
-// $('document').ready(getEspecialidades)
 $('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
 $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)
