@@ -31,8 +31,11 @@ def home():
         if 'login' in request.form:
             user = request.form['user']
             password = request.form['password']
-            id = session.login(user, password, ip)
-            if id:
+            connection = session.login(user, password, ip)
+            if connection[0]:
+                print(connection[1].adm)
+                if connection[1].adm:
+                    return redirect('/adm/')
                 return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'
@@ -47,22 +50,50 @@ def home():
 
 @app.route('/adm/', methods=['GET'])
 def adm_page():
-
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    if not connection:
+        return redirect('/home/')
+    else:
+        if not connection.adm:
+            return redirect('/perfil/')
+    
     return render_template('adm.html')
 
 
 @app.route('/adm_posts/', methods=['GET'])
 def adm_posts_page():
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
     try:
         if not session.database.connection.is_connected():
             session.reconnectDatabase()
     except:
         pass
+    
+    if not connection:
+        return redirect('/home/')
+    else:
+        if not connection.adm:
+            return redirect('/perfil/')
 
     return render_template('adm_posts.html')
 
 @app.route('/adm_new_post/', methods=['GET'])
 def adm_new_post_page():
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
+    
+    if not connection:
+        return redirect('/home/')
+    else:
+        if not connection.adm:
+            return redirect('/perfil/')
 
     return render_template('adm_new_post.html')
 
@@ -131,11 +162,12 @@ def cadastro():
             'curriculum': request.form['curriculum'],
             'membro': request.form['membro']
         }
-        feedback, signedup = session.signup(data)
-        if not signedup:
-            return render_template('signup.html', feedback=feedback)
-        else:
-            return f'<h1>{feedback}</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+        # feedback, signedup = session.signup(data)
+        # if not signedup:
+        #     return render_template('signup.html', feedback=feedback)
+        # else:
+            # return f'<h1>{feedback}</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+        return f'<h1>Em desenvolvimento</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
 
 
 @app.route('/blog_post/', methods=['GET', 'POST'])

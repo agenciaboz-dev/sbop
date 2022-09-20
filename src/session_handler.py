@@ -41,6 +41,7 @@ class Connection():
         self.cpf = data[21]
         self.especialidades = []
         self.pago = data[23]
+        self.adm = data[24]
         for item in data[22].split(','):
             self.especialidades.append(item)
         self.solicitacoes = database.fetchTable(
@@ -87,6 +88,7 @@ class Session():
                 'cpf': member[21],
                 'especialidades': member[22],
                 'pago': member[23],
+                'adm': member[24],
             }
         return data
 
@@ -145,9 +147,9 @@ class Session():
                     if is_logged and is_logged.id == id:
                         self.connections.remove(is_logged)
 
-                    self.connections.append(
-                        Connection(ip, self.database, id))
-                    return str(id)
+                    connection = Connection(ip, self.database, id)
+                    self.connections.append(connection)
+                    return [str(id), connection]
         except Exception as error:
             print(error)
             return None
@@ -187,6 +189,11 @@ class Session():
         self.database.insertPost(data)
         
     def editMember(self, data):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
         if data.get('adm_panel'):
             telefone = 'telefone'
             especialidades = 'especialidades'
@@ -207,12 +214,22 @@ class Session():
             return 'False'
         
     def getPosts(self, data):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
         sql = f"SELECT * FROM Blog WHERE TITULO like '%{data['searched']}%';"
         data = self.database.run(sql, json=True)
 
         return data
     
     def getEspecialidades(self):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
         sql = 'SELECT nome FROM especialidades;'
         print(sql)
         data = self.database.run(sql, json=True)
@@ -221,7 +238,11 @@ class Session():
         return data
     
     def setEspecialidades(self, data):
-        print(data)
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
         sql = f"UPDATE Membros SET ESPECIALIDADES='{data['especialidades']}' WHERE ID={data['id']}"
         print(sql)
         try:
