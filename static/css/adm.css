@@ -183,6 +183,12 @@ img {
   font-weight: normal;
 }
 
+h2 {
+  font-family: Montserrats;
+  font-size: 100%;
+  font-weight: 500;
+}
+
 #searching-title {
   display: none;
 }
