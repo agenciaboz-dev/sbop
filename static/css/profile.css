@@ -373,10 +373,7 @@ button:hover {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
-    position: absolute;
     height: 2.5vh;
-    /* width: 3.75vw; */
-    right: 31.75vw;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.5vh;

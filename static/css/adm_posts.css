@@ -282,6 +282,10 @@ img {
   margin-left: 0.5vw;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .deactivated {
   pointer-events: none;
   opacity: 0.3;

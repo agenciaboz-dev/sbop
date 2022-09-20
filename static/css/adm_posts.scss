@@ -154,7 +154,7 @@ img {
 }
 
 .post-container-active {
-    border-color: $button-color!important;
+    border-color: $button-color !important;
 }
 
 
@@ -235,6 +235,10 @@ img {
         height: 75%;
         margin-left: 0.5vw;
     }
+}
+
+.center-text {
+    text-align: center;
 }
 
 .deactivated {
