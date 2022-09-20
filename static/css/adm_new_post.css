@@ -94,6 +94,8 @@ body {
   background-color: #E4E4E4;
   border: none;
   border-radius: 2vw;
+  color: #8d8d8d;
+  font-family: Montserrats;
   height: 15vh;
   width: 41.5vw;
   margin-top: 1vh;
@@ -250,6 +252,7 @@ p {
   background-color: #E4E4E4;
   border: none;
   border-radius: 2vw;
+  font-family: Montserrats;
   height: 100%;
   width: 100%;
   margin-top: 1vh;
