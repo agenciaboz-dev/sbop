@@ -4,13 +4,14 @@
 .main-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .top-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 100%;
+    height: 10%;
     width: 100%;
 }
 
@@ -19,7 +20,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 50%;
+    width: 49%;
+
+    textarea {
+        background-color: #E4E4E4;
+        border: none;
+        border-radius: 2vw;
+        height: 15vh;
+        width: 41.5vw;
+        margin-top: 1vh;
+        padding: 1.5vw;
+        resize: none;
+    }
 }
 
 img {
@@ -125,7 +137,7 @@ p {
 .dashed-box {
     margin: 1.5vh 0;
     outline: #cfcfcf dashed 0.5vh;
-    padding: 1.5vw 11vw;
+    padding: 1vw 11vw;
     width: 100%;
 }
 
@@ -135,7 +147,7 @@ p {
     border-radius: 2vw;
     display: flex;
     flex-direction: column;
-    padding: 3vh;
+    padding: 2vh 3vh;
 
     p {
         color: #8d8d8d;
@@ -167,30 +179,13 @@ p {
     }
 }
 
-.summary-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 1vh;
-
-    #summary {
-        background-color: #E4E4E4;
-        border: none;
-        border-radius: 2vw;
-        height: 10vh;
-        width: 100%;
-        margin-top: 1vh;
-        padding: 1.5vw;
-    }
-}
-
 .column2 {
+    align-items: flex-end;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 50%;
+    width: 49%;
 
     textarea {
         background-color: #E4E4E4;
@@ -200,16 +195,15 @@ p {
         width: 100%;
         margin-top: 1vh;
         padding: 1.5vw;
+        resize: none;
     }
 
     .buttons-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-right: 1vw;
-        margin-left: auto;
-        margin-right: 1vh;
-    
+        margin: 1.5vh 0 0 auto;
+
         button {
             font-family: Montserrats;
             font-weight: 600;
@@ -218,21 +212,21 @@ p {
             border-radius: 1vw;
             color: white;
             background-color: $button-color;
-            padding: 1vh 7vh;
+            padding: 1vh 8vh;
             cursor: pointer;
             transition: 0.3s;
         }
-    
+
         button:hover {
             background-color: $button-hovered-color;
         }
-    
+
         button:first-of-type {
             background-color: $button-secondary-color;
-            margin-right: 3vh;
+            margin-right: 5vh;
         }
     }
-    
+
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */
