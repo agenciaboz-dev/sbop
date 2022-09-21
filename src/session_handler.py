@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, date
 from src.config import TIMELIMIT, database_auth, google_api_key
 from src.mysql_handler import Mysql
-import json
+import json, requests, geopy.distance
 
 
 class Connection():
@@ -252,15 +252,19 @@ class Session():
         finally:
             return {'especialidades': data['especialidades']}
         
-    # def getCepDistance(self, cep1, cep2):
-    #     url1 = f'https://viacep.com.br/ws/{cep1}/json/'
-    #     url2 = f'https://viacep.com.br/ws/{cep2}/json/'
-    #     origem = json.loads(requests.get(url1).text)
-    #     destino = json.loads(requests.get(url2).text)
-    #     strOrigem = origem['localidade'] + ' ' + origem['uf']
-    #     strOrigem = strOrigem.replace(' ', '+')
-    #     strDestino = destino['localidade'] + ' ' + destino['uf']
-    #     strDestino = strDestino.replace(' ', '+')
-    #     url = f'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins={strOrigem}&destinations={strDestino}&key={google_api_key}'
-    #     distance = requests.get(url).text
-    #     return distance
+def getCepDistance(cep1, cep2):
+    origem = getCoord(cep1)
+    print(origem)
+    
+    destino = getCoord(cep2)
+    print(destino)
+
+    distance = geopy.distance.geodesic(origem, destino).km
+    return distance
+    
+def getCoord(cep):
+    google_api_key = 'AIzaSyC51dKaUTWuBQfLyDNtVL3JuXMEeitjqkA'
+    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={cep}&key={google_api_key}'
+    location = json.loads(requests.get(url).text)['results'][0]['geometry']['location']
+    
+    return (location['lat'], location['lng'])

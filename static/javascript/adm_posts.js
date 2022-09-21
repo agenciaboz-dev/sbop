@@ -46,6 +46,9 @@ const getPosts = (event) => {
             </div>
             `
             list_container.append(element);
+            $(`#post-container-${post.ID}`).on('click', (event) => {
+                alert(post.ID);
+            });
         }
         $('.delete-button').on('click', deletePost);
     })
