@@ -89,6 +89,8 @@ class Session():
                 'especialidades': member[22],
                 'pago': member[23],
                 'adm': member[24],
+                'lat': member[25],
+                'lng': member[26],
             }
         return data
 
@@ -252,19 +254,16 @@ class Session():
         finally:
             return {'especialidades': data['especialidades']}
         
-def getCepDistance(cep1, cep2):
-    origem = getCoord(cep1)
-    print(origem)
-    
-    destino = getCoord(cep2)
-    print(destino)
+    def getCepDistance(self, origem, destino):
+        distance = geopy.distance.geodesic(origem, destino).km
 
-    distance = geopy.distance.geodesic(origem, destino).km
-    return distance
+        return distance
+        
+    def getCoords(self, cep):
+        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={cep}&key={google_api_key}'
+        location = json.loads(requests.get(url).text)['results'][0]['geometry']['location']
+        
+        return (location['lat'], location['lng'])
+
     
-def getCoord(cep):
-    google_api_key = 'AIzaSyC51dKaUTWuBQfLyDNtVL3JuXMEeitjqkA'
-    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={cep}&key={google_api_key}'
-    location = json.loads(requests.get(url).text)['results'][0]['geometry']['location']
     
-    return (location['lat'], location['lng'])
