@@ -22,115 +22,121 @@
             <h2 id="user-title">Cadastro</h2>
             <h3 style="color: red;">{{feedback}}</h3>
         </div>
+        <p class="welcome-text">Bem vindo! Por favor preencha os campos de nome de usuário e senhas para acessar sua
+            conta.</p>
         <form action="/cadastrar/" method="post" id="signup-form">
             <div class="data-row">
                 <label for="nome" title="Obrigatório">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
             </div>
-            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
             <div class="data-row">
                 <label for="email" title="Obrigatório">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
-            <input type="email" id="email" name="email" placeholder="E-mail" required>
             <div class="data-row">
                 <label for="usuario" title="Obrigatório">Nome de Usuário</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Nome de Usuário" required>
             </div>
-            <input type="text" id="usuario" name="usuario" placeholder="Nome de Usuário" required>
             <div class="data-row">
                 <label for="senha" title="Obrigatório">Senha</label>
+                <input type="password" class="senha" id="senha" name="senha" placeholder="Senha" required>
             </div>
-            <input type="password" class="senha" id="senha" name="senha" placeholder="Senha" required>
             <div class="data-row">
                 <label for="confirme-senha" title="Obrigatório">Confirme a senha</label>
+                <input type="password" class="senha" id="confirme-senha" name="confirme-senha" placeholder="Senha"
+                    required>
             </div>
-            <input type="password" class="senha" id="confirme-senha" name="confirme-senha" placeholder="Senha" required>
-            <div class="data-row">
-                <label for="telefone" title="Obrigatório">Telefone</label>
+            <div class="phones-row">
+                <div class="data-row">
+                    <label for="telefone" title="Obrigatório">Telefone</label>
+                    <input type="number" id="telefone" name="telefone" placeholder="Telefone" required>
+                </div>
+                <div class="data-row">
+                    <label for="celular" title="Obrigatório">Celular</label>
+                    <input type="number" id="celular" name="celular" placeholder="Celular" required>
+                </div>
             </div>
-            <input type="number" id="telefone" name="telefone" placeholder="Telefone" required>
-            <div class="data-row">
-                <label for="celular" title="Obrigatório">Celular</label>
-            </div>
-            <input type="number" id="celular" name="celular" placeholder="Celular" required>
             <div class="data-row">
                 <p title="Obrigatório">Pessoa</p>
-            </div>
-            <div class="person-type">
-                <label for="fisica">Fisica</label>
-                <input type="radio" id="fisica" name="pessoa" value="fisica">
-                <label for="juridica">Juridica</label>
-                <input type="radio" id="juridica" name="pessoa" value="juridica">
+                <div class="person-type">
+                    <label for="fisica">Fisica</label>
+                    <input type="radio" id="fisica" name="pessoa" value="fisica">
+                    <label for="juridica">Juridica</label>
+                    <input type="radio" id="juridica" name="pessoa" value="juridica">
+                </div>
             </div>
             <div class="data-row">
                 <label for="endereco" title="Obrigatório">Endereço</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
             </div>
-            <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
             <div class="data-row">
                 <label for="numero" title="Obrigatório">Número</label>
+                <input type="number" id="numero" name="numero" placeholder="Número" required>
             </div>
-            <input type="number" id="numero" name="numero" placeholder="Número" required>
             <div class="data-row">
                 <label for="complemento" title="Obrigatório">Complemento</label>
+                <input type="text" id="complemento" name="complemento" placeholder="Complemento" required>
             </div>
-            <input type="text" id="complemento" name="complemento" placeholder="Complemento" required>
-            <div class="data-row">
-                <label for="bairro" title="Obrigatório">Bairro</label>
-            </div>
-            <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
-            <div class="data-row">
-                <label for="cidade" title="Obrigatório">Cidade</label>
-            </div>
-            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
-            <div class="data-row">
-                <label for="estado" title="Obrigatório">Estado</label>
-            </div>
-            <select id="estado" name="estado" placeholder="Estado" required>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR" selected>Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-            <div class="data-row">
-                <label for="pais" title="Obrigatório">PaÍs</label>
-            </div>
-            <!-- disabled via inline style -->
-            <select id="pais" name="pais" placeholder="País" required>
-                <option value="BR">Brasil</option>
-            </select>
             <div class="data-row">
                 <label for="cep" title="Obrigatório">CEP</label>
+                <input id="cep" name="cep" minlength="9" maxlength="9" pattern="\d{5}-\d{3}" placeholder="CEP" required>
             </div>
-            <input id="cep" name="cep" minlength="9" maxlength="9" pattern="\d{5}-\d{3}" placeholder="CEP" required>
+            <div class="data-row">
+                <label for="bairro" title="Obrigatório">Bairro</label>
+                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+            </div>
+            <div class="data-row">
+                <label for="cidade" title="Obrigatório">Cidade</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+            </div>
+            <div class="data-row">
+                <label for="estado" title="Obrigatório">Estado</label>
+                <select id="estado" name="estado" placeholder="Estado" required>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR" selected>Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+            <div class="data-row">
+                <label for="pais" title="Obrigatório">PaÍs</label>
+                <!-- disabled via inline style -->
+                <select id="pais" name="pais" placeholder="País" required>
+                    <option value="BR">Brasil</option>
+                </select>
+            </div>
             <div class="data-row">
                 <label for="crm" title="Obrigatório">CRM</label>
+                <input type="number" id="crm" name="crm" placeholder="CRM" required>
             </div>
-            <input type="number" id="crm" name="crm" placeholder="CRM" required>
             <div class="data-row">
                 <label for="curriculum" title="Obrigatório">Mini Curriculum</label>
+                <textarea id="curriculum" rows="10" cols="30" name="curriculum"
+                    placeholder="Mini Curriculum"></textarea>
             </div>
-            <textarea id="curriculum" rows="10" cols="30" name="curriculum" placeholder="Mini Curriculum"></textarea>
             <div class="submit-button-row">
                 <button type="submit" id="signup-button" name="signup-button" disabled>Finalizar Cadastro</button>
             </div>

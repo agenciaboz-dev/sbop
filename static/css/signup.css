@@ -85,7 +85,7 @@ body {
 .person-type {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 img {
@@ -104,16 +104,28 @@ p {
   color: #8D8D8D;
 }
 
+.welcome-text {
+  font-size: 85%;
+}
+
 label {
   color: #8D8D8D;
 }
 
 .data-row {
+  display: flex;
+  flex-direction: column;
   margin-top: 2.5vh;
   margin-bottom: 1vh;
 }
-.data-row label {
+.data-row > label {
   font-weight: 500;
+  margin-bottom: 1vh;
+}
+
+.phones-row {
+  display: flex;
+  flex-direction: row;
 }
 
 input {
