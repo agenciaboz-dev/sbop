@@ -325,6 +325,7 @@ def members():
                 data = session.buildMember(member)
                 result.append(data)
 
+
         # cep search request
         elif request.form['search'] == 'cep':
 

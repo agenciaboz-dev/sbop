@@ -127,7 +127,8 @@ class Member():
 
 
 def showResult(req):
-    member_list = eval(req.text)
+    no_null = req.text.replace('null', 'None')
+    member_list = eval(no_null)
     title = member_list.pop(0).upper()
     document['search-title'].text = 'Resultados para: '
     document['searched-value'].text = title
