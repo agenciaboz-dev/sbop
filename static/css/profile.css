@@ -21,7 +21,6 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px var(--input-background) inset !important;
 }
 
-
 /* GENERAL */
 
 body {
@@ -298,17 +297,21 @@ button:hover {
     position: relative;
 }
 
-#especilidades-data-field>img {
-    position: absolute;
-    width: 3.75vw;
-    top: -4vh;
-    left: 11.5vw;
+#edit-skills {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: white;
+    height: 2.5vh;
+    width: 3vw;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 1.5vh;
+    margin-left: -0.15vw;
 }
 
-#especilidades-data-field>img:hover {
-    transform: scale(1.2)
+#edit-skills:hover {
+    background-color: #094a6f;
+    color: white;
 }
 
 .curriculum-container {
@@ -370,14 +373,16 @@ button:hover {
 }
 
 #edit-curriculum {
+    position: absolute;
+    right: 31.75vw;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
     height: 2.5vh;
+    width: 3vw;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.5vh;
-    padding: 0 0.5vw;
 }
 
 #edit-curriculum:hover {

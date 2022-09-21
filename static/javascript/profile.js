@@ -1,17 +1,17 @@
-const especialidades_button = $('#especilidades-data-field > img')
+const especialidades_button = $('#edit-skills')
 const popup = $('#js-floating-popup')
 
 const request = (url, data, done) => {
     const options = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     };
 
     fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => done(data))
-    .catch(err => console.error('error:' + err));
+        .then((response) => response.json())
+        .then((data) => done(data))
+        .catch(err => console.error('error:' + err));
 }
 
 
@@ -29,9 +29,9 @@ $('document').ready(() => {
                 <label for="especialidades-data-${especialidade.nome.toLowerCase().split(' ')[0]}">${especialidade.nome}</label>
             </div>`)
         };
-        
+
         popup.find('button').on('click', () => {
-            
+
             popup.fadeToggle();
             let novas_especialidades = '';
             for (item of $('input[name="especialidades-data"]:checked')) {
