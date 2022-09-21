@@ -327,32 +327,27 @@ def members():
 
         # cep search request
         elif request.form['search'] == 'cep':
-            try: 
-                cep = int(request.form['value'])
-            except:
-                cep = False
-                
-            if cep:
-                distances = []
-                coords = session.getCoords(cep)
-                for member in session.member_list:
-                    if member['member'] == 'Titular':
-                        member_cep_str = member['cep']
-                        try:
-                            member_cep = int(member_cep_str)
-                            distance = session.getCepDistance(coords, (member['lat'], member['lng']))
-                            this_member = {
-                                'distance': distance
-                            }
-                            this_member.update(member)
-                            distances.append(this_member)
-                            print(distance)
 
-                        except:
-                            continue
-                        
-                sorted_distances = sorted(distances, key=lambda d: d['distance'])
-                result.extend(sorted_distances[:7])
+            distances = []
+            coords = session.getCoords(request.form['value'])
+            for member in session.member_list:
+                if member['member'] == 'Titular':
+                    member_cep_str = member['cep']
+                    try:
+                        member_cep = int(member_cep_str)
+                        distance = session.getCepDistance(coords, (member['lat'], member['lng']))
+                        this_member = {
+                            'distance': distance
+                        }
+                        this_member.update(member)
+                        distances.append(this_member)
+
+                    except:
+                        continue
+                    
+            sorted_distances = sorted(distances, key=lambda d: d['distance'])
+            result.extend(sorted_distances[:7])
+                
 
         # map search
         elif request.form['search'] == 'uf':

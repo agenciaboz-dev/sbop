@@ -259,11 +259,15 @@ class Session():
 
         return distance
         
-    def getCoords(self, cep):
-        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={cep}&key={google_api_key}'
-        location = json.loads(requests.get(url).text)['results'][0]['geometry']['location']
-        
-        return (location['lat'], location['lng'])
+    def getCoords(self, address):
+        address = address.replace(' ', '+')
+        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={google_api_key}'
+        print(url)
+        response = json.loads(requests.get(url).text)
+        if response['results']:
+            location = response['results'][0]['geometry']['location']
+            
+            return (location['lat'], location['lng'])
 
     
     
