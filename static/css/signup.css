@@ -2,13 +2,11 @@
   font-family: Montserrats;
   src: url("/static/fonts/Montserrat-Regular.otf");
 }
-
 @font-face {
   font-family: Montserrats;
   src: url("/static/fonts/Montserrat-Bold.otf");
   font-weight: bold;
 }
-
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -40,7 +38,6 @@ input:-webkit-autofill:active {
 }
 
 * {
-  margin: 0.25vh 0;
   box-sizing: border-box;
   font-family: Montserrats;
   width: 100%;
@@ -50,16 +47,25 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   background-color: #E4E4E4;
 }
 
 .top-container {
-  height: 10%;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2vh;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  font-size: 140%;
+}
+.top-container a {
+  color: #8D8D8D;
+  font-family: Montserrats;
+  font-weight: 600;
+  text-decoration: none;
+}
+.top-container h2 {
+  color: #6B6B6B;
+  font-weight: 600;
 }
 
 .main-container {
@@ -71,8 +77,9 @@ body {
   background-color: white;
   border-radius: 2vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 3vw;
-  outline: #0C6397 solid 0.5vw;
+  margin: 7.5vh;
+  padding: 4vh 3vw 2vh;
+  outline: #0C6397 solid 0.4vw;
 }
 
 .person-type {
@@ -93,27 +100,29 @@ h2 {
   margin-bottom: 0.75vh;
 }
 
-label {
-  color: #8D8D8D;
-}
-
 p {
   color: #8D8D8D;
 }
 
-input {
-  background-color: #E4E4E4;
-  border: none;
-  border-radius: 2vw;
-  padding: 0.25vh 1vw;
+label {
+  color: #8D8D8D;
 }
 
-textarea {
+.data-row {
+  margin-top: 2.5vh;
+  margin-bottom: 1vh;
+}
+.data-row label {
+  font-weight: 500;
+}
+
+input {
+  color: #8D8D8D;
   background-color: #E4E4E4;
   border: none;
   border-radius: 2vw;
-  padding: 0.25vh 1vw;
-  resize: none;
+  opacity: 0.4;
+  padding: 1.5vh 1.5vw;
 }
 
 select {
@@ -121,13 +130,39 @@ select {
   background-color: #E4E4E4;
   border: none;
   border-radius: 2vw;
-  padding: 0.25vh 1vw;
+  opacity: 0.4;
+  padding: 1.5vh 1.5vw;
+}
+
+textarea {
+  color: #8D8D8D;
+  background-color: #E4E4E4;
+  border: none;
+  border-radius: 2vw;
+  opacity: 0.4;
+  padding: 1.5vh 1.5vw;
+  resize: none;
+}
+
+#pais {
+  pointer-events: none;
+}
+
+.submit-button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 button {
   color: white;
+  font-weight: 600;
   background-color: #0C6397;
   border: none;
   border-radius: 2vw;
-  padding: 0.25vh 1vw;
+  margin-top: 3.5vh;
+  padding: 1.5vh 1.5vw;
+  width: 30vw;
 }
+
+/*# sourceMappingURL=signup.css.map */
