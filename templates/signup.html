@@ -1,142 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/style.css"> -->
+    <link rel="stylesheet" href="/static/css/signup.css">
     <script type="text/javascript" src="/static/brython/brython.js"></script>
     <script type="text/javascript" src="/static/brython/brython_stdlib.js"></script>
-    <title>Sbop - Cadastre-se</title>
+    <title>Sbop - Cadastro</title>
 </head>
+
 <body onload="brython()">
-    <div class="top-container">
-        <button onclick="window.location.href='/home/'">Voltar</button>
-    </div>
 
-    <div class="container">
-        <h2 id="user-title">Cadastre-se</h2>
-        <h3 style="color: red;">{{feedback}}</h3>
+    <div class="main-container">
+        <div class="top-container">
+            <!-- <button onclick="window.location.href='/home/'">Voltar</button> -->
+            <a href="/home/">Login</a>
+            <h2 id="user-title">Cadastro</h2>
+            <h3 style="color: red;">{{feedback}}</h3>
+        </div>
+        <p class="welcome-text">Bem vindo(a)! Por favor preencha os campos abaixo.</p>
         <form action="/cadastrar/" method="post" id="signup-form">
-            <div class="required">
-                <label for="nome">Nome completo</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="nome" title="Obrigatório">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
             </div>
-            <input type="text" id="nome" name="nome" required>
-            <div class="required">
-                <label for="email">E-mail</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="email" title="Obrigatório">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
-            <input type="email" id="email" name="email" required>
-            <div class="required">
-                <label for="usuario">Usuário</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="usuario" title="Obrigatório">Nome de Usuário</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Nome de Usuário" required>
             </div>
-            <input type="text" id="usuario" name="usuario" required>
-            <div class="required">
-                <label for="senha">Senha</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="senha" title="Obrigatório">Senha</label>
+                <input type="password" class="senha" id="senha" name="senha" placeholder="Senha" required>
             </div>
-            <input type="password" class="senha" id="senha" name="senha" required>
-            <div class="required">
-                <label for="confirme-senha">Confirme a senha</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="confirme-senha" title="Obrigatório">Confirme a senha</label>
+                <input type="password" class="senha" id="confirme-senha" name="confirme-senha" placeholder="Senha"
+                    required>
             </div>
-            <input type="password" class="senha" id="confirme-senha" name="confirme-senha" required>
-            <div class="required">
-                <label for="telefone">Telefone</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-row">
+                <div class="data-column half">
+                    <label for="telefone" title="Obrigatório">Telefone</label>
+                    <input type="number" id="telefone" name="telefone" placeholder="Telefone" required>
+                </div>
+                <div class="data-column half">
+                    <label for="celular" title="Obrigatório">Celular</label>
+                    <input type="number" id="celular" name="celular" placeholder="Celular" required>
+                </div>
             </div>
-            <input type="number" id="telefone" name="telefone" required>
-            <label for="celular">Celular</label>
-            <input type="number" id="celular" name="celular">
-            <p>Pessoa (opcional)</p>
-            <div style="text-align: center;">
-                <label for="fisica">Fisica</label>
-                <input type="radio" id="fisica" name="pessoa" value="fisica">
-                <label for="juridica">Juridica</label>
-                <input type="radio" id="juridica" name="pessoa" value="juridica">
-
+            <div class="data-column half">
+                <p class="pessoa" title="Obrigatório">Pessoa</p>
+                <div class="person-type">
+                    <input type="radio" id="fisica" name="pessoa" value="fisica">
+                    <label for="fisica">Física</label>
+                    <input type="radio" id="juridica" name="pessoa" value="juridica">
+                    <label for="juridica">Jurídica</label>
+                </div>
             </div>
-            <div class="required">
-                <label for="endereco">Endereco</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-row">
+                <div class="data-column t-quarters">
+                    <div class="data-slot">
+                        <label for="endereco" title="Obrigatório">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+                    </div>
+                </div>
+                <div class="data-column quarter">
+                    <div class="data-slot">
+                        <label for="numero" title="Obrigatório">Número</label>
+                        <input type="number" id="numero" name="numero" placeholder="Número" required>
+                    </div>
+                </div>
             </div>
-            <input type="text" id="endereco" name="endereco" required>
-            <div class="required">
-                <label for="numero">Numero</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-row">
+                <div class="data-column t-quarters">
+                    <div class="data-slot">
+                        <label for="complemento" title="Obrigatório">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="Complemento" required>
+                    </div>
+                </div>
+                <div class="data-column quarter">
+                    <div class="data-slot">
+                        <label for="cep" title="Obrigatório">CEP</label>
+                        <input id="cep" name="cep" minlength="9" maxlength="9" pattern="\d{5}-\d{3}" placeholder="CEP"
+                            required>
+                    </div>
+                </div>
             </div>
-            <input type="number" id="numero" name="numero" required>
-            <label for="complemento">Complemento</label>
-            <input type="text" id="complemento" name="complemento">
-            <div class="required">
-                <label for="bairro">Bairro</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-row">
+                <div class="data-column quarter">
+                    <div class="data-slot">
+                        <label for="bairro" title="Obrigatório">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                    </div>
+                </div>
+                <div class="data-column quarter">
+                    <div class="data-slot">
+                        <label for="cidade" title="Obrigatório">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                    </div>
+                </div>
+                <div class="data-column quarter">
+                    <div class="data-slot">
+                        <label for="estado" title="Obrigatório">Estado</label>
+                        <select id="estado" name="estado" placeholder="Estado" required>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR" selected>Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="data-column quarter">
+                    <div class="data-slot">
+                        <label for="pais" title="Obrigatório">PaÍs</label>
+                        <!-- disabled via inline style -->
+                        <select id="pais" name="pais" placeholder="País" required>
+                            <option value="BR">Brasil</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <input type="text" id="bairro" name="bairro" required>
-            <div class="required">
-                <label for="cidade">Cidade</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="crm" title="Obrigatório">CRM</label>
+                <input type="number" id="crm" name="crm" placeholder="CRM" required>
             </div>
-            <input type="text" id="cidade" name="cidade" required>
-            <div class="required">
-                <label for="estado">Estado</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="data-slot">
+                <label for="curriculum" title="Obrigatório">Mini Curriculum</label>
+                <textarea id="curriculum" rows="10" cols="30" name="curriculum"
+                    placeholder="Mini Curriculum"></textarea>
             </div>
-            <select id="estado" name="estado" required>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR" selected>Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-            <div class="required">
-                <label for="pais">PaÍs</label>
-                <abbr title="obrigatório">*</abbr>
+            <div class="submit-button-row">
+                <button type="submit" id="signup-button" name="signup-button" disabled>Finalizar Cadastro</button>
             </div>
-            <!-- disabled via inline style -->
-            <select style="opacity: 0.6; pointer-events: none" id="pais" name="pais" required>
-                <option value="BR">Brasil</option>
-            </select>
-            <div class="required">
-                <label for="cep">CEP</label>
-                <abbr title="obrigatório">*</abbr>
-            </div>
-            <input id="cep" name="cep" minlength="9" maxlength="9" pattern="\d{5}-\d{3}" required>
-            <label for="crm">CRM</label>
-            <input type="number" id="crm" name="crm">
-            <label for="curriculum">Mini curriculum</label>
-            <textarea id="curriculum" rows="10" cols="30" name="curriculum"></textarea>
-            <select name="membro" id="membro" required>
-                <option value="Associado">Associado</option>
-                <option value="Titular">Titular</option>
-                <option value="Aspirante">Aspirante</option>
-            </select>
-            <button type="submit" id="signup-button" name="signup-button" disabled>Cadastrar</button>
             <p style="color: red;" id="error"></p>
         </form>
     </div>
@@ -144,4 +169,5 @@
 <footer>
     <script type="text/python" src="/static/brython/signup.py"></script>
 </footer>
+
 </html>

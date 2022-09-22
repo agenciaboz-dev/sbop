@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request
 from flask_cors import CORS
-from src.session_handler import Session, Connection
+from src.session_handler import Session
 from src.mysql_handler import Mysql
 import src.config as cfg
 import os
@@ -31,9 +31,13 @@ def home():
         if 'login' in request.form:
             user = request.form['user']
             password = request.form['password']
-            id = session.login(user, password, ip)
-            if id:
-                return redirect('/perfil/')
+            connection = session.login(user, password, ip)
+            if connection:
+                if connection[0]:
+                    print(connection[1].adm)
+                    if connection[1].adm:
+                        return redirect('/adm/')
+                    return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'
                 return render_template('home.html', error=error)
@@ -47,17 +51,50 @@ def home():
 
 @app.route('/adm/', methods=['GET'])
 def adm_page():
-
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    if not connection:
+        return redirect('/home/')
+    else:
+        if not connection.adm:
+            return redirect('/perfil/')
+    
     return render_template('adm.html')
 
 
 @app.route('/adm_posts/', methods=['GET'])
 def adm_posts_page():
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
+    
+    if not connection:
+        return redirect('/home/')
+    else:
+        if not connection.adm:
+            return redirect('/perfil/')
 
     return render_template('adm_posts.html')
 
 @app.route('/adm_new_post/', methods=['GET'])
 def adm_new_post_page():
+    ip = str(request.remote_addr)
+    connection = session.getConnection(ip)
+    try:
+        if not session.database.connection.is_connected():
+            session.reconnectDatabase()
+    except:
+        pass
+    
+    if not connection:
+        return redirect('/home/')
+    else:
+        if not connection.adm:
+            return redirect('/perfil/')
 
     return render_template('adm_new_post.html')
 
@@ -126,11 +163,12 @@ def cadastro():
             'curriculum': request.form['curriculum'],
             'membro': request.form['membro']
         }
-        feedback, signedup = session.signup(data)
-        if not signedup:
-            return render_template('signup.html', feedback=feedback)
-        else:
-            return f'<h1>{feedback}</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+        # feedback, signedup = session.signup(data)
+        # if not signedup:
+        #     return render_template('signup.html', feedback=feedback)
+        # else:
+            # return f'<h1>{feedback}</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+        return f'<h1>Em desenvolvimento</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
 
 
 @app.route('/blog_post/', methods=['GET', 'POST'])
@@ -287,12 +325,30 @@ def members():
                 data = session.buildMember(member)
                 result.append(data)
 
+
         # cep search request
         elif request.form['search'] == 'cep':
+
+            distances = []
+            coords = session.getCoords(request.form['value'])
             for member in session.member_list:
-                if request.form['value'].lower() == member['cep'].lower():
-                    if member['member'] == 'Titular':
-                        result.append(member)
+                if member['member'] == 'Titular':
+                    member_cep_str = member['cep']
+                    try:
+                        member_cep = int(member_cep_str)
+                        distance = session.getCepDistance(coords, (member['lat'], member['lng']))
+                        this_member = {
+                            'distance': distance
+                        }
+                        this_member.update(member)
+                        distances.append(this_member)
+
+                    except:
+                        continue
+                    
+            sorted_distances = sorted(distances, key=lambda d: d['distance'])
+            result.extend(sorted_distances[:7])
+                
 
         # map search
         elif request.form['search'] == 'uf':
@@ -439,16 +495,9 @@ def new_request():
 # update profile data
 @app.route('/update_profile/', methods=['POST'])
 def update_profile():
-    try:
-        sql = f"UPDATE Membros SET nome='{request.form['name']}', uf='{request.form['uf']}', cep='{request.form['cep']}', cpf='{request.form['cpf']}', email='{request.form['email']}', crm='{request.form['crm']}', curriculum='{request.form['curriculum']}', telefone='{request.form['telefone_plain']}', endereco='{request.form['endereco']}', numero='{request.form['numero']}', complemento='{request.form['complemento']}', bairro='{request.form['bairro']}', cidade='{request.form['cidade']}', especialidades='{request.form['especialidades_str']}', temporaria='{request.form['temporario']}' WHERE id={request.form['id']}"
-        cursor = session.database.connection.cursor()
-        cursor.execute(sql)
-        session.database.connection.commit()
-        cursor.close()
-        return 'True'
-    except Exception as error:
-        print(error)
-        return 'False'
+    response = session.editMember(request.form)
+
+    return response
 
 
 # remove temporary flag
@@ -466,8 +515,30 @@ def remove_temporary():
 def edit_member():
     data = request.get_json()
     print(data)
+    response = session.editMember(data)
 
-    return json.dumps({'error': 'nada'})
+    return json.dumps(response)
+
+@app.route('/get_posts/', methods=['POST'])
+def get_posts():
+    data = request.get_json()
+    response = session.getPosts(data)
+
+    return json.dumps(response)
+
+@app.route('/especialidades/', methods=['GET'])
+def especialidades():
+    especialidades = session.getEspecialidades()
+
+    return json.dumps(especialidades)
+
+@app.route('/trocar_especialidade/', methods=['POST'])
+def trocar_especialidade():
+    data = request.get_json()
+
+    response = session.setEspecialidades(data)
+    return json.dumps(response)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")

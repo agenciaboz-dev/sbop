@@ -9,13 +9,32 @@ const fromPython = (string) => {
     return data;
 }
 
+const getEspecialidades = () => {
+    const container = $('.especialidades-inputs-container')
+    $.get('/especialidades', (response) => {
+        const especialidades = JSON.parse(response);
+        for (let especialidade of especialidades) {
+            element = `
+            <div>
+                <input type="checkbox" value="${especialidade.nome}" class="checkbox"
+                    id="member-input-${especialidade.nome.toLowerCase().split(' ')[0]}" name="especialidades-input">
+                <label for="member-input-${especialidade.nome.toLowerCase().split(' ')[0]}">${especialidade.nome}</label>
+            </div>
+            `
+            container.append(element);
+        }
+    })
+
+}
+
 const loadList = () => {
     console.log('ready')
     $.ajax('/membros/').done((html) => {
         data = fromPython(html);
         members = data;
 
-        buildList(members)
+        buildList(members);
+        getEspecialidades();
     });
 }
 
@@ -83,6 +102,7 @@ const buildProfile = (member) => {
     $('#name-input').val(member.name);
     $('#user-input').val(member.user);
     $('#cpf-input').val(member.cpf);
+    $('#email-input').val(member.email);
     $('#password-input').val(member.password);
     $('#uf-input').val(member.uf);
     $('#cep-input').val(member.cep);
@@ -96,7 +116,41 @@ const buildProfile = (member) => {
     $('#pais-input').val(member.pais);
     $('#crm-input').val(member.crm);
     $('#curriculum-input').val(member.curriculum);
-    $('#pessoa-input').val(member.pessoa);
+
+    if (member.pessoa == 1) {
+        $('#pessoa-fisica-input').prop("checked", true);
+    } else {
+        $('#pessoa-juridica-input').prop("checked", true);
+    }
+
+    const especialidades = member.especialidades.split(',');
+
+    $('input[name="especialidades-input"]').prop('checked', false);
+    for (let especialidade of especialidades) {
+        $(`input[value="${especialidade}"]`).prop('checked', true);
+    }
+
+    if (member.temporario === true || member.temporario === "true") {
+        $('#temporario-input').prop("checked", true);
+    } else {
+        $('#temporario-input').prop("checked", false);
+
+    }
+
+    if (member.primeiro_acesso) {
+        $('#primeiro_acesso-input').prop("checked", true);
+    } else {
+        $('#primeiro_acesso-input').prop("checked", false);
+
+    }
+
+    if (member.pago) {
+        $('#pago-input').prop("checked", true);
+    } else {
+        $('#pago-input').prop("checked", false);
+
+    }
+
     $('#temporario-input').val(member.temporario);
     $('#primeiro_acesso-input').val(member.primeiro_acesso);
     $('#especialidades-input').val(member.especialidades);
@@ -120,11 +174,21 @@ const onClickSave = (event) => {
 
     const id = current_id;
     const inputs = $('.profile-data-field input');
-    let member = {id: id}
+    let member = {id: id, adm_panel: true}
     for (element of inputs) {
         const key = $(element).attr('id').split('-')[0]
         member[key] = $(element).val()
     }
+    member.uf = $('#uf-input').val()
+    member.especialidades = ''
+
+    for (let element of $('input[name="especialidades-input"]:checked')) {
+        member.especialidades += `${$(element).val()},`
+    }
+
+    member.temporario = Boolean($('#temporario-input:checked')[0]);
+    member.primeiro_acesso = Boolean($('#primeiro_acesso-input:checked')[0]);
+    member.pago = Boolean($('#pago-input:checked')[0]);
     console.log(member)
 
     const requisicaoUngida = () => {
@@ -142,7 +206,9 @@ const onClickSave = (event) => {
         .catch(err => console.error('error:' + err));
     }
 
-    requisicaoUngida()
+    if (confirm(`Tem certeza que deseja atualizar os dados do usuário ${member.user}?`)) {
+        requisicaoUngida()
+    }
 }
 
 const onClickCancel = (event) => {
@@ -159,26 +225,28 @@ const onClickMemberType = (event) => {
     const member_type_container = $(event.target).closest('.member-type-container');
     const current_plan_container = member_type_container.children('.active-type');
 
-    const request = $.ajax({
-        url: '/change_plan/',
-        method: 'POST',
-        data: {
-            id: id,
-            plan: plan,
-            adm: true
-        }
-    });
+    if (confirm(`Tem certeza que deseja alterar o tipo do usuário para ${plan}?`)) {
+        const request = $.ajax({
+            url: '/change_plan/',
+            method: 'POST',
+            data: {
+                id: id,
+                plan: plan,
+                adm: true
+            }
+        });
+        member_type_container.addClass('deactivated');
+        current_plan_container.removeClass('active-type');
+        request.done((msg) => {
+            if (msg == 'True') {
+                $(event.target).closest(`.${plan}`).addClass('active-type');
+            } else {
+                current_plan_container.addClass('active-type');
+            }
+            member_type_container.removeClass('deactivated');
+        })
+    }
 
-    member_type_container.addClass('deactivated');
-    current_plan_container.removeClass('active-type');
-    request.done((msg) => {
-        if (msg == 'True') {
-            $(event.target).closest(`.${plan}`).addClass('active-type');
-        } else {
-            current_plan_container.addClass('active-type');
-        }
-        member_type_container.removeClass('deactivated');
-    })
 }
 
 $('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})

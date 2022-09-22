@@ -15,12 +15,11 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px var(--input-background) inset !important;
 }
-
 
 /* GENERAL */
 
@@ -31,7 +30,7 @@ body {
 }
 
 .body-container {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     background-color: white;
     border-radius: 1.5vw;
@@ -53,6 +52,7 @@ h1 {
 h2 {
     color: var(--text-primary);
 }
+
 p {
     color: var(--text-secondary);
     opacity: 0.7;
@@ -129,7 +129,7 @@ button:hover {
     border-top-right-radius: 1.5vw;
 }
 
-#toolbar-plans > img {
+#toolbar-plans>img {
     position: absolute;
     z-index: 5;
     width: 1.5vw;
@@ -164,6 +164,28 @@ button:hover {
     flex-shrink: 0;
 }
 
+#js-floating-popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 30vw;
+    z-index: 50;
+    width: 30vw;
+    height: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--toolbar-color);
+    border-radius: 2vw;
+    padding: 2vw;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
+}
+
+#js-floating-popup button {
+    width: 50%;
+    height: 3.5vh;
+    flex-shrink: 0;
+}
+
 /* main containers */
 
 .main-container {
@@ -177,7 +199,7 @@ button:hover {
     flex-direction: column;
 }
 
-#profile-container > hr {
+#profile-container>hr {
     width: 87%;
     align-self: center;
     opacity: 0.5;
@@ -239,18 +261,18 @@ button:hover {
     align-self: center;
 }
 
-.info-container > div {
+.info-container>div {
     display: flex;
     flex-direction: column;
     margin: 0 2vw;
 }
 
-.info-container > div > h1 {
+.info-container>div>h1 {
     font-size: 1vw;
     margin: 0;
 }
 
-.info-container > div > p {
+.info-container>div>p {
     font-size: 0.9vw;
     margin: 0.5vw 0 1vw;
 }
@@ -269,6 +291,27 @@ button:hover {
     color: white;
     font-size: 1.5vh;
     padding: 0 0.5vw;
+}
+
+#especilidades-data-field {
+    position: relative;
+}
+
+#edit-skills {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: white;
+    height: 2.5vh;
+    width: 3vw;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.5vh;
+    margin-left: -0.15vw;
+}
+
+#edit-skills:hover {
+    background-color: #094a6f;
+    color: white;
 }
 
 .curriculum-container {
@@ -296,9 +339,9 @@ button:hover {
 
 .profile-buttons {
     /* position:absolute;  */
-    padding: 5px; 
-    width: 4vw; 
-    border: 2px solid var(--primary-color); 
+    padding: 5px;
+    width: 4vw;
+    border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
     margin: 0;
@@ -317,13 +360,13 @@ button:hover {
     justify-content: center;
 } */
 
-.info-container-wrapper > div:last-of-type {
+.info-container-wrapper>div:last-of-type {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.info-container-wrapper > div:last-of-type > div {
+.info-container-wrapper>div:last-of-type>div {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -331,15 +374,21 @@ button:hover {
 
 #edit-curriculum {
     position: absolute;
-    width: 3.75vw;
-    top: -2vh;
-    right: 30.5vw;
+    right: 31.75vw;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: white;
+    height: 2.5vh;
+    width: 3vw;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 1.5vh;
 }
 
 #edit-curriculum:hover {
-    transform: scale(1.2)
+    /* transform: scale(1.2); */
+    background-color: #094a6f;
+    color: white;
 }
 
 .profile-picture-container {
@@ -347,16 +396,20 @@ button:hover {
     display: flex;
 }
 
-.curriculum-container > textarea {
-    /* padding: 0 5px; */
+.curriculum-container>textarea {
+    background-color: #E4E4E4;
+    border: none;
+    border-radius: 2vw;
+    font-family: Montserrats;
+    padding: 0 2vw;
     width: 100%;
-    height: 100%;
+    height: 8vh;
     text-align: justify;
-    padding: 0 5px;
     transition: 0.3s;
+    resize: none;
 }
 
-.curriculum-container > span {
+.curriculum-container>span {
     position: absolute;
     top: 3.3vh;
 }

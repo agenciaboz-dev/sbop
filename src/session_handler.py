@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, date
 from src.config import TIMELIMIT, database_auth, google_api_key
 from src.mysql_handler import Mysql
-import json
+import json, requests, geopy.distance
 
 
 class Connection():
@@ -41,6 +41,7 @@ class Connection():
         self.cpf = data[21]
         self.especialidades = []
         self.pago = data[23]
+        self.adm = data[24]
         for item in data[22].split(','):
             self.especialidades.append(item)
         self.solicitacoes = database.fetchTable(
@@ -87,6 +88,9 @@ class Session():
                 'cpf': member[21],
                 'especialidades': member[22],
                 'pago': member[23],
+                'adm': member[24],
+                'lat': member[25],
+                'lng': member[26],
             }
         return data
 
@@ -145,9 +149,9 @@ class Session():
                     if is_logged and is_logged.id == id:
                         self.connections.remove(is_logged)
 
-                    self.connections.append(
-                        Connection(ip, self.database, id))
-                    return str(id)
+                    connection = Connection(ip, self.database, id)
+                    self.connections.append(connection)
+                    return [str(id), connection]
         except Exception as error:
             print(error)
             return None
@@ -186,15 +190,84 @@ class Session():
                 data['content'], data['author'], date)
         self.database.insertPost(data)
         
-    # def getCepDistance(self, cep1, cep2):
-    #     url1 = f'https://viacep.com.br/ws/{cep1}/json/'
-    #     url2 = f'https://viacep.com.br/ws/{cep2}/json/'
-    #     origem = json.loads(requests.get(url1).text)
-    #     destino = json.loads(requests.get(url2).text)
-    #     strOrigem = origem['localidade'] + ' ' + origem['uf']
-    #     strOrigem = strOrigem.replace(' ', '+')
-    #     strDestino = destino['localidade'] + ' ' + destino['uf']
-    #     strDestino = strDestino.replace(' ', '+')
-    #     url = f'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins={strOrigem}&destinations={strDestino}&key={google_api_key}'
-    #     distance = requests.get(url).text
-    #     return distance
+    def editMember(self, data):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
+        if data.get('adm_panel'):
+            telefone = 'telefone'
+            especialidades = 'especialidades'
+        else:
+            telefone = 'telefone_plain'
+            especialidades = 'especialidades_str'
+
+        try:
+            sql = f"UPDATE Membros SET NOME='{data['name']}', UF='{data['uf']}', CEP='{data['cep']}', CPF='{data['cpf']}', EMAIL='{data['email']}', CRM='{data['crm']}', CURRICULUM='{data['curriculum']}', TELEFONE='{data[telefone]}', ENDERECO='{data['endereco']}', NUMERO='{data['numero']}', COMPLEMENTO='{data['complemento']}', BAIRRO='{data['bairro']}', CIDADE='{data['cidade']}', ESPECIALIDADES='{data[especialidades]}', TEMPORARIO='{data['temporario']}' WHERE ID={data['id']}"
+            print(sql)
+            cursor = self.database.connection.cursor()
+            cursor.execute(sql)
+            self.database.connection.commit()
+            cursor.close()
+            return 'True'
+        except Exception as error:
+            print(error)
+            return 'False'
+        
+    def getPosts(self, data):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
+        sql = f"SELECT * FROM Blog WHERE TITULO like '%{data['searched']}%';"
+        data = self.database.run(sql, json=True)
+
+        return data
+    
+    def getEspecialidades(self):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
+        sql = 'SELECT nome FROM especialidades;'
+        print(sql)
+        data = self.database.run(sql, json=True)
+        print(data)
+
+        return data
+    
+    def setEspecialidades(self, data):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
+        sql = f"UPDATE Membros SET ESPECIALIDADES='{data['especialidades']}' WHERE ID={data['id']}"
+        print(sql)
+        try:
+            self.database.run(sql)
+        except Exception as error:
+            print(error)
+        finally:
+            return {'especialidades': data['especialidades']}
+        
+    def getCepDistance(self, origem, destino):
+        distance = geopy.distance.geodesic(origem, destino).km
+
+        return distance
+        
+    def getCoords(self, address):
+        address = address.replace(' ', '+')
+        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={google_api_key}'
+        print(url)
+        response = json.loads(requests.get(url).text)
+        if response['results']:
+            location = response['results'][0]['geometry']['location']
+            
+            return (location['lat'], location['lng'])
+
+    
+    

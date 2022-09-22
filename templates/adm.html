@@ -25,7 +25,10 @@
                 </form>
             </div>
             <div class="postagens-container">
-                <p>Ir para Postagens</p>
+                <div>
+                    <p class="center-text">Ir para</p>
+                    <p>Postagens</p>
+                </div>
                 <img src="/static/image/postagens.svg" alt="Postagens">
             </div>
         </div>
@@ -135,68 +138,44 @@
                         <label for="curriculum-input">Currículo</label>
                         <input id="curriculum-input" type="text" placeholder="Currículo">
                     </div>
+                    <br>
                     <div class="input-field">
                         <label>Pessoa</label>
                         <div class="tipo-pessoa-input">
-                            <input name="pessoa-input" id="pessoa-fisica-input" type="radio">
-                            <label for="pessoa-fisica-input">Física</label>
-                            <input name="pessoa-input" id="pessoa-juridica-input" type="radio">
-                            <label for="pessoa-juridica-input">Jurídica</label>
+                            <div class="pfisica">
+                                <input name="pessoa-input" id="pessoa-fisica-input" type="radio">
+                                <label for="pessoa-fisica-input">Física</label>
+                            </div>
+                            <div class="pjuridica">
+                                <input name="pessoa-input" id="pessoa-juridica-input" type="radio">
+                                <label for="pessoa-juridica-input">Jurídica</label>
+                            </div>
                         </div>
                     </div>
                     <div class="input-field">
-                        <label>Especialidades</label>
+                        <h2>Especialidades</h2>
                         <div class="especialidades-inputs-container">
-                            <div>
-                                <input type="checkbox" value="Oftalmologia Pediátrica" class="checkbox"
-                                    id="member-input-oftalmologia">
-                                <label for="member-input-oftalmologia">Oftalmologia Pediátrica</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="Estrabismo" class="checkbox" id="member-input-estrabismo">
-                                <label for="member-input-estrabismo">Estrabismo</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="Glaucoma Pediátrico" class="checkbox"
-                                    id="member-input-glaucoma">
-                                <label for="member-input-glaucoma">Glaucoma Pediátrico</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="Catarata Pediátrica" class="checkbox"
-                                    id="member-input-catarata">
-                                <label for="member-input-catarata">Catarata Pediátrica</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="Retina Pediátrica" class="checkbox"
-                                    id="member-input-retina">
-                                <label for="member-input-retina">Retina Pediátrica</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="Vias lacrimais" class="checkbox" id="member-input-vias">
-                                <label for="member-input-vias">Vias lacrimais</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" value="Plástica Ocular" class="checkbox"
-                                    id="member-input-plastica">
-                                <label for="member-input-plastica">Plástica Ocular</label>
-                            </div>
+                            <!-- SCRIPT -->
                         </div>
-                        <div class="input-field">
-                            <div class="checkbox-input">
-                                <label for="temporario-input">Temporário</label>
-                                <input id="temporario-input" type="checkbox">
+                        <h2>Informações de Sistema</h2>
+                        <div class="sys-info">
+                            <div class="input-field">
+                                <div class="checkbox-input">
+                                    <input id="temporario-input" type="checkbox">
+                                    <label for="temporario-input">Temporário</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-field">
-                            <div class="checkbox-input">
-                                <label for="primeiro_acesso-input">Primeiro Acesso</label>
-                                <input id="primeiro_acesso-input" type="checkbox">
+                            <div class="input-field">
+                                <div class="checkbox-input">
+                                    <input id="primeiro_acesso-input" type="checkbox">
+                                    <label for="primeiro_acesso-input">Primeiro Acesso</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-field">
-                            <div class="checkbox-input">
-                                <label for="pago-input">Pago</label>
-                                <input id="pago-input" type="checkbox">
+                            <div class="input-field">
+                                <div class="checkbox-input">
+                                    <input id="pago-input" type="checkbox">
+                                    <label for="pago-input">Pago</label>
+                                </div>
                             </div>
                         </div>
                     </div>

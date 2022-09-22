@@ -33,8 +33,20 @@ class Member():
         self.solicitacoes = data['solicitacoes']
         self.especialidades = data['especialidades']
         self.especialidades_str = None
+        if data['temporario'] == 'false':
+            data['temporario'] = 'False'
+        elif data['temporario'] == 'true':
+            data['temporario'] = 'True'
         self.temporario = eval(data['temporario'])
+        if data['primeiro_acesso'] == 'false':
+            data['primeiro_acesso'] = 'False'
+        elif data['primeiro_acesso'] == 'true':
+            data['primeiro_acesso'] = 'True'
         self.primeiro_acesso = eval(data['primeiro_acesso'])
+        if data['pago'] == 'false':
+            data['pago'] = 'False'
+        elif data['pago'] == 'true':
+            data['pago'] = 'True'
         self.pago = eval(data['pago'])
 
         self.member_container_wrapper = None
@@ -47,6 +59,8 @@ class Member():
         self.telefone = telefone
         endereco = f'{self.endereco}, {self.numero} | {self.complemento}'
         self.endereco_formatado = endereco
+        
+        jQuery('#js-floating-popup').attr('member-id', self.id)
 
     def updatePassword(self):
         POPUP.fadeToggle()
@@ -415,6 +429,7 @@ def renderStage2(ev):
     member.uf = jQuery('#member-input-uf').val()
     
     def updateProfileComplete(req):
+        print(req.text)
         response = eval(req.text)
         if response:
             # removing button from stage-1
@@ -468,7 +483,7 @@ def loadProfile():
         jQuery('#data-curriculum').fadeOut(jQuery('#profile-input-curriculum').fadeIn)
         jQuery('#profile-input-curriculum').val(member.curriculum)
         jQuery('#edit-curriculum').attr('src', '/static/image/complete_icon.svg')
-        jQuery('#edit-curriculum').css('transform', 'scale(0.5')
+        jQuery('#edit-curriculum').text('Ok')
         jQuery('.curriculum-container').css('height', '18vh')
         
         def completeCurriculumEdition(ev):
@@ -479,9 +494,10 @@ def loadProfile():
             jQuery('#profile-input-curriculum').fadeOut(jQuery('#data-curriculum').fadeIn)
             jQuery('#edit-curriculum').attr('src', '/static/image/edit.svg')
             jQuery('.curriculum-container').css('height', '15vh')
-            jQuery('#edit-curriculum').css('transform', '')
             jQuery('#edit-curriculum').off('click')
             jQuery('#edit-curriculum').on('click', editCurriculum)
+            jQuery('#edit-curriculum').text('Editar')
+
         jQuery('#edit-curriculum').off('click')
         jQuery('#edit-curriculum').on('click', completeCurriculumEdition)
 
