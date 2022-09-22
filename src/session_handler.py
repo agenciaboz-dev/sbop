@@ -16,7 +16,7 @@ class Connection():
             return True
 
     def buildAttributes(self, ip, database):
-        data = database.fetchTable(1, 'Membros', 'ID', self.id)[0]
+        data = database.fetchTable(1, 'Membros', 'id', self.id)[0]
         self.ip = ip
         self.user = data[1]
         self.password = data[2]
@@ -44,7 +44,7 @@ class Connection():
         for item in data[22].split(','):
             self.especialidades.append(item)
         self.solicitacoes = database.fetchTable(
-            0, 'Solicitacoes', 'USUARIO', self.id, ordered='ID')
+            0, 'Solicitacoes', 'user', self.id, ordered='id')
         self.solicitacoes.reverse()
 
 class Session():
@@ -98,7 +98,7 @@ class Session():
             pass
 
         self.member_list = []
-        sql = 'SELECT * FROM Membros ORDER BY NOME ASC'
+        sql = 'SELECT * FROM Membros ORDER BY nome ASC'
         members = self.database.run(sql)
 
         for member in members:
@@ -128,11 +128,11 @@ class Session():
             email = True
         
         if cpf:
-            column = 'CPF'
+            column = 'cpf'
         elif email:
-            column = 'EMAIL'
+            column = 'email'
         else:
-            column = 'USUÁRIO'
+            column = 'user'
         
         try:
             data = self.database.fetchTable(1, 'Membros', column, user)[0]
@@ -155,12 +155,12 @@ class Session():
     def signup(self, data):
         try:
             usuario = self.database.fetchTable(
-                1, 'Membros', 'USUÁRIO', data['usuario'])[0]
+                1, 'Membros', 'user', data['usuario'])[0]
             if usuario:
                 return 'Usuário já cadastrado', False
 
             email = self.database.fetchTable(
-                1, 'Membros', 'EMAIL', data['email'])[0]
+                1, 'Membros', 'email', data['email'])[0]
             if email:
                 return 'E-mail já cadastrado', False
 
@@ -172,7 +172,7 @@ class Session():
 
     def get_blog(self, membro):
         try:
-            blog_list = self.database.fetchTable(0, 'Blog', 'MEMBRO', membro)
+            blog_list = self.database.fetchTable(0, 'Blog', 'assinatura', membro)
             if blog_list:
                 return blog_list
         except:

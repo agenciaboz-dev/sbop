@@ -279,9 +279,9 @@ def members():
         # name search request
         if request.form['search'] == 'name':
             searched = request.form['value'].lower()
-            sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
+            sql = f"SELECT * FROM `Membros` WHERE nome like '%{searched}%' AND assinatura = 'Titular' ORDER BY nome ASC"
             if adm:
-                sql = f"SELECT * FROM `Membros` WHERE NOME like '%{searched}%' ORDER BY NOME ASC"
+                sql = f"SELECT * FROM `Membros` WHERE nome like '%{searched}%' ORDER BY nome ASC"
             members = session.database.run(sql)
             for member in members:
                 data = session.buildMember(member)
@@ -296,7 +296,7 @@ def members():
 
         # map search
         elif request.form['search'] == 'uf':
-            sql = f"SELECT * FROM `Membros` WHERE UF = '{request.form['value'].upper()}' AND MEMBRO = 'Titular' ORDER BY NOME ASC"
+            sql = f"SELECT * FROM `Membros` WHERE uf = '{request.form['value'].upper()}' AND assinatura = 'Titular' ORDER BY nome ASC"
             members = session.database.run(sql)
             for member in members:
                 data = session.buildMember(member)
@@ -369,10 +369,10 @@ def change_password():
     try:
         id = request.form['id']
         session.database.updateTable(
-            'Membros', id, 'SENHA', request.form['new_password'], 'ID')
+            'Membros', id, 'senha', request.form['new_password'], 'ID')
         if 'first_access' in request.form:
             session.database.updateTable(
-                'Membros', id, 'PRIMEIRO_ACESSO', 'False', 'ID')
+                'Membros', id, 'primeiro_acesso', 'False', 'ID')
         return str(['Sucesso', 'Sua senha foi alterada'])
     except Exception as error:
         return str(['Erro', error])
@@ -383,7 +383,7 @@ def change_password():
 def change_email():
     try:
         session.database.updateTable(
-            'Membros', request.form['id'], 'EMAIL', request.form['new_email'], 'ID')
+            'Membros', request.form['id'], 'email', request.form['new_email'], 'id')
         return str(['Sucesso', 'Seu e-mail foi alterado'])
     except Exception as error:
         return str(['Erro', error])
@@ -406,7 +406,7 @@ def cancel_request():
 @app.route('/new_request/', methods=['POST'])
 def new_request():
     solicitacao = session.database.fetchTable(
-        1, 'available_requests', 'ID', request.form['request'])[0][1]
+        1, 'available_requests', 'id', request.form['request'])[0][1]
     request_id = len(session.database.fetchTable(0, 'Solicitacoes'))
     time = datetime.today()
     day = time.day
@@ -440,7 +440,7 @@ def new_request():
 @app.route('/update_profile/', methods=['POST'])
 def update_profile():
     try:
-        sql = f"UPDATE Membros SET NOME='{request.form['name']}', UF='{request.form['uf']}', CEP='{request.form['cep']}', CPF='{request.form['cpf']}', EMAIL='{request.form['email']}', CRM='{request.form['crm']}', CURRICULUM='{request.form['curriculum']}', TELEFONE='{request.form['telefone_plain']}', ENDERECO='{request.form['endereco']}', NUMERO='{request.form['numero']}', COMPLEMENTO='{request.form['complemento']}', BAIRRO='{request.form['bairro']}', CIDADE='{request.form['cidade']}', ESPECIALIDADES='{request.form['especialidades_str']}', TEMPORARIO='{request.form['temporario']}' WHERE ID={request.form['id']}"
+        sql = f"UPDATE Membros SET nome='{request.form['name']}', uf='{request.form['uf']}', cep='{request.form['cep']}', cpf='{request.form['cpf']}', email='{request.form['email']}', crm='{request.form['crm']}', curriculum='{request.form['curriculum']}', telefone='{request.form['telefone_plain']}', endereco='{request.form['endereco']}', numero='{request.form['numero']}', complemento='{request.form['complemento']}', bairro='{request.form['bairro']}', cidade='{request.form['cidade']}', especialidades='{request.form['especialidades_str']}', temporaria='{request.form['temporario']}' WHERE id={request.form['id']}"
         cursor = session.database.connection.cursor()
         cursor.execute(sql)
         session.database.connection.commit()
@@ -456,7 +456,7 @@ def update_profile():
 def remove_temporary():
     try:
         session.database.updateTable(
-            'Membros', request.form['id'], 'TEMPORARIO', 'False', 'ID')
+            'Membros', request.form['id'], 'temporario', 'False', 'ID')
         return 'True'
     except Exception as error:
         print(error)
