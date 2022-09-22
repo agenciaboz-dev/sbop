@@ -62,8 +62,10 @@ body {
   font-family: Montserrats;
   font-weight: 600;
   text-decoration: none;
+  align-items: center;
 }
 .top-container h2 {
+  align-items: center;
   color: #6B6B6B;
   font-weight: 600;
 }
@@ -104,6 +106,10 @@ p {
   color: #8D8D8D;
 }
 
+.pessoa {
+  margin: 1.5vh 0 0 0;
+}
+
 .welcome-text {
   font-size: 85%;
 }
@@ -112,20 +118,43 @@ label {
   color: #8D8D8D;
 }
 
-.data-row {
+.data-slot {
   display: flex;
   flex-direction: column;
   margin-top: 2.5vh;
   margin-bottom: 1vh;
 }
-.data-row > label {
+.data-slot > label {
   font-weight: 500;
   margin-bottom: 1vh;
 }
 
-.phones-row {
+.data-column {
+  display: flex;
+  flex-direction: column;
+}
+.data-column > label {
+  font-weight: 500;
+  margin-bottom: 1vh;
+}
+
+.t-quarters {
+  width: 74%;
+}
+
+.half {
+  margin-top: 1.5vh;
+  width: 49%;
+}
+
+.quarter {
+  width: 24%;
+}
+
+.data-row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 input {
@@ -135,6 +164,12 @@ input {
   border-radius: 2vw;
   opacity: 0.4;
   padding: 1.5vh 1.5vw;
+}
+
+input[type=radio] {
+  margin: 1vw 1vw 1vw 0;
+  padding: 0;
+  width: 10%;
 }
 
 select {
