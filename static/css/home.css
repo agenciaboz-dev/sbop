@@ -108,7 +108,7 @@ input {
     font-size: 1vw;
 }
 
-.container button {
+button {
     background-color: var(--primary-color);
     border-radius: 1.5vw;
     border: none;
@@ -124,7 +124,7 @@ input {
     background-color: #094a6f;
 }
 
-.container > a {
+.container > .recover-password {
     margin: 0;
     text-decoration: none;
     color: var(--primary-text-color);
@@ -132,9 +132,10 @@ input {
     opacity: 0.5;
     font-size: 1vw;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.container > a:hover {
+.container > .recover-password:hover {
     opacity: 1;
 }
 
@@ -142,4 +143,17 @@ input {
     margin-top: 0;
     font-size: 1vw;
     color: var(--primary-text-color)
+}
+
+.popup {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    /* background-color: var(--background-color); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 50vh;
+    border-radius: 5vw;
+    z-index: 5;
+    padding: 5vw;
 }

@@ -538,6 +538,13 @@ def trocar_especialidade():
 
     response = session.setEspecialidades(data)
     return json.dumps(response)
+
+@app.route('/recuperar/', methods=['POST'])
+def recuperar_route():
+    data = request.get_json()
+
+    response = data
+    return json.dumps(response)
     
 
 if __name__ == '__main__':

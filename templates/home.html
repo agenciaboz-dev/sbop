@@ -13,6 +13,15 @@
         <button onclick="window.location.href='/mapa/'">Mapa</button>
         <button onclick="window.location.href='/blog_post/'">Blog Post</button>
     </div> -->
+    <div class="popup">
+        <h1>Recuperar senha</h1>
+        <p>Enviaremos um link para o e-mail cadastrado no usuário inserido abaixo. A senha poderá ser resetada neste link</p>
+        <form id="recover-form">
+            <label for="recover-input">Usuário</label>
+            <input type="text" id="recover-input" required>
+            <button id="recover-submit" type="submit">Enviar</button>
+        </form>
+    </div>
     <div class="body-container">
         <img src="/static/image/logo.png" width="2000px" height="2000px" alt="logo">
         <div class="container">
@@ -30,8 +39,12 @@
                 <button type="submit" name="login">Entrar</button>
             </form>
             <p>{{error}}</p>
-            <a href="">Esqueci minha senha</a>
+            <p class="recover-password">Esqueci minha senha</p>
         </div>
     </div>
 </body>
+<footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/static/javascript/home.js"></script>
+</footer>
 </html>
