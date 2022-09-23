@@ -415,7 +415,7 @@ def available_requests():
 @app.route('/change_plan/', methods=['POST'])
 def change_plan():
     session.database.updateTable(
-        'Membros', request.form['id'], 'MEMBRO', request.form['plan'], 'ID')
+        'Membros', request.form['id'], 'assinatura', request.form['plan'], 'ID')
     return 'True'
 
 
