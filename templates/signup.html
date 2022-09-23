@@ -16,10 +16,10 @@
 <body onload="brython()">
 
     <div class="main-container">
-        <div class="top-container">
-            <!-- <button onclick="window.location.href='/home/'">Voltar</button> -->
+        <div class="titles">
             <a href="/home/">Login</a>
-            <h2 id="user-title">Cadastro</h2>
+            <hr>
+            <h1>Cadastro</h1>
             <h3 style="color: red;">{{feedback}}</h3>
         </div>
         <p class="welcome-text">Bem vindo(a)! Por favor preencha os campos abaixo.</p>
@@ -42,8 +42,8 @@
             </div>
             <div class="data-slot">
                 <label for="confirme-senha" title="Obrigatório">Confirme a senha</label>
-                <input type="password" class="senha" id="confirme-senha" name="confirme-senha" placeholder="Senha"
-                    required>
+                <input type="password" class="senha" id="confirme-senha" name="confirme-senha"
+                    placeholder="Confirme a senha" required>
             </div>
             <div class="data-row">
                 <div class="data-column half">
