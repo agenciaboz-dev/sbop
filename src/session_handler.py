@@ -45,7 +45,7 @@ class Connection():
         for item in data[22].split(','):
             self.especialidades.append(item)
         self.solicitacoes = database.fetchTable(
-            0, 'Solicitacoes', 'user', self.id, ordered='id')
+            0, 'Solicitacoes', 'USUARIO', self.id, ordered='id')
         self.solicitacoes.reverse()
 
 class Session():
@@ -139,7 +139,10 @@ class Session():
             column = 'user'
         
         try:
-            data = self.database.fetchTable(1, 'Membros', column, user)[0]
+            sql = f"SELECT * FROM Membros WHERE {column} = '{user}' ;"
+            data = self.database.run(sql)[0]
+            print(data)
+            # data = self.database.fetchTable(1, 'Membros', column, user)[0]
             if data:
                 if password == data[2]:
                     id = data[0]
