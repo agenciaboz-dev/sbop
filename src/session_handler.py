@@ -235,7 +235,7 @@ class Session():
                 self.reconnectDatabase()
         except:
             pass
-        sql = 'SELECT nome FROM especialidades;'
+        sql = 'SELECT nome FROM especialidades order by id;'
         print(sql)
         data = self.database.run(sql, json=True)
         print(data)
