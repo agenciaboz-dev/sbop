@@ -47,16 +47,22 @@ const getPosts = (event) => {
             `
             list_container.append(element);
             $(`#post-container-${post.ID}`).on('click', (event) => {
-                alert(post.ID);
+                if ($(event.target).attr('class') == 'delete-button') {
+                    return false
+                }
+                
+                const id = $(event.target).closest('.post-container').attr('id').split('-')[2]
+                alert(id);
             });
         }
         $('.delete-button').on('click', deletePost);
     })
 }
 
+
 const deletePost = (event) => {
     const id = $(event.target).closest('.post-container').attr('id').split('-')[2]
-    alert(id)
+    alert($(event.target).attr('class'));
 }
 
 $('.adm-container').on('click', () => {window.location.href='/adm/'})
