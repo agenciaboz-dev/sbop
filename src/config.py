@@ -2,6 +2,8 @@
 TIMELIMIT = 15
 
 email = {
+    'host': "mail.sbopc.com.br",
+    'port': 25,
     'login': 'noreply@sbop.com.br',
     'password': 'oht#yoYNO^R2'
 }
