@@ -553,7 +553,7 @@ def recover():
     if request.method == 'GET':
         data = request.args.get('user')
         
-        decrypted = session.decrypt(data)
+        decrypted = session.decrypt(data.encode())
         user = session.getUser(decrypted)
         
         return render_template('recuperar_senha.html', usuario=user['user'], id=user['id'])
