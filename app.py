@@ -551,9 +551,10 @@ def recuperar_route():
 @app.route('/recover/', methods=['GET', 'POST'])
 def recover():
     if request.method == 'GET':
-        data = bytes(request.args.get('user'), 'utf-8')
-        
-        decrypted = session.decrypt(data.encode())
+        param = request.args.get('user')[2:]
+        data = bytes(param, 'utf-8')
+        print(data)
+        decrypted = session.decrypt(data)
         user = session.getUser(decrypted)
         
         return render_template('recuperar_senha.html', usuario=user['user'], id=user['id'])
