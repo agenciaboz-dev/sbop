@@ -543,7 +543,7 @@ def trocar_especialidade():
 def recuperar_route():
     data = request.get_json()
 
-    response = data
+    response = session.trySendMail(data)
     return json.dumps(response)
     
 

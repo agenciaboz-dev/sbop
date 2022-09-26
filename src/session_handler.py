@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, date
 from src.config import TIMELIMIT, database_auth, google_api_key
 from src.mysql_handler import Mysql
+from src.mail_sender import sendMail
 import json, requests, geopy.distance
 
 
@@ -271,6 +272,16 @@ class Session():
             location = response['results'][0]['geometry']['location']
             
             return (location['lat'], location['lng'])
+        
+    def trySendMail(self, data):
+        sql = f"SELECT * FROM Membros WHERE user='{data['user']}' ;"
+        result = self.database.run(sql, json=True)
+        
+        if result:
+            sendMail(result[0]['email'])
+            return {'msg': f'E-mail sent to {result[0]["email"]}'}
+        else:
+            return {'msg': 'Usuário não encontrado'}
 
     
     
