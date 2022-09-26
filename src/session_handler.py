@@ -278,6 +278,7 @@ class Session():
         result = self.database.run(sql, json=True)
         
         if result:
+            print(result[0]['email'])
             sendMail(result[0]['email'])
             return {'msg': f'E-mail sent to {result[0]["email"]}'}
         else:

@@ -1,18 +1,6 @@
 # session time limit in minutes
 TIMELIMIT = 15
 
-email = {
-    'host': "mail.sbopc.com.br",
-    'port': 25,
-    'login': 'noreply@sbop.com.br',
-    'password': 'oht#yoYNO^R2'
-}
-
-# email = {
-#     'login': 'fernando@agenciazop.com.br',
-#     'password': 'SucessoZOP2022!'
-# }
-
 google_api_key = 'AIzaSyC51dKaUTWuBQfLyDNtVL3JuXMEeitjqkA'
 
 # MYSQL DATABASE
