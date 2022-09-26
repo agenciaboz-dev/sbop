@@ -543,9 +543,28 @@ def trocar_especialidade():
 def recuperar_route():
     data = request.get_json()
 
-    response = session.trySendMail(data)
+    encrypted = session.encrypt(data['user'])
+    response = session.trySendMail(encrypted, data['user'])
     print(response)
     return json.dumps(response)
+
+@app.route('/recover/', methods=['GET', 'POST'])
+def recover():
+    if request.method == 'GET':
+        param = request.args.get('user')[2:]
+        data = bytes(param, 'utf-8')
+        print(data)
+        decrypted = session.decrypt(data)
+        user = session.getUser(decrypted)
+        
+        return render_template('recuperar_senha.html', usuario=user['user'], id=user['id'])
+
+    else:
+        data = request.get_json()
+        print(data)
+        response = session.changePassword(data)
+        print(response)
+        return json.dumps(response)
     
 
 if __name__ == '__main__':

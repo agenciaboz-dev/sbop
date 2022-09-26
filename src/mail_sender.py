@@ -1,7 +1,7 @@
 from redmail import EmailSender
 
 
-def sendMail(destination):
+def sendMail(destination, message):
     email = EmailSender(
         host="mail.sbop.com.br",
         port=25,
@@ -13,7 +13,7 @@ def sendMail(destination):
         sender="noreply@sbop.com.br",
         receivers=[destination],
         subject="Sbop - Recuperar senha",
-        # text="Hi, this is text body.",
-        html="<h1>Hi,</h1><p>this is HTML body</p>"
+        text=message,
+        # html="<h1>Olá,</h1><p>this is HTML body</p>"
     )
     
