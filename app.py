@@ -544,6 +544,7 @@ def recuperar_route():
     data = request.get_json()
 
     response = session.trySendMail(data)
+    print(response)
     return json.dumps(response)
     
 
