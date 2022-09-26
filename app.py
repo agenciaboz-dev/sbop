@@ -553,6 +553,7 @@ def recover():
     if request.method == 'GET':
         data = request.args.get('user')
         print(data)
+        print(type(data))
         
         # decrypted = session.decrypt(data.encode())
         # user = session.getUser(decrypted)
