@@ -552,13 +552,11 @@ def recuperar_route():
 def recover():
     if request.method == 'GET':
         data = bytes(request.args.get('user'), 'utf-8')
-        print(data)
-        print(type(data))
         
-        # decrypted = session.decrypt(data.encode())
-        # user = session.getUser(decrypted)
+        decrypted = session.decrypt(data.encode())
+        user = session.getUser(decrypted)
         
-        return render_template('recuperar_senha.html')
+        return render_template('recuperar_senha.html', usuario=user['user'], id=user['id'])
 
     else:
         data = request.get_json()
