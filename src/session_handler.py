@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, date
 from src.config import TIMELIMIT, database_auth, google_api_key
 from src.mysql_handler import Mysql
 from src.mail_sender import sendMail
+from cryptography.fernet import Fernet
 import json, requests, geopy.distance
 
 
@@ -273,16 +274,46 @@ class Session():
             
             return (location['lat'], location['lng'])
         
-    def trySendMail(self, data):
-        sql = f"SELECT * FROM Membros WHERE user='{data['user']}' ;"
+    def trySendMail(self, encrypted, username):
+        sql = f"SELECT * FROM Membros WHERE user='{username}' ;"
         result = self.database.run(sql, json=True)
         
         if result:
-            print(result[0]['email'])
-            sendMail(result[0]['email'])
+            message = f"""
+                usuário: {username}
+                link para redefinir sua senha: http://localhost:5001/recover/user={encrypted}
+            """
+            sendMail(result[0]['email'], message)
             return {'msg': f'E-mail sent to {result[0]["email"]}'}
         else:
             return {'msg': 'Usuário não encontrado'}
 
+    def encrypt(self, text):
+        key = b'XJix9-kcLVndopzt3V61Mogzwn_e5xag1vsGlTIFeP4='
+        cipher = Fernet(key)
+        encrypted = cipher.encrypt(text.encode())
+
+        return encrypted
     
+    def decrypt(self, encrypted):
+        key = b'XJix9-kcLVndopzt3V61Mogzwn_e5xag1vsGlTIFeP4='
+        cipher = Fernet(key)
+        decrypted = cipher.decrypt(encrypted).decode()
+
+        return decrypted
     
+    def getUser(self, username):
+        sql = f"SELECT * FROM Membros WHERE user = '{username}' ;"
+        result = self.database.run(sql, json=True)
+        print(result)
+
+        return result[0] if result else None
+    
+    def changePassword(self, data):
+        sql = f"UPDATE Membros SET senha = '{data['senha']}' WHERE id = {data['id']} ;"
+        try:
+            self.database.run(sql, commit=True)
+            return {'success': 'senha alterada'}
+        except Exception as error:
+            print(error)
+            return {'error': 'error'}
