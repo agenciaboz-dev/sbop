@@ -551,7 +551,7 @@ def recuperar_route():
 @app.route('/recover/', methods=['GET', 'POST'])
 def recover():
     if request.method == 'GET':
-        data = bytes(request.args.get('user'))
+        data = bytes(request.args.get('user'), 'utf-8')
         print(data)
         print(type(data))
         
