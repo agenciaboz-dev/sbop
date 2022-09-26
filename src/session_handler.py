@@ -281,7 +281,7 @@ class Session():
         if result:
             message = f"""
                 usuário: {username}
-                link para redefinir sua senha: http://sistema.sbop.com.br:5001/recover/user={encrypted}
+                link para redefinir sua senha: http://sistema.sbop.com.br:5001/recover/?user={encrypted}
             """
             sendMail(result[0]['email'], message)
             return {'msg': f'E-mail sent to {result[0]["email"]}'}
