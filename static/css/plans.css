@@ -135,3 +135,12 @@
 .selected-plan {
     outline: 0.3vw solid var(--secondary-color);
 }
+
+.documents-container {
+    position: absolute;
+    width: 100%;
+    height: 67.1vh;
+    background-color: red;
+    z-index: 10;
+    left: -0.67vw;
+}
