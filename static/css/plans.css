@@ -253,3 +253,18 @@
     color: #312871 !important;
     font-weight: 600;
 }
+
+.document-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+    height: 5.5vh;
+    width: 5vw;
+    border-radius: 50%;
+    background-color: rgba(245, 245, 245, 0.75);
+}
+
+.document-circle>h1 {
+    font-weight: 700;
+}
