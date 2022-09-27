@@ -354,7 +354,6 @@ h2 {
     display: flex;
 }
 
-
 .bottom-button {
     display: flex;
     justify-content: center;
@@ -387,6 +386,10 @@ h2 {
 .bottom-button:hover {
     background-color: #094a6f;
     color: white;
-    fill: white;
     opacity: 1;
+
+    img {
+        stroke: white;
+        filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
+    }
 }
