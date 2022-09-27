@@ -209,7 +209,7 @@ class Session():
             especialidades = 'especialidades_str'
 
         try:
-            sql = f"UPDATE Membros SET nome='{data['name']}', uf='{data['uf']}', cep='{data['cep']}', cpf='{data['cpf']}', email='{data['email']}', crm='{data['crm']}', curriculum='{data['curriculum']}', telefone='{data[telefone]}', endereco='{data['endereco']}', numero='{data['numero']}', complemento='{data['complemento']}', bairro='{data['bairro']}', cidade='{data['cidade']}', especialidades='{data[especialidades]}', temporario='{data['temporario']}' WHERE id={data['id']}"
+            sql = f"UPDATE Membros SET nome='{data['name']}', uf='{data['uf']}', cep='{data['cep']}', cpf='{data['cpf']}', email='{data['email']}', crm='{data['crm']}', curriculum='{data['curriculum']}', telefone='{data[telefone]}', endereco='{data['endereco']}', numero='{data['numero']}', complemento='{data['complemento']}', bairro='{data['bairro']}', cidade='{data['cidade']}', especialidades='{data[especialidades]}', temporario='{data['temporario']}', pago='{data['pago']}' WHERE id={data['id']}"
             print(sql)
             cursor = self.database.connection.cursor()
             cursor.execute(sql)
