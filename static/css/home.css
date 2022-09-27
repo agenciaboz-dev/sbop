@@ -12,9 +12,9 @@ body {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px var(--input-background) inset !important;
 }
 
@@ -124,7 +124,7 @@ button {
     background-color: #094a6f;
 }
 
-.container > .recover-password {
+.container>.recover-password {
     margin: 0;
     text-decoration: none;
     color: var(--primary-text-color);
@@ -135,11 +135,11 @@ button {
     cursor: pointer;
 }
 
-.container > .recover-password:hover {
+.container>.recover-password:hover {
     opacity: 1;
 }
 
-.container > p {
+.container>p {
     margin-top: 0;
     font-size: 1vw;
     color: var(--primary-text-color)
@@ -150,10 +150,14 @@ button {
     display: flex;
     flex-direction: column;
     background-color: white;
-    /* background-color: var(--background-color); */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    height: 50vh;
-    border-radius: 5vw;
+    border-radius: 2vw;
     z-index: 5;
-    padding: 5vw;
+    padding: 2vw;
+    color: var(--secondary-text-color);
+    border: 1vh solid var(--primary-color);
+}
+
+.popup button {
+    padding: 1vh 2vw;
 }

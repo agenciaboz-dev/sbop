@@ -1,0 +1,131 @@
+:root {
+    --primary-color: #0C6397;
+    --input-background: #E4E4E4;
+    --primary-text-color: #8D8D8D;
+    --secondary-text-color: #6B6B6B;
+    --line-color: #707070;
+}
+
+@font-face {
+    font-family: Montserrats;
+    src: url("/static/fonts/Montserrat-Regular.otf");
+}
+
+@font-face {
+    font-family: Montserrats;
+    src: url("/static/fonts/Montserrat-Bold.otf");
+    font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #F5F1F1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #D1D1D1;
+    border-radius: 10px;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #E4E4E4 inset !important;
+}
+
+* {
+    box-sizing: border-box;
+    color: var(--secondary-text-color);
+    font-family: Montserrats;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E4E4E4;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 70%;
+    background-color: white;
+    border-radius: 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 7.5vh;
+    padding: 4vh 3vw 1vh;
+    outline: #0C6397 solid 0.4vw;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 10vh;
+    object-fit: contain;
+    margin-left: 12.5vw;
+}
+
+h1 {
+    font-size: 150%;
+    font-weight: 600;
+    margin: 1vh 0;
+}
+
+h2 {
+    font-size: 130%;
+    font-weight: 600;
+    margin: 1vh 0 5vh;
+}
+
+label {
+    color: #8D8D8D;
+    font-weight: 600;
+}
+
+input {
+    color: #8D8D8D;
+    background-color: #E4E4E4;
+    border: none;
+    border-radius: 2vw;
+    opacity: 0.4;
+    padding: 1.5vh 1.5vw;
+    margin: 1vh 0;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+    color: white;
+    font-weight: 600;
+    background-color: #0C6397;
+    border: none;
+    border-radius: 2vw;
+    margin: 4vh 0;
+    padding: 1.5vh 1.5vw;
+    width: 30vw;
+}
