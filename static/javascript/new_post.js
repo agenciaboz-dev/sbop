@@ -31,4 +31,17 @@ $('document').ready(() => {
     })
 })
 
-$('#publish-button')
+$('#publish-button').on('click', (event) => {
+    if (id) {
+        request('/edit_post/', {
+            id: id,
+            titulo: $('#title-area').val(),
+            conteudo: $('#content-area').val(),
+            membro: $('#category-input').val(),
+            resumo: $('#summary').val(),
+        }, (response) => {
+            console.log(response);
+            alert(JSON.stringify(response, null, 2));
+        })
+    }
+})

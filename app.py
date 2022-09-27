@@ -587,6 +587,13 @@ def get_post():
 
     post = session.getPost(data)
     return json.dumps(post)
+
+@app.route('/edit_post/', methods=['POST'])
+def edit_post():
+    data = request.get_json()
+
+    response = session.editPost(data)
+    return json.dumps(response)
     
 
 if __name__ == '__main__':

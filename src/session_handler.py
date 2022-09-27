@@ -323,3 +323,20 @@ class Session():
         post = self.database.run(sql, json=True)
 
         return post
+    
+    
+    def editPost(self, data):
+        sql = f"""UPDATE Blog SET 
+                TITULO = '{data['titulo']}',
+                MEMBRO = '{data['membro']}',
+                CONTEUDO = '{data['conteudo']}',
+                RESUMO = '{data['resumo']}'
+                
+                WHERE ID = {data['id']} ;
+        """
+        try:
+            self.database.run(sql, commit=True)
+            return {'success': 'postagem alterada com sucesso'}
+        except Exception as error:
+            print(error)
+            return {'error': error}
