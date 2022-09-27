@@ -268,8 +268,8 @@ def togglePopUp(ev):
 
 
 def renderPopUp():
-    POPUP.css('transform',
-              f'translateY({container_height/2}px) translateX({container_width/3}px)')
+    # POPUP.css('transform',
+    #           f'translateY({container_height/2}px) translateX({container_width/3}px)')
 
     POPUP.fadeToggle()
 
