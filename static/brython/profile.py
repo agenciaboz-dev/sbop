@@ -289,6 +289,7 @@ def initialRender():
         tool = Tool(element, element.attrs['id'][8:])
 
     POPUP.hide()
+    POPUP.find('button').on('click', togglePopUp)
 
     jQuery('#loading-screen').fadeToggle('slow')
 
