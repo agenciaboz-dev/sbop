@@ -143,44 +143,28 @@ button:hover {
 }
 
 /* Floating Pop Up */
-#floating-popup {
+.popup {
+    align-self: center;
+    color: #6B6B6B;
     position: absolute;
     display: flex;
     flex-direction: column;
-    z-index: 5;
-    width: 30vw;
-    height: 25vh;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--toolbar-color);
-    border-radius: 2vw;
-    padding: 2vw;
-    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
-}
-
-#floating-popup button {
-    width: 50%;
-    height: 3.5vh;
-    flex-shrink: 0;
-}
-
-#js-floating-popup {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    left: 30vw;
+    left: 0;
+    right: 0;
+    margin: auto;
     z-index: 50;
     width: 30vw;
     height: fit-content;
     justify-content: space-evenly;
     align-items: center;
-    background-color: var(--toolbar-color);
+    background-color: white;
+    border: 5px solid var(--primary-color);
     border-radius: 2vw;
     padding: 2vw;
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
 }
 
-#js-floating-popup button {
+.popup button {
     width: 50%;
     height: 3.5vh;
     flex-shrink: 0;
