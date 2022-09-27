@@ -292,12 +292,17 @@ h2 {
 #uf-input {
   border-radius: 2vw;
   border: none;
-  opacity: 25%;
   outline: none;
   background-color: #E4E4E4;
+  opacity: 40%;
   height: 4vh;
   padding: 0 0.5vw;
   margin-top: 0.5vh;
+}
+
+#pais-input {
+  opacity: 25%;
+  pointer-events: none;
 }
 
 .profile-container {
