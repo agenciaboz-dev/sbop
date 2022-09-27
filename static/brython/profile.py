@@ -288,7 +288,7 @@ def initialRender():
     for element in document.select('.toolbar'):
         tool = Tool(element, element.attrs['id'][8:])
 
-    renderPopUp()
+    POPUP.hide()
 
     jQuery('#loading-screen').fadeToggle('slow')
 
