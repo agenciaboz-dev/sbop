@@ -354,19 +354,6 @@ def loadActivePlan(member):
     for element in document.select('.plans'):
         plan = Plan(element)
 
-    @bind('#plans-container > button', 'click')
-    def ajaxPlan(ev):
-        req = ajax.Ajax()
-        req.bind('complete', changePlanFeedback)
-        req.open('POST', '/change_plan/', True)
-        req.set_header('content-type', 'application/x-www-form-urlencoded')
-        req.send({'id': member.id, 'plan': selected_plan.name})
-
-    def changePlanFeedback(req):
-        jQuery('.selected-plan').removeClass('selected-plan')
-        jQuery('#plans-container > button').addClass('deactivated-button')
-        alert('seguir pro pagamento?')
-
 
 def renderStage1(ev):
     jQuery('.temporary-stages').fadeOut(jQuery('.stage-1-container').fadeIn)

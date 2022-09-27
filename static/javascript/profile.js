@@ -1,5 +1,6 @@
 const especialidades_button = $('#edit-skills')
 const popup = $('#js-floating-popup')
+let membro = {}
 
 const request = (url, data, done) => {
     const options = {
@@ -61,5 +62,46 @@ $('document').ready(() => {
 
             popup.fadeToggle();
         });
-    })
+    });
+
+    $('.documents-container').hide();
+
 })
+
+const get_member = setInterval(() => {
+    if (popup.attr('member-id')) {
+        setTimeout(() => {
+            
+            request('/get_member_js/', {
+                id: popup.attr('member-id'),
+                test: 'test',
+                
+            }, (response) => {
+                membro = response;
+    
+                for (let item in membro) {
+                    if (typeof membro[item] == 'string') {
+                        membro[item] = membro[item].replaceAll('False', false);
+                        membro[item] = membro[item].replaceAll('True', true);
+                        membro[item] = membro[item].replaceAll('None', null);
+                        try {
+                            membro[item] = JSON.parse(membro[item]);
+                        } catch {}
+                    }
+                }
+                console.log(membro);
+    
+                if (membro.pago) {
+                    $('#upgrade-plan-button').on('click', (event) => {
+                        if ($('.active-plan').attr('id') == 'associado') {
+                            $('.documents-container').fadeToggle();
+                        }
+                    });
+                } else {
+                    alert('seguir pro pagamento');
+                }
+            });
+        }, 1000)
+        clearInterval(get_member);
+    }
+}, 1000);
