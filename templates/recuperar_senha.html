@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/recuperar_senha.css">
     <title>Sbop - Recuperar senha</title>
 </head>
+
 <body>
-    <h1>Recuperar senha</h1>
-    <h2>{{usuario}}</h2>
-    <form>
-        <input type="hidden" value="{{id}}">
-        <label for="senha">Nova senha</label>
-        <input id="senha" type="text">
-        <label for="confirmar-senha">Confirme a nova senha</label>
-        <input id="confirmar-senha" type="text">
-        <button type="submit">OK</button>
-    </form>
+    <div class="main-container">
+        <h1>Recuperar senha</h1>
+        <h2>{{usuario}}</h2>
+        <form>
+            <input type="hidden" value="{{id}}">
+            <label for="senha">Nova senha:</label>
+            <input id="senha" type="text">
+            <label for="confirmar-senha">Confirme a nova senha:</label>
+            <input id="confirmar-senha" type="text">
+            <div class="button-row"><button type="submit">OK</button></div>
+        </form>
+    </div>
 </body>
 <footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/static/javascript/recuperar_senha.js"></script>
 </footer>
+
 </html>
