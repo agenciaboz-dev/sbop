@@ -1,14 +1,14 @@
 const request = (url, data, done) => {
     const options = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     };
 
     fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => done(data))
-    .catch(err => console.error('error:' + err));
+        .then((response) => response.json())
+        .then((data) => done(data))
+        .catch(err => console.error('error:' + err));
 }
 
 
@@ -21,9 +21,9 @@ const getPosts = (event) => {
     } catch {
 
     }
-        
+
     const searched = $('.search-container > form > input').val();
-    request('/get_posts/', {searched: searched}, (response) => {
+    request('/get_posts/', { searched: searched }, (response) => {
         for (post of response) {
             console.log(post)
             const element = `
@@ -60,9 +60,12 @@ const deletePost = (event) => {
 
 const editPost = (event) => {
     const id = $(event.target).closest('.post-container').attr('id').split('-')[2];
-    window.location.href=`/adm_new_post/?id=${id}`
+    window.location.href = `/adm_new_post/?id=${id}`
 }
 
-$('.adm-container').on('click', () => {window.location.href='/adm/'})
+$('#sair-button').on('click', () => { window.location.href = '/logout/' })
+$('#meu-perfil-button').on('click', () => { window.location.href = '/perfil/' })
+$('#ir-para-adm-button').on('click', () => { window.location.href = '/adm/' })
+$('#nova-postagem-button').on('click', () => { window.location.href = '/adm_new_post/' })
 $('form').on('submit', getPosts)
 $('document').ready(getPosts)

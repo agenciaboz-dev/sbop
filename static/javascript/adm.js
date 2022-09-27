@@ -174,7 +174,7 @@ const onClickSave = (event) => {
 
     const id = current_id;
     const inputs = $('.profile-data-field input');
-    let member = {id: id, adm_panel: true}
+    let member = { id: id, adm_panel: true }
     for (element of inputs) {
         const key = $(element).attr('id').split('-')[0]
         member[key] = $(element).val()
@@ -193,17 +193,17 @@ const onClickSave = (event) => {
 
     const requisicaoUngida = () => {
         const url = '/edit_member/';
-    
+
         const options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(member)
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(member)
         };
-    
+
         fetch(url, options)
-        .then(res => res.json())
-        .then(json => console.log(json))
-        .catch(err => console.error('error:' + err));
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(err => console.error('error:' + err));
     }
 
     if (confirm(`Tem certeza que deseja atualizar os dados do usuário ${member.user}?`)) {
@@ -249,7 +249,9 @@ const onClickMemberType = (event) => {
 
 }
 
-$('.postagens-container').on('click', () => {window.location.href='/adm_posts/'})
+$('#sair-button').on('click', () => { window.location.href = '/logout/' })
+$('#meu-perfil-button').on('click', () => { window.location.href = '/perfil/' })
+$('#ir-para-postagens-button').on('click', () => { window.location.href = '/adm_posts/' })
 $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)
 $('#profile-reset-button').on('click', onClickCancel)

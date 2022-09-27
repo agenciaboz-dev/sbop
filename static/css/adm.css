@@ -135,35 +135,9 @@ img {
   font-family: Montserrats;
 }
 
-.postagens-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0C6397;
-  border-radius: 30vw;
-  padding: 0 0.3vw 0 1.5vw;
-  width: fit-content;
-  height: 60%;
-  color: white;
-  font-size: 1.6vh;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.postagens-container .center-text {
-  text-align: center;
-}
-.postagens-container img {
-  max-height: 80%;
-  margin-left: 0.5vw;
-}
-
-.postagens-container:hover {
-  background-color: #7BDCB5;
-}
-
 .result-container {
   display: flex;
-  height: 90%;
+  height: 80%;
   margin-top: 3vh;
 }
 
@@ -412,6 +386,51 @@ h2 {
 .deactivated {
   pointer-events: none;
   opacity: 0.3;
+}
+
+.bottom-container {
+  display: flex;
+  height: 10%;
+  margin-top: 3vh;
+  justify-content: space-between;
+}
+
+.bottom-container-left-buttons {
+  display: flex;
+}
+
+.bottom-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0C6397;
+  border: 2px solid #0C6397;
+  border-radius: 30vw;
+  padding: 0 0.3vw 0 1vw;
+  width: fit-content;
+  height: 70%;
+  background-color: white;
+  font-size: 1.6vh;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.bottom-button .center-text {
+  text-align: center;
+}
+.bottom-button img {
+  max-height: 80%;
+  margin-left: 0.5vw;
+}
+
+.bottom-button:last-of-type {
+  margin-left: 1vw;
+}
+
+.bottom-button:hover {
+  background-color: #094a6f;
+  color: white;
+  fill: white;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=adm.css.map */
