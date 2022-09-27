@@ -60,7 +60,7 @@ const deletePost = (event) => {
 
 const editPost = (event) => {
     const id = $(event.target).closest('.post-container').attr('id').split('-')[2];
-    alert(id);
+    window.location.href=`/adm_new_post/?id=${id}`
 }
 
 $('.adm-container').on('click', () => {window.location.href='/adm/'})

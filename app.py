@@ -580,6 +580,13 @@ def get_member_js():
     member = session.database.run(sql, json=True)[0]
 
     return json.dumps(member)
+
+@app.route('/get_post/', methods=['POST'])
+def get_post():
+    data = request.get_json()
+
+    post = session.getPost(data)
+    return json.dumps(post)
     
 
 if __name__ == '__main__':

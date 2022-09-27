@@ -21,7 +21,7 @@
                 </div>
                 <div class="row1">
                     <h1>Adicionar nova postagem</h1>
-                    <p>Autor: Lorem Ipsum</p>
+                    <p id="author">Autor: Lorem Ipsum</p>
                 </div>
             </div>
             <div class="radios-container">
@@ -47,7 +47,9 @@
                 <h2>Categorias</h2>
                 <p>Categoria da postagem</p>
                 <select id="category-input" name="category-selector">
-                    <option value="Lorem Ipsum" selected>Lorem Ipsum</option>
+                    <option value="Titular" selected>Titular</option>
+                    <option value="Associado" selected>Associado</option>
+                    <option value="Aspirante" selected>Aspirante</option>
                 </select>
             </div>
             <div class="summary-container">
@@ -57,12 +59,16 @@
             </div>
         </div>
         <div class="column2">
+            <h2>Titulo</h2>
+            <p>Título que será exibido na página de acesso restrito</p>
+            <textarea name="title-area" id="title-area" cols="30" rows="2" placeholder="Titulo"></textarea>
+
             <h2>Conteúdo do Post</h2>
             <p>Conteúdo que será exibido quando é clicado no <u>Saiba mais</u></p>
             <textarea name="content-area" id="content-area" cols="30" rows="10" placeholder="Conteúdo"></textarea>
             <div class="buttons-container">
                 <button>Cancelar</button>
-                <button>Publicar</button>
+                <button id="publish-button">Publicar</button>
             </div>
         </div>
     </div>

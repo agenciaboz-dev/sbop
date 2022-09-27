@@ -317,3 +317,9 @@ class Session():
         except Exception as error:
             print(error)
             return {'error': 'error'}
+
+    def getPost(self, data):
+        sql = f"SELECT * FROM Blog WHERE ID = {data['id']} ;"
+        post = self.database.run(sql, json=True)
+
+        return post

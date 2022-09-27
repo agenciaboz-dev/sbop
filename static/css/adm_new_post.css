@@ -259,6 +259,9 @@ p {
   padding: 1.5vw;
   resize: none;
 }
+.column2 #title-area {
+  height: 15%;
+}
 .column2 .buttons-container {
   display: flex;
   justify-content: space-between;
