@@ -76,8 +76,8 @@ class Member():
         POPUP.append(pass_input_confirmation)
         POPUP.append(button)
         resizePopUp(height_factor=3.5)
-        POPUP.css('transform',
-                  f'translateY({container_height/4}px) translateX({container_width/3}px)')
+        # POPUP.css('transform',
+        #           f'translateY({container_height/4}px) translateX({container_width/3}px)')
 
         def updatePasswordButton(ev):
             print('atualizar senha')
@@ -254,7 +254,8 @@ def restrictContentList(req):
 
 
 def resizePopUp(width_factor=1, height_factor=3.5, translate_factor=1.75/2):
-    jQuery('#floating-popup').height(jQuery('#floating-popup').height() * height_factor)
+    # jQuery('#floating-popup').height(jQuery('#floating-popup').height() * height_factor)
+    pass
 
 
 def togglePopUp(ev):
