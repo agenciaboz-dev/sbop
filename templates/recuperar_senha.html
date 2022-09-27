@@ -11,8 +11,15 @@
 
 <body>
     <div class="main-container">
-        <h1>Recuperar senha</h1>
-        <h2>{{usuario}}</h2>
+        <div class="top-row">
+            <div class="top-row-column1">
+                <h1>Redefinir senha</h1>
+                <h2>Nome de usuário: {{usuario}}</h2>
+            </div>
+            <div class="top-row-column2">
+                <img src="/static/image/logo_blue.webp" class="logo" alt="">
+            </div>
+        </div>
         <form>
             <input type="hidden" value="{{id}}">
             <label for="senha">Nova senha:</label>

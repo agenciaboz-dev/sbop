@@ -74,6 +74,18 @@ body {
     outline: #0C6397 solid 0.4vw;
 }
 
+.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 10vh;
+    object-fit: contain;
+    margin-left: 12.5vw;
+}
+
 h1 {
     font-size: 150%;
     font-weight: 600;
