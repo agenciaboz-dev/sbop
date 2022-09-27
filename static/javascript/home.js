@@ -1,4 +1,3 @@
-$('.popup').hide();
 $('.recover-password').on('click', (event) => {
     $('.popup').fadeToggle();
 })
