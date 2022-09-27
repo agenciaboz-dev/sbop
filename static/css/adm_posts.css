@@ -195,7 +195,6 @@ img {
   border-radius: 5vw;
   border: 0.25vw solid #E4E4E4;
   font-size: 1.6vh;
-  cursor: pointer;
 }
 .post-container p {
   text-overflow: ellipsis;

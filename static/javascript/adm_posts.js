@@ -41,28 +41,26 @@ const getPosts = (event) => {
                 </div>
                 <div class="buttons-container">
                     <button class='delete-button'>Deletar</button>
-                    <button>Editar</button>
+                    <button class='edit-button'>Editar</button>
                 </div>
             </div>
             `
             list_container.append(element);
-            $(`#post-container-${post.ID}`).on('click', (event) => {
-                if ($(event.target).attr('class') == 'delete-button') {
-                    return false
-                }
-                
-                const id = $(event.target).closest('.post-container').attr('id').split('-')[2]
-                alert(id);
-            });
         }
         $('.delete-button').on('click', deletePost);
+        $('.edit-button').on('click', editPost);
     })
 }
 
 
 const deletePost = (event) => {
-    const id = $(event.target).closest('.post-container').attr('id').split('-')[2]
+    const id = $(event.target).closest('.post-container').attr('id').split('-')[2];
     alert($(event.target).attr('class'));
+}
+
+const editPost = (event) => {
+    const id = $(event.target).closest('.post-container').attr('id').split('-')[2];
+    alert(id);
 }
 
 $('.adm-container').on('click', () => {window.location.href='/adm/'})
