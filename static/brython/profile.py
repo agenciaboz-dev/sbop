@@ -92,7 +92,7 @@ class Member():
                         toggleContainer(selection=['.main-container'])
                         POPUP.find('button').off('click')
                         POPUP.find('button').on('click', togglePopUp)
-                        # alert(eval(req.text)[0])
+                        self.primeiro_acesso = False
 
                     data = {
                         'id': member.id,
