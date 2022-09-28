@@ -238,4 +238,9 @@ button {
     padding: 1.5vh 1.5vw;
     width: 30vw;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: darken(#0C6397, 10);
 }
