@@ -340,3 +340,20 @@ class Session():
         except Exception as error:
             print(error)
             return {'error': error}
+        
+    def newPost(self, data, file):
+        id = len(self.database.run('select * from conteudos'))
+        if file:
+            data['capa'] = f"conteudo/{data['categoria']}/{id}"
+            
+        sql = f"""INSERT INTO conteudos 
+            (video, categoria, resumo, titulo, conteudo, autor, data, capa)
+            VALUES
+            ({data['video']}, '{data['categoria']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}', '{data['capa']}' )
+        """
+        try:
+            self.database.run(sql, commit=True)
+            return {'success': 'publicacao inserida', 'id': id}
+        except Exception as error:
+            print(error)
+            return {'error': error}
