@@ -137,6 +137,7 @@ p {
 
 label {
     color: #8D8D8D;
+    opacity: 1;
 }
 
 .data-slot {
@@ -182,10 +183,9 @@ label {
 
 input {
     color: #8D8D8D;
-    background-color: #E4E4E4;
+    background-color: rgba($background-color, 0.4);
     border: none;
     border-radius: 2vw;
-    opacity: 0.4;
     padding: 1.5vh 1.5vw;
 }
 
@@ -197,21 +197,25 @@ input[type="radio"] {
 
 select {
     color: #8D8D8D;
-    background-color: #E4E4E4;
+    background-color: rgba($background-color, 0.4);
     border: none;
     border-radius: 2vw;
-    opacity: 0.4;
     padding: 1.5vh 1.5vw;
 }
 
 textarea {
     color: #8D8D8D;
-    background-color: #E4E4E4;
+    background-color: rgba($background-color, 0.4);
     border: none;
     border-radius: 2vw;
-    opacity: 0.4;
     padding: 1.5vh 1.5vw;
     resize: none;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: darken($background-color, 20);
+    /* Firefox */
 }
 
 #pais {
@@ -233,4 +237,10 @@ button {
     margin-top: 3.5vh;
     padding: 1.5vh 1.5vw;
     width: 30vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: darken(#0C6397, 10);
 }
