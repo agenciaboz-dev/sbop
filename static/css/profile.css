@@ -53,7 +53,7 @@ h2 {
     color: var(--text-primary);
 }
 
-p {
+p :not(.button-text) {
     color: var(--text-secondary);
     opacity: 0.7;
 }
@@ -348,12 +348,14 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .info-container-wrapper>div:last-of-type>div {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
+    margin-bottom: 2px;
 }
 
 #edit-curriculum {
@@ -396,4 +398,46 @@ button:hover {
 .curriculum-container>span {
     position: absolute;
     top: 3.3vh;
+}
+
+.floating-button * {
+    margin: 0;
+}
+
+.floating-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0C6397;
+    font-weight: 700;
+    border: 2px solid #0C6397;
+    border-radius: 30vw;
+    padding: 0 0.3vw 0 0.5vw;
+    width: fit-content;
+    height: 60%;
+    background-color: white;
+    font-size: 1.6vh;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 3px;
+}
+
+.floating-button .center-text {
+    text-align: center;
+}
+
+.floating-button img {
+    max-height: 80%;
+    margin-left: 0.5vw;
+}
+
+.floating-button:hover {
+    background-color: #094a6f;
+    color: white;
+    opacity: 1;
+}
+
+.floating-button:hover img {
+    stroke: white;
+    filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
 }
