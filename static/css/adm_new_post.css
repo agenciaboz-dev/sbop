@@ -75,7 +75,7 @@ body {
 }
 
 .columns-container {
-  height: 95%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -121,31 +121,6 @@ img {
   height: 100%;
 }
 
-.camera-icon-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-  top: 0;
-  background-color: white;
-  height: 50%;
-  width: 50%;
-  border-radius: 50%;
-  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1607843137);
-  transform: translate(30%, -50%);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.camera-icon-container img {
-  max-height: 50%;
-}
-
-.camera-icon-container:hover {
-  transform: translate(30%, -50%) scale(1.15);
-}
-
 .row1 {
   display: flex;
   flex-direction: column;
@@ -157,7 +132,7 @@ img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  margin-top: 1vh 0 1vh 0;
+  margin: 2vh 0 1vh 0;
 }
 .radios-container input[type=radio] {
   border: 0px;
@@ -209,10 +184,10 @@ p {
 .dashed-box {
   justify-content: center;
   align-items: center;
-  margin: 2vh 0;
+  margin: 3vh 0;
   outline: #cfcfcf dashed 0.5vh;
   padding: 1vw 11vw;
-  height: 110px;
+  height: 120px;
   width: 100%;
 }
 
@@ -271,8 +246,8 @@ p {
   padding: 0.75vw;
   resize: none;
 }
-.column2 #title-area {
-  height: 10%;
+.column2 #summary-area {
+  height: 30%;
   margin-bottom: 2vh;
 }
 
