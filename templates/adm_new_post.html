@@ -34,15 +34,15 @@
                 <p>Capa do conteúdo que será exibido na página de acesso restrito</p>
             </div>
             <form class="dashed-box" id="file-form" enctype="multipart/form-data">
-                <input type="file" id="upload-file" name="capa" />
-                    <div class="search-box">
-                        <img src="/static/image/Icon awesome-cloud-download-alt.svg" alt="">
-                        <p>Arraste e solte o arquivo aqui</p>
-                        <p>ou</p>
-                        <div class="search-button">
-                            <p>Buscar no computador</p>
-                        </div>
+                <label for="upload-file" class="search-box">
+                    <input type="file" id="upload-file" name="capa">
+                    <img src="/static/image/Icon awesome-cloud-download-alt.svg" alt="">
+                    <!-- <p>Arraste e solte o arquivo aqui</p>
+                    <p>ou</p> -->
+                    <div class="search-button">
+                        <p>Buscar no computador</p>
                     </div>
+                </label>
             </form>
             <div class="categories-container">
                 <h2>Categorias</h2>
@@ -62,7 +62,7 @@
         <div class="column2">
             <h2>Titulo</h2>
             <p>Título que será exibido na página de acesso restrito</p>
-            <textarea name="title-area" id="title-area" cols="30" rows="2" placeholder="Titulo"></textarea>
+            <textarea name="title-area" id="title-area" cols="30" rows="1" placeholder="Titulo"></textarea>
 
             <h2>Conteúdo do Post</h2>
             <p>Conteúdo que será exibido quando é clicado no <u>Saiba mais</u></p>
