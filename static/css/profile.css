@@ -213,7 +213,7 @@ button:hover {
     z-index: 5;
     margin: 0;
     cursor: pointer;
-    filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.05));
     border-radius: 80vw;
     right: 0.5vw;
     margin-top: 1.5vh;

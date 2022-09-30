@@ -64,7 +64,8 @@
 
 .table-header th {
     padding: 1vh 2vw;
-    background-color: var(--input-background);
+    background-color: #0C6397;
+    color: white;
 }
 
 .table-header th:first-of-type {
