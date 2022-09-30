@@ -156,6 +156,40 @@ button {
     padding: 2vw;
     color: var(--secondary-text-color);
     border: 1vh solid var(--primary-color);
+    width: 50%;
+}
+
+.popup-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#recover-form {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#recover-input {
+    width: 100%;
+    margin-right: 2vw;
+}
+
+#recover-submit {
+    margin: 0;
+    transition: 0.3s;
+}
+
+#recover-submit:hover {
+    background-color: #094a6f;
+}
+
+#x-button img {
+    filter: invert(28%) sepia(26%) saturate(4003%) hue-rotate(181deg) brightness(89%) contrast(84%);
+    cursor: pointer;
 }
 
 .popup button {
