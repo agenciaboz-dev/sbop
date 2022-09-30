@@ -11,66 +11,67 @@
 
 <body>
     <div class="main-container">
-        <div class="column1">
-            <div class="top-container">
-                <div class="img-container">
-                    <img src="/static/image/adm_icon.svg" alt="Foto">
-                    <div class="camera-icon-container">
-                        <img src="/static/image/camera.svg" alt="Camera">
+        <div class="columns-container">
+            <div class="column1">
+                <div class="top-container">
+                    <div class="img-container">
+                        <img src="/static/image/adm_icon.svg" alt="Foto">
+                        <div class="camera-icon-container">
+                            <img src="/static/image/camera.svg" alt="Camera">
+                        </div>
+                    </div>
+                    <div class="row1">
+                        <h1>Adicionar nova postagem</h1>
+                        <p id="author">Autor: Lorem Ipsum</p>
                     </div>
                 </div>
-                <div class="row1">
-                    <h1>Adicionar nova postagem</h1>
-                    <p id="author">Autor: Lorem Ipsum</p>
-                </div>
-            </div>
-            <div class="radios-container">
-                <div class="post-type-input">
-                    <input name="post-input" id="publish-input" type="radio">
-                    <label for="publish-input">Publicação</label>
-                    <input name="post-input" id="video-input" type="radio">
-                    <label for="video-input">Vídeo</label>
-                </div>
-                <p>Capa do conteúdo que será exibido na página de acesso restrito</p>
-            </div>
-            <form class="dashed-box" id="file-form" enctype="multipart/form-data">
-                <label for="upload-file" class="search-box">
-                    <input type="file" id="upload-file" name="capa">
-                    <img src="/static/image/Icon awesome-cloud-download-alt.svg" alt="">
-                    <!-- <p>Arraste e solte o arquivo aqui</p>
-                    <p>ou</p> -->
-                    <div class="search-button">
-                        <p>Buscar no computador</p>
+                <div class="radios-container">
+                    <div class="post-type-input">
+                        <input name="post-input" id="publish-input" type="radio">
+                        <label for="publish-input">Publicação</label>
+                        <input name="post-input" id="video-input" type="radio">
+                        <label for="video-input">Vídeo</label>
                     </div>
-                </label>
-            </form>
-            <div class="categories-container">
-                <h2>Categorias</h2>
-                <p>Categoria da postagem</p>
-                <select id="category-input" name="category-selector">
-                    <option value="Titular" selected>Titular</option>
-                    <option value="Associado" selected>Associado</option>
-                    <option value="Aspirante" selected>Aspirante</option>
-                </select>
-            </div>
-            <div class="summary-container">
+                    <p>Capa do conteúdo que será exibido na página de acesso restrito</p>
+                </div>
+                <form class="dashed-box" id="file-form" enctype="multipart/form-data">
+                    <label for="upload-file" class="search-box">
+                        <input type="file" id="upload-file" name="capa">
+                        <img src="/static/image/Icon awesome-cloud-download-alt.svg" alt="">
+                        <!-- <p>Arraste e solte o arquivo aqui</p>
+                        <p>ou</p> -->
+                        <div class="search-button">
+                            <p>Buscar no computador</p>
+                        </div>
+                    </label>
+                </form>
+                <div class="categories-container">
+                    <h2>Categorias</h2>
+                    <p>Categoria da postagem</p>
+                    <select id="category-input" name="category-selector">
+                        <option value="Titular" selected>Titular</option>
+                        <option value="Associado" selected>Associado</option>
+                        <option value="Aspirante" selected>Aspirante</option>
+                    </select>
+                </div>
+                <!-- <div class="summary-container"> -->
                 <h2>Resumo da Postagem</h2>
                 <p>Conteúdo que será exibido na página de acesso restrito</p>
                 <textarea name="summary-area" id="summary" cols="30" rows="10" placeholder="Resumo"></textarea>
+                <!-- </div> -->
+            </div>
+            <div class="column2">
+                <h2>Titulo</h2>
+                <p>Título que será exibido na página de acesso restrito</p>
+                <textarea name="title-area" id="title-area" cols="30" rows="1" placeholder="Titulo"></textarea>
+                <h2>Conteúdo do Post</h2>
+                <p>Conteúdo que será exibido quando é clicado no <u>Saiba mais</u></p>
+                <textarea name="content-area" id="content-area" cols="30" rows="10" placeholder="Conteúdo"></textarea>
             </div>
         </div>
-        <div class="column2">
-            <h2>Titulo</h2>
-            <p>Título que será exibido na página de acesso restrito</p>
-            <textarea name="title-area" id="title-area" cols="30" rows="1" placeholder="Titulo"></textarea>
-
-            <h2>Conteúdo do Post</h2>
-            <p>Conteúdo que será exibido quando é clicado no <u>Saiba mais</u></p>
-            <textarea name="content-area" id="content-area" cols="30" rows="10" placeholder="Conteúdo"></textarea>
-            <div class="buttons-container">
-                <button id="cancelar-button">Cancelar</button>
-                <button id="publish-button">Publicar</button>
-            </div>
+        <div class="buttons-container">
+            <button id="cancelar-button">Cancelar</button>
+            <button id="publish-button">Publicar</button>
         </div>
     </div>
 </body>
