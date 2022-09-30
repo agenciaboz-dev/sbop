@@ -104,6 +104,11 @@
     display: flex;
 }
 
+.restrict-content-data {
+    display: flex;
+    flex-direction: column;
+}
+
 .restrict-content p:not(.restrict-content-author) {
     font-size: 0.9vw;
 }
@@ -117,4 +122,9 @@
 
 .restrict-content h1 {
     font-size: 1.5vw;
+}
+
+.restrict-media {
+    height: 20vw;
+    width: 20vw;
 }

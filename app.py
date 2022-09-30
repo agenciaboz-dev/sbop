@@ -603,13 +603,21 @@ def new_post():
     file = request.files.get('file')
     data = json.loads(request.form.get('data'))
     response = session.newPost(data, file)
-    filename = f"{response['id']}.{file.filename.split('.')[-1]}"
+    filename = f"{response['id']}"
+    # filename = f"{response['id']}.{file.filename.split('.')[-1]}"
     if file:
-        file.save(os.path.join(app.root_path, 'conteudos', data['categoria'], filename))
+        file.save(os.path.join(app.root_path, 'static', 'conteudos', filename))
 
     print(data)
 
     return json.dumps(response)
+
+@app.route('/get_member_posts/', methods=['POST'])
+def get_member_posts():
+    data = request.get_json()
+    
+    posts = session.getMemberPosts(data['assinatura'])
+    return json.dumps(posts)
     
 
 if __name__ == '__main__':
