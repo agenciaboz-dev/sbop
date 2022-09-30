@@ -19,7 +19,7 @@ $('#recover-form').on('submit', (event) => {
     
     fetch(url, options)
     .then((response) => response.json())
-    .then((data) => (data) => {
+    .then((data) => {
         console.log(data);
         $('#feedback').text(data)
     })
