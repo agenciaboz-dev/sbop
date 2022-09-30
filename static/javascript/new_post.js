@@ -48,11 +48,11 @@ $('document').ready(() => {
             console.log(response[0]);
             const post = response[0];
             
-            $('#title-area').val(post.TITULO);
-            $('#content-area').val(post.CONTEUDO);
-            $('#category-input').val(post.MEMBRO);
-            $('#summary').val(post.RESUMO);
-            $('#author').text(`Autor: ${post.AUTOR}`);
+            $('#title-area').val(post.titulo);
+            $('#content-area').val(post.conteudo);
+            $('#category-input').val(post.categoria);
+            $('#summary').val(post.resumo);
+            $('#author').text(`Autor: ${post.autor}`);
         })
     }
 })

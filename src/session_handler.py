@@ -226,7 +226,7 @@ class Session():
                 self.reconnectDatabase()
         except:
             pass
-        sql = f"SELECT * FROM conteudos WHERE titulo like '%{data['searched']}%';"
+        sql = f"SELECT * FROM conteudos WHERE titulo like '%{data['searched']}% order by id desc';"
         data = self.database.run(sql, json=True)
 
         return data
@@ -319,20 +319,20 @@ class Session():
             return {'error': 'error'}
 
     def getPost(self, data):
-        sql = f"SELECT * FROM Blog WHERE ID = {data['id']} ;"
+        sql = f"SELECT * FROM conteudos WHERE id = {data['id']} ;"
         post = self.database.run(sql, json=True)
 
         return post
     
     
     def editPost(self, data):
-        sql = f"""UPDATE Blog SET 
-                TITULO = '{data['titulo']}',
-                MEMBRO = '{data['membro']}',
-                CONTEUDO = '{data['conteudo']}',
-                RESUMO = '{data['resumo']}'
+        sql = f"""UPDATE conteudos SET 
+                titulo = '{data['titulo']}',
+                membro = '{data['membro']}',
+                conteudo = '{data['conteudo']}',
+                resumo = '{data['resumo']}'
                 
-                WHERE ID = {data['id']} ;
+                WHERE id = {data['id']} ;
         """
         try:
             self.database.run(sql, commit=True)
@@ -342,7 +342,6 @@ class Session():
             return {'error': error}
         
     def newPost(self, data, file):
-        id = len(self.database.run('select * from conteudos')) + 1
             
         sql = f"""INSERT INTO conteudos 
             (video, categoria, resumo, titulo, conteudo, autor, data)
@@ -351,7 +350,26 @@ class Session():
         """
         try:
             self.database.run(sql, commit=True)
+            id = self.database.run('select * from conteudos order by id desc limit 1', json=True)[-1]['id']
             return {'success': 'publicacao inserida', 'id': id}
         except Exception as error:
             print(error)
             return {'error': error}
+        
+    def getMemberPosts(self, assinatura):
+        posts = []
+        sql = f"SELECT * FROM conteudos ;"
+        data = self.database.run(sql, json=True)
+        for post in data:
+            if post['categoria'] == 'Aspirante':
+                posts.append(post)
+                
+            if post['categoria'] == 'Associado':
+                if assinatura == 'Associado' or assinatura == 'Titular':
+                    posts.append(post)
+
+            if post['categoria'] == 'Titular':
+                if assinatura == 'Titular':
+                    posts.append(post)
+
+        return posts

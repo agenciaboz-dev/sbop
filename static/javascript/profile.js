@@ -1,6 +1,6 @@
 const especialidades_button = $('#edit-skills')
 const popup = $('#js-floating-popup')
-let membro = {}
+var membro = {}
 
 const request = (url, data, done) => {
     const options = {
@@ -68,7 +68,7 @@ $('document').ready(() => {
 
 })
 
-const get_member = setInterval(() => {
+const _get_member = setInterval(() => {
     if (popup.attr('member-id')) {
         setTimeout(() => {
             
@@ -89,6 +89,8 @@ const get_member = setInterval(() => {
                         } catch {}
                     }
                 }
+
+                membro.exists = true;
                 console.log(membro);
     
                 if (membro.pago) {
@@ -101,7 +103,7 @@ const get_member = setInterval(() => {
                     alert('seguir pro pagamento');
                 }
             });
-        }, 1000)
-        clearInterval(get_member);
+        }, 100)
+        clearInterval(_get_member);
     }
-}, 1000);
+}, 100);
