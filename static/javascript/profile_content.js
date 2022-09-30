@@ -12,7 +12,7 @@ const get_member = setInterval(() => {
 const getContentList = (membro) => {
     $.ajax({
         method: 'POST',
-        url: '/get_member_posts',
+        url: '/get_member_posts/',
         contentType: 'application/json',
         data: JSON.stringify({ assinatura: membro.assinatura })
     })
