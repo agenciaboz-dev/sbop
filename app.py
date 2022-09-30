@@ -603,8 +603,9 @@ def new_post():
     file = request.files.get('file')
     data = json.loads(request.form.get('data'))
     response = session.newPost(data, file)
+    filename = f"{response['id']}.{file.filename.split('.')[-1]}"
     if file:
-        file.save(os.path.join(app.root_path, 'conteudos', data['categoria'], f"{response['id']}"))
+        file.save(os.path.join(app.root_path, 'conteudos', data['categoria'], filename))
 
     print(data)
 

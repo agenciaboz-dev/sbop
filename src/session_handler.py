@@ -226,7 +226,7 @@ class Session():
                 self.reconnectDatabase()
         except:
             pass
-        sql = f"SELECT * FROM Blog WHERE TITULO like '%{data['searched']}%';"
+        sql = f"SELECT * FROM conteudos WHERE titulo like '%{data['searched']}%';"
         data = self.database.run(sql, json=True)
 
         return data
@@ -342,14 +342,12 @@ class Session():
             return {'error': error}
         
     def newPost(self, data, file):
-        id = len(self.database.run('select * from conteudos'))
-        if file:
-            data['capa'] = f"conteudo/{data['categoria']}/{id}"
+        id = len(self.database.run('select * from conteudos')) + 1
             
         sql = f"""INSERT INTO conteudos 
-            (video, categoria, resumo, titulo, conteudo, autor, data, capa)
+            (video, categoria, resumo, titulo, conteudo, autor, data)
             VALUES
-            ({data['video']}, '{data['categoria']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}', '{data['capa']}' )
+            ({data['video']}, '{data['categoria']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
         """
         try:
             self.database.run(sql, commit=True)
