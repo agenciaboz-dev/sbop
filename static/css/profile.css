@@ -400,11 +400,6 @@ button:hover {
     top: 3.3vh;
 }
 
-#security-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 .floating-button * {
     margin: 0;
