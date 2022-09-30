@@ -95,3 +95,7 @@ $('#publish-button').on('click', (event) => {
         });
     }
 })
+
+$('#cancelar-button').on('click', () => {
+    window.location.href='/adm_posts/';
+})
