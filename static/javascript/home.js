@@ -20,6 +20,7 @@ $('#recover-form').on('submit', (event) => {
     fetch(url, options)
     .then((response) => response.json())
     .then((data) => (data) => {
+        console.log(data);
         $('#feedback').text(data)
     })
     .catch(err => console.error('error:' + err));
