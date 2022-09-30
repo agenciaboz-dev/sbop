@@ -65,7 +65,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    margin-top: 1vh 0 1vh 0;
+    margin: 2vh 0 1vh 0;
 
     input[type=radio] {
         border: 0px;
@@ -121,10 +121,10 @@ p {
 .dashed-box {
     justify-content: center;
     align-items: center;
-    margin: 2vh 0;
+    margin: 3vh 0;
     outline: #cfcfcf dashed 0.5vh;
     padding: 1vw 11vw;
-    height: 110px;
+    height: 120px;
     width: 100%;
 }
 
@@ -189,7 +189,7 @@ p {
     }
 
     #summary-area {
-        height: 10%;
+        height: 30%;
         margin-bottom: 2vh;
     }
 }
