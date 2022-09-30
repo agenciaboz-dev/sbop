@@ -602,7 +602,7 @@ def new_post():
     # data = request.get_json()
     file = request.files.get('file')
     data = json.loads(request.form.get('data'))
-    response = session.newPost(data, file)
+    response = session.newPost(data)
     filename = f"{response['id']}"
     # filename = f"{response['id']}.{file.filename.split('.')[-1]}"
     if file:

@@ -220,16 +220,6 @@ class Session():
             print(error)
             return 'False'
         
-    def getPosts(self, data):
-        try:
-            if not self.database.connection.is_connected():
-                self.reconnectDatabase()
-        except:
-            pass
-        sql = f"SELECT * FROM conteudos WHERE titulo like '%{data['searched']}% order by id desc';"
-        data = self.database.run(sql, json=True)
-
-        return data
     
     def getEspecialidades(self):
         try:
@@ -284,7 +274,7 @@ class Session():
                 link para redefinir sua senha: http://sistema.sbop.com.br:5001/recover/?user={encrypted}
             """
             sendMail(result[0]['email'], message)
-            return {'msg': f'E-mail sent to {result[0]["email"]}'}
+            return {'msg': f'Um link para redefinicação de senha foi enviado para o e-mail do usuário'}
         else:
             return {'msg': 'Usuário não encontrado'}
 
@@ -317,6 +307,18 @@ class Session():
         except Exception as error:
             print(error)
             return {'error': 'error'}
+        
+    def getPosts(self, data):
+        try:
+            if not self.database.connection.is_connected():
+                self.reconnectDatabase()
+        except:
+            pass
+        sql = f"SELECT * FROM conteudos WHERE titulo like '%{data['searched']}%' order by id desc;"
+        data = self.database.run(sql, json=True)
+        print(data)
+
+        return data
 
     def getPost(self, data):
         sql = f"SELECT * FROM conteudos WHERE id = {data['id']} ;"
@@ -341,7 +343,7 @@ class Session():
             print(error)
             return {'error': error}
         
-    def newPost(self, data, file):
+    def newPost(self, data):
             
         sql = f"""INSERT INTO conteudos 
             (video, categoria, resumo, titulo, conteudo, autor, data)
@@ -373,3 +375,5 @@ class Session():
                     posts.append(post)
 
         return posts
+    
+    

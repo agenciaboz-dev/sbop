@@ -23,7 +23,6 @@ const request = (url, data, done, method='POST', content_type = {'Content-Type':
 }
 
 $('document').ready(() => {
-    $('#publish-input').prop('checked', true);
 
     if (!id) {
         
@@ -50,9 +49,15 @@ $('document').ready(() => {
             
             $('#title-area').val(post.titulo);
             $('#content-area').val(post.conteudo);
-            $('#category-input').val(post.categoria);
-            $('#summary').val(post.resumo);
+            $('#membership-input').val(post.categoria);
+            $('#summary-area').val(post.resumo);
             $('#author').text(`Autor: ${post.autor}`);
+
+            if (post.video) {
+                $('#video-input').prop('checked', true);
+            } else {
+                $('#publish-input').prop('checked', true);
+            }
         })
     }
 })
@@ -63,8 +68,8 @@ $('#publish-button').on('click', (event) => {
             id: id,
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
-            membro: $('#category-input').val(),
-            resumo: $('#summary').val(),
+            membro: $('#membership-input').val(),
+            resumo: $('#summary-area').val(),
         }, (response) => {
             console.log(response);
             alert(JSON.stringify(response, null, 2));
@@ -74,8 +79,8 @@ $('#publish-button').on('click', (event) => {
         const today = new Date();
         const data = {
             video: $('input[name="post-input"]:checked').attr('id').split('-')[0] == 'video' ? true : false,
-            categoria: $('#category-input').val(),
-            resumo: $('#summary').val(),
+            categoria: $('#membership-input').val(),
+            resumo: $('#summary-area').val(),
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
             autor: membro.name,

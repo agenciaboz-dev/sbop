@@ -24,7 +24,9 @@ const getPosts = (event) => {
 
     $('.list-container > *').remove();
     const searched = $('.search-container > form > input').val();
+    
     request('/get_posts/', { searched: searched }, (response) => {
+        console.log(response);
         for (post of response) {
             console.log(post)
             const element = `
