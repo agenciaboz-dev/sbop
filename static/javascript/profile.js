@@ -92,6 +92,13 @@ const _get_member = setInterval(() => {
 
                 membro.exists = true;
                 console.log(membro);
+
+                if (membro.adm) {
+                    $('.adm-button').show();
+                    $('.adm-button').on('click', () => window.location.href='/adm/');
+                } else {
+                    $('.adm-button').hide();
+                }
     
                 if (membro.pago) {
                     $('#upgrade-plan-button').on('click', (event) => {
