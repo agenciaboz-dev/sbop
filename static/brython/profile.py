@@ -197,31 +197,6 @@ def toggleContainer(selection=['.main-container', '.body-toolbar'], mode=None):
             jQuery(item).css('pointer-events', 'auto')
 
 
-def addVideo(src):
-    video_wrapper = html.DIV('', Class='video-wrapper')
-    jQuery('#videos-container').append(video_wrapper)
-
-    video = f'<video controls controlsList="nodownload" disablePictureInPicture id="video" width="400" height="200" src="/static/videos/{member.type}/{src}"></video>'
-    jQuery(video_wrapper).append(video)
-
-    video_text_container = html.DIV('', Class='video-text-container')
-    jQuery(video_wrapper).append(video_text_container)
-
-    title = f'<h1>{src.split(".")[0]}</h1>'
-    description = f'<p>balbalblalbalbalbal</p>'
-    jQuery(video_text_container).append(title)
-    jQuery(video_text_container).append(description)
-
-    jQuery('#videos-container').append('<hr>')
-
-
-def videosList(req):
-    videos = eval(req.text)
-    print(videos)
-    if not videos:
-        return None
-    for item in videos:
-        addVideo(item)
 
 
 
@@ -647,7 +622,6 @@ def loadMember():
     loadSafety()
     loadActivePlan(member)
     loadRestrict(member)
-    _ajax('/get_videos/', videosList)
     _ajax('/available_requests/', loadRequests)
 
 def preLoad(req):

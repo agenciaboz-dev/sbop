@@ -1,4 +1,5 @@
 const posts_container = $('#publicacoes-container');
+const videos_container = $('#videos-container');
 
 const get_member = setInterval(() => {
     if (membro.exists) {
@@ -19,21 +20,41 @@ const getContentList = (membro) => {
         const posts = JSON.parse(response);
         
         for (const post of posts) {
-            console.log(post);
-            const element = `
-            <div class="restrict-content-wrapper">
-                <img class="restrict-media" src="/static/conteudos/${post.id}" alt="Teste">
-                <div class="restrict-content-data">
-                    <h1 class="content-title">${post.titulo}</h1>
-                    <p class="restrict-content-author">${post.autor} - ${post.data}</p>
-                    <p>${post.resumo}</p>
-                    <br>
-                    <p>${post.conteudo}</p>
+            if (!post.video) {
+                console.log(post);
+                const element = `
+                <div class="restrict-content-wrapper">
+                    <img class="restrict-media" src="/static/conteudos/${post.id}" alt="Teste">
+                    <div class="restrict-content-data">
+                        <h1 class="content-title">${post.titulo}</h1>
+                        <p class="restrict-content-author">${post.autor} - ${post.data}</p>
+                        <p>${post.resumo}</p>
+                        <br>
+                        <p>${post.conteudo}</p>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            `
-            posts_container.append(element)
+                <hr>
+                `
+                posts_container.append(element);
+            } else {
+                console.log(post);
+                const element = `
+                <div class="restrict-content-wrapper">
+                    <video class="restrict-media" controls>
+                        <source src="/static/conteudos/${post.id}" type="video/mp4">
+                    </video>
+                    <div class="restrict-content-data">
+                        <h1 class="content-title">${post.titulo}</h1>
+                        <p class="restrict-content-author">${post.autor} - ${post.data}</p>
+                        <p>${post.resumo}</p>
+                        <br>
+                        <p>${post.conteudo}</p>
+                    </div>
+                </div>
+                <hr>
+                `
+                videos_container.append(element);
+            }
         }
     });
 }
