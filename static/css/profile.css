@@ -285,8 +285,8 @@ button:hover {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
-    height: 2.5vh;
-    width: 3vw;
+    height: 2.15vh;
+    width: 4vw;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.5vh;
@@ -360,12 +360,13 @@ button:hover {
 
 #edit-curriculum {
     position: absolute;
-    right: 31.75vw;
+    right: 30.5vw;
+    bottom: 11vh;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
-    height: 2.5vh;
-    width: 3vw;
+    height: 2.15vh;
+    width: 4vw;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.5vh;
@@ -444,9 +445,9 @@ button:hover {
 }
 
 .button-text {
-    color: var(--primary-color)!important;
+    color: var(--primary-color) !important;
 }
 
 .button-text:hover {
-    color: white!important;
+    color: white !important;
 }
