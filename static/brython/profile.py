@@ -224,33 +224,6 @@ def videosList(req):
         addVideo(item)
 
 
-def addRestrictContent(post):
-    restrict_content_wrapper = html.DIV('', Class='restrict-content-wrapper')
-    jQuery('#publicacoes-container').append(restrict_content_wrapper)
-
-    img = f'<img width="400" height="200" src="/static/posts/img.png" alt"imagem"></img>'
-    jQuery(restrict_content_wrapper).append(img)
-
-    restrict_content_text_container = html.DIV(
-        '', Class='restrict-content-text-container')
-    jQuery(restrict_content_wrapper).append(restrict_content_text_container)
-
-    title = f'<h1>{post[2]}</h1>'
-    autor = html.P(f'{post[4]} - {post[5]}', Class='restrict-content-author')
-    description = f'<p>{post[3]}</p>'
-    jQuery(restrict_content_text_container).append(title)
-    jQuery(restrict_content_text_container).append(autor)
-    jQuery(restrict_content_text_container).append(description)
-
-    jQuery('#publicacoes-container').append('<hr>')
-
-
-def restrictContentList(req):
-    data = eval(req.text)
-    data.reverse()
-
-    for post in data:
-        addRestrictContent(post)
 
 
 def resizePopUp(width_factor=1, height_factor=3.5, translate_factor=1.75/2):
@@ -675,7 +648,6 @@ def loadMember():
     loadActivePlan(member)
     loadRestrict(member)
     _ajax('/get_videos/', videosList)
-    _ajax('/get_blog/', restrictContentList)
     _ajax('/available_requests/', loadRequests)
 
 def preLoad(req):
