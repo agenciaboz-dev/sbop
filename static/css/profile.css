@@ -324,7 +324,7 @@ button:hover {
 .profile-buttons {
     /* position:absolute;  */
     padding: 5px;
-    width: 4vw;
+    width: 4.5vw;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
@@ -347,7 +347,7 @@ button:hover {
 .info-container-wrapper>div:last-of-type {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -416,16 +416,12 @@ button:hover {
     border-radius: 30vw;
     padding: 0 0.3vw 0 0.5vw;
     width: fit-content;
-    height: 60%;
+    height: fit-content;
     background-color: white;
     font-size: 1.6vh;
     cursor: pointer;
     transition: 0.3s;
     margin-top: 3px;
-}
-
-.floating-button .center-text {
-    text-align: center;
 }
 
 .floating-button img {
@@ -435,19 +431,11 @@ button:hover {
 
 .floating-button:hover {
     background-color: #094a6f;
-    color: white;
+    color: white !important;
     opacity: 1;
 }
 
 .floating-button:hover img {
     stroke: white;
     filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
-}
-
-.button-text {
-    color: var(--primary-color) !important;
-}
-
-.button-text:hover {
-    color: white !important;
 }
