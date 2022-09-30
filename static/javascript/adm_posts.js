@@ -22,21 +22,22 @@ const getPosts = (event) => {
 
     }
 
+    $('.list-container > *').remove();
     const searched = $('.search-container > form > input').val();
     request('/get_posts/', { searched: searched }, (response) => {
         for (post of response) {
             console.log(post)
             const element = `
-            <div class="post-container" id="post-container-${post.ID}">
+            <div class="post-container" id="post-container-${post.id}">
                 <img src="/static/image/icon.svg" alt="Post">
                 <div class="post-info">
-                    <p>Nome: <span title="${post.TITULO}" class="post-name">${post.TITULO}</span></p>
+                    <p>Nome: <span title="${post.titulo}" class="post-name">${post.titulo}</span></p>
                     <div>
-                        <p>Autor: <span title="${post.AUTOR}" class="">${post.AUTOR}</span></p>
+                        <p>Autor: <span title="${post.autor}" class="">${post.autor}</span></p>
                         <hr>
-                        <p>Data: <span title="${post.DATA}" class="">${post.DATA}</span></p>
+                        <p>Data: <span title="${post.data}" class="">${post.data}</span></p>
                         <hr>
-                        <p>Categoria: <span title="${post.MEMBRO}" class="">${post.MEMBRO}</span></p>
+                        <p>Categoria: <span title="${post.categoria}" class="">${post.categoria}</span></p>
                     </div>
                 </div>
                 <div class="buttons-container">
