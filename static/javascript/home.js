@@ -1,12 +1,15 @@
 $('.recover-password').on('click', (event) => {
-    $('.popup').fadeToggle();
+    $('.popup').fadeIn();
+})
+
+$('#x-button').on('click', (event) => {
+    $('.popup').fadeOut();
 })
 
 $('#recover-form').on('submit', (event) => {
     const data = {user: $('#recover-input').val()};
     const url = '/recuperar/'
     event.preventDefault();
-    $('.popup').fadeToggle();
 
     const options = {
         method: 'POST',
@@ -16,6 +19,8 @@ $('#recover-form').on('submit', (event) => {
     
     fetch(url, options)
     .then((response) => response.json())
-    .then((data) => alert(JSON.stringify(data, null, 2)))
+    .then((data) => (data) => {
+        $('#feedback').text(data)
+    })
     .catch(err => console.error('error:' + err));
 })
