@@ -2,6 +2,7 @@ const searchParams = new URLSearchParams(window.location.search);
 const id = searchParams.get('id');
 const form_data = new FormData();
 let membro = {};
+let file = null;
 
 const request = (url, data, done, method='POST', content_type = {'Content-Type': 'application/json'}) => {
     const options = {
@@ -42,6 +43,11 @@ $('document').ready(() => {
                 $('#author').text(`Autor: ${membro.name}`);
                 console.log(membro);
         }, method='GET');
+
+        $('#upload-file').on('change', () => {
+            file = true;
+        })
+
     } else {
         request('/get_post/', {id: id}, (response) => {
             console.log(response[0]);
@@ -75,6 +81,31 @@ $('#publish-button').on('click', (event) => {
             alert(JSON.stringify(response, null, 2));
         });
     } else {
+        if (!$('input[name="post-input"]:checked').length) {
+            alert('Escolha entre publicação ou vídeo');
+            return false;
+        }
+
+        if (!file) {
+            alert('Envie uma imagem');
+            return false;
+        }
+
+        if (!$('#summary-area').val()) {
+            alert('Preencha o resumo');
+            return false;
+        }
+
+        if (!$('#title-area').val()) {
+            alert('Preencha o título');
+            return false;
+        }
+
+        if (!$('#content-area').val()) {
+            alert('Preencha o Conteúdo');
+            return false;
+        }
+
         form_data.append('file', $('#upload-file')[0].files[0]);
         const today = new Date();
         const data = {
@@ -87,6 +118,8 @@ $('#publish-button').on('click', (event) => {
             data: today.toLocaleDateString(),
             capa: form_data,
         }
+
+
         form_data.append('data', JSON.stringify(data));
         console.log(data);
         $.ajax({
