@@ -439,3 +439,7 @@ button:hover {
     stroke: white;
     filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
 }
+
+#upload-file {
+    display: none;
+}
