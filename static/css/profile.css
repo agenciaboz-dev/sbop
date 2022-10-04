@@ -449,29 +449,3 @@ button:hover {
 #upload-file {
     display: none;
 }
-
-.plans-buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3vh;
-    padding-right: 1vw;
-}
-
-.plans-buttons-container button {
-    flex: 0.45;
-    border: none;
-    border-radius: 0.8vw;
-    color: white;
-    background-color: #0C6397;
-    padding: 0.65vh 0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.plans-buttons-container button:hover {
-    background-color: #7BDCB5;
-}
-
-.plans-buttons-container button:first-of-type {
-    background-color: #9F9E9E;
-}
