@@ -19,7 +19,6 @@
     border-radius: 1.5vw;
     height: 6vh;
     background-color: var(--input-background);
-    opacity: 0.5;
     border: none;
     outline: none;
     padding: 1vw;
@@ -35,4 +34,8 @@
     color: var(--text-secondary);
     font-weight: bold;
     margin-bottom: 0;
+}
+
+::placeholder {
+    opacity: 0.4;
 }

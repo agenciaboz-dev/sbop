@@ -153,7 +153,7 @@ button:hover {
     right: 0;
     margin: auto;
     z-index: 50;
-    width: 30vw;
+    width: fit-content;
     height: fit-content;
     justify-content: space-evenly;
     align-items: center;
@@ -165,7 +165,7 @@ button:hover {
 }
 
 .popup label {
-    width: 5vw;
+    width: 20vw;
 }
 
 .popup button {
@@ -460,5 +460,5 @@ button:hover {
     right: 5vw;
     width: fit-content;
     bottom: 0;
-    font-size: 1.4vw!important;
+    font-size: 1.4vw !important;
 }
