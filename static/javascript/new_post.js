@@ -74,7 +74,7 @@ $('#publish-button').on('click', (event) => {
             id: id,
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
-            membro: $('#membership-input').val(),
+            assinatura: $('#membership-input').val(),
             resumo: $('#summary-area').val(),
         }, (response) => {
             console.log(response);
