@@ -455,5 +455,5 @@ button:hover {
     right: 5vw;
     width: fit-content;
     bottom: 0;
-    font-size: 1.4vw;
+    font-size: 1.4vw!important;
 }
