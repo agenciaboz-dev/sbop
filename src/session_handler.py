@@ -330,7 +330,7 @@ class Session():
     def editPost(self, data):
         sql = f"""UPDATE conteudos SET 
                 titulo = '{data['titulo']}',
-                membro = '{data['membro']}',
+                categoria = '{data['assinatura']}',
                 conteudo = '{data['conteudo']}',
                 resumo = '{data['resumo']}'
                 
@@ -375,5 +375,9 @@ class Session():
                     posts.append(post)
 
         return posts
+    
+    def sendDocuments(self, data, attachment):
+        sendMail('fernando@agenciazop.com.br', json.dumps(data), attachment)
+        return {'teste': 'teste'}
     
     

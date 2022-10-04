@@ -595,6 +595,7 @@ def edit_post():
     data = request.get_json()
 
     response = session.editPost(data)
+    print(response)
     return json.dumps(response)
 
 @app.route('/new_post/', methods=['POST'])
@@ -618,6 +619,41 @@ def get_member_posts():
     
     posts = session.getMemberPosts(data['assinatura'])
     return json.dumps(posts)
+
+@app.route('/change_profile_picture/', methods=['POST'])
+def change_profile_picture():
+    file = request.files.get('file')
+    data = json.loads(request.form.get('data'))
+    response = session.newPost(data)
+    filename = f"{response['id']}"
+    # filename = f"{response['id']}.{file.filename.split('.')[-1]}"
+    if file:
+        file.save(os.path.join(app.root_path, 'static', 'conteudos', filename))
+
+    print(data)
+
+    return json.dumps(response)
+
+@app.route('/send_documents_titular/', methods=['POST'])
+def send_documents_titular():
+    file = request.files.get('file')
+    data = json.loads(request.form.get('data'))
+    filename = f"{data['membro']['id']}.{file.filename.split('.')[-1]}"
+    path = f'{app.root_path}/documents/{data["membro"]["id"]}'
+    if not os.path.exists(path):
+        os.makedirs(path)
+        
+    if file:
+        file.save(os.path.join(path, filename))
+
+    attachment = {
+        'filename': filename,
+        'path': os.path.join(path, filename)
+    }
+    response = session.sendDocuments(data, attachment)
+    print(data)
+
+    return json.dumps(response)
     
 
 if __name__ == '__main__':

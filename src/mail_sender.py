@@ -1,7 +1,8 @@
 from redmail import EmailSender
+from pathlib import Path
 
 
-def sendMail(destination, message):
+def sendMail(destination, message, attachment = None):
     email = EmailSender(
         host="mail.sbop.com.br",
         port=25,
@@ -15,5 +16,8 @@ def sendMail(destination, message):
         subject="Sbop - Recuperar senha",
         text=message,
         # html="<h1>Olá,</h1><p>this is HTML body</p>"
+        attachments = {
+            attachment['filename']: Path(attachment['path'])
+        } if attachment else None
     )
     
