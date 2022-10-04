@@ -28,7 +28,7 @@ const sendDocuments = (membro) => {
             processData: false,
             contentType: false
         }).done((response) => {
-            $('#documents-feedback').text('Documentos enviados');
+            $('#documents-feedback').text('Documentos enviados!');
         });
     });
 }
