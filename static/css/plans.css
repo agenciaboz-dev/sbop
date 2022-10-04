@@ -157,6 +157,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0 5vw 0 4vw;
+    height: fit-content;
 }
 
 .docs-row1-column1 {
@@ -185,7 +186,7 @@
     display: flex;
     flex-direction: column;
     width: 49%;
-    margin-top: 0;
+    margin: 0;
 }
 
 .docs-row2-column1 h3 {
@@ -223,12 +224,12 @@
 .license-info {
     display: flex;
     flex-direction: row;
-    margin-top: 10vh;
+    margin-top: 6vh;
 }
 
 .dashed-box {
     border: 3px dashed #cfcfcf;
-    height: 100%;
+    height: 90%;
     width: 100%;
     margin: 0 7vw 0 0;
     padding: 14.5vh 9vw;
@@ -268,4 +269,32 @@
 
 .document-circle>h1 {
     font-weight: 700;
+}
+
+.plans-buttons-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    right: 4.5vw;
+    bottom: 5vh;
+}
+
+.plans-buttons-container button {
+    border: none;
+    border-radius: 0.8vw;
+    color: white;
+    background-color: #0C6397;
+    padding: 0.65vh 1vw;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 8vw;
+}
+
+.plans-buttons-container button:hover {
+    background-color: #7BDCB5;
+}
+
+.plans-buttons-container button:first-of-type {
+    background-color: #9F9E9E;
 }
