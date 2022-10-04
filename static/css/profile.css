@@ -454,3 +454,11 @@ button:hover {
 #upload-file {
     display: none;
 }
+
+#documents-feedback {
+    position: absolute;
+    right: 5vw;
+    width: fit-content;
+    bottom: 0;
+    font-size: 1.4vw!important;
+}
