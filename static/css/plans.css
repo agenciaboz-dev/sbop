@@ -139,10 +139,11 @@
 .documents-container {
     position: absolute;
     width: 100%;
-    height: 67.1vh;
+    height: 63.9vh;
     background-color: white;
     z-index: 10;
     left: -0.67vw;
+    border-radius: 1.5vw;
 }
 
 .docs-row1 {
@@ -277,7 +278,7 @@
     justify-content: space-between;
     margin: 0;
     right: 4.5vw;
-    bottom: 5vh;
+    bottom: 3vh;
 }
 
 .plans-buttons-container button {

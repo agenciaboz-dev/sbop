@@ -164,6 +164,10 @@ button:hover {
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
 }
 
+.popup label {
+    width: 5vw;
+}
+
 .popup button {
     width: 50%;
     height: 3.5vh;
@@ -249,7 +253,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     margin: 0 2vw;
-    width: fit-content;
+    width: 18vw;
 }
 
 .info-container>div>h1 {
@@ -334,7 +338,7 @@ button:hover {
 }
 
 .profile-buttons:last-of-type {
-    margin-left: 3vw;
+    margin-left: 2vw;
 }
 
 .profile-buttons:hover {
@@ -421,18 +425,19 @@ button:hover {
     border: 2px solid #0C6397;
     border-radius: 30vw;
     padding: 0 0.3vw 0 0.5vw;
-    width: fit-content;
+    width: 11vw;
     height: fit-content;
     background-color: white;
     font-size: 1.6vh;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 3px;
+    margin-top: 25vh;
+    padding-left: 2vw;
 }
 
 .floating-button img {
     max-height: 80%;
-    margin-left: 0.5vw;
+    margin-left: 1vw;
 }
 
 .floating-button:hover {
