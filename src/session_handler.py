@@ -273,7 +273,7 @@ class Session():
                 usuário: {username}
                 link para redefinir sua senha: http://sistema.sbop.com.br:5001/recover/?user={encrypted}
             """
-            sendMail(result[0]['email'], message)
+            sendMail(result[0]['email'], "Sbop - Recuperar senha", message)
             return {'msg': f'Um link para redefinicação de senha foi enviado para o e-mail do usuário'}
         else:
             return {'msg': 'Usuário não encontrado'}
@@ -377,7 +377,7 @@ class Session():
         return posts
     
     def sendDocuments(self, data, attachment):
-        sendMail('fernando@agenciazop.com.br', json.dumps(data), attachment)
+        sendMail('fernando@agenciazop.com.br', f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
         return {'teste': 'teste'}
     
     
