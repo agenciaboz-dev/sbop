@@ -406,6 +406,7 @@ button:hover {
 }
 
 .floating-button {
+    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
