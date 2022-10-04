@@ -94,7 +94,7 @@ const _get_member = setInterval(() => {
                 console.log(membro);
 
                 if (membro.adm) {
-                    $('.adm-button').show();
+                    $('.adm-button').css('visibility', 'visible');
                     $('.adm-button').on('click', () => {
                         window.location.href='/adm/';
                     });
