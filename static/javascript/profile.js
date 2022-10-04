@@ -71,14 +71,14 @@ $('document').ready(() => {
 const _get_member = setInterval(() => {
     if (popup.attr('member-id')) {
         setTimeout(() => {
-            
+
             request('/get_member_js/', {
                 id: popup.attr('member-id'),
                 test: 'test',
-                
+
             }, (response) => {
                 membro = response;
-    
+
                 for (let item in membro) {
                     if (typeof membro[item] == 'string') {
                         membro[item] = membro[item].replaceAll('False', false);
@@ -86,7 +86,7 @@ const _get_member = setInterval(() => {
                         membro[item] = membro[item].replaceAll('None', null);
                         try {
                             membro[item] = JSON.parse(membro[item]);
-                        } catch {}
+                        } catch { }
                     }
                 }
 
@@ -96,12 +96,10 @@ const _get_member = setInterval(() => {
                 if (membro.adm) {
                     $('.adm-button').css('visibility', 'visible');
                     $('.adm-button').on('click', () => {
-                        window.location.href='/adm/';
+                        window.location.href = '/adm/';
                     });
-                } else {
-                    $('.adm-button').hide();
                 }
-    
+
                 if (membro.pago) {
                     $('#upgrade-plan-button').on('click', (event) => {
                         if ($('.active-plan').attr('id') == 'associado') {

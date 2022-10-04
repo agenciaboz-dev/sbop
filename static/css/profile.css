@@ -193,7 +193,7 @@ button:hover {
 
 .info-container-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 2vw;
 }
 
@@ -249,6 +249,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     margin: 0 2vw;
+    width: fit-content;
 }
 
 .info-container>div>h1 {
@@ -332,6 +333,10 @@ button:hover {
     z-index: 5;
 }
 
+.profile-buttons:last-of-type {
+    margin-left: 3vw;
+}
+
 .profile-buttons:hover {
     /* position:absolute;  */
     color: white;
@@ -349,13 +354,14 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-right: 0;
 }
 
 .info-container-wrapper>div:last-of-type>div {
-    /* display: flex;
+    display: flex;
     flex-direction: row;
-    justify-content: space-evenly; */
-    margin-bottom: 2px;
+    justify-content: space-evenly;
+    margin: 0;
 }
 
 #edit-curriculum {
@@ -442,4 +448,30 @@ button:hover {
 
 #upload-file {
     display: none;
+}
+
+.plans-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vh;
+    padding-right: 1vw;
+}
+
+.plans-buttons-container button {
+    flex: 0.45;
+    border: none;
+    border-radius: 0.8vw;
+    color: white;
+    background-color: #0C6397;
+    padding: 0.65vh 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.plans-buttons-container button:hover {
+    background-color: #7BDCB5;
+}
+
+.plans-buttons-container button:first-of-type {
+    background-color: #9F9E9E;
 }
