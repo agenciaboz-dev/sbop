@@ -43,15 +43,28 @@ body {
     outline: #0C6397 solid 0.4vw;
 }
 
-.link-row {
+.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img {
+    height: 30vh;
+    width: auto;
+    position: absolute;
+    right: 12vw;
+    top: 5vh;
+}
+
+.bottom-row {
     display: flex;
     flex-direction: row;
 }
 
 h1 {
     color: var(--secondary-text-color);
-    text-align: center;
-    margin: 2vh;
+    margin: 2vh 0;
 }
 
 h2 {
