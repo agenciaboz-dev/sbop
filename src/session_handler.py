@@ -377,7 +377,7 @@ class Session():
         return posts
     
     def sendDocuments(self, data, attachment):
-        sendMail('fernando@agenciazop.com.br', f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
+        sendMail('noreply@sbop.com.br', f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
         return {'teste': 'teste'}
     
     

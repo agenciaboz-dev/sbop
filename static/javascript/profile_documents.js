@@ -11,6 +11,7 @@ const get_member2 = setInterval(() => {
 
 const sendDocuments = (membro) => {
     sendButton.on('click', (event) => {
+        $('#documents-feedback').text('Enviando documentos...');
         form_data.append('file', $('#upload-file')[0].files[0]);
         const today = new Date();
         const data = {
@@ -27,7 +28,7 @@ const sendDocuments = (membro) => {
             processData: false,
             contentType: false
         }).done((response) => {
-            alert(JSON.stringify(response, null, 2));
+            $('#documents-feedback').text('Documentos enviados');
         });
     });
 }
