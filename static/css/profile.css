@@ -202,10 +202,10 @@ button:hover {
 }
 
 #profile-picture {
-    /* margin-left: 2vw; */
+    object-fit: cover;
+    border-radius: 50%;
     width: 15vw;
-    /* margin-top: -1.5vw; */
-    /* align-self: center; */
+    height: 15vw;
 }
 
 .camera-icon-container {
