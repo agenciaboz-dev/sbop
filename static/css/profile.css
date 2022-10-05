@@ -208,8 +208,11 @@ button:hover {
     height: 15vw;
 }
 
-.camera-icon-container {
+.upload-pfp-button {
+    position: relative;
+}
 
+.camera-icon-container {
     width: fit-content;
     height: fit-content;
     background-color: white;
@@ -219,8 +222,8 @@ button:hover {
     cursor: pointer;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.05));
     border-radius: 80vw;
-    right: 0.5vw;
-    margin-top: 1.5vh;
+    right: 1.25vw;
+    top: 0;
     transition: 0.5s;
 }
 

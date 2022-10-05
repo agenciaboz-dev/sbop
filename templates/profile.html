@@ -176,12 +176,14 @@
             <div class="info-container-wrapper">
                 <div class="profile-picture-container">
                     <img id="profile-picture" src="/static/image/doctor_icon.svg" alt="Foto">
-                    <label for="upload-pfp" class="camera-icon-container">
-                        <div id="camera-icon-container">
-                            <img id="camera-icon" src="/static/image/camera.svg" alt="camera_icon">
-                            <input type="file" id="upload-pfp" name="profile-picture">
-                        </div>
-                    </label>
+                    <form id="upload-pfp-form">
+                        <label for="upload-pfp" class="upload-pfp-button">
+                            <div id="camera-icon-container" class="camera-icon-container">
+                                <img id="camera-icon" src="/static/image/camera.svg" alt="camera_icon">
+                                <input type="file" id="upload-pfp" name="profile-picture">
+                            </div>
+                        </label>
+                    </form>
                 </div>
                 <div class="info-container">
                     <div>
