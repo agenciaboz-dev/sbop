@@ -455,6 +455,10 @@ button:hover {
     display: none;
 }
 
+#upload-pfp {
+    display: none;
+}
+
 #documents-feedback {
     position: absolute;
     right: 5vw;
