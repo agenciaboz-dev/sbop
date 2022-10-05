@@ -1,4 +1,5 @@
 const sendButton = $('#plans-save-button');
+const cancelButton = $('#plans-cancel-button');
 const form_data = new FormData();
 
 const get_member2 = setInterval(() => {
@@ -32,3 +33,7 @@ const sendDocuments = (membro) => {
         });
     });
 }
+
+cancelButton.on('click', () => {
+    $('.documents-container').fadeOut();
+})
