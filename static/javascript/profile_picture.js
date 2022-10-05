@@ -26,21 +26,21 @@ const sendPicture = (membro) => {
 }
 
 input.on('change', (event) => {
-    form_data.append('file', input[0].files[0]);
-    const data = {
-        membro: membro,
-    }
+    // form_data.append('file', input[0].files[0]);
+    // const data = {
+    //     membro: membro,
+    // }
 
 
-    form_data.append('data', JSON.stringify(data));
-    console.log(data);
-    $.ajax({
-        type: 'POST',
-        url: '/change_profile_picture/',
-        data: form_data,
-        processData: false,
-        contentType: false
-    }).done((response) => {
-        alert(JSON.stringify(response, null, 2));
-    });
+    // form_data.append('data', JSON.stringify(data));
+    // console.log(data);
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '/change_profile_picture/',
+    //     data: form_data,
+    //     processData: false,
+    //     contentType: false
+    // }).done((response) => {
+    //     alert(JSON.stringify(response, null, 2));
+    // });
 });
