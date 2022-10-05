@@ -222,7 +222,7 @@ button:hover {
     cursor: pointer;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.05));
     border-radius: 80vw;
-    right: 1.25vw;
+    right: 1.9vw;
     top: 0;
     transition: 0.5s;
 }
@@ -232,18 +232,17 @@ button:hover {
 }
 
 #camera-icon {
-    width: 2.5vw;
-    margin: 0.55vw;
-    /* left: -5vw; */
+    width: 2vw;
+    margin: 0.75vw;
 }
 
-#logo-icon {
-    /* margin-right: 2vw; */
+/* #logo-icon {
+    margin-right: 2vw;
     align-self: flex-start;
     object-fit: cover;
     width: 15vw;
-    /* margin: -6vh 10px 0; */
-}
+    margin: -6vh 10px 0;
+} */
 
 .info-container {
     display: flex;
