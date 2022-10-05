@@ -112,6 +112,12 @@ body {
     align-items: center;
 }
 
+.skill-slot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 img {
     max-height: 100%;
 }
@@ -127,6 +133,10 @@ p {
 }
 
 .pessoa {
+    margin: 1.5vh 0 0 0;
+}
+
+.especialidades {
     margin: 1.5vh 0 0 0;
 }
 
@@ -190,9 +200,13 @@ input {
 }
 
 input[type="radio"] {
-    margin: 1vw 1vw 1vw 0;
+    margin: 1vw 0;
     padding: 0;
     width: 10%;
+}
+
+#juridica {
+    margin-left: 1.15vw;
 }
 
 select {
