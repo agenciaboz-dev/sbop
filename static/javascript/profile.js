@@ -112,5 +112,7 @@ const _get_member = setInterval(() => {
             });
         }, 100)
         clearInterval(_get_member);
+
+        setTimeout(() => $('#loading-screen').fadeToggle('slow'), 300);
     }
 }, 100);

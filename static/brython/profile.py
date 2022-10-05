@@ -239,7 +239,7 @@ def initialRender():
     POPUP.hide()
     POPUP.find('button').on('click', togglePopUp)
 
-    jQuery('#loading-screen').fadeToggle('slow')
+    # jQuery('#loading-screen').fadeToggle('slow')
 
     if member.primeiro_acesso:
         toggleContainer(selection=['#temporary-container'], mode='blur')
