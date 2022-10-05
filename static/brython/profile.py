@@ -421,7 +421,7 @@ def loadProfile():
         jQuery('#profile-input-curriculum').val(member.curriculum)
         jQuery('#edit-curriculum').attr('src', '/static/image/complete_icon.svg')
         jQuery('#edit-curriculum').text('Ok')
-        jQuery('.curriculum-container').css('height', '18vh')
+        # jQuery('.curriculum-container').css('height', '18vh')
         
         def completeCurriculumEdition(ev):
             if not member.curriculum == jQuery('#profile-input-curriculum').val():
@@ -430,7 +430,7 @@ def loadProfile():
             jQuery('#data-curriculum').text(member.curriculum)
             jQuery('#profile-input-curriculum').fadeOut(jQuery('#data-curriculum').fadeIn)
             jQuery('#edit-curriculum').attr('src', '/static/image/edit.svg')
-            jQuery('.curriculum-container').css('height', '15vh')
+            # jQuery('.curriculum-container').css('height', '15vh')
             jQuery('#edit-curriculum').off('click')
             jQuery('#edit-curriculum').on('click', editCurriculum)
             jQuery('#edit-curriculum').text('Editar')
@@ -641,11 +641,6 @@ def _ajax(url, onComplete, method='GET', data={}):
     req.open(method, url, True)
     req.set_header('content-type', 'application/x-www-form-urlencoded')
     req.send(data)
-
-
-@bind('#camera-icon-container', 'click')
-def uploadPicture(ev):
-    alert('caixa de diálogo pra upload de foto')
 
 
 _ajax('/get_member/', preLoad)

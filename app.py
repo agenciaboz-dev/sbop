@@ -624,15 +624,12 @@ def get_member_posts():
 def change_profile_picture():
     file = request.files.get('file')
     data = json.loads(request.form.get('data'))
-    response = session.newPost(data)
-    filename = f"{response['id']}"
-    # filename = f"{response['id']}.{file.filename.split('.')[-1]}"
     if file:
-        file.save(os.path.join(app.root_path, 'static', 'conteudos', filename))
+        file.save(os.path.join(app.root_path, 'static', 'profile_pictures', data['membro']['id']))
 
     print(data)
 
-    return json.dumps(response)
+    return json.dumps({'response': 'test'})
 
 @app.route('/send_documents_titular/', methods=['POST'])
 def send_documents_titular():
