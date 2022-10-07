@@ -1,5 +1,6 @@
-$('form').on('submit', () => {
-    if (!$('.person-type:checked').length) {
+$('form').on('submit', (event) => {
+    event.preventDefault();
+    if (!$('input[name="pessoa"]:checked').length) {
         alert('selecione um tipo de pessoa');
         return false
     }
@@ -25,7 +26,7 @@ $('form').on('submit', () => {
         bairro: $('#bairro').val(),
         cidade: $('#cidade').val(),
         pais: $('#pais').val(),
-        pessoa: $('.person-type:checked').val(),
+        pessoa: $('input[name="pessoa"]:checked').val(),
         temporario: true,
         primeiro_acesso: false,
         cpf: $('#cpf').val(),
