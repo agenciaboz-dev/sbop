@@ -136,41 +136,11 @@ def cadastro():
 
     else:
 
-        try:
-            pessoa = request.form['pessoa']
-        except:
-            pessoa = 'None'
+        data = request.get_json()
+        
+        response = session.signup(data)
 
-        cep = request.form['cep'].replace('-', '')
-        # removing hyphen from text
-        # cep = cep[:5] + cep[-3:]
-
-        data = {
-            'nome': request.form['nome'],
-            'email': request.form['email'],
-            'usuario': request.form['usuario'],
-            'senha': request.form['senha'],
-            'telefone': request.form['telefone'],
-            'celular': request.form['celular'],
-            'pessoa': pessoa,
-            'endereco': request.form['endereco'],
-            'numero': request.form['numero'],
-            'complemento': request.form['complemento'],
-            'bairro': request.form['bairro'],
-            'cidade': request.form['cidade'],
-            'uf': request.form['estado'],
-            'pais': request.form['pais'],
-            'cep': cep,
-            'crm': request.form['crm'],
-            'curriculum': request.form['curriculum'],
-            'membro': request.form['membro']
-        }
-        # feedback, signedup = session.signup(data)
-        # if not signedup:
-        #     return render_template('signup.html', feedback=feedback)
-        # else:
-            # return f'<h1>{feedback}</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
-        return f'<h1>Em desenvolvimento</h1><button onclick="window.location.href='+"'"+'/home/'+"'"+'">Voltar</button>'
+        return json.dumps(response)
 
 
 @app.route('/blog_post/', methods=['GET', 'POST'])

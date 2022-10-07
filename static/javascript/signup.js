@@ -39,5 +39,15 @@ $('form').on('submit', (event) => {
         lng: 0
     }
 
-    alert(JSON.stringify(data, null, 2));
+    console.log(data)
+
+    $.ajax({
+        type: 'POST',
+        url: '/cadastro/',
+        data: JSON.stringify(data),
+        processData: false,
+        contentType: 'application/json'
+    }).done((response) => {
+        console.log(response);
+    });
 })
