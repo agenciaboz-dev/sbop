@@ -164,20 +164,19 @@ class Session():
     def signup(self, data):
         try:
             usuario = self.database.fetchTable(
-                1, 'Membros', 'user', data['usuario'])[0]
+                1, 'Membros', 'user', data['user'])[0]
             if usuario:
-                return 'Usuário já cadastrado', False
+                return {'error': 'Usuário já cadastrado'}
 
             email = self.database.fetchTable(
                 1, 'Membros', 'email', data['email'])[0]
             if email:
-                return 'E-mail já cadastrado', False
+                return {'error': 'E-mail já cadastrado'}
 
         except:
-            data.update({'id': len(self.member_list)})
             self.database.insertMember(data)
             self.member_list.append(data)
-            return 'Usuário cadastrado', True
+            return {'success': 'Usuário cadastrado'}
 
     def get_blog(self, membro):
         try:

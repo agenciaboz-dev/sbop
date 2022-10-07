@@ -83,15 +83,26 @@ class Mysql():
     def insertMember(self, data):
         ''' Função utilizada para inserir novo membro no banco de dados.
         DATA requer (ID, USUÁRIO, SENHA, NOME, ENDEREÇO, TIPO DE MEMBRO) '''
+        
+        columns = '('
+        for key in data:
+            columns += f"{key}, "
 
-        try:
-            sql = f"INSERT INTO Membros (ID, USUÁRIO, SENHA, NOME, UF, MEMBRO, CEP, EMAIL, TELEFONE, CELULAR, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, PAIS, CRM, CURRICULUM, PESSOA) VALUES ({data['id']}, '{data['usuario']}', '{data['senha']}', '{data['nome']}', '{data['uf']}', '{data['membro']}', '{data['cep']}', '{data['email']}', '{data['telefone']}', '{data['celular']}', '{data['endereco']}', '{data['numero']}', '{data['complemento']}', '{data['bairro']}', '{data['cidade']}', '{data['pais']}', '{data['crm']}', '{data['curriculum']}', '{data['pessoa']}')"
-            cursor = self.connection.cursor()
-            cursor.execute(sql)
-        except:
-            sql = f'INSERT INTO Membros (ID, USUÁRIO, SENHA, NOME, UF, MEMBRO, CEP, EMAIL, TELEFONE, CELULAR, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, PAIS, CRM, CURRICULUM, PESSOA) VALUES ({data["id"]}, "{data["usuario"]}", "{data["senha"]}", "{data["nome"]}", "{data["uf"]}", "{data["membro"]}", "{data["cep"]}", "{data["email"]}", "{data["telefone"]}", "{data["celular"]}", "{data["endereco"]}", "{data["numero"]}", "{data["complemento"]}", "{data["bairro"]}", "{data["cidade"]}", "{data["pais"]}", "{data["crm"]}", "{data["curriculum"]}", "{data["pessoa"]}")'
-            cursor = self.connection.cursor()
-            cursor.execute(sql)
+        columns = columns.strip(' ').strip(',')
+        columns += ')'
+        
+        values = '('
+        for key in data:
+            values += f"'{data[key]}', "
+
+        values = values.strip(' ').strip(',')
+        values += ')'
+        
+
+        sql = f"INSERT INTO Membros {columns} VALUES {values} ;"
+        print(sql)
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
 
         self.connection.commit()
         cursor.close()
