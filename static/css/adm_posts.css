@@ -271,6 +271,7 @@ img {
 .bottom-button img {
   max-height: 80%;
   margin-left: 0.5vw;
+  transition: 0.3s;
 }
 
 .bottom-button:last-of-type {
@@ -283,8 +284,12 @@ img {
   opacity: 1;
 }
 .bottom-button:hover img {
-  stroke: white;
-  filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
+  filter: white;
+  /* IE6-9 */
+  filter: grayscale(1) invert(100%) brightness(200%) contrast(100%);
+  /* Microsoft Edge and Firefox 35+ */
+  -webkit-filter: grayscale(1) invert(100%) brightness(200%) contrast(100%);
+  /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 
 .center-text {
