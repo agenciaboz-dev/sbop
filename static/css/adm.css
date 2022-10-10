@@ -416,4 +416,94 @@ h2 {
   /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 
+@media only screen and (max-width: 600px) {
+  .main-container {
+    border-radius: 7vw;
+    overflow-y: scroll;
+  }
+  .top-container {
+    margin: 8vh 0 0 5vw;
+  }
+  .result-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .list-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #959595;
+    width: 100%;
+    padding-right: 0;
+  }
+  .list-wrapper h1 {
+    color: #9F183B;
+    font-size: 100%;
+  }
+  .list-wrapper h1 span {
+    color: #959595;
+    font-weight: normal;
+    font-size: 100%;
+  }
+  .search-container {
+    margin: 0 7vw;
+  }
+  .search-container img {
+    left: 2vw;
+  }
+  .search-container form {
+    display: contents;
+  }
+  .search-container form input {
+    border-radius: 7vw;
+    padding-left: 8vw;
+    width: 50vw;
+  }
+  .member-container {
+    border-radius: 7vw;
+  }
+  .member-container img {
+    max-height: 60%;
+    margin: 0 1vw 0 0.5vw;
+  }
+  .member-container img:last-of-type {
+    max-height: 30%;
+    margin: 0 1vw;
+  }
+  .list-container {
+    width: 80vw;
+  }
+  .profile-data-field {
+    overflow-y: scroll;
+  }
+  .profile-container {
+    margin: 3vh 0;
+    border: none;
+  }
+  .profile-buttons-container {
+    margin: 3vh;
+  }
+  .profile-buttons-container button {
+    border-radius: 7vw;
+  }
+  .bottom-container {
+    position: absolute;
+    top: 5vh;
+    left: 10vw;
+    display: flex;
+    height: 10%;
+    margin: 3vh 0;
+    justify-content: space-between;
+  }
+  .bottom-button {
+    height: 50%;
+    margin: 0 2vw;
+  }
+  .bottom-button img {
+    max-height: 70%;
+    margin-left: 2vw;
+  }
+}
+
 /*# sourceMappingURL=adm.css.map */
