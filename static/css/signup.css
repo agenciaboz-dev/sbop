@@ -248,4 +248,65 @@ button:hover {
   background-color: #084468;
 }
 
+@media only screen and (max-width: 600px) {
+  .main-container {
+    align-items: center;
+    height: 95%;
+    width: 90%;
+    border-radius: 7vw;
+    margin: 1vh;
+    padding: 1vh 5vw;
+    outline: #0C6397 solid 1vw;
+  }
+  .welcome-text {
+    margin-bottom: 0.5vh;
+  }
+  .titles {
+    justify-content: center;
+    font-size: 100%;
+  }
+  .titles a {
+    margin-left: 12vw;
+    margin-right: 5vw;
+  }
+  .titles h1 {
+    margin-left: 5vw;
+  }
+  .titles hr {
+    margin: 0 5vw;
+  }
+  .pessoa {
+    margin: 1.5vh 0;
+  }
+  input {
+    border-radius: 7vw;
+    font-size: 70%;
+    padding-left: 3vw;
+  }
+  input[type=radio] {
+    margin: 1vh 2vw;
+    padding: 0;
+    width: 10%;
+  }
+  .skill-slot {
+    margin: 1vh 0;
+  }
+  .skill-slot label {
+    font-size: 80%;
+  }
+  select {
+    border-radius: 7vw;
+  }
+  textarea {
+    border-radius: 7vw;
+    font-size: 80%;
+    padding-left: 3vw;
+  }
+  button {
+    border-radius: 7vw;
+    font-size: 80%;
+    width: 50vw;
+  }
+}
+
 /*# sourceMappingURL=signup.css.map */
