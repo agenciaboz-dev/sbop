@@ -430,16 +430,37 @@ h2 {
 
     .member-container {
         border-radius: 7vw;
+        flex-direction: column;
+        height: fit-content;
+
+        hr {
+            display: none;
+        }
 
         img {
-            max-height: 60%;
-            margin: 0 1vw 0 0.5vw;
+            max-height: 20%;
+            margin: 1vh 1vw;
         }
 
         img:last-of-type {
-            max-height: 30%;
-            margin: 0 1vw;
+            max-height: 10%;
+            margin: 1vh 1vw;
         }
+
+        .member-info {
+            width: fit-content;
+            padding: 0 5vw;
+        }
+
+        .member-type {
+            width: fit-content;
+            padding: 1vh 3vw;
+        }
+
+        p:last-of-type {
+            margin-left: 5vw;
+        }
+
     }
 
     .list-container {
