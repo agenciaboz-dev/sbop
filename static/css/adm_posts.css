@@ -302,6 +302,9 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
+  body {
+    width: 100%;
+  }
   .main-container {
     border-radius: 7vw;
     overflow-y: scroll;
@@ -358,7 +361,7 @@ img {
     padding: 2vh;
   }
   .post-container img {
-    height: 10%;
+    max-height: 6vh;
     margin: 1vh 1vw;
   }
   .buttons-container {

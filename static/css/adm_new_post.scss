@@ -208,7 +208,7 @@ p {
         border-radius: 1vw;
         color: white;
         background-color: $button-color;
-        padding: 1vh 8vh;
+        padding: 1vh 4vw;
         cursor: pointer;
         transition: 0.3s;
     }
@@ -225,6 +225,52 @@ p {
 
 #upload-file {
     display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-container {
+        overflow-y: scroll;
+    }
+
+    .buttons-container {
+        position: absolute;
+        align-self: center;
+
+        button {
+            border-radius: 5vw;
+            margin: 1vh 1vw;
+        }
+
+        button:first-of-type {
+            margin-right: 5vw;
+        }
+    }
+
+    .top-container {
+        margin-top: 13vh;
+        margin-bottom: 2vh;
+
+        img {
+            margin-right: 3vw;
+        }
+    }
+
+    .columns-container {
+        flex-direction: column;
+    }
+
+    .column1 {
+        width: 100%;
+    }
+
+    .column2 {
+        width: 100%;
+    }
+
+    #title-area {
+        margin-bottom: 2vh;
+    }
+
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */

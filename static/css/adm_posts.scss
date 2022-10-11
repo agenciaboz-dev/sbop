@@ -151,8 +151,6 @@ img {
     }
 }
 
-
-
 .buttons-container {
     display: flex;
     justify-content: space-between;
@@ -278,6 +276,10 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+
     .main-container {
         border-radius: 7vw;
         overflow-y: scroll;
@@ -345,7 +347,7 @@ img {
         padding: 2vh;
 
         img {
-            height: 10%;
+            max-height: 6vh;
             margin: 1vh 1vw;
         }
     }

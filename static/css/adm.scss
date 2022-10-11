@@ -98,6 +98,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     height: 10vh;
     border-radius: 5vw;
     border: 0.25vw solid $background-color;
@@ -424,7 +425,7 @@ h2 {
     .member-container {
         border-radius: 7vw;
         flex-direction: column;
-        height: fit-content;
+        height: 25vh;
 
         hr {
             display: none;
@@ -441,19 +442,21 @@ h2 {
         }
 
         .member-info {
+            height: fit-content;
             width: fit-content;
             padding: 0 5vw;
+            max-width: 100%;
+            overflow-wrap: normal;
+
+            div {
+                flex-direction: column;
+            }
         }
 
         .member-type {
             width: fit-content;
             padding: 1vh 3vw;
         }
-
-        p:last-of-type {
-            margin-left: 5vw;
-        }
-
     }
 
     .list-container {
