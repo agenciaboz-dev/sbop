@@ -160,6 +160,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 100%;
   height: 10vh;
   border-radius: 5vw;
   border: 0.25vw solid #E4E4E4;
@@ -395,6 +396,7 @@ h2 {
 .bottom-button img {
   max-height: 80%;
   margin-left: 0.5vw;
+  transition: 0.3s;
 }
 
 .bottom-button:last-of-type {
@@ -407,8 +409,114 @@ h2 {
   opacity: 1;
 }
 .bottom-button:hover img {
-  stroke: white;
-  filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
+  filter: white;
+  /* IE6-9 */
+  filter: grayscale(1) invert(100%) brightness(200%) contrast(100%);
+  /* Microsoft Edge and Firefox 35+ */
+  -webkit-filter: grayscale(1) invert(100%) brightness(200%) contrast(100%);
+  /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    border-radius: 7vw;
+    overflow-y: scroll;
+  }
+  .top-container {
+    margin: 8vh 0 0 5vw;
+  }
+  .result-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .list-wrapper {
+    width: 100%;
+    padding-right: 0;
+  }
+  .list-wrapper h1 {
+    font-size: 100%;
+  }
+  .list-wrapper h1 span {
+    font-size: 100%;
+  }
+  .search-container {
+    margin: 0 7vw;
+  }
+  .search-container img {
+    left: 2vw;
+  }
+  .search-container form {
+    display: contents;
+  }
+  .search-container form input {
+    border-radius: 7vw;
+    padding-left: 8vw;
+    width: 50vw;
+  }
+  .member-container {
+    border-radius: 7vw;
+    flex-direction: column;
+    height: 25vh;
+  }
+  .member-container hr {
+    display: none;
+  }
+  .member-container img {
+    max-height: 20%;
+    margin: 1vh 1vw;
+  }
+  .member-container img:last-of-type {
+    max-height: 10%;
+    margin: 1vh 1vw;
+  }
+  .member-container .member-info {
+    height: fit-content;
+    width: fit-content;
+    padding: 0 5vw;
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+  .member-container .member-info div {
+    flex-direction: column;
+  }
+  .member-container .member-type {
+    width: fit-content;
+    padding: 1vh 3vw;
+  }
+  .list-container {
+    width: 80vw;
+  }
+  .profile-data-field {
+    overflow-y: scroll;
+  }
+  .profile-container {
+    margin: 3vh 0;
+    border: none;
+  }
+  .profile-buttons-container {
+    margin: 3vh;
+  }
+  .profile-buttons-container button {
+    border-radius: 7vw;
+  }
+  .bottom-container {
+    position: absolute;
+    top: 5vh;
+    left: 10vw;
+    display: flex;
+    height: 10%;
+    margin: 3vh 0;
+    justify-content: space-between;
+  }
+  .bottom-button {
+    height: 50%;
+    margin: 0 2vw;
+  }
+  .bottom-button img {
+    max-height: 70%;
+    margin-left: 2vw;
+  }
 }
 
 /*# sourceMappingURL=adm.css.map */

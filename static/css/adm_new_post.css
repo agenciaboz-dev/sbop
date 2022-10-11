@@ -265,7 +265,7 @@ p {
   border-radius: 1vw;
   color: white;
   background-color: #0C6397;
-  padding: 1vh 8vh;
+  padding: 1vh 4vw;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -281,6 +281,41 @@ p {
   display: none;
 }
 
+@media only screen and (max-width: 600px) {
+  .main-container {
+    overflow-y: scroll;
+  }
+  .buttons-container {
+    position: absolute;
+    align-self: center;
+  }
+  .buttons-container button {
+    border-radius: 5vw;
+    margin: 1vh 1vw;
+  }
+  .buttons-container button:first-of-type {
+    margin-right: 5vw;
+  }
+  .top-container {
+    margin-top: 13vh;
+    margin-bottom: 2vh;
+  }
+  .top-container img {
+    margin-right: 3vw;
+  }
+  .columns-container {
+    flex-direction: column;
+  }
+  .column1 {
+    width: 100%;
+  }
+  .column2 {
+    width: 100%;
+  }
+  #title-area {
+    margin-bottom: 2vh;
+  }
+}
 /*# sourceMappingURL=adm_new_post.css.map */
 
 /*# sourceMappingURL=adm_new_post.css.map */

@@ -127,7 +127,7 @@ img {
 }
 
 .post-container-active {
-    border-color: $button-color  !important;
+    border-color: $button-color !important;
 }
 
 
@@ -150,8 +150,6 @@ img {
         }
     }
 }
-
-
 
 .buttons-container {
     display: flex;
@@ -245,6 +243,7 @@ img {
     img {
         max-height: 80%;
         margin-left: 0.5vw;
+        transition: 0.3s;
     }
 }
 
@@ -258,8 +257,12 @@ img {
     opacity: 1;
 
     img {
-        stroke: white;
-        filter: invert(100%) sepia(4%) saturate(19%) hue-rotate(65deg) brightness(104%) contrast(100%);
+        filter: white;
+        /* IE6-9 */
+        filter: grayscale(1) invert(100%) brightness(200%) contrast(100%);
+        /* Microsoft Edge and Firefox 35+ */
+        -webkit-filter: grayscale(1) invert(100%) brightness(200%) contrast(100%);
+        /* Google Chrome, Safari 6+ & Opera 15+ */
     }
 }
 
@@ -270,4 +273,113 @@ img {
 .deactivated {
     pointer-events: none;
     opacity: 0.3;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+
+    .main-container {
+        border-radius: 7vw;
+        overflow-y: scroll;
+    }
+
+    .top-container {
+        margin: 16vh 0 0 5vw;
+    }
+
+    .search-container {
+        margin: 0 7vw;
+
+        img {
+            left: 2vw;
+        }
+
+        form {
+            display: contents;
+
+            input {
+                border-radius: 7vw;
+                padding-left: 8vw;
+                width: 52vw;
+            }
+        }
+    }
+
+    .bottom-container-left-buttons {
+        display: flex;
+        position: absolute;
+        top: 5vh;
+        left: 26vw;
+        height: 10%;
+        margin: 3vh 0;
+    }
+
+    .bottom-container-right-buttons {
+        display: flex;
+        position: absolute;
+        top: 12vh;
+        left: 15vw;
+        height: 10%;
+        margin: 3vh 0;
+    }
+
+    .bottom-button {
+        height: 50%;
+        margin: 0 2vw;
+
+        img {
+            max-height: 70%;
+            margin-left: 2vw;
+        }
+    }
+
+    .list-wrapper {
+        margin-top: auto;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .post-container {
+        flex-direction: column;
+        height: fit-content;
+        padding: 2vh;
+
+        img {
+            max-height: 6vh;
+            margin: 1vh 1vw;
+        }
+    }
+
+    .buttons-container {
+        margin: 1vh 2vw;
+
+        button {
+            border-radius: 5vw;
+            padding: 1vh 3vw;
+        }
+    }
+
+    .post-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+
+        p {
+            font-weight: bold;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            hr {
+                display: none;
+            }
+        }
+    }
+
 }
