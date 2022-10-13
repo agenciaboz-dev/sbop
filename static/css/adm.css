@@ -423,7 +423,7 @@ h2 {
     overflow-y: scroll;
   }
   .top-container {
-    margin: 8vh 0 0 5vw;
+    margin: 9.5vh 0 0 5vw;
   }
   .result-container {
     display: flex;
@@ -441,7 +441,7 @@ h2 {
     font-size: 100%;
   }
   .search-container {
-    margin: 0 7vw;
+    margin: 0 7vw 0 5vw;
   }
   .search-container img {
     left: 2vw;
@@ -451,8 +451,8 @@ h2 {
   }
   .search-container form input {
     border-radius: 7vw;
-    padding-left: 8vw;
-    width: 50vw;
+    padding-left: 9vw;
+    width: 52vw;
   }
   .member-container {
     border-radius: 7vw;
@@ -503,7 +503,7 @@ h2 {
   .bottom-container {
     position: absolute;
     top: 5vh;
-    left: 10vw;
+    left: 9.5vw;
     display: flex;
     height: 10%;
     margin: 3vh 0;
@@ -511,10 +511,10 @@ h2 {
   }
   .bottom-button {
     height: 50%;
-    margin: 0 2vw;
+    margin: 0 2vw 0 0;
   }
   .bottom-button img {
-    max-height: 70%;
+    max-height: 90%;
     margin-left: 2vw;
   }
 }
