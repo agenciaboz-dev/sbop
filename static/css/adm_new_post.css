@@ -204,6 +204,9 @@ p {
   color: #8d8d8d;
 }
 
+.search-button {
+  text-align: center;
+}
 .search-button p {
   color: #312871;
   font-weight: 600;
@@ -284,6 +287,7 @@ p {
 @media only screen and (max-width: 600px) {
   .main-container {
     overflow-y: scroll;
+    border-radius: 5vw;
   }
   .buttons-container {
     position: absolute;
@@ -303,16 +307,40 @@ p {
   .top-container img {
     margin-right: 3vw;
   }
+  .dashed-box {
+    margin: 1vh 0;
+  }
+  .search-box {
+    border-radius: 5vw;
+  }
+  .radios-container input[type=radio] {
+    margin-right: 2vw;
+  }
+  .radios-container p {
+    margin-top: 1vh;
+  }
+  .categories-container #membership-input {
+    border-radius: 5vw;
+  }
   .columns-container {
     flex-direction: column;
   }
   .column1 {
     width: 100%;
   }
+  .column1 textarea {
+    padding: 2vw;
+  }
   .column2 {
     width: 100%;
   }
+  .column2 textarea {
+    padding: 2vw;
+  }
   #title-area {
+    margin-bottom: 2vh;
+  }
+  #content-area {
     margin-bottom: 2vh;
   }
 }
