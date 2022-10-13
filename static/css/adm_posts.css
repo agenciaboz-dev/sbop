@@ -313,7 +313,7 @@ img {
     margin: 16vh 0 0 5vw;
   }
   .search-container {
-    margin: 0 7vw;
+    margin: 0 7vw 0 5vw;
   }
   .search-container img {
     left: 2vw;
@@ -330,7 +330,7 @@ img {
     display: flex;
     position: absolute;
     top: 5vh;
-    left: 26vw;
+    left: auto;
     height: 10%;
     margin: 3vh 0;
   }
@@ -338,20 +338,27 @@ img {
     display: flex;
     position: absolute;
     top: 12vh;
-    left: 15vw;
+    left: auto;
     height: 10%;
     margin: 3vh 0;
   }
   .bottom-button {
     height: 50%;
-    margin: 0 2vw;
+    width: 35vw;
+    margin: 0 5vw;
+  }
+  .bottom-button p {
+    margin-left: 1vw;
   }
   .bottom-button img {
-    max-height: 70%;
-    margin-left: 2vw;
+    max-height: 90%;
+    margin-left: auto;
+  }
+  .result-container {
+    margin-top: 0;
   }
   .list-wrapper {
-    margin-top: auto;
+    margin-top: 0;
     width: 100%;
     height: fit-content;
   }
