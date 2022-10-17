@@ -693,4 +693,17 @@ input {
     #member-tooltip * {
         font-size: 10px;
     }
+
+    #member-tooltip::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        top: calc(var(--triangle-size) * -2);
+        left: 55%;
+        // transform: translate(-90%);
+        background-color: transparent;
+        border: var(--triangle-size) solid transparent;
+        border-bottom-color: var(--status-1-color);
+        pointer-events: none;
+    }
 }
