@@ -20,6 +20,7 @@ def capitalize_field(user, key):
 old = Mysql()
 old.connect(database_old)
 users = []
+failed = []
 user_ids = []
 data = old.fetchTable(0, 'sb_usermeta')
 
@@ -42,7 +43,9 @@ for id in user_ids:
         user_dict.update({item[2]: item[3]})
         print(f'{user_data.index(item)}: {item[2]}: {item[3]}')
 
-    user = {}
+    user = {
+        'usuario': user_dict['nickname'],
+    }
 
     collect(user, 'endereco', user_dict, 'billing_address_1')
     collect(user, 'numero', user_dict, 'billing_number')
@@ -64,10 +67,19 @@ for id in user_ids:
             complemento='{user['complemento']}',
             bairro='{user['bairro']}'
             
-            WHERE id={id} ;
+            WHERE user='{user['usuario']}' ;
     """
-    database.run(sql, commit=True)
+    try:
+        database.run(sql, commit=True)
+    except:
+        failed.append(user['usuario'])
 
+
+print('-----------------')
+print('failed to fix:')
+for failed_user in failed:
+    print(f'{user["usuario"]}')
+print('-----------------')
 
 # end of script
 old.disconnect()
