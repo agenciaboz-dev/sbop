@@ -1,3 +1,8 @@
+@function get-vw($target) { 
+    $vw-context: (1000*.01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+  }
+
 :root {
     --primary-color: #707070;
     --primary-color-dark: #515151;
@@ -59,8 +64,8 @@ abbr {
 }
 
 .map-container svg {
-    margin-top: 12.5%;
-    transform: scale(1.3);
+    margin-top: 8vw;
+    transform: scale(1.5);
 
 }
 
@@ -587,13 +592,20 @@ input {
 
     body {
         overflow-y: scroll;
+        height: 100vh;
+    }
+
+    .body-wrapper {
+        height: 100%;
     }
 
     .map-body-container {
         flex-direction: column;
         overflow-x: hidden;
+        height: 100%;
         overflow-y: scroll;
         margin: 0;
+        justify-content: flex-start;
     }
 
     .search-container {
@@ -644,9 +656,9 @@ input {
 
     .map-container svg {
         position: absolute;
-        left: -28vw;
-        top: -15vh;
-        transform: scale(0.6);
+        left: -14vw;
+        top: -5vh;
+        transform: scale(0.75);
         margin: 0;
     }
 
