@@ -449,6 +449,8 @@ abbr {
     margin: 0;
     padding: 0.3vw;
     z-index: 5;
+    top: 29vh;
+    left: 47vw;
 }
 
 #member-tooltip::before {
@@ -680,5 +682,15 @@ input {
         border-radius: 8vw;
         height: fit-content;
         padding: 0.5vh;
+    }
+
+    #member-tooltip {
+        left: 5vw;
+        width: 85vw;
+        top: 150vw;
+    }
+    
+    #member-tooltip * {
+        font-size: 10px;
     }
 }

@@ -6,5 +6,6 @@ $('document').ready(() => {
     
     if (width < 640) {
         map.css('transform', `scale(${width/600})`);
+        // $('#member-tooltip').css('width', `${$('#result').width()}`);
     }
 })

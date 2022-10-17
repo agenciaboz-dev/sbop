@@ -107,9 +107,9 @@ class Member():
             self.clicked = True
 
             jQuery('#member-tooltip').fadeIn()
-            member_tooltip.left = document['result'].abs_left + \
-                document['result'].width + 25
-            member_tooltip.top = document['result'].abs_top
+            # member_tooltip.left = document['result'].abs_left + \
+            #     document['result'].width + 25
+            # member_tooltip.top = document['result'].abs_top
 
             tooltip_arrow = jQuery('#member-tooltip::before')
 
