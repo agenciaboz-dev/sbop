@@ -319,7 +319,7 @@ def members():
                         continue
                     
             sorted_distances = sorted(distances, key=lambda d: d['distance'])
-            result.extend(sorted_distances[:7])
+            result.extend(sorted_distances[:50])
                 
 
         # map search
