@@ -175,6 +175,8 @@ class Session():
                 return {'error': 'E-mail já cadastrado'}
 
         except:
+            coords = self.getCoords(data['cep'])
+            data.update({'lat': coords[0], 'lng': coords[1]})
             self.database.insertMember(data)
             self.member_list.append(data)
             return {'success': 'Usuário cadastrado'}
