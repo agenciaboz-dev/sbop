@@ -270,7 +270,7 @@ class Session():
         
         if result:
             message = recoverPasswordTemplate(username, encrypted)
-            sendMail(result[0]['email'], "Sbop - Recuperar senha", message)
+            sendMail(result[0]['email'], "Sbop - Recuperar senha", html=message)
             return {'msg': f'Um link para redefinicação de senha foi enviado para o e-mail do usuário'}
         else:
             return {'msg': 'Usuário não encontrado'}

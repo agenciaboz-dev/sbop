@@ -2,7 +2,7 @@ from redmail import EmailSender
 from pathlib import Path
 
 
-def sendMail(destination, subject, message, attachment = None, html = None):
+def sendMail(destination, subject, message = None, attachment = None, html = None):
     email = EmailSender(
         host="mail.sbop.com.br",
         port=25,
