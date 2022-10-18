@@ -4,6 +4,7 @@ from src.mysql_handler import Mysql
 from src.mail_sender import sendMail
 from cryptography.fernet import Fernet
 import json, requests, geopy.distance
+from src.mail_templates import recoverPasswordTemplate
 
 
 class Connection():
@@ -268,10 +269,7 @@ class Session():
         result = self.database.run(sql, json=True)
         
         if result:
-            message = f"""
-                usuário: {username}
-                link para redefinir sua senha: http://sistema.sbop.com.br:5001/recover/?user={encrypted}
-            """
+            message = recoverPasswordTemplate(username, encrypted)
             sendMail(result[0]['email'], "Sbop - Recuperar senha", message)
             return {'msg': f'Um link para redefinicação de senha foi enviado para o e-mail do usuário'}
         else:
