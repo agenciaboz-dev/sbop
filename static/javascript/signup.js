@@ -34,7 +34,7 @@ $('form').on('submit', (event) => {
         cpf: $('#cpf').val(),
         especialidades: especialidades,
         pago: 'False',
-        adm: false,
+        adm: 'False',
         lat: 0,
         lng: 0
     }
