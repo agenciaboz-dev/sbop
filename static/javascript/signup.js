@@ -49,5 +49,8 @@ $('form').on('submit', (event) => {
         contentType: 'application/json'
     }).done((response) => {
         console.log(response);
+        if (response.success) {
+            window.location.href = '/home/';
+        }
     });
 })
