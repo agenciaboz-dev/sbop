@@ -3,7 +3,9 @@ from src.config import TIMELIMIT, database_auth, google_api_key
 from src.mysql_handler import Mysql
 from src.mail_sender import sendMail
 from cryptography.fernet import Fernet
-import json, requests, geopy.distance
+import json
+import requests
+import geopy.distance
 from src.mail_templates import recoverPasswordTemplate
 
 
@@ -51,6 +53,7 @@ class Connection():
             0, 'Solicitacoes', 'USUARIO', self.id, ordered='id')
         self.solicitacoes.reverse()
 
+
 class Session():
     def __init__(self):
         self.connections = []
@@ -64,37 +67,37 @@ class Session():
     def getSolicitacoes(self):
         self.solicitacoes_disponiveis = self.database.fetchTable(
             0, 'available_requests')
-        
+
     def buildMember(self, member):
         data = {
-                'id': member[0],
-                'user': member[1],
-                'password': member[2],
-                'name': member[3],
-                'uf': member[4],
-                'member': member[5],
-                'cep': member[6],
-                'email': member[7],
-                'telefone': member[8],
-                'celular': member[9],
-                'endereco': member[10],
-                'numero': member[11],
-                'complemento': member[12],
-                'bairro': member[13],
-                'cidade': member[14],
-                'pais': member[15],
-                'crm': member[16],
-                'curriculum': member[17],
-                'pessoa': member[18],
-                'temporario': member[19],
-                'primeiro_acesso': member[20],
-                'cpf': member[21],
-                'especialidades': member[22],
-                'pago': member[23],
-                'adm': member[24],
-                'lat': member[25],
-                'lng': member[26],
-            }
+            'id': member[0],
+            'user': member[1],
+            'password': member[2],
+            'name': member[3],
+            'uf': member[4],
+            'member': member[5],
+            'cep': member[6],
+            'email': member[7],
+            'telefone': member[8],
+            'celular': member[9],
+            'endereco': member[10],
+            'numero': member[11],
+            'complemento': member[12],
+            'bairro': member[13],
+            'cidade': member[14],
+            'pais': member[15],
+            'crm': member[16],
+            'curriculum': member[17],
+            'pessoa': member[18],
+            'temporario': member[19],
+            'primeiro_acesso': member[20],
+            'cpf': member[21],
+            'especialidades': member[22],
+            'pago': member[23],
+            'adm': member[24],
+            'lat': member[25],
+            'lng': member[26],
+        }
         return data
 
     def getMembers(self):
@@ -130,17 +133,17 @@ class Session():
             cpf = int(user)
         except:
             pass
-        
+
         if '@' in user:
             email = True
-        
+
         if cpf:
             column = 'cpf'
         elif email:
             column = 'email'
         else:
             column = 'user'
-        
+
         try:
             sql = f"SELECT * FROM Membros WHERE {column} = '{user}' ;"
             data = self.database.run(sql)[0]
@@ -183,7 +186,8 @@ class Session():
 
     def get_blog(self, membro):
         try:
-            blog_list = self.database.fetchTable(0, 'Blog', 'assinatura', membro)
+            blog_list = self.database.fetchTable(
+                0, 'Blog', 'assinatura', membro)
             if blog_list:
                 return blog_list
         except:
@@ -196,7 +200,7 @@ class Session():
         data = (id, data['member'], data['title'],
                 data['content'], data['author'], date)
         self.database.insertPost(data)
-        
+
     def editMember(self, data):
         try:
             if not self.database.connection.is_connected():
@@ -221,8 +225,7 @@ class Session():
         except Exception as error:
             print(error)
             return 'False'
-        
-    
+
     def getEspecialidades(self):
         try:
             if not self.database.connection.is_connected():
@@ -235,7 +238,7 @@ class Session():
         print(data)
 
         return data
-    
+
     def setEspecialidades(self, data):
         try:
             if not self.database.connection.is_connected():
@@ -250,12 +253,12 @@ class Session():
             print(error)
         finally:
             return {'especialidades': data['especialidades']}
-        
+
     def getCepDistance(self, origem, destino):
         distance = geopy.distance.geodesic(origem, destino).km
 
         return distance
-        
+
     def getCoords(self, address):
         address = address.replace(' ', '+')
         url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={google_api_key}'
@@ -263,17 +266,18 @@ class Session():
         response = json.loads(requests.get(url).text)
         if response['results']:
             location = response['results'][0]['geometry']['location']
-            
+
             return (location['lat'], location['lng'])
-        
+
     def trySendMail(self, encrypted, username):
         sql = f"SELECT * FROM Membros WHERE user='{username}' ;"
         result = self.database.run(sql, json=True)
-        
+
         if result:
             message = recoverPasswordTemplate(username, encrypted)
-            sendMail(result[0]['email'], "Sbop - Recuperar senha", html=message)
-            return {'msg': f'Um link para redefinicação de senha foi enviado para o e-mail do usuário'}
+            sendMail(result[0]['email'],
+                     "Sbop - Recuperar senha", html=message)
+            return {'msg': f'Um link para redefinição de senha foi enviado para o e-mail do usuário'}
         else:
             return {'msg': 'Usuário não encontrado'}
 
@@ -283,21 +287,21 @@ class Session():
         encrypted = cipher.encrypt(text.encode())
 
         return encrypted
-    
+
     def decrypt(self, encrypted):
         key = b'XJix9-kcLVndopzt3V61Mogzwn_e5xag1vsGlTIFeP4='
         cipher = Fernet(key)
         decrypted = cipher.decrypt(encrypted).decode()
 
         return decrypted
-    
+
     def getUser(self, username):
         sql = f"SELECT * FROM Membros WHERE user = '{username}' ;"
         result = self.database.run(sql, json=True)
         print(result)
 
         return result[0] if result else None
-    
+
     def changePassword(self, data):
         sql = f"UPDATE Membros SET senha = '{data['senha']}' WHERE id = {data['id']} ;"
         try:
@@ -306,7 +310,7 @@ class Session():
         except Exception as error:
             print(error)
             return {'error': 'error'}
-        
+
     def getPosts(self, data):
         try:
             if not self.database.connection.is_connected():
@@ -324,8 +328,7 @@ class Session():
         post = self.database.run(sql, json=True)
 
         return post
-    
-    
+
     def editPost(self, data):
         sql = f"""UPDATE conteudos SET 
                 titulo = '{data['titulo']}',
@@ -341,9 +344,9 @@ class Session():
         except Exception as error:
             print(error)
             return {'error': error}
-        
+
     def newPost(self, data):
-            
+
         sql = f"""INSERT INTO conteudos 
             (video, categoria, resumo, titulo, conteudo, autor, data)
             VALUES
@@ -351,12 +354,13 @@ class Session():
         """
         try:
             self.database.run(sql, commit=True)
-            id = self.database.run('select * from conteudos order by id desc limit 1', json=True)[-1]['id']
+            id = self.database.run(
+                'select * from conteudos order by id desc limit 1', json=True)[-1]['id']
             return {'success': 'publicacao inserida', 'id': id}
         except Exception as error:
             print(error)
             return {'error': error}
-        
+
     def getMemberPosts(self, assinatura):
         posts = []
         sql = f"SELECT * FROM conteudos ;"
@@ -364,7 +368,7 @@ class Session():
         for post in data:
             if post['categoria'] == 'Aspirante':
                 posts.append(post)
-                
+
             if post['categoria'] == 'Associado':
                 if assinatura == 'Associado' or assinatura == 'Titular':
                     posts.append(post)
@@ -374,9 +378,8 @@ class Session():
                     posts.append(post)
 
         return posts
-    
+
     def sendDocuments(self, data, attachment):
-        sendMail('noreply@sbop.com.br', f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
+        sendMail('noreply@sbop.com.br',
+                 f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
         return {'teste': 'teste'}
-    
-    
