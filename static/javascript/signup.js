@@ -48,8 +48,8 @@ $('form').on('submit', (event) => {
         processData: false,
         contentType: 'application/json'
     }).done((response) => {
-        console.log(response);
-        if (response.success) {
+        data = JSON.parse(response)
+        if (data.success) {
             window.location.href = '/home/';
         }
     });
