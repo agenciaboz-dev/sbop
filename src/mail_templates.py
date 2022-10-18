@@ -10,81 +10,83 @@ def recoverPasswordTemplate(nome, link):
     <title>Redefinição de senha - SBOP</title>
     <style>
         :root {{
-    --primary-color: #0C6397;
-    --input-background: #E4E4E4;
-    --primary-text-color: #8D8D8D;
-    --secondary-text-color: #6B6B6B;
-    --line-color: #707070;
-}}
+            --primary-color: #0C6397;
+            --input-background: #E4E4E4;
+            --primary-text-color: #8D8D8D;
+            --secondary-text-color: #6B6B6B;
+            --line-color: #707070;
+        }}
 
-@font-face {{
-    font-family: Montserrats;
-    src: url("/static/fonts/Montserrat-Regular.otf");
-}}
+        @font-face {{
+            font-family: Montserrats;
+            src: url("/static/fonts/Montserrat-Regular.otf");
+        }}
 
-@font-face {{
-    font-family: Montserrats;
-    src: url("/static/fonts/Montserrat-Bold.otf");
-    font-weight: bold;
-}}
+        @font-face {{
+            font-family: Montserrats;
+            src: url("/static/fonts/Montserrat-Bold.otf");
+            font-weight: bold;
+        }}
 
-* {{
-    box-sizing: border-box;
-    font-family: Montserrats;
-    width: 100%;
-}}
+        * {{
+            box-sizing: border-box;
+            font-family: Montserrats;
+            width: 100%;
+        }}
 
-body {{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #E4E4E4;
-}}
+        body {{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #E4E4E4;
+        }}
 
-.main-container {{
-    display: flex;
-    flex-direction: column;
-    height: min-content;
-    width: min-content;
-    background-color: white;
-    border-radius: 2vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 7.5vh;
-    padding: 2vh 2vw 3vh;
-    outline: #0C6397 solid 0.4vw;
-}}
+        .main-container {{
+            display: flex;
+            flex-direction: column;
+            height: min-content;
+            width: 90%;
+            background-color: white;
+            border-radius: 2vw;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 7.5vh;
+            padding: 2vh 2vw 3vh;
+            outline: var(--primary-color) solid 0.4vw;
+        }}
 
-.top-row {{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}}
+        .top-row {{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+        }}
 
-img {{
-    height: 30vh;
-    width: auto;
-    position: absolute;
-    right: 12vw;
-    top: 5vh;
-}}
+        img {{
+            height: 30vh;
+            width: auto;
+            position: absolute;
+            right: 5px;
+            top: 0;
+        }}
 
-.bottom-row {{
-    display: flex;
-    flex-direction: row;
-}}
+        .bottom-row {{
+            display: flex;
+            flex-direction: row;
+            word-wrap: break-word;
+        }}
 
-h1 {{
-    color: var(--secondary-text-color);
-    margin: 2vh 0;
-}}
+        h1 {{
+            color: var(--secondary-text-color);
+            margin: 2vh 0;
+        }}
 
-h2 {{
-    color: var(--primary-text-color);
-}}
+        h2 {{
+            color: var(--primary-text-color);
+        }}
 
-a {{
-    color: var(--primary-color);
-}}
+        a {{
+            color: var(--primary-color);
+        }}
     </style>
 </head>
 
