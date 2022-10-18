@@ -29,7 +29,7 @@ $('form').on('submit', (event) => {
         crm: $('#crm').val(),
         curriculum: $('#curriculum').val(),
         pessoa: $('input[name="pessoa"]:checked').val(),
-        temporario: 'True',
+        temporario: 'False',
         primeiro_acesso: 'False',
         cpf: $('#cpf').val(),
         especialidades: especialidades,
