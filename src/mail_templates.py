@@ -1,5 +1,5 @@
 def recoverPasswordTemplate(nome, link):
-    return f"""
+    return """
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,17 +93,17 @@ a {
         <div class="top-row">
             <div>
                 <h1>Redefinição de senha - SBOP</h1>
-                <h2>Nome de usuário: {nome}</h2>
+                <h2>Nome de usuário: %(nome)s</h2>
             </div>
             <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
         </div>
         <div class="bottom-row">
             <p>Clique no link para redefinir sua senha: <a
-                    href="{link}">{link}</a>
+                    href="%(link)s">%(link)s</a>
             </p>
         </div>
     </div>
 </body>
 
 </html>
-"""
+""" % {"nome": nome, "link": link}
