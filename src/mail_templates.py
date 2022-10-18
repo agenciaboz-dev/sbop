@@ -1,5 +1,5 @@
 def recoverPasswordTemplate(nome, link):
-    return """
+    return f"""
 <!DOCTYPE html>
 <html lang="en">
 
