@@ -627,7 +627,7 @@ def loadMember():
 def preLoad(req):
     global member
 
-    data = eval(req.text)
+    data = eval(req.text.replace('null', 'None'))
     member = Member(data)
 
     if member.type:
