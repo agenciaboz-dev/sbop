@@ -35,23 +35,22 @@ def recoverPasswordTemplate(nome, link):
             margin: 7.5vh;
             padding: 2vh 2vw 3vh;
             outline: #0C6397 solid 0.4vw;
+            word-wrap: break-word;
         }}
 
         img {{
             height: 30vh;
             width: auto;
-            position: absolute;
-            right: 75px;
-            top: 25px;
+            pointer-events: none;
         }}
 
         h1 {{
-            color: #6B6B6B;
+            color: #0C6397;
             margin: 2vh 0;
         }}
 
         h2 {{
-            color: #8D8D8D;
+            color: #6B6B6B;
         }}
 
         a {{
@@ -62,13 +61,12 @@ def recoverPasswordTemplate(nome, link):
 
 <body>
     <div class="main-container">
+        <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
         <div>
-            <h1>Redefinição de senha - SBOP</h1>
+            <h1>Redefinição de senha - Sistema SBOP</h1>
             <h2>Nome de usuário: {nome}</h2>
         </div>
-        <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
-        <p>Clique no link para redefinir sua senha: <a
-                href="{link}">{link}</a>
+        <p>Clique no link para redefinir sua senha: <a href="{link}">{link}</a>
         </p>
     </div>
 </body>
