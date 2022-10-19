@@ -510,6 +510,9 @@ button:hover {
         flex-direction: column;
         z-index: 9;
         width: 100%;
+        // box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.5);
+        // outline: var(--line-color) solid 2px;
+        margin-top: 10vh;
 
         hr {
             display: none;
@@ -536,12 +539,9 @@ button:hover {
         align-items: center;
     }
 
-    // .info-container {
-    //     display: flex;
-    //     justify-content: center;
-    //     width: fit-content;
-    //     align-self: center;
-    // }
+    .info-container {
+        margin: 3vh 0;
+    }
 
     .info-container>div {
         // display: flex;
@@ -552,12 +552,12 @@ button:hover {
     }
 
     .info-container>div>h1 {
-        font-size: 3vw;
+        font-size: 4.5vw;
         margin: 0;
     }
 
     .info-container>div>p {
-        font-size: 2.5vw;
+        font-size: 3.5vw;
         margin: 0.5vw 0 1vw;
     }
 
@@ -569,11 +569,16 @@ button:hover {
     }
 
     #profile-picture {
-        width: 30vw;
         height: 30vw;
+        width: 30vw;
     }
 
     #camera-icon {
-        width: 5vw;
+        width: 8vw;
+    }
+
+    .camera-icon-container {
+        right: 0;
+        top: 0;
     }
 }
