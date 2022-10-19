@@ -115,3 +115,7 @@ const _get_member = setInterval(() => {
 
     }
 }, 100);
+
+$('#menu-button').on('click', (event) => {
+    $('.body-toolbar').fadeToggle();
+})
