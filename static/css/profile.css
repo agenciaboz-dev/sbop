@@ -481,11 +481,10 @@ button:hover {
     display: contents;
   }
   #menu-button img {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    margin: 2.5vw;
+    align-self: flex-end;
     height: 45px;
-    width: auto;
+    object-fit: contain;
     filter: invert(28%) sepia(25%) saturate(3605%) hue-rotate(176deg) brightness(96%) contrast(91%);
   }
   .body-container {
