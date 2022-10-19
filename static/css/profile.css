@@ -28,6 +28,10 @@ body {
   overflow: hidden;
 }
 
+#menu-button {
+  display: none;
+}
+
 .body-container {
   display: flex;
   flex-direction: column;
@@ -134,7 +138,6 @@ button:hover {
 }
 
 .toolbar-active {
-  background-color: white;
   cursor: default;
 }
 
@@ -473,6 +476,10 @@ button:hover {
   body {
     overflow-y: scroll;
   }
+  #menu-button {
+    height: 5vh;
+    position: absolute;
+  }
   .body-container {
     height: 94vh;
     margin-top: 3vh;
@@ -501,11 +508,31 @@ button:hover {
     flex-direction: column;
     align-items: center;
   }
+  .info-container > div {
+    align-items: center;
+    margin: 0 2vw;
+    width: 35vw;
+  }
+  .info-container > div > h1 {
+    font-size: 3vw;
+    margin: 0;
+  }
+  .info-container > div > p {
+    font-size: 2.5vw;
+    margin: 0.5vw 0 1vw;
+  }
   .profile-buttons {
     padding: 3px;
     height: fit-content;
     width: 13vw;
     border-radius: 5vw;
+  }
+  #profile-picture {
+    width: 30vw;
+    height: 30vw;
+  }
+  #camera-icon {
+    width: 5vw;
   }
 }
 
