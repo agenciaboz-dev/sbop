@@ -138,6 +138,7 @@ button:hover {
 }
 
 .toolbar-active {
+  background-color: white;
   cursor: default;
 }
 
@@ -477,8 +478,15 @@ button:hover {
     overflow-y: scroll;
   }
   #menu-button {
-    height: 5vh;
+    display: contents;
+  }
+  #menu-button img {
     position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 45px;
+    width: auto;
+    filter: invert(28%) sepia(25%) saturate(3605%) hue-rotate(176deg) brightness(96%) contrast(91%);
   }
   .body-container {
     height: 94vh;
