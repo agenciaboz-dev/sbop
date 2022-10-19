@@ -485,6 +485,7 @@ button:hover {
     align-self: flex-end;
     height: 45px;
     object-fit: contain;
+    z-index: 10;
     filter: invert(28%) sepia(25%) saturate(3605%) hue-rotate(176deg) brightness(96%) contrast(91%);
   }
   .body-container {
@@ -493,18 +494,21 @@ button:hover {
     border-radius: 9vw;
   }
   .body-toolbar {
+    position: absolute;
     border-radius: 9vw;
     flex-direction: column;
+    z-index: 9;
+    width: 100%;
   }
   .body-toolbar hr {
     display: none;
   }
   .toolbar h1 {
-    font-size: 5vw;
+    font-size: 6.5vw;
     margin-bottom: 0.2vw;
   }
   .toolbar p {
-    font-size: 3vw;
+    font-size: 4.5vw;
     margin-top: 0.2vw;
   }
   #toolbar-profile {
