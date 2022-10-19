@@ -117,7 +117,10 @@ const _get_member = setInterval(() => {
 }, 100);
 
 /* MOBILE STYLING */
-$('#menu-button').on('click', (event) => {
+$('#menu-button').on('click', () => {
+    $('.body-toolbar').fadeToggle();
+})
+$('.toolbar').on('click', () => {
     $('.body-toolbar').fadeToggle();
 })
 $('.body-toolbar').toggle();
