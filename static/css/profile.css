@@ -476,6 +476,7 @@ button:hover {
   }
   body {
     overflow-y: scroll;
+    background-color: white;
   }
   #menu-button {
     display: contents;
@@ -483,7 +484,7 @@ button:hover {
   #menu-button img {
     margin: 2.5vw;
     align-self: flex-end;
-    height: 45px;
+    height: 50px;
     object-fit: contain;
     z-index: 10;
     filter: invert(28%) sepia(25%) saturate(3605%) hue-rotate(176deg) brightness(96%) contrast(91%);
@@ -492,24 +493,26 @@ button:hover {
     height: 94vh;
     margin-top: 3vh;
     border-radius: 9vw;
+    filter: none;
   }
   .body-toolbar {
     position: absolute;
     border-radius: 9vw;
     flex-direction: column;
     z-index: 9;
-    width: 100%;
+    width: 90%;
+    box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.3);
     margin-top: 10vh;
   }
   .body-toolbar hr {
     display: none;
   }
   .toolbar h1 {
-    font-size: 6.5vw;
+    font-size: 4vh;
     margin-bottom: 0.2vw;
   }
   .toolbar p {
-    font-size: 4.5vw;
+    font-size: 3vh;
     margin-top: 0.2vw;
   }
   #toolbar-profile {
@@ -519,32 +522,39 @@ button:hover {
   .info-container-wrapper {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 3vh;
   }
   .info-container {
-    margin: 3vh 0;
+    flex-direction: column;
+    margin: 3vh 1vw;
   }
   .info-container > div {
     align-items: center;
     margin: 0 2vw;
-    width: 35vw;
+    width: 90vw;
   }
   .info-container > div > h1 {
-    font-size: 4.5vw;
-    margin: 0;
+    font-size: 4vh;
+    margin-top: 1vh;
   }
   .info-container > div > p {
-    font-size: 3.5vw;
-    margin: 0.5vw 0 1vw;
+    font-size: 3vh;
+    margin: 0.5vw 0 1vh;
   }
   .profile-buttons {
-    padding: 3px;
+    font-size: 3vh;
+    padding: 1vw;
     height: fit-content;
-    width: 13vw;
-    border-radius: 5vw;
+    width: 18vw;
+    border-radius: 15vw;
+  }
+  .body-container span {
+    font-size: 2vh;
+    padding: 1vw;
   }
   #profile-picture {
-    height: 30vw;
-    width: 30vw;
+    height: 35vw;
+    width: 35vw;
   }
   #camera-icon {
     width: 8vw;
@@ -552,6 +562,59 @@ button:hover {
   .camera-icon-container {
     right: 0;
     top: 0;
+  }
+  #edit-skills {
+    border-radius: 5vw;
+    font-size: 3vh;
+    height: fit-content;
+    width: fit-content;
+    padding: 1vw;
+  }
+  #edit-curriculum {
+    right: 0;
+    top: 0;
+    border-radius: 5vw;
+    font-size: 3vh;
+    height: fit-content;
+    width: fit-content;
+    padding: 1vw;
+  }
+  .curriculum-container {
+    height: fit-content;
+    margin: 3vh 1vw;
+    transition: 0.3s;
+  }
+  .curriculum-container h1 {
+    font-size: 4vh;
+  }
+  .curriculum-container p {
+    font-size: 3vh;
+    margin-top: 6vh;
+  }
+  .curriculum-container span {
+    top: 6vh;
+    right: 35vw;
+  }
+  .floating-button {
+    margin-top: -6vh;
+    width: 46vw;
+    font-size: 2.5vh;
+    height: fit-content;
+    padding-left: 2.5vw;
+  }
+  .profile-buttons:last-of-type {
+    margin-left: 50vw;
+  }
+  #toolbar-requests {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 9vw;
+    border-bottom-right-radius: 9vw;
+  }
+  .curriculum-container > textarea {
+    font-size: 3vh;
+    margin-top: 6vh;
+    border-radius: 3vw;
+    height: fit-content;
   }
 }
 
