@@ -29,14 +29,19 @@
             width: 90%;
             background-color: white;
             border-radius: 2vw;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
             margin: 7.5vh;
             padding: 2vh 2vw 3vh;
             outline: #0C6397 solid 0.4vw;
             word-wrap: break-word;
         }
 
+        .top-row {
+            display: flex;
+        }
+
         img {
+            align-self: flex-end;
             height: 100px;
             width: auto;
             margin: -20px 0;
@@ -60,8 +65,10 @@
 
 <body>
     <div class="main-container">
-        <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
-        <h1>Redefinição de senha - Sistema SBOP</h1>
+        <div class="top-row">
+            <h1>Redefinição de senha - Sistema SBOP</h1>
+            <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
+        </div>
         <h2>Nome de usuário: {nome}</h2>
         <p>Clique no link para redefinir sua senha: <a href="{link}">{link}</a>
         </p>
