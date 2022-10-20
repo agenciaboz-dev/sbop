@@ -1,41 +1,71 @@
-/* ----- SAFETY CONTAINER ----- */
-
+/* ----- SECURITY CONTAINER ----- */
 #security-container {
-    display: flex;
-    margin: 0;
+  display: flex;
+  margin: 0;
 }
 
-
-#security-container>form {
-    flex: 0.5;
-    display: flex;
-    flex-direction: column;
-    margin: 4vw;
-    margin-top: 2vw;
-    font-size: 0.9vw;
+#security-container > form {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  margin: 4vw;
+  margin-top: 2vw;
+  font-size: 0.9vw;
 }
 
-#security-container>form>input {
-    border-radius: 1.5vw;
-    height: 6vh;
-    background-color: var(--input-background);
-    border: none;
-    outline: none;
-    padding: 1vw;
-    color: var(--text-secondary);
-    font-size: 1vw;
+#security-container > form > input {
+  border-radius: 1.5vw;
+  height: 6vh;
+  background-color: var(--input-background);
+  border: none;
+  outline: none;
+  padding: 1vw;
+  color: var(--text-secondary);
+  font-size: 1vw;
 }
 
-#security-container>form>h1 {
-    font-size: 1.5vw;
+#security-container > form > h1 {
+  font-size: 1.5vw;
 }
 
-#security-container>form>label {
-    color: var(--text-secondary);
-    font-weight: bold;
-    margin-bottom: 0;
+#security-container > form > label {
+  color: var(--text-secondary);
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 ::placeholder {
-    opacity: 0.4;
+  opacity: 0.4;
 }
+
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: 3vh;
+  }
+  #security-container {
+    flex-direction: column;
+  }
+  #security-container > form > h1 {
+    font-size: 4vh;
+    margin-bottom: 2vh;
+  }
+  #security-container > form > input {
+    border-radius: 9vw;
+    padding: 2vw;
+    font-size: 2vw;
+    margin: 1vh 0;
+    padding-left: 3vw;
+    padding-top: 2.5vh;
+  }
+  button {
+    border-radius: 9vw;
+    margin: 2vh 0 4vh;
+    padding: 1vh;
+    height: 6vh;
+  }
+  ::placeholder {
+    font-size: 3vh;
+  }
+}
+
+/*# sourceMappingURL=security.css.map */
