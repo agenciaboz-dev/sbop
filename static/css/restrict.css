@@ -1,130 +1,183 @@
 /* ----- Restrict Container ----- */
-
 #restrict-container {
-    display: flex;
-    width: 100%;
-    height: 85%;
+  display: flex;
+  width: 100%;
+  height: 85%;
 }
 
-#restrict-container>hr {
-    margin-top: 15vh;
-    height: 40%;
+#restrict-container > hr {
+  margin-top: 15vh;
+  height: 40%;
 }
 
 .side-bar {
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    margin-top: 13vh;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin-top: 13vh;
 }
 
-.side-bar>h1 {
-    color: var(--text-terciary);
-    font-weight: bold;
-    font-size: 1.5vw;
+.side-bar > h1 {
+  color: var(--text-terciary);
+  font-weight: bold;
+  font-size: 1.5vw;
 }
 
 .content-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 .content-container h1 {
-    color: var(--text-terciary);
-    font-weight: bold;
+  color: var(--text-terciary);
+  font-weight: bold;
 }
 
 .restrict-toolbar {
-    display: flex;
-    width: 40%;
-    font-size: 1vw;
+  display: flex;
+  width: 40%;
+  font-size: 1vw;
 }
 
-.restrict-toolbar>h1 {
-    color: var(--text-secondary);
-    opacity: 0.3;
-    cursor: pointer;
-    transition: 0.3s;
+.restrict-toolbar > h1 {
+  color: var(--text-secondary);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.restrict-toolbar>hr {
-    margin: 1vh auto;
+.restrict-toolbar > hr {
+  margin: 1vh auto;
 }
 
 .active-restrict-tool {
-    color: var(--text-terciary) !important;
-    opacity: 1 !important;
-    pointer-events: none;
+  color: var(--text-terciary) !important;
+  opacity: 1 !important;
+  pointer-events: none;
 }
 
 #publicacoes-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 70%;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+  overflow-y: auto;
 }
 
-#publicacoes-container>hr {
-    width: 80%;
-    margin: 1vw auto;
+#publicacoes-container > hr {
+  width: 80%;
+  margin: 1vw auto;
 }
 
-#publicacoes-container>hr:last-of-type {
-    display: none;
+#publicacoes-container > hr:last-of-type {
+  display: none;
 }
 
 .restrict-content-wrapper {
-    display: flex;
+  display: flex;
 }
-
-
 
 #videos-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 70%;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+  overflow-y: auto;
 }
 
-#videos-container>hr {
-    width: 80%;
-    margin: 1vw auto;
+#videos-container > hr {
+  width: 80%;
+  margin: 1vw auto;
 }
 
-#videos-container>hr:last-of-type {
-    display: none;
+#videos-container > hr:last-of-type {
+  display: none;
 }
 
 .video-wrapper {
-    display: flex;
+  display: flex;
 }
 
 .restrict-content-data {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .restrict-content p:not(.restrict-content-author) {
-    font-size: 0.9vw;
+  font-size: 0.9vw;
 }
 
 .restrict-content-author {
-    color: var(--primary-color);
-    font-size: 0.7vw;
-    font-weight: bold;
-    margin-top: -1vh;
+  color: var(--primary-color);
+  font-size: 0.7vw;
+  font-weight: bold;
+  margin-top: -1vh;
 }
 
 .restrict-content h1 {
-    font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .restrict-media {
-    height: 20vw;
-    width: 20vw;
+  height: 20vw;
+  width: 20vw;
 }
+
+@media only screen and (max-width: 600px) {
+  .restrict-toolbar {
+    justify-content: space-around;
+    width: 100%;
+    font-size: 4vh;
+    margin: 3vh 0;
+  }
+  .restrict-toolbar > hr {
+    margin: 0 3vh;
+  }
+  #restrict-container {
+    flex-direction: column;
+    height: 100%;
+  }
+  #restrict-container * {
+    font-size: 3vh;
+  }
+  .side-bar {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2vh;
+  }
+  .side-bar > h1 {
+    font-size: 4vh;
+  }
+  #restrict-container > hr {
+    display: none;
+  }
+  #publicacoes-container {
+    height: 100%;
+    margin: 3vh 0;
+    overflow-y: visible;
+  }
+  .restrict-content-wrapper {
+    flex-direction: column;
+    margin: 3vh 0;
+  }
+  .restrict-media {
+    height: 40vw;
+    width: 40vw;
+    align-self: center;
+    margin-bottom: 3vh;
+  }
+  .restrict-content-data {
+    gap: 1vh;
+  }
+  #videos-container {
+    height: 100%;
+    margin: 3vh 0;
+    overflow-y: visible;
+  }
+}
+
+/*# sourceMappingURL=restrict.css.map */
