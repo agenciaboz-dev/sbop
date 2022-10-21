@@ -119,21 +119,44 @@
   }
   #requests-container p {
     font-size: 5vw;
-    margin: 7vw 0.5vw;
+    margin: 5vw 0 0;
   }
   #requests-container .requests-history {
-    overflow-x: scroll;
-    height: 85vw;
+    overflow-y: visible;
+    height: 100%;
+    width: 100%;
   }
   #requests-container .requests-history table {
     font-size: 4vw;
+    margin: 3vh 0;
   }
   #requests-container .requests-history table .table-header th:first-of-type {
     border-top-left-radius: 5vw;
     border-bottom-left-radius: 5vw;
   }
+  #requests-container .requests-history table .table-header th:last-of-type {
+    border-top-right-radius: 5vw;
+    border-bottom-right-radius: 5vw;
+  }
   #requests-container .requests-history table tbody td {
     padding: 2vw 8vw;
+  }
+  #requests-container .requests-history thead {
+    display: none;
+  }
+  #requests-container .requests-history tr {
+    display: flex;
+    flex-direction: column;
+    outline: #0C6397 solid 8px;
+    border-radius: 10vw;
+    margin: 6vh 0;
+  }
+  #requests-container .requests-history table td img {
+    height: 6vh;
+    width: auto;
+  }
+  #requests-container .requests-history tbody tr:first-of-type {
+    display: none;
   }
   #requests-container select {
     border-radius: 10vw;

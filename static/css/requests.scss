@@ -120,27 +120,55 @@
         h1 {
             font-size: 6.5vw;
         }
+
         p {
             font-size: 5vw;
-            margin: 7vw 0.5vw;
+            margin: 5vw 0 0;
         }
 
         .requests-history {
-            overflow-x: scroll;
-            height: 85vw;
+            overflow-y: visible;
+            height: 100%;
+            width: 100%;
 
             table {
                 font-size: 4vw;
+                margin: 3vh 0;
 
                 .table-header th:first-of-type {
                     border-top-left-radius: 5vw;
                     border-bottom-left-radius: 5vw;
                 }
 
+                .table-header th:last-of-type {
+                    border-top-right-radius: 5vw;
+                    border-bottom-right-radius: 5vw;
+                }
+
                 tbody td {
                     padding: 2vw 8vw;
                 }
-                
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                display: flex;
+                flex-direction: column;
+                outline: #0C6397 solid 8px;
+                border-radius: 10vw;
+                margin: 6vh 0;
+            }
+
+            table td img {
+                height: 6vh;
+                width: auto;
+            }
+
+            tbody tr:first-of-type {
+                display: none;
             }
         }
 
