@@ -39,11 +39,11 @@
 }
 
 @media only screen and (max-width: 600px) {
-  * {
-    font-size: 3vh;
-  }
   #security-container {
     flex-direction: column;
+  }
+  #security-container * {
+    font-size: 3vh;
   }
   #security-container > form > h1 {
     font-size: 4vh;
