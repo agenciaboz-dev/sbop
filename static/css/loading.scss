@@ -1,0 +1,24 @@
+#loading-screen {
+    background: url('/static/image/loading.webp') no-repeat center center;
+    position: absolute;
+    background-size: cover;
+    background-color: #185e8e;
+    top: -1vw;
+    left: -1vw;
+    bottom: -1vw;
+    right: -1vw;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    overflow: visible;
+    padding: -2vw;
+}
+
+@media only screen and (max-width: 600px) {
+    #loading-screen {
+        background: url('/static/image/loading_mobile.webp') no-repeat center center;
+        background-size: 105%;
+    }
+}

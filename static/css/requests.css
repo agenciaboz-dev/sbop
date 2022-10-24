@@ -120,6 +120,7 @@
   #requests-container p {
     font-size: 5vw;
     margin: 5vw 0 0;
+    display: none;
   }
   #requests-container .requests-history {
     overflow-y: visible;
@@ -140,6 +141,7 @@
   }
   #requests-container .requests-history table tbody td {
     padding: 2vw 8vw;
+    font-size: 3vh;
   }
   #requests-container .requests-history thead {
     display: none;
@@ -147,9 +149,12 @@
   #requests-container .requests-history tr {
     display: flex;
     flex-direction: column;
-    outline: #0C6397 solid 8px;
-    border-radius: 10vw;
+    border: #0C6397 solid 4px;
+    border-radius: 8vw;
     margin: 6vh 0;
+    padding-top: 2vh;
+    background-color: white;
+    box-shadow: 0 0 1.5vh 1.5vh rgba(0, 0, 0, 0.15);
   }
   #requests-container .requests-history table td img {
     height: 6vh;

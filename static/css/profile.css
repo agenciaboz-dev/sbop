@@ -569,6 +569,7 @@ button:hover {
     height: fit-content;
     width: fit-content;
     padding: 1vw;
+    margin: 1vh 1vw;
   }
   #edit-curriculum {
     right: 0;
@@ -615,6 +616,32 @@ button:hover {
     margin-top: 6vh;
     border-radius: 3vw;
     height: fit-content;
+  }
+  /* Floating Pop Up */
+  .popup {
+    border-radius: 8vw;
+    top: 21.5vh;
+    box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.3);
+    border: none;
+    padding: 3vh;
+    width: 90%;
+    word-wrap: break-word;
+  }
+  .popup > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  }
+  .popup h1 {
+    margin-bottom: 3vh;
+  }
+  .popup label {
+    width: 20vw;
+  }
+  .popup button {
+    width: 50%;
+    height: fit-content;
+    margin: 3vh 0 0;
   }
 }
 
