@@ -486,6 +486,7 @@ h2 {
   }
   .list-container {
     width: 80vw;
+    overflow-y: auto;
   }
   .profile-data-field {
     overflow-y: scroll;

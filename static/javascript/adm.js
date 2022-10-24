@@ -95,6 +95,12 @@ const buildList = (list) => {
     }
     $('.member-container').on('click', onclickMember)
     $('.member-type').on('click', onClickMemberType)
+    if ($(window).width() < $(window).height()) {
+        $('.member-container').on('click', () => {
+            profile.show();
+            $('.list-wrapper').hide();
+        })
+    }
 }
 
 const buildProfile = (member) => {
@@ -256,3 +262,14 @@ $('form').on('submit', searchMember)
 $('#profile-save-button').on('click', onClickSave)
 $('#profile-reset-button').on('click', onClickCancel)
 $('document').ready(loadList)
+
+/* MOBILE STYLING */
+const profile = $('.profile-container');
+if ($(window).width() < $(window).height()) {
+    profile.hide();
+    profile.css('position', 'absolute');
+
+    $('.member-container').on('click', () => {
+        profile.show();
+    })
+}
