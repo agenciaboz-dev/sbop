@@ -137,7 +137,7 @@ class Tool():
         # reset selected plan
         if member.pago:
             jQuery('.selected-plan').removeClass('selected-plan')
-            jQuery('#plans-container > button').addClass('deactivated-button')
+            jQuery('#plans-container > .plans-panel > button').addClass('deactivated-button')
 
 
 class RestrictTool():
@@ -175,12 +175,12 @@ class Plan():
         jQuery('.selected-plan').removeClass('selected-plan')
 
         if self.name == member.type.lower():
-            jQuery('#plans-container > button').addClass('deactivated-button')
+            jQuery('#plans-container > .plans-panel > button').addClass('deactivated-button')
             selected_plan = None
             return None
 
         jQuery(self.element).addClass('selected-plan')
-        jQuery('#plans-container > button').removeClass('deactivated-button')
+        jQuery('#plans-container > .plans-panel > button').removeClass('deactivated-button')
         selected_plan = self
 
 
@@ -262,7 +262,7 @@ def loadActivePlan(member):
     if member.type.lower() == 'titular':
         jQuery('#aspirante').css('visibility', 'hidden')
         jQuery('#associado').css('visibility', 'hidden')
-        jQuery('#plans-container > button').hide()
+        jQuery('#plans-container > .plans-panel > button').hide()
     elif member.type.lower() == 'associado':
         jQuery('#aspirante').css('visibility', 'hidden')
 
@@ -292,9 +292,9 @@ def loadActivePlan(member):
         jQuery('.plans:not(.active-plan)').css('cursor', 'not-allowed')
         jQuery('.active-plan').css('cursor', 'auto')
 
-        jQuery('#plans-container > button').removeClass('deactivated-button')
-        jQuery('#plans-container > button').addClass('regularize-button')
-        jQuery('#plans-container > button').text('Regularize Já!')
+        jQuery('#plans-container > .plans-panel > button').removeClass('deactivated-button')
+        jQuery('#plans-container > .plans-panel > button').addClass('regularize-button')
+        jQuery('#plans-container > .plans-panel > button').text('Regularize Já!')
         
     else:
         jQuery('#toolbar-plans > img').hide()
