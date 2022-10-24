@@ -95,6 +95,8 @@ const buildList = (list) => {
     }
     $('.member-container').on('click', onclickMember)
     $('.member-type').on('click', onClickMemberType)
+
+    // mobile
     if ($(window).width() < $(window).height()) {
         $('.member-container').on('click', () => {
             profile.show();
@@ -214,6 +216,12 @@ const onClickSave = (event) => {
 
     if (confirm(`Tem certeza que deseja atualizar os dados do usuário ${member.user}?`)) {
         requisicaoUngida()
+
+        // mobile
+        if ($(window).width() < $(window).height()) {
+            profile.hide();
+            $('.list-wrapper').show();
+    }
     }
 }
 
@@ -269,7 +277,9 @@ if ($(window).width() < $(window).height()) {
     profile.hide();
     profile.css('position', 'absolute');
 
-    $('.member-container').on('click', () => {
-        profile.show();
+    $('#profile-reset-button').on('click', () => {
+        profile.hide();
+        $('.list-wrapper').show();
     })
+
 }

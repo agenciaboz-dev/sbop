@@ -418,6 +418,25 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey; */
+    border-radius: 10px;
+    margin: 1.5vw;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(203, 203, 203);
+    border-radius: 10px;
+  }
+  /* Corner */
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
   .main-container {
     border-radius: 7vw;
     overflow-y: scroll;
@@ -494,6 +513,7 @@ h2 {
   .profile-container {
     margin: 3vh 0;
     border: none;
+    height: 110vw;
   }
   .profile-buttons-container {
     margin: 3vh;
