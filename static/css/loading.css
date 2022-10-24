@@ -19,7 +19,7 @@
 @media only screen and (max-width: 600px) {
   #loading-screen {
     background: url("/static/image/loading_mobile.webp") no-repeat center center;
-    background-size: 110%;
+    background-size: 105%;
   }
 }
 
