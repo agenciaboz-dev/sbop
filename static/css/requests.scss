@@ -147,6 +147,7 @@
 
                 tbody td {
                     padding: 2vw 8vw;
+                    font-size: 3vh;
                 }
             }
 
@@ -157,9 +158,12 @@
             tr {
                 display: flex;
                 flex-direction: column;
-                outline: #0C6397 solid 8px;
-                border-radius: 10vw;
+                border: #0C6397 solid 4px;
+                border-radius: 8vw;
                 margin: 6vh 0;
+                padding-top: 2vh;
+                background-color: white;
+                box-shadow: 0 0 1.5vh 1.5vh rgba(0, 0, 0, 0.15);
             }
 
             table td img {
