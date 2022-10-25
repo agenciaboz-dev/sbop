@@ -49,7 +49,12 @@ $('form').on('submit', (event) => {
         contentType: 'application/json'
     }).done((response) => {
         // if (data.success) {
-        window.location.href = '/pagamento/';
+            const res = JSON.parse(response);
+            if (res.success) {
+                window.location.href = '/pagamento/';
+            } else {
+                alert(JSON.stringify(res, null, 2));
+            }
         // }
     });
 })

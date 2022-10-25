@@ -168,19 +168,21 @@ class Session():
     def signup(self, data):
         try:
             usuario = self.database.fetchTable(
-                1, 'Membros', 'user', data['user'])[0]
+                1, 'Membros', 'user', data['user'])
             if usuario:
                 return {'error': 'Usuário já cadastrado'}
 
             email = self.database.fetchTable(
-                1, 'Membros', 'email', data['email'])[0]
+                1, 'Membros', 'email', data['email'])
             if email:
                 return {'error': 'E-mail já cadastrado'}
             
             cpf = self.database.fetchTable(
-                1, 'Membros', 'cpf', data['cpf'])[0]
+                1, 'Membros', 'cpf', data['cpf'])
             if cpf:
                 return {'error': 'CPF já cadastrado'}
+            
+            raise 'erro'
 
         except:
             coords = self.getCoords(data['cep'])
