@@ -176,6 +176,11 @@ class Session():
                 1, 'Membros', 'email', data['email'])[0]
             if email:
                 return {'error': 'E-mail já cadastrado'}
+            
+            cpf = self.database.fetchTable(
+                1, 'Membros', 'cpf', data['cpf'])[0]
+            if cpf:
+                return {'error': 'CPF já cadastrado'}
 
         except:
             coords = self.getCoords(data['cep'])
