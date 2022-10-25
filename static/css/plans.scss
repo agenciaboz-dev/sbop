@@ -298,6 +298,10 @@
     background-color: #9F9E9E;
 }
 
+.plans-panel {
+    display: contents;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         overflow-y: scroll;
@@ -365,5 +369,91 @@
 
     .active-plan>div {
         margin-bottom: 2vh;
+    }
+
+    .documents-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .docs-row2 {
+            flex-direction: column;
+
+            .docs-row2-column1 {
+                width: 100%;
+                gap: 5vw;
+                margin: 5vw 0;
+
+                p {
+                    margin: 0;
+                }
+
+                .warning {
+                    padding: 2vw;
+                    gap: 2vw;
+                    border-radius: 15vw;
+
+                    img {
+                        align-self: center;
+                        height: 10vw;
+                    }
+
+                    p {
+                        font-size: 4vw!important;
+                    }
+                }
+
+                h3 {
+                    font-size: 6.5vw;
+                }
+
+                .license-info {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 5vw;
+                    margin: 0;
+
+                    .document-circle {
+                        width: 20vw;
+                        height: 20vw;
+                        align-items: center;
+                        justify-content: center;
+
+                        h1 {
+                            font-size: 10vw!important;
+                        }
+                    }
+                }
+            }
+
+            .dashed-box {
+                padding: 0;
+                height: auto;
+
+                .search-box {
+                    height: 45vw;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 5vw 2vw;
+                    border-radius: 15vw;
+
+                    img {
+                        height: 20vw;
+                    }
+                }
+            }
+        }
+
+        .plans-buttons-container {
+            position: relative;
+            justify-content: space-evenly;
+            margin: 0;
+            right: 0;
+            bottom: 0;
+
+            button {
+                width: 20vw;
+            }
+        }
     }
 }

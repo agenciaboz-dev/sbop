@@ -297,6 +297,10 @@
   background-color: #9F9E9E;
 }
 
+.plans-panel {
+  display: contents;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     overflow-y: scroll;
@@ -350,6 +354,76 @@
   }
   .active-plan > div {
     margin-bottom: 2vh;
+  }
+  .documents-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .documents-container .docs-row2 {
+    flex-direction: column;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 {
+    width: 100%;
+    gap: 5vw;
+    margin: 5vw 0;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 p {
+    margin: 0;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 .warning {
+    padding: 2vw;
+    gap: 2vw;
+    border-radius: 15vw;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 .warning img {
+    align-self: center;
+    height: 10vw;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 .warning p {
+    font-size: 4vw !important;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 h3 {
+    font-size: 6.5vw;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 .license-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 5vw;
+    margin: 0;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 .license-info .document-circle {
+    width: 20vw;
+    height: 20vw;
+    align-items: center;
+    justify-content: center;
+  }
+  .documents-container .docs-row2 .docs-row2-column1 .license-info .document-circle h1 {
+    font-size: 10vw !important;
+  }
+  .documents-container .docs-row2 .dashed-box {
+    padding: 0;
+    height: auto;
+  }
+  .documents-container .docs-row2 .dashed-box .search-box {
+    height: 45vw;
+    align-items: center;
+    justify-content: center;
+    margin: 5vw 2vw;
+    border-radius: 15vw;
+  }
+  .documents-container .docs-row2 .dashed-box .search-box img {
+    height: 20vw;
+  }
+  .documents-container .plans-buttons-container {
+    position: relative;
+    justify-content: space-evenly;
+    margin: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .documents-container .plans-buttons-container button {
+    width: 20vw;
   }
 }
 

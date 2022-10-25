@@ -1,3 +1,4 @@
+const mobile = $(window).width() < $(window).height();
 const especialidades_button = $('#edit-skills')
 const popup = $('#js-floating-popup')
 var membro = {}
@@ -104,6 +105,12 @@ const _get_member = setInterval(() => {
                     $('#upgrade-plan-button').on('click', (event) => {
                         if ($('.active-plan').attr('id') == 'associado') {
                             $('.documents-container').fadeToggle();
+
+                            if (mobile) {
+                                $('.plans-panel').hide();
+                                window.scrollTo(0, 0);
+                            }
+                            
                         }
                     });
                 } else {
@@ -117,7 +124,7 @@ const _get_member = setInterval(() => {
 }, 100);
 
 /* MOBILE STYLING */
-if ($(window).width() < $(window).height()) {
+if (mobile) {
     $('#menu-button').on('click', () => {
         $('.body-toolbar').fadeToggle();
     })
@@ -125,4 +132,8 @@ if ($(window).width() < $(window).height()) {
         $('.body-toolbar').fadeToggle();
     })
     $('.body-toolbar').toggle();
+
+    $('#plans-cancel-button').on('click', () => {
+        $('.plans-panel').fadeIn('slow');
+    })
 }
