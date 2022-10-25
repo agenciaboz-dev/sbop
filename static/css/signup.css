@@ -254,6 +254,11 @@ button:hover {
   background-color: #084468;
 }
 
+#feedback {
+  color: red;
+  align-self: center;
+}
+
 @media only screen and (max-width: 600px) {
   .main-container {
     align-items: center;

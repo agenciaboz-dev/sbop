@@ -265,6 +265,11 @@ button:hover {
     background-color: darken(#0C6397, 10);
 }
 
+#feedback {
+    color: red;
+    align-self: center;
+}
+
 @media only screen and (max-width: 600px) {
 
     .main-container {
@@ -344,4 +349,5 @@ button:hover {
         font-size: 80%;
         width: 50vw;
     }
+
 }
