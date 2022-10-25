@@ -129,7 +129,7 @@ const _get_member = setInterval(() => {
                             $('#upgrade-plan-button').addClass('deactivated-button');
                         }
                     })
-                    
+
                     $('#upgrade-plan-button').on('click', (event) => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
@@ -142,6 +142,9 @@ const _get_member = setInterval(() => {
                     $('#toolbar-restrict').css('pointer-events', 'none');
                     $('#toolbar-requests').css('opacity', '0.5');
                     $('#toolbar-requests').css('pointer-events', 'none');
+
+                    $('#vigencia-text').text('Pagamento não confirmado');
+                    $('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)');
                 }
             });
         }, 100)
