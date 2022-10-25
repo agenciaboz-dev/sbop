@@ -425,6 +425,9 @@
   .documents-container .plans-buttons-container button {
     width: 20vw;
   }
+  .payment-container {
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=plans.css.map */
