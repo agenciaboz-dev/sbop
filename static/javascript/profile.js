@@ -66,6 +66,7 @@ $('document').ready(() => {
     });
 
     $('.documents-container').hide();
+    $('.payment-container').hide();
 
 })
 
@@ -103,7 +104,7 @@ const _get_member = setInterval(() => {
 
                 if (membro.pago) {
                     $('#upgrade-plan-button').on('click', (event) => {
-                        if ($('.active-plan').attr('id') == 'associado') {
+                        if (membro.assinatura == 'Associado') {
                             $('.documents-container').fadeToggle();
 
                             if (mobile) {
@@ -114,7 +115,33 @@ const _get_member = setInterval(() => {
                         }
                     });
                 } else {
-                    alert('seguir pro pagamento');
+                    $('.plans').on('click', (event) => {
+                        $('.selected-plan').removeClass('selected-plan');
+                        $(event.target).closest('.plans').addClass('selected-plan');
+                        $('#upgrade-plan-button').removeClass('deactivated-button');
+                    })
+
+                }
+
+                if (!(membro.assinatura == 'Associado')) {
+                    $('.plans').on('click', (event) => {
+                        if ($(event.target).closest('.plans').attr('id') == 'titular') {
+                            $('#upgrade-plan-button').addClass('deactivated-button');
+                        }
+                    })
+                    
+                    $('#upgrade-plan-button').on('click', (event) => {
+                        $('.plans-panel').fadeOut(0, () => {
+                            $('.payment-container').fadeIn();
+                        });
+                    })
+                }
+                
+                if (!membro.assinatura) {
+                    $('#toolbar-restrict').css('opacity', '0.5');
+                    $('#toolbar-restrict').css('pointer-events', 'none');
+                    $('#toolbar-requests').css('opacity', '0.5');
+                    $('#toolbar-requests').css('pointer-events', 'none');
                 }
             });
         }, 100)
@@ -123,11 +150,17 @@ const _get_member = setInterval(() => {
     }
 }, 100);
 
-/* MOBILE STYLING */
-if (mobile) {
-    $('#menu-button').on('click', () => {
-        $('.body-toolbar').fadeToggle();
+$('.payment-container button').on('click', () => {
+    $('.payment-container').fadeOut(0, () => {
+        $('.plans-panel').fadeIn();
     })
+})
+
+/* MOBILE STYLING */
+$('#menu-button').on('click', () => {
+    $('.body-toolbar').fadeToggle();
+})
+if (mobile) {
     $('.toolbar').on('click', () => {
         $('.body-toolbar').fadeToggle();
     })
