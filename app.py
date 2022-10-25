@@ -63,6 +63,10 @@ def adm_page():
     
     return render_template('adm.html')
 
+@app.route('/pagamento/', methods=['GET'])
+def payment_page():
+    return render_template('payment.html')
+
 
 @app.route('/adm_posts/', methods=['GET'])
 def adm_posts_page():
