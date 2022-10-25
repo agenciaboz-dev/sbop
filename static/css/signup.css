@@ -194,6 +194,12 @@ input[type=radio] {
   width: 10%;
 }
 
+input[type=checkbox] {
+  margin: 1vw 0;
+  padding: 0;
+  width: 10%;
+}
+
 #juridica {
   margin-left: 1.15vw;
 }
@@ -284,6 +290,11 @@ button:hover {
     padding-left: 3vw;
   }
   input[type=radio] {
+    margin: 1vh 2vw;
+    padding: 0;
+    width: 10%;
+  }
+  input[type=checkbox] {
     margin: 1vh 2vw;
     padding: 0;
     width: 10%;
