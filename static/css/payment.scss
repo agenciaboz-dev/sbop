@@ -1,0 +1,116 @@
+@import 'colors';
+
+@font-face {
+    font-family: Montserrats;
+    src: url("/static/fonts/Montserrat-Regular.otf");
+}
+
+@font-face {
+    font-family: Montserrats;
+    src: url("/static/fonts/Montserrat-Bold.otf");
+    font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #F5F1F1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #D1D1D1;
+    border-radius: 10px;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+:root {
+    --primary-color: #0C6397;
+    --secondary-color: #7BDCB5;
+    --terciary-color: #2FC178;
+    --public-info-color: rgba(16, 141, 98, 0.5);
+    --private-info-color: rgba(24, 16, 141, 0.5);
+    /* --secondary-color: #91a9b8; */
+    --line-color: #8D8D8D;
+    --toolbar-color: #F5F5F5;
+    --text-primary: #959595;
+    --text-secondary: #8D8D8D;
+    --text-terciary: #6B6B6B;
+    --input-background: #E4E4E4;
+    --table-row-background: #DCDCDC;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #E4E4E4 inset !important;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Montserrats;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E4E4E4;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 70%;
+    background-color: white;
+    border-radius: 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 7.5vh;
+    padding: 4vh 3vw;
+    outline: #0C6397 solid 0.4vw;
+
+}
+
+h1 {
+    color: var(--text-terciary);
+    font-weight: 600;
+    margin-bottom: 2vh;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+button {
+    align-self: center;
+    background-color: var(--primary-color);
+    border-radius: 1.5vw;
+    border: none;
+    color: white;
+    font-weight: bold;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    padding: 1vh 3vw;
+}
+
+button:hover {
+    background-color: #094a6f;
+}
