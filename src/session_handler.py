@@ -182,7 +182,7 @@ class Session():
             if cpf:
                 return {'error': 'CPF já cadastrado'}
             
-            raise 'erro'
+            raise ValueError('erro')
 
         except:
             coords = self.getCoords(data['cep'])
