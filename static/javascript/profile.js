@@ -145,6 +145,8 @@ const _get_member = setInterval(() => {
 
                     $('#vigencia-text').text('Pagamento não confirmado');
                     $('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)');
+
+                    $('#toolbar-plans').trigger('click');
                 }
             });
         }, 100)

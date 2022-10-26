@@ -50,7 +50,7 @@ $('form').on('submit', (event) => {
     }).done((response) => {
         const res = JSON.parse(response);
         if (res.success) {
-            window.location.href = '/pagamento/';
+            window.location.href = '/home/';
         } else {
             $('#feedback').text(res.error);
         }
