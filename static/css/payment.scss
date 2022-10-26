@@ -86,25 +86,26 @@ body {
 }
 
 h1 {
-    color: var(--text-terciary);
+    color: var(--text-primary);
     font-weight: 600;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
 }
 
 p {
-    color: var(--text-secondary);
+    color: var(--text-terciary);
+    margin: 1vh 0;
+    font-weight: 600;
 }
 
 button {
     align-self: center;
     background-color: var(--primary-color);
-    border-radius: 1.5vw;
+    border-radius: 8vw;
     border: none;
     color: white;
     font-weight: bold;
     height: fit-content;
     width: fit-content;
-    margin-top: 4vh;
     cursor: pointer;
     transition: 0.3s;
     user-select: none;
@@ -113,4 +114,10 @@ button {
 
 button:hover {
     background-color: #094a6f;
+}
+
+img {
+    height: 50vh;
+    object-fit: contain;
+    margin: 1vh;
 }
