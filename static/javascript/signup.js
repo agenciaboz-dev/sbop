@@ -48,13 +48,11 @@ $('form').on('submit', (event) => {
         processData: false,
         contentType: 'application/json'
     }).done((response) => {
-        // if (data.success) {
-            const res = JSON.parse(response);
-            if (res.success) {
-                window.location.href = '/pagamento/';
-            } else {
-                alert(JSON.stringify(res, null, 2));
-            }
-        // }
+        const res = JSON.parse(response);
+        if (res.success) {
+            window.location.href = '/pagamento/';
+        } else {
+            $('#feedback').text(res.error);
+        }
     });
 })
