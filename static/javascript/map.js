@@ -9,3 +9,16 @@ $('document').ready(() => {
         // $('#member-tooltip').css('width', `${$('#result').width()}`);
     }
 })
+
+$('#searched-hidden').on('change', () => {
+    if ($('#searched-hidden').val()) {
+        $('.doctor-icon').each((i, obj) => {
+            const id = $(obj).attr('id').split('-')[2]
+            $(obj).on('error', () => {
+                $(obj).attr('src', '/static/image/doctor_icon.svg')
+            })
+            $(obj).attr('src', `/static/profile_pictures/${id}`)
+        })
+        $('#searched-hidden').val(false)
+    }
+})
