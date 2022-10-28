@@ -301,6 +301,131 @@
   display: contents;
 }
 
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+.payment-container * {
+  margin: 0;
+}
+.payment-container h1 {
+  font-size: 4vh !important;
+}
+.payment-container h2 {
+  color: var(--text-terciary);
+  font-size: 3vh;
+  margin-top: 1vh;
+}
+.payment-container label {
+  color: #8D8D8D;
+}
+.payment-container img {
+  height: 8vh;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: 3vw;
+}
+
+.payment-header {
+  display: flex;
+  margin: 0;
+}
+
+.payment-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.qr-container button {
+  height: 5vh;
+  padding: 1vh 1vw;
+  margin: 1vh 0;
+}
+.qr-container p {
+  margin: 0;
+}
+
+.hr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.hr-container hr {
+  height: 18vh;
+  border: none;
+  border-left: 2px solid var(--line-color);
+}
+.hr-container h2 {
+  margin: 2vh 0;
+}
+
+.payment-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45vw;
+}
+.payment-form-container .data-slot {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+.payment-form-container .data-slot > label {
+  font-weight: 500;
+  margin: 0.5vh 0;
+}
+.payment-form-container .data-column {
+  display: flex;
+  flex-direction: column;
+}
+.payment-form-container .data-column > label {
+  font-weight: 500;
+  margin: 0.5vh 0;
+}
+.payment-form-container .t-quarters {
+  width: 74%;
+}
+.payment-form-container .half {
+  width: 49%;
+}
+.payment-form-container .quarter {
+  width: 24%;
+}
+.payment-form-container .data-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.payment-form-container input {
+  color: #8D8D8D;
+  background-color: var(--input-background, 0.4);
+  border: none;
+  border-radius: 2vw;
+  padding: 0.5vh 1vw;
+}
+.payment-form-container hr {
+  margin: 3vh 0;
+  border: none;
+  border-top: 2px solid var(--line-color);
+  opacity: 0.5;
+  width: 45vw;
+}
+.payment-form-container .pay-button {
+  align-self: flex-end;
+  margin-top: 2vh;
+  padding: 0 3vw;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     overflow-y: scroll;
@@ -424,9 +549,6 @@
   }
   .documents-container .plans-buttons-container button {
     width: 20vw;
-  }
-  .payment-container {
-    display: flex;
   }
 }
 
