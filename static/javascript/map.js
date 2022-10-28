@@ -24,6 +24,9 @@ $('#searched-hidden').on('change', () => {
             $(obj).attr('src', `/static/profile_pictures/${id}`)
         })
         $('#searched-hidden').val(false)
+        $('.member-container').on('click', () => {
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000)
+        })
     }
 })
 
