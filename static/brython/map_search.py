@@ -62,7 +62,7 @@ class Member():
 
         # importing image
         doctor_icon = html.IMG(
-            '', Src='/static/image/doctor_icon.svg', Alt='Doctor Icon', Class='result doctor-icon')
+            '', Id=f'profile-picture-{self.id}', Src='/static/image/doctor_icon.svg', Alt='Doctor Icon', Class='result doctor-icon')
         container <= doctor_icon
 
         # defining a data container
@@ -136,6 +136,8 @@ def showResult(req):
         for item in member_list:
             member = Member(item)
             members.append(member)
+            
+        jQuery('#searched-hidden').val(True).trigger('change')
 
     else:
         document['result'] <= html.P('Nenhum resultado', Class='result')
