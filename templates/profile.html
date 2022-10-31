@@ -272,8 +272,73 @@
         <!-- PLANS CONTAINER -->
         <div id="plans-container" class="main-container">
             <div class="payment-container">
-                <h1>PASSA O PIX</h1>
-                <button>Voltar</button>
+                <div class="payment-header">
+                    <div>
+                        <h1>Detalhes de Faturamento - Aspirante</h1>
+                        <h2>Valor: R$200,00</h2>
+                    </div>
+                    <img src="/static/image/logo_blue.webp" alt="">
+                </div>
+                <div class="payment-body">
+                    <div class="qr-container">
+                        <h2>Pagamento via Pix</h2>
+                        <button>Clique aqui para copiar a chave Pix</button>
+                        <!-- qrcode -->
+                        <p>Envie o comprovante para:</p>
+                        <p>sbopmail@gmail.com</p>
+                    </div>
+                    <div class="hr-container">
+                        <hr>
+                        <h2>OU</h2>
+                        <hr>
+                    </div>
+                    <div class="payment-form-container">
+                        <h2>Pagamento via Cartão</h2>
+                        <div class="data-row">
+                            <div class="data-column t-quarters">
+                                <div class="data-slot">
+                                    <label for="nome-completo" title="Obrigatório">Nome Completo</label>
+                                    <input type="text" id="nome-completo" name="nome-completo"
+                                        placeholder="Nome Completo" required>
+                                </div>
+                            </div>
+                            <div class="data-column quarter">
+                                <div class="data-slot">
+                                    <label for="data-de-nascimento" title="Obrigatório">Data de Nascimento</label>
+                                    <input type="date" id="data-de-nascimento" name="data-de-nascimento"
+                                        placeholder="Data de Nascimento" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data-row">
+                            <div class="data-column half">
+                                <label for="CPF" title="Obrigatório">CPF</label>
+                                <input type="number" id="CPF" name="CPF" placeholder="CPF" required>
+                            </div>
+                            <div class="data-column half">
+                                <label for="fone" title="Obrigatório">Número de telefone</label>
+                                <input type="number" id="fone" name="fone" placeholder="(DDD) Telefone" required>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="data-slot">
+                            <label for="card-number" title="Obrigatório">Número do cartão</label>
+                            <input type="number" class="card-number" id="card-number" name="card-number"
+                                placeholder="Número do cartão" required>
+                        </div>
+                        <div class="data-row">
+                            <div class="data-column half">
+                                <label for="card-valid" title="Obrigatório">Data de Vencimento</label>
+                                <input type="date" id="card-valid" name="card-valid" placeholder="Vencimento" required>
+                            </div>
+                            <div class="data-column half">
+                                <label for="cvc" title="Obrigatório">CVC</label>
+                                <input type="number" id="cvc" name="cvc" placeholder="CVC" required>
+                            </div>
+                        </div>
+                        <button class="pay-button">Finalizar Pedido</button>
+                    </div>
+                </div>
             </div>
             <div class="documents-container">
                 <div class="docs-row1">
@@ -328,7 +393,8 @@
                 <div class="plans-titles-container">
                     <div class="plans-titles">
                         <h1>Mude seu plano de afiliação</h1>
-                        <p>Selecione a opção desejada, clique em continuar, e prossiga com as instruções na próxima página.
+                        <p>Selecione a opção desejada, clique em continuar, e prossiga com as instruções na próxima
+                            página.
                         </p>
                     </div>
                     <div class="vigencia-container">
@@ -341,9 +407,12 @@
                     </div>
                     <hr>
                     <p>
-                        Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade do
-                        membro); 10% de desconto no seguro responsabilidade civil; desconto nos congressos e jornadas SBOP;
-                        acesso ao conteúdo exclusivo no site da SBOP; atualizações de conteúdos da SBOP por meio de fórum e
+                        Divulgação da localidade de atendimento no site com mini-curriculum (dados de responsabilidade
+                        do
+                        membro); 10% de desconto no seguro responsabilidade civil; desconto nos congressos e jornadas
+                        SBOP;
+                        acesso ao conteúdo exclusivo no site da SBOP; atualizações de conteúdos da SBOP por meio de
+                        fórum e
                         email.
                         <span>R$ 400,00/ano</span>
                     </p>
@@ -354,8 +423,10 @@
                     </div>
                     <hr>
                     <p>
-                        10% de desconto no seguro responsabilidade civil; desconto nos congressos e jornadas SBOP; acesso ao
-                        conteúdo exclusivo no site da SBOP; atualizações de conteúdos da SBOP por meio de fórum e e-mail.
+                        10% de desconto no seguro responsabilidade civil; desconto nos congressos e jornadas SBOP;
+                        acesso ao
+                        conteúdo exclusivo no site da SBOP; atualizações de conteúdos da SBOP por meio de fórum e
+                        e-mail.
                         <span>R$ 400,00/ano</span>
                     </p>
                 </div>
@@ -365,8 +436,10 @@
                     </div>
                     <hr>
                     <p>
-                        10% de desconto no seguro responsabilidade civil; desconto nos congressos e jornadas SBOP; acesso ao
-                        conteúdo exclusivo no site da SBOP; atualizações de conteúdos da SBOP por meio de fórum e e-mail.
+                        10% de desconto no seguro responsabilidade civil; desconto nos congressos e jornadas SBOP;
+                        acesso ao
+                        conteúdo exclusivo no site da SBOP; atualizações de conteúdos da SBOP por meio de fórum e
+                        e-mail.
                         <span>R$ 200,00/ano</span>
                     </p>
                 </div>

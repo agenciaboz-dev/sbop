@@ -111,7 +111,7 @@ const _get_member = setInterval(() => {
                                 $('.plans-panel').hide();
                                 window.scrollTo(0, 0);
                             }
-                            
+
                         }
                     });
                 } else {
@@ -136,7 +136,7 @@ const _get_member = setInterval(() => {
                         });
                     })
                 }
-                
+
                 if (!membro.assinatura) {
                     $('#toolbar-restrict').css('opacity', '0.5');
                     $('#toolbar-restrict').css('pointer-events', 'none');
