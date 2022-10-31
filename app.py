@@ -362,9 +362,9 @@ def get_map_status():
                 cidades.append(item[14])
 
     data = {
-        'medicos': len(medicos) // 10 * 10,
-        'estados': len(estados) // 5 * 5,
-        'cidades': len(cidades) // 5 * 5,
+        'medicos': len(medicos),
+        'estados': len(estados),
+        'cidades': len(cidades),
         'real_medicos': len(medicos),
         'real_estados': len(estados),
         'real_cidades': len(cidades)

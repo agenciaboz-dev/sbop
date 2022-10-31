@@ -629,7 +629,7 @@ input {
         flex-direction: column;
         align-items: center;
         overflow-x: hidden;
-        height: 130vh;
+        height: 100vh;
         overflow-y: hidden;
         margin: 0;
         justify-content: flex-start;
@@ -637,21 +637,33 @@ input {
 
     .search-container {
         width: 90%;
+        margin-top: 0;
     }
 
     .search-container form {
         border-radius: 9vw;
+        margin-bottom: 5px;
+        height: 12.4vw;
     }
 
     .search-container form input {
         border-radius: 9vw;
         margin-left: 1.5vw;
-        font-size: 1.75vh;
+        font-size: 3.5vw;
+    }
+
+    .search-container form > * {
+        font-size: 4vw;
+    }
+
+    .status-number {
+        font-size: 4vw;
     }
 
     #result {
         border-radius: 7vw;
-        margin-top: 10px;
+        margin-top: 0;
+        height: 62.25vw;
     }
 
     .map-status {
@@ -665,6 +677,7 @@ input {
 
     .map-status-text,
     .map-status-text p {
+        font-size: 4vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -684,7 +697,7 @@ input {
     .map-container svg {
         position: absolute;
         left: -62vw;
-        top: -12vh;
+        top: -30vw;
         // transform: scale(0.75);
         margin: 0;
     }
@@ -713,7 +726,7 @@ input {
     #member-tooltip {
         left: 7.5vw;
         width: 85vw;
-        top: 150vw;
+        top: 103vw;
     }
     
     #member-tooltip * {
