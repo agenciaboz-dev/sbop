@@ -70,6 +70,43 @@ $('document').ready(() => {
 
 })
 
+const resetText = () => {
+    $('#clipboard-button').text('Clique aqui para copiar a chave Pix')
+}
+
+// botão de copiar o qrcode
+const copyToClipboard = (texto) => {
+    $('#clipboard-button').on('click', () => {
+        let $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(texto).select();
+        document.execCommand("copy");
+        $temp.remove();
+        $('#clipboard-button').text('Chave PIX copiada')
+        setTimeout(resetText, 1000)
+    })
+}
+
+const tipoPagamento = (plano) => {
+    const plan_name = $('.payment-header > div > h1 > span')
+    const plan_value = $('.payment-header > div > h2 > span')
+    const plan_qrcode = $('.qr-container > img')
+
+    const inicial = plano.slice(0, 1).toUpperCase()
+    plan_name.text(inicial + plano.slice(1))
+
+    if (plano == 'aspirante') {
+        plan_value.text(200)
+        plan_qrcode.attr('src', '/static/image/QR Code 200.svg')
+        copyToClipboard('00020126920014BR.GOV.BCB.PIX0114650851360001970252Pagamento referente a anuidade como membro aspirante5204000053039865406200.005802BR5904SBOP6009SAO PAULO622605226efbqxL6fjSRPouvW6fhzT6304D7C9')
+    }
+    else if (plano == 'associado') {
+        plan_value.text(400)
+        plan_qrcode.attr('src', '/static/image/QR Code 400.svg')
+    }
+
+}
+
 const _get_member = setInterval(() => {
     if (popup.attr('member-id')) {
         setTimeout(() => {
@@ -130,11 +167,20 @@ const _get_member = setInterval(() => {
                         }
                     })
 
-                    $('#upgrade-plan-button').on('click', (event) => {
+                    $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
+                            tipoPagamento($('.selected-plan').attr('id'))
                         });
                     })
+
+                    $('.payment-buttons > .back-button').on('click', () => {
+                        $('.payment-container').fadeOut(0, () => {
+                            $('.plans-panel').fadeIn();
+                        })
+                    })
+
+
                 }
 
                 if (!membro.assinatura) {
@@ -155,11 +201,6 @@ const _get_member = setInterval(() => {
     }
 }, 100);
 
-$('.payment-container button').on('click', () => {
-    $('.payment-container').fadeOut(0, () => {
-        $('.plans-panel').fadeIn();
-    })
-})
 
 /* MOBILE STYLING */
 $('#menu-button').on('click', () => {
