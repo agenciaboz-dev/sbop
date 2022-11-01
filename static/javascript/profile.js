@@ -103,6 +103,7 @@ const tipoPagamento = (plano) => {
     else if (plano == 'associado') {
         plan_value.text(400)
         plan_qrcode.attr('src', '/static/image/QR Code 400.svg')
+        copyToClipboard('00020126990014BR.GOV.BCB.PIX0114650851360001970259Valor referente a anuidade como membro associado e/ou titul5204000053039865406400.005802BR5904SBOP6009SAO PAULO622505218gOyl59TrT3LUh1fuyTln63047347')
     }
 
 }
