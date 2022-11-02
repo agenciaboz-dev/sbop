@@ -318,6 +318,9 @@
   font-size: 3vh;
   margin-top: 1vh;
 }
+.payment-container span {
+  font-size: inherit;
+}
 .payment-container label {
   color: #8D8D8D;
 }
@@ -381,6 +384,10 @@
   align-items: center;
   width: 50vw;
 }
+.payment-form-container * :not(.back-button) {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .payment-form-container .payment-form {
   width: 100%;
 }
@@ -432,14 +439,13 @@
   width: 45vw;
 }
 .payment-form-container .payment-buttons {
-  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
   margin-top: 2vh;
+  width: 100%;
 }
 .payment-form-container .payment-buttons button {
   width: 10vw;
-}
-.payment-form-container .payment-buttons button :last-of-type {
-  margin-left: 10vw;
 }
 
 @media only screen and (max-width: 600px) {
@@ -565,6 +571,85 @@
   }
   .documents-container .plans-buttons-container button {
     width: 20vw;
+  }
+  .payment-container h1 {
+    font-size: 2vh !important;
+  }
+  .payment-container h2 {
+    margin-bottom: 2vh;
+  }
+  .payment-header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .payment-header div * {
+    margin: 2vh 0;
+  }
+  .logo {
+    display: none;
+  }
+  .payment-body {
+    flex-direction: column;
+  }
+  .qr-container {
+    width: 100%;
+  }
+  .qr-container * {
+    margin: 1vh 0;
+  }
+  .qr-container button {
+    height: fit-content;
+    padding: 1vh 2vw;
+  }
+  .hr-container {
+    flex-direction: row;
+    margin: 6vh 0;
+  }
+  .hr-container hr {
+    height: 0;
+    width: 30vw;
+    border-top: 2px solid var(--line-color);
+  }
+  .payment-form-container {
+    width: 100%;
+  }
+  .payment-form-container * {
+    margin: 0.5vh 0;
+  }
+  .payment-form-container label {
+    align-self: center;
+  }
+  .payment-form-container input {
+    width: 100%;
+  }
+  .payment-form-container ::placeholder {
+    font-size: 2vh;
+  }
+  .payment-form-container .payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .payment-form-container .data-slot {
+    align-items: center;
+  }
+  .payment-form-container .t-quarters {
+    width: 100%;
+  }
+  .payment-form-container .half {
+    width: 100%;
+  }
+  .payment-form-container .quarter {
+    width: 100%;
+  }
+  .payment-form-container .data-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .payment-form-container .payment-buttons button {
+    width: 40vw;
   }
 }
 
