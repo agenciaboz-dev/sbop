@@ -9,8 +9,8 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
 }
 
 /* Track */
@@ -69,6 +69,11 @@ body {
   padding: 3vw;
 }
 
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
 .main-container {
   display: flex;
   flex-direction: column;

@@ -56,3 +56,9 @@ body {
 :root {
   --background-color: rgba(228, 228, 228, 1);
 }
+
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

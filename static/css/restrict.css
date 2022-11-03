@@ -127,6 +127,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
   .restrict-toolbar {
     justify-content: space-around;
     width: 100%;
@@ -135,6 +139,8 @@
   }
   .restrict-toolbar > hr {
     margin: 0 3vh;
+    border: none;
+    border-left: solid 2px var(--line-color);
   }
   #restrict-container {
     flex-direction: column;
@@ -172,6 +178,7 @@
   }
   .restrict-content-data {
     gap: 2vh;
+    word-wrap: break-word;
   }
   #videos-container {
     height: 100%;
