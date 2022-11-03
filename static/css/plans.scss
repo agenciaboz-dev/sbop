@@ -396,7 +396,7 @@
 
     // Desativado por enquanto:
     * :not(.back-button) {
-        opacity: 0.5;
+        opacity: 0.7;
         pointer-events: none;
     }
 
@@ -511,8 +511,12 @@
     }
 
     .vigencia-container {
-        padding: 2vw;
+        padding: 1vh 3vw;
         border-radius: 9vw;
+    }
+
+    #vigencia-text {
+        font-size: 2.5vh !important;
     }
 
     .plans-titles-container div {
