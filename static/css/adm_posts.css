@@ -69,6 +69,11 @@ body {
   padding: 3vw;
 }
 
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
 img {
   max-height: 100%;
 }
@@ -326,33 +331,42 @@ img {
     padding-left: 8vw;
     width: 52vw;
   }
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   .bottom-container-left-buttons {
     display: flex;
     position: absolute;
     top: 5vh;
-    left: auto;
+    align-self: center;
     height: 10%;
-    margin: 3vh 0;
+    width: 80%;
+    margin: 2vh 3vw;
+    justify-content: space-between;
   }
   .bottom-container-right-buttons {
     display: flex;
     position: absolute;
     top: 12vh;
-    left: auto;
+    align-self: center;
     height: 10%;
-    margin: 3vh 0;
+    width: 80%;
+    margin: 2vh 3vw;
+    justify-content: space-between;
   }
   .bottom-button {
     height: 50%;
-    width: 35vw;
     margin: 0 5vw;
+    padding-left: 1.5vw;
   }
   .bottom-button p {
-    margin-left: 1vw;
+    margin-left: auto;
   }
   .bottom-button img {
     max-height: 90%;
-    margin-left: auto;
+    margin-left: 1vw;
   }
   .result-container {
     margin-top: 0;

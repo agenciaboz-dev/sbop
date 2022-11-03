@@ -631,10 +631,14 @@ button:hover {
 
     .floating-button {
         margin-top: -6vh;
-        width: 46vw;
-        font-size: 2.5vh;
+        width: fit-content;
+        font-size: 2vh;
         height: fit-content;
         padding-left: 2.5vw;
+
+        img {
+            margin: 0 1vw;
+        }
     }
 
     .profile-buttons:last-of-type {

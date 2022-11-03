@@ -32,7 +32,6 @@
     display: none;
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -70,4 +69,11 @@ body {
     border-radius: 2vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 3vw;
+}
+
+@media only screen and (max-width: 600px) {
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
