@@ -223,7 +223,7 @@ textarea {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #989898;
+  opacity: 0.4;
   /* Firefox */
 }
 
@@ -260,6 +260,9 @@ button:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
   .main-container {
     align-items: center;
     height: 95%;
@@ -286,8 +289,26 @@ button:hover {
   .titles hr {
     margin: 0 5vw;
   }
+  .data-row {
+    flex-direction: column;
+  }
+  .t-quarters {
+    width: 100%;
+  }
+  .half {
+    width: 100%;
+  }
+  .quarter {
+    width: 100%;
+  }
   .pessoa {
-    margin: 1.5vh 0;
+    margin: 4vh 0 1.5vh 0;
+  }
+  .especialidades {
+    margin: 4vh 0 0 0;
+  }
+  .skills-column2 {
+    margin: 0;
   }
   input {
     border-radius: 7vw;
@@ -322,6 +343,7 @@ button:hover {
     border-radius: 7vw;
     font-size: 80%;
     width: 50vw;
+    margin: 0.5vh 0 2vh;
   }
 }
 
