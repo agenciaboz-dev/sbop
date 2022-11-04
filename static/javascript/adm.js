@@ -223,7 +223,10 @@ const onClickSave = (event) => {
 
         fetch(url, options)
             .then(res => res.json())
-            .then(json => console.log(json))
+            .then(response => {
+                console.log(response)
+                if (response.error) alert(response.error)
+            })
             .catch(err => console.error('error:' + err));
     }
 
