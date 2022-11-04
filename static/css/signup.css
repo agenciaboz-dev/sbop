@@ -260,6 +260,9 @@ button:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+  }
   ::-webkit-scrollbar {
     display: none;
   }
