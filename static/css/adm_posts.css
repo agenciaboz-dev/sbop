@@ -321,7 +321,7 @@ img {
     margin: 0 7vw 0 5vw;
   }
   .search-container img {
-    left: 2vw;
+    left: 3vw;
   }
   .search-container form {
     display: contents;
@@ -329,7 +329,12 @@ img {
   .search-container form input {
     border-radius: 7vw;
     padding-left: 8vw;
-    width: 52vw;
+    width: 54vw;
+    border: 1.5vw solid #E4E4E4;
+  }
+  .list-container {
+    padding-right: 0;
+    margin: 3vh 0;
   }
   .bottom-container {
     display: flex;
@@ -379,11 +384,15 @@ img {
   .post-container {
     flex-direction: column;
     height: fit-content;
-    padding: 2vh;
+    padding: 0 2vh;
+    border: 1.5vw solid #E4E4E4;
   }
   .post-container img {
     max-height: 6vh;
     margin: 1vh 1vw;
+  }
+  .post-container:hover {
+    border-color: #0C6397;
   }
   .buttons-container {
     margin: 1vh 2vw;

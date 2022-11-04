@@ -421,9 +421,9 @@ h2 {
 
             input {
                 border-radius: 7vw;
-                padding-left: 9vw;
+                padding-left: 8vw;
                 width: 54vw;
-                border: 1vw solid #E4E4E4;
+                border: 1.5vw solid #E4E4E4;
             }
         }
     }
@@ -432,7 +432,7 @@ h2 {
         border-radius: 7vw;
         flex-direction: column;
         height: 25vh;
-        border: 1vw solid #E4E4E4;
+        border: 1.5vw solid #E4E4E4;
 
         hr {
             display: none;
@@ -477,11 +477,15 @@ h2 {
         padding-right: 0;
     }
 
+    .active-type {
+        border-radius: 9vw;
+    }
+
     .profile-data-field {
         overflow-y: scroll;
         height: 75%;
         width: 90%;
-        border: 1vw solid #0C6397;
+        border: 1.5vw solid #0C6397;
         border-radius: 9vw;
         padding: 3vw;
     }

@@ -230,7 +230,7 @@ p {
   border-radius: 2vw;
   font-weight: 600;
   margin: 1vh 0;
-  outline: #E4E4E4 solid 0.25vw;
+  border: #E4E4E4 solid 0.25vw;
   padding: 1vh 2vh;
   width: 100%;
 }
@@ -297,9 +297,10 @@ p {
   .buttons-container {
     position: absolute;
     align-self: center;
+    margin: 1.5vh 0 0 auto;
   }
   .buttons-container button {
-    border-radius: 5vw;
+    border-radius: 9vw;
     margin: 1vh 1vw;
   }
   .buttons-container button:first-of-type {
@@ -326,6 +327,7 @@ p {
   }
   .categories-container #membership-input {
     border-radius: 5vw;
+    border: 1vw solid #E4E4E4;
   }
   .columns-container {
     flex-direction: column;
