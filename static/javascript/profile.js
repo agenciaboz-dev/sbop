@@ -175,7 +175,7 @@ const _get_member = setInterval(() => {
                         });
                     })
 
-                    $('.payment-buttons > .back-button').on('click', () => {
+                    $('.back-button').on('click', () => {
                         $('.payment-container').fadeOut(0, () => {
                             $('.plans-panel').fadeIn();
                         })

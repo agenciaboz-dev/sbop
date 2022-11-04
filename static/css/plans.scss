@@ -375,10 +375,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     hr {
-        height: 18vh;
+        height: 15vh;
         border: none;
         border-left: 2px solid var(--line-color);
     }
@@ -396,7 +396,7 @@
 
     // Desativado por enquanto:
     * :not(.back-button) {
-        opacity: 0.7;
+        opacity: 0.5;
         pointer-events: none;
     }
 
@@ -461,15 +461,9 @@
         width: 45vw;
     }
 
-    .payment-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 2vh;
-        width: 100%;
-    }
-
-    .payment-buttons button {
+    .pay-button {
         width: 10vw;
+        margin: 1.5vh 0;
     }
 }
 
@@ -820,7 +814,7 @@
         //         margin-top: 2vh;
         //     }
 
-        .payment-buttons button {
+        .pay-button {
             width: 40vw;
         }
     }
