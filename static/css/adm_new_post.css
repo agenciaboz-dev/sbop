@@ -291,6 +291,7 @@ p {
 
 @media only screen and (max-width: 600px) {
   .main-container {
+    position: relative;
     overflow-y: scroll;
     border-radius: 5vw;
   }

@@ -382,12 +382,13 @@ h2 {
     }
 
     .main-container {
+        position: relative;
         border-radius: 7vw;
         overflow-y: scroll;
     }
 
     .top-container {
-        margin: 9.5vh 0 0 5vw;
+        margin: 9vh 0 0 4vw;
     }
 
     .result-container {
@@ -510,11 +511,11 @@ h2 {
 
     .bottom-container {
         position: absolute;
-        top: 5vh;
+        top: 1vh;
         align-self: center;
         display: flex;
         height: 10%;
-        margin: 3vh 0;
+        margin: 2vh 0;
         justify-content: space-between;
     }
 
