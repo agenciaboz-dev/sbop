@@ -430,9 +430,11 @@ h2 {
     }
 
     .member-container {
+        position: relative;
         border-radius: 7vw;
         flex-direction: column;
-        height: 25vh;
+        height: fit-content;
+        padding: 2vh;
         border: 1.5vw solid #E4E4E4;
 
         hr {
@@ -440,24 +442,39 @@ h2 {
         }
 
         img {
-            max-height: 20%;
+            position: absolute;
             margin: 1vh 1vw;
         }
 
+        img:first-of-type {
+            max-height: 40%;
+            top: 1vh;
+            left: 2vw;
+        }
+
         img:last-of-type {
-            max-height: 10%;
-            margin: 1vh 1vw;
+            max-height: 20%;
+            bottom: 9vh;
+            right: 5vw;
         }
 
         .member-info {
             height: fit-content;
             width: fit-content;
-            padding: 0 5vw;
             max-width: 100%;
             overflow-wrap: normal;
+            margin-bottom: 1.5vh;
 
             div {
                 flex-direction: column;
+
+                p {
+                    font-weight: 500;
+                }
+            }
+
+            p {
+                margin: 0.5vh 0;
             }
         }
 
@@ -470,6 +487,7 @@ h2 {
     .member-type-container {
         border: 1vw solid #E4E4E4;
         border-radius: 9vw;
+        padding: 0 1.5vw;
     }
 
     .list-container {
