@@ -442,6 +442,7 @@ h2 {
   .list-wrapper {
     width: 100%;
     padding-right: 0;
+    padding-bottom: 2vh;
   }
   .list-wrapper h1 {
     font-size: 100%;
@@ -470,6 +471,7 @@ h2 {
     flex-direction: column;
     height: fit-content;
     padding: 2vh;
+    padding-top: 11.5vh;
     border: 1.5vw solid #E4E4E4;
   }
   .member-container hr {
@@ -490,9 +492,12 @@ h2 {
     right: 5vw;
   }
   .member-container .member-info {
+    position: absolute;
+    top: 1.5vh;
+    left: 22vw;
     height: fit-content;
     width: fit-content;
-    max-width: 100%;
+    max-width: 67%;
     overflow-wrap: normal;
     margin-bottom: 1.5vh;
   }
@@ -507,16 +512,15 @@ h2 {
   }
   .member-container .member-type {
     width: fit-content;
-    padding: 1vh 3vw;
+    padding: 1vh 3.5vw;
   }
   .member-type-container {
     border: 1vw solid #E4E4E4;
     border-radius: 9vw;
-    padding: 0 1.5vw;
   }
   .list-container {
     width: 80vw;
-    overflow-y: auto;
+    overflow-y: visible;
     padding-right: 0;
   }
   .active-type {
@@ -533,17 +537,18 @@ h2 {
   .profile-container {
     margin: 0;
     border: none;
-    height: 80vh;
-    width: 94vw;
+    width: 93vw;
     padding: 0;
   }
   .profile-buttons-container {
     width: 90%;
     justify-content: space-between;
     margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
   }
   .profile-buttons-container button {
     border-radius: 9vw;
+    padding: 1vh 0 0.65vh;
   }
   .bottom-container {
     position: absolute;
