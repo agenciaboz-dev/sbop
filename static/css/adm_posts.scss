@@ -311,7 +311,7 @@ img {
 
     .list-container {
         padding-right: 0;
-        margin: 3vh 0;
+        margin: 3vh 0 2vh;
     }
 
     .bottom-container {
@@ -346,7 +346,7 @@ img {
     .bottom-button {
         height: 50%;
         margin: 0 5vw;
-        padding-left: 1.5vw;
+        padding-left: 3vw;
 
         p {
             margin-left: auto;
@@ -367,19 +367,23 @@ img {
     }
 
     .list-wrapper {
-        margin-top: 0;
+        margin-top: -0.5vh;
         width: 100%;
         height: fit-content;
     }
 
     .post-container {
+        position: relative;
         flex-direction: column;
-        height: fit-content;
+        height: 20vh;
         padding: 0 2vh;
         border: 1.5vw solid #E4E4E4;
 
         img {
-            max-height: 6vh;
+            position: absolute;
+            top: 1vh;
+            left: 2vw;
+            max-height: 40%;
             margin: 1vh 1vw;
         }
     }
@@ -389,7 +393,10 @@ img {
     }
 
     .buttons-container {
-        margin: 1vh 2vw;
+        position: absolute;
+        bottom: 2vh;
+        width: 90%;
+        margin-right: 0;
 
         button {
             border-radius: 5vw;
@@ -398,11 +405,13 @@ img {
     }
 
     .post-info {
+        position: absolute;
+        top: 2vh;
+        left: 22vw;
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
-        justify-content: space-evenly;
+        width: 67%;
+        height: fit-content;
 
         p {
             font-weight: bold;
@@ -411,6 +420,10 @@ img {
         div {
             display: flex;
             flex-direction: column;
+
+            p {
+                font-weight: 500;
+            }
 
             hr {
                 display: none;

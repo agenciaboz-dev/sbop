@@ -335,7 +335,7 @@ img {
   }
   .list-container {
     padding-right: 0;
-    margin: 3vh 0;
+    margin: 3vh 0 2vh;
   }
   .bottom-container {
     display: flex;
@@ -366,7 +366,7 @@ img {
   .bottom-button {
     height: 50%;
     margin: 0 5vw;
-    padding-left: 1.5vw;
+    padding-left: 3vw;
   }
   .bottom-button p {
     margin-left: auto;
@@ -382,36 +382,45 @@ img {
     margin-top: 0;
   }
   .list-wrapper {
-    margin-top: 0;
+    margin-top: -0.5vh;
     width: 100%;
     height: fit-content;
   }
   .post-container {
+    position: relative;
     flex-direction: column;
-    height: fit-content;
+    height: 20vh;
     padding: 0 2vh;
     border: 1.5vw solid #E4E4E4;
   }
   .post-container img {
-    max-height: 6vh;
+    position: absolute;
+    top: 1vh;
+    left: 2vw;
+    max-height: 40%;
     margin: 1vh 1vw;
   }
   .post-container:hover {
     border-color: #0C6397;
   }
   .buttons-container {
-    margin: 1vh 2vw;
+    position: absolute;
+    bottom: 2vh;
+    width: 90%;
+    margin-right: 0;
   }
   .buttons-container button {
     border-radius: 5vw;
     padding: 1vh 3vw;
   }
   .post-info {
+    position: absolute;
+    top: 2vh;
+    left: 22vw;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    justify-content: space-evenly;
+    width: 67%;
+    height: fit-content;
   }
   .post-info p {
     font-weight: bold;
@@ -419,6 +428,9 @@ img {
   .post-info div {
     display: flex;
     flex-direction: column;
+  }
+  .post-info div p {
+    font-weight: 500;
   }
   .post-info div hr {
     display: none;
