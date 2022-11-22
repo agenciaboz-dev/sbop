@@ -231,7 +231,7 @@ class Session():
 
         try:
             sql = f"""UPDATE Membros SET 
-                user='{user}', 
+                user='{data[user]}', 
                 senha='{data['password']}', 
                 nome='{data['name']}', 
                 uf='{data['uf']}', 
@@ -240,13 +240,13 @@ class Session():
                 email='{data['email']}', 
                 crm='{data['crm']}', 
                 curriculum='{data['curriculum']}', 
-                telefone='{telefone}', 
+                telefone='{data[telefone]}', 
                 endereco='{data['endereco']}', 
                 numero='{data['numero']}', 
                 complemento='{data['complemento']}', 
                 bairro='{data['bairro']}', 
                 cidade='{data['cidade']}', 
-                especialidades='{especialidades}', 
+                especialidades='{data[especialidades]}', 
                 temporario='{data['temporario']}', 
                 pago='{data['pago']}', 
                 primeiro_acesso='{data['primeiro_acesso']}' 
