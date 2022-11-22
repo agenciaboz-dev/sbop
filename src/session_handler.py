@@ -217,6 +217,8 @@ class Session():
         if data.get('adm_panel'):
             telefone = 'telefone'
             especialidades = 'especialidades'
+            user='user'
+            
             member = self.database.run(f"SELECT * FROM Membros WHERE id={data['id']}", json=True)[0]
             if not member['user'] == data['user']:
                 new_user = self.database.run(f"SELECT * FROM Membros WHERE user = '{data['user']}'")
@@ -225,9 +227,31 @@ class Session():
         else:
             telefone = 'telefone_plain'
             especialidades = 'especialidades_str'
+            user = 'username'
 
         try:
-            sql = f"UPDATE Membros SET user='{data['user']}', senha='{data['password']}', nome='{data['name']}', uf='{data['uf']}', cep='{data['cep']}', cpf='{data['cpf']}', email='{data['email']}', crm='{data['crm']}', curriculum='{data['curriculum']}', telefone='{data[telefone]}', endereco='{data['endereco']}', numero='{data['numero']}', complemento='{data['complemento']}', bairro='{data['bairro']}', cidade='{data['cidade']}', especialidades='{data[especialidades]}', temporario='{data['temporario']}', pago='{data['pago']}', primeiro_acesso='{data['primeiro_acesso']}' WHERE id={data['id']}"
+            sql = f"""UPDATE Membros SET 
+                user='{user}', 
+                senha='{data['password']}', 
+                nome='{data['name']}', 
+                uf='{data['uf']}', 
+                cep='{data['cep']}', 
+                cpf='{data['cpf']}', 
+                email='{data['email']}', 
+                crm='{data['crm']}', 
+                curriculum='{data['curriculum']}', 
+                telefone='{telefone}', 
+                endereco='{data['endereco']}', 
+                numero='{data['numero']}', 
+                complemento='{data['complemento']}', 
+                bairro='{data['bairro']}', 
+                cidade='{data['cidade']}', 
+                especialidades='{especialidades}', 
+                temporario='{data['temporario']}', 
+                pago='{data['pago']}', 
+                primeiro_acesso='{data['primeiro_acesso']}' 
+                WHERE id={data['id']}"""
+                
             print(sql)
             cursor = self.database.connection.cursor()
             cursor.execute(sql)
