@@ -16,29 +16,31 @@ const getContentList = (membro) => {
         contentType: 'application/json',
         data: JSON.stringify({ assinatura: membro.assinatura })
     })
-    .done((response) => {
-        const posts = JSON.parse(response);
-        
-        for (const post of posts) {
-            if (!post.video) {
-                console.log(post);
-                const element = `
+        .done((response) => {
+            const posts = JSON.parse(response);
+
+            for (const post of posts) {
+                if (!post.video) {
+                    console.log(post);
+                    const element = `
                 <div class="restrict-content-wrapper">
                     <img class="restrict-media" src="/static/conteudos/${post.id}" alt="Teste">
                     <div class="restrict-content-data">
                         <h1 class="content-title">${post.titulo}</h1>
                         <p class="restrict-content-author">${post.autor} - ${post.data}</p>
-                        <p>${post.resumo}</p>
-                        <br>
-                        <p>${post.conteudo}</p>
+                        <div class="content-box">
+                            <p>${post.resumo}</p>
+                            <br>
+                            <p>${post.conteudo}</p>
+                        </div>
                     </div>
                 </div>
                 <hr>
                 `
-                posts_container.append(element);
-            } else {
-                console.log(post);
-                const element = `
+                    posts_container.append(element);
+                } else {
+                    console.log(post);
+                    const element = `
                 <div class="restrict-content-wrapper">
                     <video class="restrict-media" controls>
                         <source src="/static/conteudos/${post.id}" type="video/mp4">
@@ -53,8 +55,8 @@ const getContentList = (membro) => {
                 </div>
                 <hr>
                 `
-                videos_container.append(element);
+                    videos_container.append(element);
+                }
             }
-        }
-    });
+        });
 }
