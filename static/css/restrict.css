@@ -88,6 +88,7 @@
   height: 70%;
   overflow-y: auto;
   margin-right: 1.5vw;
+  display: none;
 }
 
 #videos-container > hr {
