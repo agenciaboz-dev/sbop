@@ -49,6 +49,7 @@ $('document').ready(() => {
         })
 
     } else {
+        $('#publish-button').text('Atualizar')
         request('/get_post/', {id: id}, (response) => {
             console.log(response[0]);
             const post = response[0];
