@@ -52,7 +52,7 @@ const loadList = () => {
 }
 
 const searchMember = (event) => {
-    event.preventDefault();
+    if (event) event.preventDefault();
     const searched = $('form > input').val();
     const request = $.ajax({
         url: '/membros/',
@@ -232,6 +232,7 @@ const onClickSave = (event) => {
 
     if (confirm(`Tem certeza que deseja atualizar os dados do usuário ${member.user}?`)) {
         requisicaoUngida()
+        setTimeout(() => searchMember(), 1000)
 
         // mobile
         if ($(window).width() < $(window).height()) {
