@@ -399,7 +399,7 @@ class Session():
 
     def getMemberPosts(self, assinatura):
         posts = []
-        sql = f"SELECT * FROM conteudos ;"
+        sql = f"SELECT * FROM conteudos ORDER BY id DESC ;"
         data = self.database.run(sql, json=True)
         for post in data:
             if post['categoria'] == 'Aspirante':
