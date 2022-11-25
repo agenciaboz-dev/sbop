@@ -37,7 +37,7 @@ const getContentList = (membro) => {
                 </div>
                 <hr>
                 `
-                    posts_container.prepend(element);
+                    posts_container.append(element);
                 } else {
                     console.log(post);
                     const element = `
@@ -55,7 +55,7 @@ const getContentList = (membro) => {
                 </div>
                 <hr>
                 `
-                    videos_container.prepend(element);
+                    videos_container.append(element);
                 }
             }
         });
