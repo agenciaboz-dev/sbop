@@ -129,7 +129,7 @@ $('#publish-button').on('click', (event) => {
             processData: false,
             contentType: false
         }).done((response) => {
-            alert(JSON.stringify(response, null, 2));
+            window.location.href='/adm_posts/'
         });
     }
 })
