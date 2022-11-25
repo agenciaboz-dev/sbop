@@ -566,7 +566,12 @@ def get_post():
 
 @app.route('/edit_post/', methods=['POST'])
 def edit_post():
-    data = request.get_json()
+    file = request.files.get('file')
+    data = json.loads(request.form.get('data'))
+    
+    filename = data['id']
+    if file:
+        file.save(os.path.join(app.root_path, 'static', 'conteudos', filename))
 
     response = session.editPost(data)
     print(response)

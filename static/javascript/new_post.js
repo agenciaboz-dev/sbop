@@ -44,10 +44,6 @@ $('document').ready(() => {
                 console.log(membro);
         }, method='GET');
 
-        $('#upload-file').on('change', () => {
-            file = true;
-        })
-
     } else {
         $('#publish-button').text('Atualizar')
         request('/get_post/', {id: id}, (response) => {
@@ -71,16 +67,41 @@ $('document').ready(() => {
 
 $('#publish-button').on('click', (event) => {
     if (id) {
-        request('/edit_post/', {
-            id: id,
-            titulo: $('#title-area').val(),
-            conteudo: $('#content-area').val(),
-            assinatura: $('#membership-input').val(),
-            resumo: $('#summary-area').val(),
-        }, (response) => {
-            console.log(response);
-            window.location.href='/adm_posts/'
-        });
+        if (file) {
+            form_data.append('file', $('#upload-file')[0].files[0]);
+
+            const data = {
+                id: id,
+                titulo: $('#title-area').val(),
+                conteudo: $('#content-area').val(),
+                assinatura: $('#membership-input').val(),
+                resumo: $('#summary-area').val(),
+            }
+
+            form_data.append('data', JSON.stringify(data));
+            $.ajax({
+                type: 'POST',
+                url: '/edit_post/',
+                data: form_data,
+                processData: false,
+                contentType: false
+            }).done((response) => {
+                window.location.href='/adm_posts/'
+            });
+        } else {
+
+            request('/edit_post/', {
+                id: id,
+                titulo: $('#title-area').val(),
+                conteudo: $('#content-area').val(),
+                assinatura: $('#membership-input').val(),
+                resumo: $('#summary-area').val(),
+            }, (response) => {
+                console.log(response);
+                window.location.href='/adm_posts/'
+            });
+        }
+
     } else {
         if (!$('input[name="post-input"]:checked').length) {
             alert('Escolha entre publicação ou vídeo');
@@ -117,7 +138,6 @@ $('#publish-button').on('click', (event) => {
             conteudo: $('#content-area').val(),
             autor: membro.name,
             data: today.toLocaleDateString(),
-            capa: form_data,
         }
 
 
@@ -137,4 +157,8 @@ $('#publish-button').on('click', (event) => {
 
 $('#cancelar-button').on('click', () => {
     window.location.href='/adm_posts/';
+})
+
+$('#upload-file').on('change', () => {
+    file = true;
 })
