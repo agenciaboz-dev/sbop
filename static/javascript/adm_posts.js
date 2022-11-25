@@ -58,7 +58,12 @@ const getPosts = (event) => {
 
 const deletePost = (event) => {
     const id = $(event.target).closest('.post-container').attr('id').split('-')[2];
-    alert($(event.target).attr('class'));
+    // alert($(event.target).attr('class'));
+    if (confirm(`Tem certeza que deseja deletar a publicação?`)) {
+        request('/delete_post/', {id}, (response) => {
+            setTimeout(() => $(event.target).closest('.post-container').hide(), 500)
+        })
+    }
 }
 
 const editPost = (event) => {

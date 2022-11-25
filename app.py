@@ -572,6 +572,14 @@ def edit_post():
     print(response)
     return json.dumps(response)
 
+@app.route('/delete_post/', methods=['POST'])
+def delete_post():
+    data = request.get_json()
+
+    response = session.deletePost(data['id'])
+    print(response)
+    return json.dumps(response)
+
 @app.route('/new_post/', methods=['POST'])
 def new_post():
     # data = request.get_json()

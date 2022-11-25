@@ -396,6 +396,15 @@ class Session():
         except Exception as error:
             print(error)
             return {'error': error}
+        
+    def deletePost(self, id):
+        sql = f"""DELETE FROM conteudos WHERE id = {id} ;"""
+        try:
+            self.database.run(sql, commit=True)
+            return {'success': f'${id} deleted'}
+        except Exception as error:
+            print(error)
+            return {'error': error}
 
     def getMemberPosts(self, assinatura):
         posts = []
