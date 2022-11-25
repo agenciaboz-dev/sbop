@@ -78,7 +78,7 @@ $('#publish-button').on('click', (event) => {
             resumo: $('#summary-area').val(),
         }, (response) => {
             console.log(response);
-            alert(JSON.stringify(response, null, 2));
+            window.location.href='/adm_posts/'
         });
     } else {
         if (!$('input[name="post-input"]:checked').length) {
