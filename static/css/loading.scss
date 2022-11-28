@@ -3,10 +3,10 @@
     position: absolute;
     background-size: cover;
     background-color: #185e8e;
-    top: -1vw;
-    left: -1vw;
-    bottom: -1vw;
-    right: -1vw;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
@@ -19,6 +19,7 @@
 @media only screen and (max-width: 600px) {
     #loading-screen {
         background: url('/static/image/loading_mobile.webp') no-repeat center center;
-        background-size: 105%;
+        background-size: 115%;
+        overflow-y: none;
     }
 }

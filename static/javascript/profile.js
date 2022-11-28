@@ -208,6 +208,9 @@ $('#menu-button').on('click', () => {
     $('.body-toolbar').fadeToggle();
 })
 if (mobile) {
+
+    $('.body-container').hide()
+
     $('.toolbar').on('click', () => {
         $('.body-toolbar').fadeToggle();
     })
