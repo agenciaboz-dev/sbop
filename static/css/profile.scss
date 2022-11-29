@@ -483,7 +483,7 @@ button:hover {
 
     body {
         overflow-y: scroll;
-        background-color: white;
+        background-color: var(background-color);
     }
 
     #menu-button {
@@ -503,7 +503,8 @@ button:hover {
         height: 94vh;
         margin-top: 3vh;
         border-radius: 9vw;
-        filter: none;
+        box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+        overflow-y: scroll;
     }
 
     .body-toolbar {
