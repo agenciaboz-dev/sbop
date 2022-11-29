@@ -123,7 +123,7 @@ p {
     align-items: center;
     margin: 3vh 0;
     outline: #cfcfcf dashed 0.5vh;
-    padding: 1vw 11vw;
+    padding: 1vh 11vw;
     height: 120px;
     width: 100%;
 }
@@ -234,25 +234,11 @@ p {
         position: relative;
         overflow-y: scroll;
         border-radius: 5vw;
-    }
 
-    .buttons-container {
-        position: absolute;
-        align-self: center;
-        margin: 1.5vh 0 0 auto;
-
-        button {
-            border-radius: 9vw;
-            margin: 1vh 1vw;
-        }
-
-        button:first-of-type {
-            margin-right: 5vw;
-        }
     }
 
     .top-container {
-        margin-top: 13vh;
+        margin-top: 2vh;
         margin-bottom: 2vh;
 
         img {
@@ -262,6 +248,7 @@ p {
 
     .dashed-box {
         margin: 1vh 0;
+        padding: 2vh 11vw;
     }
 
     .search-box {
@@ -306,6 +293,10 @@ p {
         }
     }
 
+    textarea {
+        border-radius: 5vw !important;
+    }
+
     #title-area {
         margin-bottom: 2vh;
     }
@@ -314,6 +305,20 @@ p {
         margin-bottom: 2vh;
     }
 
+    .buttons-container {
+        position: absolute;
+        align-self: center;
+        bottom: -90vh;
+
+        button {
+            border-radius: 9vw;
+            margin: 1vh 1vw;
+        }
+
+        button:first-of-type {
+            margin-right: 25vw;
+        }
+    }
 }
 
 /*# sourceMappingURL=adm_new_post.css.map */
