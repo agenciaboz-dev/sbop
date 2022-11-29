@@ -369,7 +369,7 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 0;
+    margin: 3vh 0;
 }
 
 #edit-curriculum {
@@ -523,12 +523,12 @@ button:hover {
     }
 
     .toolbar h1 {
-        font-size: 4vh;
+        font-size: 3vh;
         margin-bottom: 0.2vw;
     }
 
     .toolbar p {
-        font-size: 3vh;
+        font-size: 2.5vh;
         margin-top: 0.2vw;
     }
 
@@ -560,17 +560,17 @@ button:hover {
     }
 
     .info-container>div>h1 {
-        font-size: 4vh;
+        font-size: 3vh;
         margin-top: 1vh;
     }
 
     .info-container>div>p {
-        font-size: 3vh;
+        font-size: 2.5vh;
         margin: 0.5vw 0 1vh;
     }
 
     .profile-buttons {
-        font-size: 3vh;
+        font-size: 2vh;
         padding: 1vw;
         height: fit-content;
         width: 18vw;
@@ -598,7 +598,7 @@ button:hover {
 
     #edit-skills {
         border-radius: 5vw;
-        font-size: 3vh;
+        font-size: 2vh;
         height: fit-content;
         width: fit-content;
         padding: 1vw;
@@ -609,7 +609,7 @@ button:hover {
         right: 0;
         top: 0;
         border-radius: 5vw;
-        font-size: 3vh;
+        font-size: 2vh;
         height: fit-content;
         width: fit-content;
         padding: 1vw;
@@ -621,11 +621,11 @@ button:hover {
         transition: 0.3s;
 
         h1 {
-            font-size: 4vh;
+            font-size: 3vh;
         }
 
         p {
-            font-size: 3vh;
+            font-size: 2.5vh;
             margin-top: 6vh
         }
 
@@ -636,7 +636,7 @@ button:hover {
     }
 
     .floating-button {
-        margin-top: -6vh;
+        margin-top: -7vh;
         width: fit-content;
         font-size: 2vh;
         height: fit-content;
@@ -658,7 +658,7 @@ button:hover {
     }
 
     .curriculum-container>textarea {
-        font-size: 3vh;
+        font-size: 2.5vh;
         margin-top: 6vh;
         border-radius: 3vw;
         height: fit-content;
