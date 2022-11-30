@@ -25,7 +25,6 @@ input:-webkit-autofill:active {
 
 body {
     justify-content: space-around;
-    align-items: space-around;
     overflow: hidden;
 }
 
@@ -42,6 +41,7 @@ body {
     height: 81vh;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
     margin-top: 8vh;
+
 }
 
 .body-container hr {
@@ -481,11 +481,6 @@ button:hover {
         margin: 0;
     }
 
-    body {
-        overflow-y: scroll;
-        background-color: var(background-color);
-    }
-
     #menu-button {
         display: contents;
 
@@ -504,7 +499,10 @@ button:hover {
         margin-top: 3vh;
         border-radius: 9vw;
         box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+        overflow-x: hidden;
         overflow-y: scroll;
+        filter: none;
+
     }
 
     .body-toolbar {
@@ -567,6 +565,10 @@ button:hover {
     .info-container>div>p {
         font-size: 2.5vh;
         margin: 0.5vw 0 1vh;
+    }
+
+    #profile-container {
+        padding: 0 2vw;
     }
 
     .profile-buttons {

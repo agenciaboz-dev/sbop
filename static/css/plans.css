@@ -444,9 +444,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    overflow-y: scroll;
-  }
   #plans-container {
     height: auto;
     margin: 0 3vw;
