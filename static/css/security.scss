@@ -43,35 +43,35 @@
 
     #security-container {
         flex-direction: column;
+        padding: 0 2vw;
 
-        * {
+        >form>h1 {
             font-size: 3vh;
-
-        }
-
-        #security-container>form>h1 {
-            font-size: 4vh;
             margin-bottom: 2vh;
         }
 
-        #security-container>form>input {
+        >form>input {
             border-radius: 9vw;
             padding: 2vw;
-            font-size: 2vw;
+            font-size: 2.5vh;
             margin: 1vh 0;
             padding-left: 3vw;
-            padding-top: 2.5vh;
         }
 
-        button {
+        >form>label {
+            font-size: 2.5vh;
+        }
+
+        >form>button {
+            font-size: 2.5vh;
             border-radius: 9vw;
             margin: 2vh 0 4vh;
             padding: 1vh;
             height: 6vh;
         }
 
-        ::placeholder {
-            font-size: 3vh;
+        >form>::placeholder {
+            font-size: 2.5vh;
         }
     }
 }

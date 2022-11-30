@@ -41,30 +41,31 @@
 @media only screen and (max-width: 600px) {
   #security-container {
     flex-direction: column;
-  }
-  #security-container * {
-    font-size: 3vh;
+    padding: 0 2vw;
   }
   #security-container > form > h1 {
-    font-size: 4vh;
+    font-size: 3vh;
     margin-bottom: 2vh;
   }
   #security-container > form > input {
     border-radius: 9vw;
     padding: 2vw;
-    font-size: 2vw;
+    font-size: 2.5vh;
     margin: 1vh 0;
     padding-left: 3vw;
-    padding-top: 2.5vh;
   }
-  button {
+  #security-container > form > label {
+    font-size: 2.5vh;
+  }
+  #security-container > form > button {
+    font-size: 2.5vh;
     border-radius: 9vw;
     margin: 2vh 0 4vh;
     padding: 1vh;
     height: 6vh;
   }
-  ::placeholder {
-    font-size: 3vh;
+  #security-container > form > ::placeholder {
+    font-size: 2.5vh;
   }
 }
 
