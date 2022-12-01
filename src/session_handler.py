@@ -310,7 +310,8 @@ class Session():
         result = self.database.run(sql, json=True)
 
         if result:
-            message = recoverPasswordTemplate(username, encrypted)
+            link = f"""http://sistema.sbop.com.br:5001/recover?user={encrypted}"""
+            message = recoverPasswordTemplate(username, link)
             sendMail(result[0]['email'],
                      "Sbop - Recuperar senha", html=message)
             return {'msg': f'Um link para redefinição de senha foi enviado para o e-mail do usuário'}
