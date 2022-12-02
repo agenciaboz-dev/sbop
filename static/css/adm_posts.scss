@@ -23,7 +23,7 @@ img {
     width: 100%;
     height: 100%;
     align-items: center;
-    margin: 0 1vw;
+    margin-left: 1vw;
 
     img {
         position: absolute;
@@ -74,7 +74,7 @@ img {
 .result-container {
     display: flex;
     height: 80%;
-    margin-top: 3vh;
+    margin-top: 1vh;
 }
 
 .list-wrapper {
@@ -127,7 +127,7 @@ img {
 }
 
 .post-container-active {
-    border-color: $button-color !important;
+    border-color: $button-color  !important;
 }
 
 
