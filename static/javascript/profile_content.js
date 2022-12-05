@@ -24,7 +24,7 @@ const getContentList = (membro) => {
                     console.log(post);
                     const element = `
                 <div class="restrict-content-wrapper">
-                    <img class="restrict-media" src="/static/conteudos/${post.id}" alt="SBOP">
+                    <img class="restrict-media" src="/static/conteudos/${post.id}" onerror="if (this.src != '/static/image/default_content.webp') this.src = '/static/image/default_content.webp';" alt="SBOP">
                     <div class="restrict-content-data">
                         <h1 class="content-title">${post.titulo}</h1>
                         <p class="restrict-content-author">${post.autor} - ${post.data}</p>
