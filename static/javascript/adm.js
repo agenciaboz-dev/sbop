@@ -10,6 +10,17 @@ const fromPython = (string) => {
     return data;
 }
 
+const deleteMember = (id) => {
+    $.ajax({
+        method: "POST",
+        url: "http://app.agenciaboz.com.br:4001/api/v1/sbop/delete_member", // nodejs
+        data: { id }
+    }).done(response => {
+        searchMember()
+        console.log(response)
+    })
+}
+
 const loadProfilePicture = (membro) => {
     profile_picture.attr('src', `/static/profile_pictures/${membro.id}`);
 
