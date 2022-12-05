@@ -108,6 +108,11 @@ $('#publish-button').on('click', (event) => {
             return false;
         }
 
+        if (!file) {
+            alert('Envie uma imagem');
+            return false;
+        }
+
         if (!$('#summary-area').val()) {
             alert('Preencha o resumo');
             return false;
