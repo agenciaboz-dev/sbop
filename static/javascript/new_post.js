@@ -52,7 +52,7 @@ $('document').ready(() => {
             
             $('#title-area').val(post.titulo);
             $('#content-area').val(post.conteudo);
-            $('#membership-input').val(post.categoria);
+            $('#membership-input').val(post.assinatura);
             $('#summary-area').val(post.resumo);
             $('#author').text(`Autor: ${post.autor}`);
 
@@ -108,11 +108,6 @@ $('#publish-button').on('click', (event) => {
             return false;
         }
 
-        if (!file) {
-            alert('Envie uma imagem');
-            return false;
-        }
-
         if (!$('#summary-area').val()) {
             alert('Preencha o resumo');
             return false;
@@ -132,7 +127,7 @@ $('#publish-button').on('click', (event) => {
         const today = new Date();
         const data = {
             video: $('input[name="post-input"]:checked').attr('id').split('-')[0] == 'video' ? true : false,
-            categoria: $('#membership-input').val(),
+            assinatura: $('#membership-input').val(),
             resumo: $('#summary-area').val(),
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
