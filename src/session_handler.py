@@ -370,6 +370,7 @@ class Session():
         sql = f"""UPDATE conteudos SET 
                 titulo = '{data['titulo']}',
                 assinatura = '{data['assinatura']}',
+                categoria = '{data['categoria']}',
                 conteudo = '{data['conteudo']}',
                 resumo = '{data['resumo']}'
                 
@@ -385,9 +386,9 @@ class Session():
     def newPost(self, data):
 
         sql = f"""INSERT INTO conteudos 
-            (video, assinatura, resumo, titulo, conteudo, autor, data)
+            (video, assinatura, categoria, resumo, titulo, conteudo, autor, data)
             VALUES
-            ({data['video']}, '{data['assinatura']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
+            ({data['video']}, '{data['assinatura']}', '{data['categoria']}' ,'{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
         """
         try:
             self.database.run(sql, commit=True)

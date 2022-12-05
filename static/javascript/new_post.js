@@ -4,13 +4,13 @@ const form_data = new FormData();
 let membro = {};
 let file = null;
 
-const request = (url, data, done, method='POST', content_type = {'Content-Type': 'application/json'}) => {
+const request = (url, data, done, method = 'POST', content_type = { 'Content-Type': 'application/json' }) => {
     const options = {
-    method: method,
+        method: method,
     };
 
     if (content_type) {
-    options.headers = content_type;
+        options.headers = content_type;
     }
 
     if (method == 'POST') {
@@ -18,41 +18,42 @@ const request = (url, data, done, method='POST', content_type = {'Content-Type':
     }
     console.log(options);
     fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => done(data))
-    .catch(err => console.error('error:' + err));
+        .then((response) => response.json())
+        .then((data) => done(data))
+        .catch(err => console.error('error:' + err));
 }
 
 $('document').ready(() => {
 
     if (!id) {
-        
+
         request('/get_member/', {}, (response) => {
             membro = response;
-    
-                for (let item in membro) {
-                    if (typeof membro[item] == 'string') {
-                        membro[item] = membro[item].replaceAll('False', false);
-                        membro[item] = membro[item].replaceAll('True', true);
-                        membro[item] = membro[item].replaceAll('None', null);
-                        try {
-                            membro[item] = JSON.parse(membro[item]);
-                        } catch {}
-                    }
+
+            for (let item in membro) {
+                if (typeof membro[item] == 'string') {
+                    membro[item] = membro[item].replaceAll('False', false);
+                    membro[item] = membro[item].replaceAll('True', true);
+                    membro[item] = membro[item].replaceAll('None', null);
+                    try {
+                        membro[item] = JSON.parse(membro[item]);
+                    } catch { }
                 }
-                $('#author').text(`Autor: ${membro.name}`);
-                console.log(membro);
-        }, method='GET');
+            }
+            $('#author').text(`Autor: ${membro.name}`);
+            console.log(membro);
+        }, method = 'GET');
 
     } else {
         $('#publish-button').text('Atualizar')
-        request('/get_post/', {id: id}, (response) => {
+        request('/get_post/', { id: id }, (response) => {
             console.log(response[0]);
             const post = response[0];
-            
+
             $('#title-area').val(post.titulo);
             $('#content-area').val(post.conteudo);
             $('#membership-input').val(post.assinatura);
+            $('#category-input').val(post.categoria);
             $('#summary-area').val(post.resumo);
             $('#author').text(`Autor: ${post.autor}`);
 
@@ -76,6 +77,7 @@ $('#publish-button').on('click', (event) => {
                 conteudo: $('#content-area').val(),
                 assinatura: $('#membership-input').val(),
                 resumo: $('#summary-area').val(),
+                categoria: $('#category-input').val()
             }
 
             form_data.append('data', JSON.stringify(data));
@@ -86,7 +88,7 @@ $('#publish-button').on('click', (event) => {
                 processData: false,
                 contentType: false
             }).done((response) => {
-                window.location.href='/adm_posts/'
+                window.location.href = '/adm_posts/'
             });
         } else {
 
@@ -96,9 +98,10 @@ $('#publish-button').on('click', (event) => {
                 conteudo: $('#content-area').val(),
                 assinatura: $('#membership-input').val(),
                 resumo: $('#summary-area').val(),
+                categoria: $('#category-input').val()
             }, (response) => {
                 console.log(response);
-                window.location.href='/adm_posts/'
+                window.location.href = '/adm_posts/'
             });
         }
 
@@ -131,6 +134,7 @@ $('#publish-button').on('click', (event) => {
             resumo: $('#summary-area').val(),
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
+            categoria: $('#category-input').val(),
             autor: membro.name,
             data: today.toLocaleDateString(),
         }
@@ -145,13 +149,13 @@ $('#publish-button').on('click', (event) => {
             processData: false,
             contentType: false
         }).done((response) => {
-            window.location.href='/adm_posts/'
+            window.location.href = '/adm_posts/'
         });
     }
 })
 
 $('#cancelar-button').on('click', () => {
-    window.location.href='/adm_posts/';
+    window.location.href = '/adm_posts/';
 })
 
 $('#upload-file').on('change', () => {
