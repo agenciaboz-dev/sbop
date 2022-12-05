@@ -369,7 +369,7 @@ class Session():
     def editPost(self, data):
         sql = f"""UPDATE conteudos SET 
                 titulo = '{data['titulo']}',
-                categoria = '{data['assinatura']}',
+                assinatura = '{data['assinatura']}',
                 conteudo = '{data['conteudo']}',
                 resumo = '{data['resumo']}'
                 
@@ -385,9 +385,9 @@ class Session():
     def newPost(self, data):
 
         sql = f"""INSERT INTO conteudos 
-            (video, categoria, resumo, titulo, conteudo, autor, data)
+            (video, assinatura, resumo, titulo, conteudo, autor, data)
             VALUES
-            ({data['video']}, '{data['categoria']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
+            ({data['video']}, '{data['assinatura']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
         """
         try:
             self.database.run(sql, commit=True)
@@ -412,14 +412,14 @@ class Session():
         sql = f"SELECT * FROM conteudos ORDER BY id DESC ;"
         data = self.database.run(sql, json=True)
         for post in data:
-            if post['categoria'] == 'Aspirante':
+            if post['assinatura'] == 'Aspirante':
                 posts.append(post)
 
-            if post['categoria'] == 'Associado':
+            if post['assinatura'] == 'Associado':
                 if assinatura == 'Associado' or assinatura == 'Titular':
                     posts.append(post)
 
-            if post['categoria'] == 'Titular':
+            if post['assinatura'] == 'Titular':
                 if assinatura == 'Titular':
                     posts.append(post)
 
