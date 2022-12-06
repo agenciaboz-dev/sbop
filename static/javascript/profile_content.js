@@ -9,6 +9,34 @@ const get_member = setInterval(() => {
     }
 }, 100);
 
+$('document').ready(() => {
+    getCategoryList()
+})
+
+const getCategoryList = () => {
+    $.ajax({
+        method: 'GET',
+        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
+    })
+    .done(response => {
+        for (const categoria of response) {
+            const element = `<h2 value="${categoria.nome.toLowerCase()}">${categoria.nome}</h2>`
+            $('.category-select').append(element)
+        }
+
+        $($('.category-select').children()[0]).addClass('selected-category')
+
+        $('.category-select').children().on('click', (event) => {
+            $('.selected-category').removeClass('selected-category')
+            $(event.target).addClass('selected-category')
+        
+            $('#publicacoes-container').children().remove()
+        
+            getContentList(membro)
+        })
+    })
+}
+
 const getContentList = (membro) => {
     $.ajax({
         method: 'POST',
@@ -61,11 +89,4 @@ const getContentList = (membro) => {
         });
 }
 
-$('.category-select').children().on('click', (event) => {
-    $('.selected-category').removeClass('selected-category')
-    $(event.target).addClass('selected-category')
 
-    $('#publicacoes-container').children().remove()
-
-    getContentList(membro)
-})

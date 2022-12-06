@@ -25,6 +25,17 @@ const request = (url, data, done, method = 'POST', content_type = { 'Content-Typ
 
 $('document').ready(() => {
 
+    $.ajax({
+        method: 'GET',
+        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
+    })
+    .done(response => {
+        for (const categoria of response) {
+            const element = `<option value="${categoria.nome.toLowerCase()}" selected>${categoria.nome}</option>`
+            $('#category-input').append(element)
+        }
+    })
+
     if (!id) {
 
         request('/get_member/', {}, (response) => {
