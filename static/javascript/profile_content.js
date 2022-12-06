@@ -12,12 +12,12 @@ const get_member = setInterval(() => {
 const getContentList = (membro) => {
     $.ajax({
         method: 'POST',
-        url: '/get_member_posts/',
+        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_content',
         contentType: 'application/json',
-        data: JSON.stringify({ assinatura: membro.assinatura })
+        data: JSON.stringify({ assinatura: membro.assinatura, categoria: $('.selected-category').attr('value') })
     })
         .done((response) => {
-            const posts = JSON.parse(response);
+            const posts = response;
 
             for (const post of posts) {
                 if (!post.video) {
@@ -60,3 +60,12 @@ const getContentList = (membro) => {
             }
         });
 }
+
+$('.category-select').children().on('click', (event) => {
+    $('.selected-category').removeClass('selected-category')
+    $(event.target).addClass('selected-category')
+
+    $('#publicacoes-container').children().remove()
+
+    getContentList(membro)
+})

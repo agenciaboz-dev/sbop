@@ -74,7 +74,7 @@ $('#publish-button').on('click', (event) => {
             conteudo: $('#content-area').val(),
             assinatura: $('#membership-input').val(),
             resumo: $('#summary-area').val(),
-            categoria: $('#category-input').val()
+            categoria: $('#category-input').val().toLowerCase()
         }
 
         if (file) {
@@ -134,7 +134,7 @@ $('#publish-button').on('click', (event) => {
             resumo: $('#summary-area').val(),
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
-            categoria: $('#category-input').val(),
+            categoria: $('#category-input').val().toLowerCase(),
             autor: membro.name,
             data: today.toLocaleDateString(),
         }
