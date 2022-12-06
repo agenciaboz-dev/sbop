@@ -291,6 +291,13 @@ const onClickMemberType = (event) => {
 
 }
 
+$('#profile-delete-button').on('click', () => {
+    const id = current_id;
+    const member = members.find(item => item.id == id)
+    if (confirm(`Você tem certeza de que gostaria de deletar ${member.name}? As informações desse usuário não poderão ser recuperadas e essa ação ficará registrada em nosso histórico.`)) {
+        deleteMember(id)
+    }
+})
 $('#sair-button').on('click', () => { window.location.href = '/logout/' })
 $('#meu-perfil-button').on('click', () => { window.location.href = '/perfil/' })
 $('#ir-para-postagens-button').on('click', () => { window.location.href = '/adm_posts/' })
