@@ -68,17 +68,18 @@ $('document').ready(() => {
 
 $('#publish-button').on('click', (event) => {
     if (id) {
+        const data = {
+            id: id,
+            titulo: $('#title-area').val(),
+            conteudo: $('#content-area').val(),
+            assinatura: $('#membership-input').val(),
+            resumo: $('#summary-area').val(),
+            categoria: $('#category-input').val()
+        }
+
         if (file) {
             form_data.append('file', $('#upload-file')[0].files[0]);
 
-            const data = {
-                id: id,
-                titulo: $('#title-area').val(),
-                conteudo: $('#content-area').val(),
-                assinatura: $('#membership-input').val(),
-                resumo: $('#summary-area').val(),
-                categoria: $('#category-input').val()
-            }
 
             form_data.append('data', JSON.stringify(data));
             $.ajax({
@@ -90,16 +91,10 @@ $('#publish-button').on('click', (event) => {
             }).done((response) => {
                 window.location.href = '/adm_posts/'
             });
-        } else {
 
-            request('/edit_post/', {
-                id: id,
-                titulo: $('#title-area').val(),
-                conteudo: $('#content-area').val(),
-                assinatura: $('#membership-input').val(),
-                resumo: $('#summary-area').val(),
-                categoria: $('#category-input').val()
-            }, (response) => {
+        } else {
+            console.log(data)
+            request('/edit_post/', data, (response) => {
                 console.log(response);
                 window.location.href = '/adm_posts/'
             });
