@@ -133,7 +133,7 @@ h2 {
 }
 
 .member-container-active {
-    border-color: $button-color  !important;
+    border-color: $button-color !important;
 }
 
 .member-info {
@@ -227,7 +227,7 @@ h2 {
     padding-right: 1vw;
 
     button {
-        flex: 0.45;
+        flex: 0.3;
         border: none;
         border-radius: 0.8vw;
         color: white;
@@ -240,10 +240,14 @@ h2 {
     button:hover {
         background-color: $button-hovered-color;
     }
+}
 
-    button:first-of-type {
-        background-color: $button-secondary-color;
-    }
+#profile-delete-button {
+    background-color: #E12454;
+}
+
+#profile-reset-button {
+    background-color: $button-secondary-color;
 }
 
 .input-field {

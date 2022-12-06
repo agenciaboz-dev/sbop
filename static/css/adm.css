@@ -287,7 +287,7 @@ h2 {
   padding-right: 1vw;
 }
 .profile-buttons-container button {
-  flex: 0.45;
+  flex: 0.3;
   border: none;
   border-radius: 0.8vw;
   color: white;
@@ -299,7 +299,12 @@ h2 {
 .profile-buttons-container button:hover {
   background-color: #7BDCB5;
 }
-.profile-buttons-container button:first-of-type {
+
+#profile-delete-button {
+  background-color: #E12454;
+}
+
+#profile-reset-button {
   background-color: #9F9E9E;
 }
 
