@@ -262,6 +262,7 @@ button:hover {
 @media only screen and (max-width: 600px) {
   body {
     margin: 0;
+    overflow-x: hidden;
   }
   ::-webkit-scrollbar {
     display: none;
@@ -366,6 +367,7 @@ button:hover {
     font-size: 80%;
     width: 50vw;
     margin: 2vw;
+    padding: 2vw;
   }
 }
 
