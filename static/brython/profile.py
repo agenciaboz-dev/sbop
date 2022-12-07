@@ -517,6 +517,7 @@ def loadRequests(req):
     def populateRequestHistory():
         count = 1
         for solicitacao in member.solicitacoes:
+            print(solicitacao)
             row = f'<tr id="request-{solicitacao[0]}"><td>{solicitacao[6]}</td><td>{solicitacao[2]}</td><td class="request-situation">{solicitacao[3]}</td><td>{solicitacao[4]}</td></tr>'
 
             jQuery('#requests-history').append(row)
@@ -571,9 +572,9 @@ def loadRequests(req):
     # NOVA SOLICITAÇÃO
     @bind('#submit-request-button', 'click')
     def submitRequest(ev):
-        def addRequestToTable(solicitacao, today, protocolo):
+        def addRequestToTable(solicitacao, today, protocolo, url, status):
             new = [len(member.solicitacoes), member.id,
-                   solicitacao, 'Em Andamento', today, '', protocolo]
+                   solicitacao, status, today, url, protocolo]
             member.solicitacoes.insert(0, new)
 
             jQuery('#requests-history tr:not(.table-header > tr)').remove()
@@ -590,7 +591,7 @@ def loadRequests(req):
             POPUP.find('h1').text(h1)
             POPUP.find('p').text(p)
             if not data[0] == 'error':
-                addRequestToTable(data[2], data[3], data[4])
+                addRequestToTable(data[2], data[3], data[4], data[5], data[6])
             POPUP.find('button').fadeToggle()
 
         data = {
