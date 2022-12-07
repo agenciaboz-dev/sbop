@@ -523,6 +523,7 @@ def loadRequests(req):
             jQuery('#requests-history').append(row)
 
             if solicitacao[5]:
+                print(f'{solicitacao[6]}.{solicitacao[5].split(".")[1]}')
                 jQuery(
                     f'#request-{solicitacao[0]}').append(f'<td><a download="{solicitacao[6]}.{solicitacao[5].split(".")[1]}" href="/static/documents/{member.id}/{solicitacao[5]}" title="Download"><img src="/static/image/download_icon.svg"></img></a></td>')
             else:
