@@ -285,15 +285,8 @@ button:hover {
   .titles hr {
     height: 6vw;
   }
-  .titles a {
-    margin-left: 12vw;
-    margin-right: 5vw;
-  }
-  .titles h1 {
-    margin-left: 5vw;
-  }
   .titles hr {
-    margin: 0 5vw;
+    margin: 0 10vw;
   }
   .data-row {
     flex-direction: column;
@@ -358,8 +351,7 @@ button:hover {
   textarea {
     border-radius: 7vw;
     font-size: 80%;
-    padding-left: 3vw;
-    padding: 2vw;
+    padding: 3vw;
   }
   button {
     border-radius: 7vw;
