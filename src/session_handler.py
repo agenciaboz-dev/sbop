@@ -7,6 +7,7 @@ import json
 import requests
 import geopy.distance
 from src.mail_templates import recoverPasswordTemplate
+from src.certificate import generate as newCertificate
 
 
 class Connection():
@@ -430,3 +431,12 @@ class Session():
         sendMail('noreply@sbop.com.br',
                  f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
         return {'teste': 'teste'}
+
+    def newCertificate(self, data, path):
+        member = self.database.run(f"""SELECT assinatura, nome FROM Membros WHERE id = {int(data[1])} """, json=True)[0]
+
+        data[3] = 'Concluído'
+        data[5] = newCertificate(member['nome'], member['assinatura'], path)
+        
+        
+        return tuple(data), "Faça o download do certificado clicando no botão a direita"
