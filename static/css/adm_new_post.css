@@ -78,10 +78,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.main-container * {
-  outline: none;
-}
-
 .columns-container {
   height: 95%;
   display: flex;
