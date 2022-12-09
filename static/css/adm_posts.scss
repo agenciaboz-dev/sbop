@@ -41,6 +41,7 @@ img {
             padding-left: 3vw;
             border: 0.25vw solid $background-color;
             font-family: Montserrats;
+            font-size: 2vh;
         }
     }
 }
@@ -83,6 +84,7 @@ img {
     flex-direction: column;
     align-items: center;
     color: $list-text-color;
+    width: 100%;
 }
 
 #searching-title {
@@ -127,7 +129,7 @@ img {
 }
 
 .post-container-active {
-    border-color: $button-color  !important;
+    border-color: $button-color !important;
 }
 
 
@@ -161,10 +163,11 @@ img {
 
     button {
         font-family: Montserrats;
+        font-size: 2vh;
         font-weight: 600;
         flex: 0.45;
         border: none;
-        border-radius: 1vw;
+        border-radius: 4vw;
         color: white;
         background-color: $button-color;
         padding: 1vh 7vh;
