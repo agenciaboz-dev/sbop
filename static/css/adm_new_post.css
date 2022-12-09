@@ -155,6 +155,7 @@ img {
   color: #6b6b6b;
   font-family: Montserrats;
   font-weight: 600;
+  font-size: 2.5vh;
 }
 .radios-container p {
   color: #8d8d8d;
@@ -189,6 +190,7 @@ p {
 }
 
 ::placeholder {
+  font-size: 2vh;
   opacity: 0.5;
 }
 
@@ -261,6 +263,7 @@ p {
   color: #656565;
   border: none;
   border-radius: 2vw;
+  font-size: 2vh;
   font-weight: 600;
   margin: 1vh 0;
   border: #E4E4E4 solid 0.25vw;
@@ -279,6 +282,7 @@ p {
   color: #656565;
   border: none;
   border-radius: 2vw;
+  font-size: 2vh;
   font-weight: 600;
   margin: 1vh 0;
   border: #E4E4E4 solid 0.25vw;
@@ -319,6 +323,7 @@ p {
 }
 .buttons-container button {
   font-family: Montserrats;
+  font-size: 2vh;
   font-weight: 600;
   flex: 0.45;
   border: none;
