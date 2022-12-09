@@ -42,6 +42,7 @@ img {
             padding-left: 3vw;
             border: 0.25vw solid $background-color;
             font-family: Montserrats;
+            font-size: 2.5vh;
         }
     }
 }
@@ -63,6 +64,7 @@ img {
     h1 {
         color: $searched-title;
         align-self: flex-start;
+        font-size: 4vh;
 
         span {
             color: $list-text-color;
@@ -194,6 +196,7 @@ h2 {
     height: 4vh;
     padding: 0 0.5vw;
     margin-top: 0.5vh;
+    font-size: 2vh;
 }
 
 #pais-input {
@@ -209,6 +212,7 @@ h2 {
     border: 0.2vw solid $background-color;
     padding: 2vw;
     padding-right: 1vw;
+    font-size: 2.5vh;
 }
 
 .profile-data-field {
@@ -229,12 +233,13 @@ h2 {
     button {
         flex: 0.3;
         border: none;
-        border-radius: 0.8vw;
+        border-radius: 4vw;
         color: white;
         background-color: $button-color;
         padding: 0.65vh 0;
         cursor: pointer;
         transition: 0.3s;
+        font-size: 2vh;
     }
 
     button:hover {
@@ -264,6 +269,7 @@ h2 {
         height: 4vh;
         padding: 0 0.7vw;
         margin-top: 0.5vh;
+        font-size: 2vh;
     }
 }
 

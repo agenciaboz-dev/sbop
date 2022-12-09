@@ -113,6 +113,7 @@ img {
   padding-left: 3vw;
   border: 0.25vw solid #E4E4E4;
   font-family: Montserrats;
+  font-size: 2.5vh;
 }
 
 .result-container {
@@ -132,6 +133,7 @@ img {
 .list-wrapper h1 {
   color: #9F183B;
   align-self: flex-start;
+  font-size: 4vh;
 }
 .list-wrapper h1 span {
   color: #959595;
@@ -254,6 +256,7 @@ h2 {
   height: 4vh;
   padding: 0 0.5vw;
   margin-top: 0.5vh;
+  font-size: 2vh;
 }
 
 #pais-input {
@@ -269,6 +272,7 @@ h2 {
   border: 0.2vw solid #E4E4E4;
   padding: 2vw;
   padding-right: 1vw;
+  font-size: 2.5vh;
 }
 
 .profile-data-field {
@@ -289,12 +293,13 @@ h2 {
 .profile-buttons-container button {
   flex: 0.3;
   border: none;
-  border-radius: 0.8vw;
+  border-radius: 4vw;
   color: white;
   background-color: #0C6397;
   padding: 0.65vh 0;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 2vh;
 }
 .profile-buttons-container button:hover {
   background-color: #7BDCB5;
@@ -322,6 +327,7 @@ h2 {
   height: 4vh;
   padding: 0 0.7vw;
   margin-top: 0.5vh;
+  font-size: 2vh;
 }
 
 .checkbox-input {
