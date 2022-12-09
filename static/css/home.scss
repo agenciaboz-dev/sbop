@@ -319,10 +319,13 @@ button {
 
     .popup {
         width: 90vw;
-        font-size: 4vw;
         border-radius: 7vw;
         box-shadow: 0 0 15vw 150vw rgba(0, 0, 0, 0.5);
         outline: 2vw solid var(--primary-color);
+
+        p {
+            font-size: 4vw;
+        }
     }
 
 }
