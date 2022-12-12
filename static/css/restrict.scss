@@ -40,6 +40,21 @@
     font-size: 2vw;
 }
 
+.category-select {
+    h2 {
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    h2:hover {
+        transform: scale(1.1);
+    }
+
+    .selected-category {
+        color: var(--primary-color);
+    }
+}
+
 .content-container {
     display: flex;
     flex-direction: column;
