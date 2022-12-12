@@ -436,7 +436,7 @@ class Session():
         member = self.database.run(f"""SELECT assinatura, nome FROM Membros WHERE id = {int(data[1])} """, json=True)[0]
 
         data[3] = 'Concluído'
-        data[5] = newCertificate(member['nome'], member['assinatura'], path)
+        data[5] = 'certificate.pdf'
         
         
         return tuple(data), "Faça o download do certificado clicando no botão a direita"

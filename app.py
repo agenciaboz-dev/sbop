@@ -438,7 +438,7 @@ def cancel_request():
 def new_request():
     solicitacao = session.database.fetchTable(
         1, 'available_requests', 'id', request.form['request'])[0][1]
-    request_id = len(session.database.fetchTable(0, 'Solicitacoes'))
+    request_id = session.database.run("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'Solicitacoes' AND table_schema = DATABASE();", json=True)[0]['AUTO_INCREMENT']
     time = datetime.today()
     day = time.day
     month = time.month
