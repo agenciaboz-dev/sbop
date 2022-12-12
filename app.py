@@ -654,5 +654,13 @@ def send_documents_titular():
 
     return json.dumps(response)
 
+@app.route('/conteudo/', methods=['GET'])
+def conteudos_page():
+    if request.method == 'GET':
+        param = request.args.get('id')
+        
+        return render_template('conteudo.html')
+    
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")
