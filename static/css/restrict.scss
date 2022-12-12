@@ -35,13 +35,15 @@
 }
 
 .side-bar>h1 {
-    color: var(--text-terciary);
+    color: var(--text-primary);
     font-weight: bold;
     font-size: 2vw;
 }
 
 .category-select {
     h2 {
+        color: var(--text-secondary);
+        opacity: 0.3;
         cursor: pointer;
         transition: 0.3s;
     }
@@ -51,7 +53,8 @@
     }
 
     .selected-category {
-        color: var(--primary-color);
+        color: var(--text-terciary);
+        opacity: 1;
     }
 }
 
@@ -74,11 +77,15 @@
     font-size: 1vw;
 }
 
-.restrict-toolbar>h1 {
+.restrict-toolbar h1 {
     color: var(--text-secondary);
     opacity: 0.3;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.restrict-toolbar h1:hover {
+    transform: scale(1.1);
 }
 
 .restrict-toolbar>hr {
@@ -120,6 +127,7 @@
     height: 70%;
     overflow-y: auto;
     margin-right: 1.5vw;
+
 }
 
 #videos-container>hr {
