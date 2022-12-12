@@ -1,3 +1,19 @@
+:root {
+    --primary-color: #0C6397;
+    --secondary-color: #7BDCB5;
+    --terciary-color: #2FC178;
+    --public-info-color: rgba(16, 141, 98, 0.5);
+    --private-info-color: rgba(24, 16, 141, 0.5);
+    /* --secondary-color: #91a9b8; */
+    --line-color: #8D8D8D;
+    --toolbar-color: #F5F5F5;
+    --text-primary: #959595;
+    --text-secondary: #8D8D8D;
+    --text-terciary: #6B6B6B;
+    --input-background: #E4E4E4;
+    --table-row-background: #DCDCDC;
+}
+
 /* ----- Restrict Container ----- */
 
 #restrict-container {
@@ -135,6 +151,33 @@
 .restrict-media {
     object-fit: contain;
     width: 10vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.restrict-media:hover {
+    transform: scale(1.05);
+}
+
+.content-title {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.content-title:hover {
+    transform: scale(1.05);
+}
+
+.learn-more-button {
+    color: var(--primary-color) !important;
+    align-self: flex-end;
+    margin-right: 4vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.learn-more-button:hover {
+    transform: scale(1.05);
 }
 
 @media only screen and (max-width: 600px) {
