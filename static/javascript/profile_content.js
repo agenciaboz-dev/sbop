@@ -52,9 +52,9 @@ const getContentList = (membro) => {
                     console.log(post);
                     const element = `
                 <div class="restrict-content-wrapper">
-                    <img class="restrict-media" src="/static/conteudos/${post.id}" onerror="if (this.src != '/static/image/default_content.webp') this.src = '/static/image/default_content.webp';" alt="SBOP">
+                    <img class="restrict-media view-post" src="/static/conteudos/${post.id}" onerror="if (this.src != '/static/image/default_content.webp') this.src = '/static/image/default_content.webp';" alt="SBOP">
                     <div class="restrict-content-data">
-                        <h1 class="content-title">${post.titulo}</h1>
+                        <h1 class="content-title view-post">${post.titulo}</h1>
                         <p class="restrict-content-author">${post.autor} - ${post.data}</p>
                         <div class="content-box">
                             <p>${post.resumo}</p>
@@ -63,7 +63,7 @@ const getContentList = (membro) => {
                         </div>
                     </div>
                 </div>
-                <h1 class="learn-more-button">Saiba Mais</h1>
+                <h1 class="learn-more-button view-post">Saiba Mais</h1>
                 <hr>
                 `
                     posts_container.append(element);
