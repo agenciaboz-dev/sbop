@@ -1,0 +1,46 @@
+:root {
+  --primary-color: #0C6397;
+  --secondary-color: #7BDCB5;
+  --terciary-color: #2FC178;
+  --public-info-color: rgba(16, 141, 98, 0.5);
+  --private-info-color: rgba(24, 16, 141, 0.5);
+  /* --secondary-color: #91a9b8; */
+  --line-color: #8D8D8D;
+  --toolbar-color: #F5F5F5;
+  --text-primary: #959595;
+  --text-secondary: #8D8D8D;
+  --text-terciary: #6B6B6B;
+  --input-background: #E4E4E4;
+  --table-row-background: #DCDCDC;
+}
+
+.main-container {
+  font-family: Montserrats;
+  background-color: white;
+  padding: 4vw;
+  border-radius: 4vw;
+  line-height: 1.6;
+}
+
+h2 {
+  color: var(--text-secondary);
+  font-size: 1vw;
+}
+
+#titulo {
+  color: var(--text-terciary);
+  text-transform: uppercase;
+}
+
+#resumo {
+  color: #156296;
+  font-size: 1vw;
+}
+
+#conteudo {
+  color: var(--text-primary);
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+
+/*# sourceMappingURL=conteudo.css.map */
