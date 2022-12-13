@@ -309,7 +309,7 @@ class Session():
     def sendNewRequestMail(self, data):
         user = self.database.run(f"SELECT * FROM Membros WHERE id={data[1]}", json=True)[0]
         message = newRequestTemplate(user)
-        sendMail("fernando@agenciazop.com.br", "Teste", html=message)
+        sendMail("sbopmail@gmail.com", "Solicitação - [Protocolo]", html=message)
         
 
     def trySendMail(self, encrypted, username):
