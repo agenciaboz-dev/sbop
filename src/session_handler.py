@@ -6,7 +6,7 @@ from cryptography.fernet import Fernet
 import json
 import requests
 import geopy.distance
-from src.mail_templates import recoverPasswordTemplate
+from src.mail_templates import recoverPasswordTemplate, newRequestTemplate
 from src.certificate import generate as newCertificate
 
 
@@ -305,6 +305,12 @@ class Session():
             location = response['results'][0]['geometry']['location']
 
             return (location['lat'], location['lng'])
+        
+    def sendNewRequestMail(self, data):
+        user = self.database.run(f"SELECT * FROM Membros WHERE id={data[1]}", json=True)[0]
+        message = newRequestTemplate(user)
+        sendMail("fernando@agenciazop.com.br", "Teste", html=message)
+        
 
     def trySendMail(self, encrypted, username):
         sql = f"SELECT * FROM Membros WHERE user='{username}' ;"

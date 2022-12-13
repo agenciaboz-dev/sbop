@@ -471,7 +471,10 @@ def new_request():
         new = [request_id, request.form['id'],
                solicitacao, status, today, '', protocolo]
         session.getConnection(request.remote_addr).solicitacoes.insert(0, new)
+        session.sendNewRequestMail(data)
+        
         return str(['Sucesso', response, solicitacao, today, protocolo, data[5], data[3]])
+    
     except Exception as error:
         return str([error, error, error, error, error])
 
