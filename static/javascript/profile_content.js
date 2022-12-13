@@ -51,19 +51,21 @@ const getContentList = (membro) => {
                 if (!post.video) {
                     console.log(post);
                     const element = `
-                <div class="restrict-content-wrapper">
-                    <img class="restrict-media view-post" src="/static/conteudos/${post.id}" onerror="if (this.src != '/static/image/default_content.webp') this.src = '/static/image/default_content.webp';" alt="SBOP">
-                    <div class="restrict-content-data">
-                        <h1 class="content-title view-post">${post.titulo}</h1>
-                        <p class="restrict-content-author">${post.autor} - ${post.data}</p>
-                        <div class="content-box">
-                            <p>${post.resumo}</p>
-                            <br>
-                            <p>${post.conteudo}</p>
+                <section class="post-wrapper" post="${post.id}" style="display: contents;">
+                    <div class="restrict-content-wrapper">
+                        <img class="restrict-media view-post" src="/static/conteudos/${post.id}" onerror="if (this.src != '/static/image/default_content.webp') this.src = '/static/image/default_content.webp';" alt="SBOP">
+                        <div class="restrict-content-data">
+                            <h1 class="content-title view-post">${post.titulo}</h1>
+                            <p class="restrict-content-author">${post.autor} - ${post.data}</p>
+                            <div class="content-box">
+                                <p>${post.resumo}</p>
+                                <br>
+                                <p>${post.conteudo}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <h1 class="learn-more-button view-post">Saiba Mais</h1>
+                    <h1 class="learn-more-button view-post">Saiba Mais</h1>
+                </section>
                 <hr>
                 `
                     posts_container.append(element);
@@ -87,6 +89,10 @@ const getContentList = (membro) => {
                     videos_container.append(element);
                 }
             }
+            $('.view-post').on('click', (ev) => {
+                const id = $(ev.target).closest('.post-wrapper').attr('post')
+                window.open(`/conteudo/?id=${id}`, '_blank').focus();
+            })
         });
 }
 
