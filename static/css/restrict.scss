@@ -174,7 +174,7 @@
 
 .restrict-media {
     object-fit: contain;
-    width: 10vw;
+    width: 20vw;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -207,7 +207,8 @@
 @media only screen and (max-width: 600px) {
 
     .restrict-toolbar {
-        justify-content: space-around;
+        display: flex;
+        flex-direction: column;
         width: 100%;
         font-size: 4vh;
         margin: 3vh 0;
@@ -222,6 +223,7 @@
     #restrict-container {
         flex-direction: column;
         height: 100%;
+        width: 80vw;
 
         * {
             font-size: 3vh;
@@ -241,27 +243,31 @@
     }
 
     .side-bar>h1 {
-        font-size: 4vh;
+        display: none;
     }
+
+
 
     #restrict-container>hr {
         display: none;
     }
 
     #publicacoes-container {
+        align-items: center;
         height: 100%;
+        width: 80vw;
         margin: 3vh 0;
         overflow-y: visible;
     }
 
     .restrict-content-wrapper {
         flex-direction: column;
-        margin: 3vh 0;
+        margin: 0;
     }
 
     .restrict-media {
-        height: 40vw;
-        width: 40vw;
+        width: 70vw;
+        object-fit: contain;
         align-self: center;
         margin-bottom: 3vh;
     }
@@ -277,4 +283,11 @@
         overflow-y: visible;
     }
 
+    .learn-more-button {
+        margin: 4vw;
+    }
+
+    #publicacoes-container>hr {
+        margin: 12vw 0 20vw;
+    }
 }

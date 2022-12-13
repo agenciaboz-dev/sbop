@@ -493,6 +493,7 @@ button:hover {
     }
 
     .body-container {
+        align-items: center;
         height: 94vh;
         margin-top: 3vh;
         border-radius: 9vw;
@@ -552,7 +553,7 @@ button:hover {
     .info-container>div {
         align-items: center;
         margin: 0 2vw;
-        width: 90vw;
+        width: 80vw;
     }
 
     .info-container>div>h1 {
@@ -566,6 +567,7 @@ button:hover {
     }
 
     #profile-container {
+        align-items: center;
         padding: 0 2vw;
     }
 
@@ -578,6 +580,7 @@ button:hover {
     }
 
     .body-container span {
+        border-radius: 9vw;
         font-size: 2vh;
         padding: 1vw;
     }
@@ -602,7 +605,7 @@ button:hover {
         height: fit-content;
         width: fit-content;
         padding: 1vw;
-        margin: 1vh 1vw;
+        margin: 0;
     }
 
     #edit-curriculum {
@@ -617,6 +620,7 @@ button:hover {
 
     .curriculum-container {
         height: fit-content;
+        width: 80vw;
         margin: 3vh 1vw;
         transition: 0.3s;
 
@@ -694,4 +698,5 @@ button:hover {
             margin: 3vh 0 0;
         }
     }
+
 }

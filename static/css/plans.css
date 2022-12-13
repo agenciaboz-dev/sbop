@@ -69,6 +69,12 @@
   pointer-events: none;
 }
 
+#upgrade-plan-button {
+  height: fit-content;
+  padding: 1vw;
+  margin-bottom: 6vw;
+}
+
 .regularize-button {
   background-color: var(--secondary-color);
   width: 50%;
@@ -446,6 +452,7 @@
 @media only screen and (max-width: 600px) {
   #plans-container {
     height: auto;
+    width: 80vw;
     margin: 0 3vw;
   }
   #plans-container h1 {
@@ -474,7 +481,7 @@
     border-radius: 9vw;
   }
   #vigencia-text {
-    font-size: 2.5vh !important;
+    font-size: 5vw !important;
   }
   .plans-titles-container div {
     margin: 2vh 0;
@@ -575,6 +582,12 @@
   }
   .documents-container .plans-buttons-container button {
     width: 25vw;
+    border-radius: 9vw;
+  }
+  #upgrade-plan-button {
+    font-size: 5vw;
+    padding: 3vw;
+    margin-bottom: 6vw;
     border-radius: 9vw;
   }
   .payment-container h1 {
