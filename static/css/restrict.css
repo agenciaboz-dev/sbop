@@ -42,14 +42,15 @@
 .category-select h2 {
   color: var(--text-secondary);
   opacity: 0.3;
-  cursor: pointer;
   transition: 0.3s;
 }
-.category-select h2:hover {
+.category-select h2:hover:not(.selected-category) {
+  cursor: pointer;
   transform: scale(1.1);
 }
 .category-select .selected-category {
   color: var(--text-terciary);
+  pointer-events: none;
   opacity: 1;
 }
 

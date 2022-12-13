@@ -44,16 +44,17 @@
     h2 {
         color: var(--text-secondary);
         opacity: 0.3;
-        cursor: pointer;
         transition: 0.3s;
     }
 
-    h2:hover {
+    h2:hover:not(.selected-category) {
+        cursor: pointer;
         transform: scale(1.1);
     }
 
     .selected-category {
         color: var(--text-terciary);
+        pointer-events: none;
         opacity: 1;
     }
 }
