@@ -23,7 +23,6 @@ def recoverPasswordTemplate(nome, link):
         * {{{{
             box-sizing: border-box;
             font-family: Montserrats;
-            width: 100%;
         }}}}
 
         .main-container {{{{
@@ -32,8 +31,8 @@ def recoverPasswordTemplate(nome, link):
             background-color: white;
             border-radius: 2vw;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            margin: 7.5vh;
-            padding: 2vh 2vw 3vh;
+            margin: 4vw;
+            padding: 2vw;
             outline: #0C6397 solid 0.4vw;
             word-wrap: break-word;
         }}}}
@@ -47,7 +46,7 @@ def recoverPasswordTemplate(nome, link):
 
         h1 {{{{
             color: #0C6397;
-            margin: 2vh 0;
+            margin: 1vw 0;
         }}}}
 
         h2 {{{{
@@ -82,7 +81,7 @@ def newRequestTemplate(user):
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Requisição - SBOP</title>
+    <title>Nova Solicitação - SBOP</title>
     <style>
         @font-face {{
             font-family: Montserrats;
@@ -98,7 +97,6 @@ def newRequestTemplate(user):
         * {{
             box-sizing: border-box;
             font-family: Montserrats;
-            width: 100%;
         }}
 
         .main-container {{
@@ -107,8 +105,8 @@ def newRequestTemplate(user):
             background-color: white;
             border-radius: 2vw;
             box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
-            margin: 7.5vh;
-            padding: 2vh 2vw 3vh;
+            margin: 4vw;
+            padding: 2vw;
             outline: #0C6397 solid 0.4vw;
             word-wrap: break-word;
         }}
@@ -122,7 +120,7 @@ def newRequestTemplate(user):
 
         h1 {{
             color: #0C6397;
-            margin: 2vh 0;
+            margin: 1vw 0;
         }}
 
         h2 {{
@@ -134,7 +132,7 @@ def newRequestTemplate(user):
         }}
 
         p {{
-            font-size: 120%;
+            font-size: 1.5vw;
         }}
     </style>
 </head>
@@ -142,10 +140,9 @@ def newRequestTemplate(user):
 <body>
     <div class="main-container">
         <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
-        <h1>Nova Requisição - Sistema SBOP</h1>
+        <h1>Sistema SBOP</h1>
         <h2>Nome de usuário: {user["nome"]}</h2>
-        <p>Nova requisição feita no sistema: <a href="https://google.com">Acessar</a>
-        </p>
+        <p>Nova solicitação feita com sucesso.</p>
     </div>
 </body>
 
