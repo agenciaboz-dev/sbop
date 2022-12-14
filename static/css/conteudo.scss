@@ -15,11 +15,33 @@
 }
 
 .main-container {
+    position: relative;
     font-family: Montserrats;
     background-color: white;
-    padding: 4vw;
+    padding: 6vw;
     border-radius: 4vw;
     line-height: 1.6;
+}
+
+.back-button-a {
+    margin: 0;
+}
+
+.back-button-img {
+    position: absolute;
+    top: 8vw;
+    left: 1.75vw;
+    margin: 0;
+    cursor: pointer;
+    height: 3.5vw;
+    object-fit: contain;
+    filter: invert(41%) sepia(0%) saturate(1627%) hue-rotate(219deg) brightness(100%) contrast(90%);
+}
+
+.content-img {
+    float: left;
+    width: 30vw;
+    object-fit: contain;
 }
 
 h2 {
