@@ -65,4 +65,36 @@ h2 {
   margin-bottom: 2vw;
 }
 
+@media only screen and (max-width: 600px) {
+  .main-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15vw;
+  }
+  .back-button-img {
+    height: 10vw;
+    top: 6vw;
+    left: 6vw;
+  }
+  .content-img {
+    float: none;
+    width: 70vw;
+  }
+  h2 {
+    align-self: flex-start;
+    color: var(--text-secondary);
+    font-size: 5vw;
+  }
+  #resumo {
+    color: #156296;
+    font-size: 6vw;
+  }
+  #conteudo {
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+  }
+}
+
 /*# sourceMappingURL=conteudo.css.map */
