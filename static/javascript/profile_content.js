@@ -91,7 +91,7 @@ const getContentList = (membro) => {
             }
             $('.view-post').on('click', (ev) => {
                 const id = $(ev.target).closest('.post-wrapper').attr('post')
-                window.open(`/conteudo/?id=${id}`, '_blank').focus();
+                window.open(`/conteudo/?id=${id}`, '_self').focus();
             })
         });
 }
