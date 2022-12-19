@@ -143,6 +143,7 @@ const _get_member = setInterval(() => {
                 if (membro.pago) {
                     $('#upgrade-plan-button').on('click', (event) => {
                         if (membro.assinatura == 'Associado') {
+                            $('.vigencia-container').toggle()
                             $('.documents-container').fadeToggle();
 
                             if (mobile) {
