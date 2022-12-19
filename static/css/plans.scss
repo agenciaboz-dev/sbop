@@ -8,8 +8,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 2vw 3vw;
-    height: 100%;
+    margin: 1vw 3vw;
+    height: 90%;
 }
 
 .plans-titles-container {
@@ -38,7 +38,6 @@
     background-color: var(--secondary-color);
     border-radius: 2vw;
     right: 0;
-    height: 8vh;
 }
 
 #vigencia-text {
@@ -72,7 +71,7 @@
 
 #upgrade-plan-button {
     height: fit-content;
-    padding: 1vw;
+    padding: 0.5vw;
     margin-bottom: 6vw;
 }
 
@@ -143,10 +142,11 @@
 .documents-container {
     position: absolute;
     width: 100%;
-    height: 63.9vh;
+    height: 70vh;
     background-color: white;
     z-index: 10;
-    left: -0.67vw;
+    left: -0.7vw;
+    top: 15vh;
     border-radius: 1.5vw;
 }
 
@@ -282,7 +282,7 @@
     justify-content: space-between;
     margin: 0;
     right: 4.5vw;
-    bottom: 3vh;
+    bottom: 7vh;
 }
 
 .plans-buttons-container button {

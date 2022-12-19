@@ -136,7 +136,7 @@ button:hover {
     z-index: 5;
     width: 1.5vw;
     margin: auto;
-    margin: 3vw 9% 0;
+    margin: 3.5vw 9% 0;
 }
 
 .toolbar-active {
@@ -205,8 +205,8 @@ button:hover {
 #profile-picture {
     object-fit: cover;
     border-radius: 50%;
-    width: 100%;
-    object-fit: contain;
+    width: 15vw;
+    height: 15vw;
 }
 
 .upload-pfp-button {
@@ -435,6 +435,7 @@ button:hover {
     transition: 0.3s;
     margin-top: 25vh;
     padding-left: 2vw;
+    padding-right: 0.5vw;
 }
 
 .floating-button img {
