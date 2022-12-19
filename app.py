@@ -36,8 +36,8 @@ def home():
             connection = session.login(user, password, ip)
             if connection:
                 if connection[0]:
-                    # if connection[1].adm:
-                    #     return redirect('/adm/')
+                    if connection[1].adm:
+                        return redirect('/adm/')
                     return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'

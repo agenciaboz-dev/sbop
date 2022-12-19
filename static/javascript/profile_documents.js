@@ -36,4 +36,6 @@ const sendDocuments = (membro) => {
 
 cancelButton.on('click', () => {
     $('.documents-container').fadeOut();
+    $('.vigencia-container').show()
+
 })

@@ -143,6 +143,7 @@ const _get_member = setInterval(() => {
                 if (membro.pago) {
                     $('#upgrade-plan-button').on('click', (event) => {
                         if (membro.assinatura == 'Associado') {
+                            $('.vigencia-container').toggle()
                             $('.documents-container').fadeToggle();
 
                             if (mobile) {
@@ -193,7 +194,7 @@ const _get_member = setInterval(() => {
                     $('#vigencia-text').text('Pagamento não confirmado');
                     $('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)');
 
-                    $('#toolbar-plans').trigger('click');
+                    if (!membro.temporario) $('#toolbar-plans').trigger('click');
                 }
             });
         }, 100)
