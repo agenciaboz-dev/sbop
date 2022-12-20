@@ -289,6 +289,23 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 6vw;
+        margin-bottom: 1.5vw;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    p {
+        font-size: 4vw;
+    }
+
+    ::placeholder {
+        font-size: 4vw;
+    }
+
     .main-container {
         position: relative;
         overflow-y: scroll;
@@ -297,30 +314,42 @@ p {
     }
 
     .top-container {
-        margin-top: 2vh;
-        margin-bottom: 2vh;
+        height: 20vw;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
 
         img {
-            margin-right: 3vw;
+            max-height: 15vw;
+            margin-left: 3vw;
+            margin-right: 5vw;
         }
     }
 
     .dashed-box {
-        margin: 1vh 0 2vh;
-        padding: 2vh 11vw;
+        margin: 2vw 0 4vw;
+        padding: 7.5vw;
     }
 
     .search-box {
         border-radius: 5vw;
+        padding: 4vw 6vw;
     }
 
     .radios-container {
+        margin: 2vw 0;
+
         input[type=radio] {
+            height: 6vw;
             margin-right: 2vw;
         }
 
         p {
-            margin-top: 1vh;
+            margin-top: 2vw;
+            font-size: 4vw;
+        }
+
+        label {
+            font-size: 5vw;
         }
     }
 
@@ -334,22 +363,28 @@ p {
     }
 
     .membership-container {
-
+        margin: 2vw 0;
         width: 100%;
 
         #membership-input {
             border-radius: 5vw;
-            border: 1vw solid #E4E4E4
+            border: 1vw solid #E4E4E4;
+            font-size: 4vw;
+            margin: 2vw 0;
+            padding: 2vw 4vw;
         }
     }
 
     .category-container {
-
+        margin: 2vw 0;
         width: 100%;
 
         #category-input {
             border-radius: 5vw;
-            border: 1vw solid #E4E4E4
+            border: 1vw solid #E4E4E4;
+            font-size: 4vw;
+            margin: 2vw 0;
+            padding: 2vw 4vw;
         }
     }
 
@@ -362,6 +397,7 @@ p {
 
         textarea {
             padding: 2vw;
+            margin-top: 2vw;
         }
     }
 
@@ -370,6 +406,12 @@ p {
 
         textarea {
             padding: 2vw;
+            margin-top: 2vw;
+        }
+
+        #summary-area {
+            height: 60vw;
+            margin-bottom: 4vw;
         }
     }
 
@@ -378,21 +420,25 @@ p {
     }
 
     #title-area {
-        margin-bottom: 2vh;
+        margin-bottom: 4vw;
+        height: 20vw;
     }
 
     #content-area {
-        margin-bottom: 10vh;
+        height: 100vw;
+        margin-bottom: 15vw;
     }
 
     .buttons-container {
         position: absolute;
         align-self: center;
-        bottom: -123vh;
+        top: 400vw;
 
         button {
             border-radius: 9vw;
-            margin: 1vh 1vw;
+            margin: 2vw 1vw;
+            font-size: 4vw;
+            padding: 2vw 4vw;
         }
 
         button:first-of-type {
