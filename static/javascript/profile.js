@@ -88,6 +88,7 @@ const copyToClipboard = (texto) => {
 }
 
 const tipoPagamento = (plano) => {
+    console.log(plano)
     const plan_name = $('.payment-header > div > h1 > span')
     const plan_value = $('.payment-header > div > h2 > span')
     const plan_qrcode = $('.qr-container > img')
@@ -158,6 +159,20 @@ const _get_member = setInterval(() => {
                         $('.selected-plan').removeClass('selected-plan');
                         $(event.target).closest('.plans').addClass('selected-plan');
                         $('#upgrade-plan-button').removeClass('deactivated-button');
+
+                    })
+
+                    $('#upgrade-plan-button').on('click', () => {
+                        $('.plans-panel').fadeOut(0, () => {
+                            $('.payment-container').fadeIn();
+                            tipoPagamento($('.active-plan').attr('id'))
+                        });
+                    })
+
+                    $('.back-button').on('click', () => {
+                        $('.payment-container').fadeOut(0, () => {
+                            $('.plans-panel').fadeIn();
+                        })
                     })
 
                 }
