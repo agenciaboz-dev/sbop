@@ -30,7 +30,7 @@
 }
 
 .vigencia-container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex: 0.4;

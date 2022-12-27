@@ -129,6 +129,14 @@
     overflow-y: auto;
     margin-right: 1.5vw;
 
+    a {
+        align-self: center;
+        width: fit-content;
+
+        img {
+            width: 40vw;
+        }
+    }
 }
 
 #videos-container>hr {
@@ -136,9 +144,9 @@
     margin: 1vw auto;
 }
 
-#videos-container>hr:last-of-type {
-    display: none;
-}
+// #videos-container>hr:last-of-type {
+//     display: none;
+// }
 
 .video-wrapper {
     display: flex;
@@ -170,6 +178,11 @@
 .restrict-content h1 {
     margin-left: 0.5vw;
     font-size: 1.5vw;
+
+    span {
+        opacity: 0.5;
+        margin: 0;
+    }
 }
 
 .restrict-media {
