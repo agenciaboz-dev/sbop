@@ -63,8 +63,8 @@ def recoverPasswordTemplate(nome, link):
     <div class="main-container">
         <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
         <h1>Redefinição de senha - Sistema SBOP</h1>
-        <h2>Nome de usuário: {{nome}}</h2>
-        <p>Clique no link para redefinir sua senha: <a href="{{link}}">Clique aqui</a>
+        <h2>Nome de usuário: {nome}</h2>
+        <p>Clique no link para redefinir sua senha: <a href="{link}">Clique aqui</a>
         </p>
     </div>
 </body>
