@@ -9,23 +9,23 @@ def recoverPasswordTemplate(nome, link):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redefinição de senha - SBOP</title>
     <style>
-        @font-face {{{{
+        @font-face {{
             font-family: Montserrats;
             src: url("/static/fonts/Montserrat-Regular.otf");
-        }}}}
+        }}
 
-        @font-face {{{{
+        @font-face {{
             font-family: Montserrats;
             src: url("/static/fonts/Montserrat-Bold.otf");
             font-weight: bold;
-        }}}}
+        }}
 
-        * {{{{
+        * {{
             box-sizing: border-box;
             font-family: Montserrats;
-        }}}}
+        }}
 
-        .main-container {{{{
+        .main-container {{
             height: min-content;
             width: 90%;
             background-color: white;
@@ -35,27 +35,27 @@ def recoverPasswordTemplate(nome, link):
             padding: 2vw;
             outline: #0C6397 solid 0.4vw;
             word-wrap: break-word;
-        }}}}
+        }}
 
-        img {{{{
+        img {{
             height: 100px;
             width: auto;
             margin: -20px 0;
             pointer-events: none;
-        }}}}
+        }}
 
-        h1 {{{{
+        h1 {{
             color: #0C6397;
             margin: 1vw 0;
-        }}}}
+        }}
 
-        h2 {{{{
+        h2 {{
             color: #6B6B6B;
-        }}}}
+        }}
 
-        a {{{{
+        a {{
             color: #0C6397;
-        }}}}
+        }}
     </style>
 </head>
 
