@@ -651,6 +651,9 @@ button:hover {
     height: fit-content;
     margin: 3vh 0 0;
   }
+  button {
+    border-radius: 9vw;
+  }
 }
 
 /*# sourceMappingURL=profile.css.map */

@@ -471,7 +471,8 @@
 
     #plans-container {
         height: auto;
-        margin: 0 3vw;
+        margin-bottom: 3vh;
+        padding: 0 2vw;
     }
 
     #plans-container h1 {
@@ -822,6 +823,10 @@
         //         align-self: flex-end;
         //         margin-top: 2vh;
         //     }
+
+        button {
+            border-radius: 9vw;
+        }
 
         .pay-button {
             width: 40vw;

@@ -446,7 +446,8 @@
 @media only screen and (max-width: 600px) {
   #plans-container {
     height: auto;
-    margin: 0 3vw;
+    margin-bottom: 3vh;
+    padding: 0 2vw;
   }
   #plans-container h1 {
     font-size: 4vh;
@@ -652,6 +653,9 @@
   .payment-form-container .data-row {
     flex-direction: column;
     align-items: center;
+  }
+  .payment-form-container button {
+    border-radius: 9vw;
   }
   .payment-form-container .pay-button {
     width: 40vw;
