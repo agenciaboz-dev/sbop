@@ -206,7 +206,7 @@ def get_videos():
         return 'False'
     else:
         # titular-1.mp4
-        videos_list = os.listdir(f'static/videos/{connection.member}')
+        videos_list = os.listdir(f"static/videos/{connection.member}")
 
         return str(videos_list)
 
