@@ -510,7 +510,7 @@ button:hover {
     margin-bottom: 0.2vw;
   }
   .toolbar p {
-    font-size: 4.5vw;
+    font-size: 4vw;
     margin-top: 0.2vw;
   }
   #toolbar-profile {
@@ -534,16 +534,15 @@ button:hover {
     margin: 6vw 1vw;
   }
   .info-container > div {
-    align-items: center;
     margin: 0 2vw;
     width: 80vw;
   }
   .info-container > div > h1 {
-    font-size: 5.5vw;
+    font-size: 5vw;
     margin-top: 2vw;
   }
   .info-container > div > p {
-    font-size: 4.5vw;
+    font-size: 4vw;
     margin: 1.5vw 0 2.5vw;
   }
   #profile-container {
@@ -563,8 +562,8 @@ button:hover {
     padding: 1vw;
   }
   #profile-picture {
-    height: 35vw;
-    width: 35vw;
+    height: 50vw;
+    width: 50vw;
   }
   #camera-icon {
     width: 8vw;
@@ -592,16 +591,17 @@ button:hover {
     padding: 1vw;
   }
   .curriculum-container {
+    align-items: flex-start;
     height: fit-content;
     width: 80vw;
     margin: 8vw 1vw;
     transition: 0.3s;
   }
   .curriculum-container h1 {
-    font-size: 5.5vw;
+    font-size: 5vw;
   }
   .curriculum-container p {
-    font-size: 4.5vw;
+    font-size: 4vw;
     margin-top: 4vw;
   }
   .curriculum-container span {
@@ -614,6 +614,7 @@ button:hover {
     font-size: 4vw;
     height: fit-content;
     padding-left: 2.5vw;
+    padding-right: 0;
   }
   .floating-button img {
     margin: 0 1vw;
@@ -627,7 +628,7 @@ button:hover {
     border-bottom-right-radius: 9vw;
   }
   .curriculum-container > textarea {
-    font-size: 4.5vw;
+    font-size: 4vw;
     margin-top: 12vw;
     border-radius: 6vw;
     height: 30vw;

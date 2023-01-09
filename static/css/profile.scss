@@ -526,7 +526,7 @@ button:hover {
     }
 
     .toolbar p {
-        font-size: 4.5vw;
+        font-size: 4vw;
         margin-top: 0.2vw;
     }
 
@@ -556,18 +556,17 @@ button:hover {
     }
 
     .info-container>div {
-        align-items: center;
         margin: 0 2vw;
         width: 80vw;
     }
 
     .info-container>div>h1 {
-        font-size: 5.5vw;
+        font-size: 5vw;
         margin-top: 2vw;
     }
 
     .info-container>div>p {
-        font-size: 4.5vw;
+        font-size: 4vw;
         margin: 1.5vw 0 2.5vw;
     }
 
@@ -591,8 +590,8 @@ button:hover {
     }
 
     #profile-picture {
-        height: 35vw;
-        width: 35vw;
+        height: 50vw;
+        width: 50vw;
     }
 
     #camera-icon {
@@ -625,17 +624,18 @@ button:hover {
     }
 
     .curriculum-container {
+        align-items: flex-start;
         height: fit-content;
         width: 80vw;
         margin: 8vw 1vw;
         transition: 0.3s;
 
         h1 {
-            font-size: 5.5vw;
+            font-size: 5vw;
         }
 
         p {
-            font-size: 4.5vw;
+            font-size: 4vw;
             margin-top: 4vw;
         }
 
@@ -651,6 +651,7 @@ button:hover {
         font-size: 4vw;
         height: fit-content;
         padding-left: 2.5vw;
+        padding-right: 0;
 
         img {
             margin: 0 1vw;
@@ -668,7 +669,7 @@ button:hover {
     }
 
     .curriculum-container>textarea {
-        font-size: 4.5vw;
+        font-size: 4vw;
         margin-top: 12vw;
         border-radius: 6vw;
         height: 30vw;
