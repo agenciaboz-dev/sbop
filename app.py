@@ -291,14 +291,16 @@ def members():
 
         # name search request
         if request.form['search'] == 'name':
-            searched = request.form['value'].lower()
-            sql = f"SELECT * FROM `Membros` WHERE nome like '%{searched}%' AND assinatura = 'Titular' ORDER BY nome ASC"
-            if adm:
-                sql = f"SELECT * FROM `Membros` WHERE nome like '%{searched}%' ORDER BY nome ASC"
-            members = session.database.run(sql)
-            for member in members:
-                data = session.buildMember(member)
-                result.append(data)
+            searched = request.form['value'].lower().split(' ')
+            for item in searched:
+                sql = f"SELECT * FROM `Membros` WHERE nome like '%{item}%' AND assinatura = 'Titular' ORDER BY nome ASC"
+                if adm:
+                    sql = f"SELECT * FROM `Membros` WHERE nome like '%{item}%' ORDER BY nome ASC"
+                members = session.database.run(sql)
+                for member in members:
+                    data = session.buildMember(member)
+                    if not data in result:
+                        result.append(data)
 
 
         # cep search request
