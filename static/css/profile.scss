@@ -221,8 +221,8 @@ button:hover {
     z-index: 5;
     margin: 0;
     cursor: pointer;
-    filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.05));
-    border-radius: 80vw;
+    filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
+    border-radius: 50%;
     right: 1.9vw;
     top: 0;
     transition: 0.5s;
@@ -568,7 +568,7 @@ button:hover {
 
     .info-container>div>p {
         font-size: 4.5vw;
-        margin: 0.5vw 0 2vw;
+        margin: 1.5vw 0 2.5vw;
     }
 
     #profile-container {
@@ -597,6 +597,7 @@ button:hover {
 
     #camera-icon {
         width: 8vw;
+        padding: 1vw;
     }
 
     .camera-icon-container {
@@ -669,8 +670,9 @@ button:hover {
     .curriculum-container>textarea {
         font-size: 4.5vw;
         margin-top: 12vw;
-        border-radius: 3vw;
-        height: fit-content;
+        border-radius: 6vw;
+        height: 30vw;
+        padding: 3vw;
     }
 
     /* Floating Pop Up */
@@ -698,8 +700,9 @@ button:hover {
         }
 
         button {
+            border-radius: 9vw;
             width: 50%;
-            height: fit-content;
+            height: 9vw;
             margin: 6vw 0 0;
         }
     }
