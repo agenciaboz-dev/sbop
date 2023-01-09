@@ -51,32 +51,33 @@
         }
 
         >form>h1 {
-            font-size: 3vh;
-            margin-bottom: 2vh;
+            font-size: 5vw;
+            margin-bottom: 4vw;
         }
 
         >form>input {
             border-radius: 9vw;
+            height: 12vw;
             padding: 2vw;
-            font-size: 2.5vh;
-            margin: 1vh 0;
+            font-size: 4vw;
+            margin: 2vw 0;
             padding-left: 3vw;
         }
 
         >form>label {
-            font-size: 2.5vh;
+            font-size: 4vw;
         }
 
         >form>button {
-            font-size: 2.5vh;
+            font-size: 4vw;
             border-radius: 9vw;
-            margin: 2vh 0 4vh;
-            padding: 1vh;
-            height: 6vh;
+            margin: 4vw 0 8vw;
+            padding: 2vw;
+            height: 12vw;
         }
 
         >form>::placeholder {
-            font-size: 2.5vh;
+            font-size: 4vw;
         }
     }
 }

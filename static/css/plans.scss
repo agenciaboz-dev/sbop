@@ -47,7 +47,7 @@
 }
 
 #plans-container h1 {
-    color: var(--text-terciary);
+    // color: var(--text-terciary);
     font-size: 1.1vw;
     margin: 0;
 }
@@ -73,7 +73,6 @@
 #upgrade-plan-button {
     height: fit-content;
     padding: 0.5vw;
-    margin-bottom: 6vw;
 }
 
 .regularize-button {
@@ -479,30 +478,30 @@
 
     #plans-container {
         height: auto;
-        width: 80vw;
-        margin: 0 3vw;
+        margin-bottom: 6vw;
+        padding: 0 2vw;
     }
 
     #plans-container h1 {
-        font-size: 4vh;
-        margin-bottom: 1vh;
+        font-size: 5vw;
+        margin-bottom: 2vw;
     }
 
     #plans-container p {
-        font-size: 3vh;
+        font-size: 4vw;
 
         span {
-            font-size: 3vh;
-            margin-left: 1vh;
+            font-size: 4vw;
+            margin-left: 2vw;
         }
     }
 
     .active-plan>.plan-title>p {
-        font-size: 3vh;
+        font-size: 4vw;
     }
 
     .requirements {
-        font-size: 3vh !important;
+        font-size: 4vw !important;
     }
 
     .plans-titles-container {
@@ -511,7 +510,7 @@
     }
 
     .vigencia-container {
-        padding: 1vh 3vw;
+        padding: 2vw 3vw;
         border-radius: 9vw;
     }
 
@@ -520,11 +519,11 @@
     }
 
     .plans-titles-container div {
-        margin: 2vh 0;
+        margin: 4vw 0;
     }
 
     .plans {
-        margin: 3vh 0;
+        margin: 6vw 0;
         padding: 4vw;
         border-radius: 9vw;
 
@@ -538,12 +537,13 @@
     }
 
     #active-plan-icon {
+        display: none;
         width: 4vw;
         right: 1vw;
     }
 
     .active-plan>div {
-        margin-bottom: 2vh;
+        margin-bottom: 4vw;
     }
 
     .documents-container {
@@ -581,12 +581,12 @@
                     }
 
                     p {
-                        font-size: 5vw !important;
+                        font-size: 4vw !important;
                     }
                 }
 
                 h3 {
-                    font-size: 6.5vw;
+                    font-size: 5vw;
                 }
 
                 .license-info {
@@ -645,9 +645,8 @@
     }
 
     #upgrade-plan-button {
-        font-size: 5vw;
+        font-size: 4vw;
         padding: 3vw;
-        margin-bottom: 6vw;
         border-radius: 9vw;
     }
 
@@ -662,14 +661,14 @@
         //     }
 
         h1 {
-            font-size: 2vh !important;
+            font-size: 4vw !important;
         }
 
         h2 {
             //         color: var(--text-terciary);
-            //         font-size: 3vh;
-            //         margin-top: 1vh;
-            margin-bottom: 2vh;
+            //         font-size: 5vw;
+            //         margin-top: 2vw;
+            margin-bottom: 4vw;
         }
 
         //     label {
@@ -686,7 +685,7 @@
             width: 100%;
 
             * {
-                margin: 2vh 0;
+                margin: 4vw 0;
             }
         }
     }
@@ -708,13 +707,13 @@
         width: 100%;
 
         * {
-            margin: 1vh 0;
+            margin: 2vw 0;
         }
 
         button {
             height: fit-content;
-            padding: 1vh 2vw;
-            // margin-top: 1vh;
+            padding: 2vw 2vw;
+            // margin-top: 2vw;
             // transition: 0.3s;
         }
 
@@ -724,7 +723,7 @@
     }
 
     // .qrc {
-    //     height: 30vh;
+    //     height: 60vw;
     //     object-fit: contain;
     // }
 
@@ -733,7 +732,7 @@
         flex-direction: row;
         // align-items: center;
         // justify-content: space-around;
-        margin: 6vh 0;
+        margin: 12vw 0;
 
         hr {
             height: 0;
@@ -742,7 +741,7 @@
         }
 
         // h2 {
-        //     margin: 2vh 0;
+        //     margin: 4vw 0;
         // }
     }
 
@@ -753,7 +752,7 @@
         width: 100%;
 
         * {
-            margin: 0.5vh 0;
+            margin: 1vw 0;
         }
 
         label {
@@ -765,7 +764,7 @@
         }
 
         ::placeholder {
-            font-size: 2vh;
+            font-size: 4vw;
         }
 
         .payment-form {
@@ -784,7 +783,7 @@
 
             //         >label {
             //             font-weight: 500;
-            //             margin: 0.5vh 0;
+            //             margin: 1vw 0;
             //         }
         }
 
@@ -794,7 +793,7 @@
 
         //         >label {
         //             font-weight: 500;
-        //             margin: 0.5vh 0;
+        //             margin: 1vw 0;
         //         }
         //     }
 
@@ -823,11 +822,11 @@
         //         background-color: var(--input-background, 0.4);
         //         border: none;
         //         border-radius: 2vw;
-        //         padding: 0.5vh 1vw;
+        //         padding: 1vw 1vw;
         //     }
 
         //     hr {
-        //         margin: 3vh 0;
+        //         margin: 6vw 0;
         //         border: none;
         //         border-top: 2px solid var(--line-color);
         //         opacity: 0.5;
@@ -836,8 +835,12 @@
 
         //     .payment-buttons {
         //         align-self: flex-end;
-        //         margin-top: 2vh;
+        //         margin-top: 4vw;
         //     }
+
+        button {
+            border-radius: 9vw;
+        }
 
         .pay-button {
             width: 40vw;

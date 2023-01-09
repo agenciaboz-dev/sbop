@@ -45,10 +45,10 @@
         color: var(--text-secondary);
         opacity: 0.3;
         transition: 0.3s;
+        cursor: pointer;
     }
 
-    h2:hover:not(.selected-category) {
-        cursor: pointer;
+    h2:hover {
         transform: scale(1.1);
     }
 
@@ -222,13 +222,13 @@
     .restrict-toolbar {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        font-size: 4vh;
-        margin: 3vh 0;
+        align-self: baseline;
+        font-size: 4vw;
+        margin: 6vw 0;
     }
 
     .restrict-toolbar>hr {
-        margin: 0 3vh;
+        margin: 0 6vw;
         border: none;
         border-left: solid 2px var(--line-color);
     }
@@ -238,8 +238,17 @@
         height: 100%;
         width: 80vw;
 
-        * {
-            font-size: 3vh;
+        h1 {
+            font-size: 5vw;
+            margin-left: 0;
+        }
+
+        h2 {
+            font-size: 5vw;
+        }
+
+        p {
+            font-size: 4vw;
         }
     }
 
@@ -252,14 +261,12 @@
         flex-direction: row;
         width: 100%;
         margin-top: 0;
-        margin-bottom: 2vh;
+        margin-bottom: 4vw;
     }
 
     .side-bar>h1 {
         display: none;
     }
-
-
 
     #restrict-container>hr {
         display: none;
@@ -269,7 +276,7 @@
         align-items: center;
         height: 100%;
         width: 80vw;
-        margin: 3vh 0;
+        margin: 6vw 0;
         overflow-y: visible;
     }
 
@@ -282,25 +289,39 @@
         width: 70vw;
         object-fit: contain;
         align-self: center;
-        margin-bottom: 3vh;
+        margin-bottom: 6vw;
     }
 
     .restrict-content-data {
-        gap: 2vh;
+        gap: 4vw;
         word-wrap: break-word;
+        width: 80vw;
     }
 
     #videos-container {
         height: 100%;
-        margin: 3vh 0;
+        margin: 6vw 0;
         overflow-y: visible;
+
+        a {
+            margin-top: 4vw;
+
+            img {
+                width: 80vw;
+            }
+        }
+
+        hr {
+            margin-top: 12vw;
+            margin-bottom: 12vw;
+        }
     }
 
     .learn-more-button {
-        margin: 4vw;
+        margin-top: 4vw;
     }
 
     #publicacoes-container>hr {
-        margin: 12vw 0 20vw;
+        margin: 12vw 0 12vw;
     }
 }

@@ -216,8 +216,8 @@ button:hover {
   z-index: 5;
   margin: 0;
   cursor: pointer;
-  filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.05));
-  border-radius: 80vw;
+  filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
+  border-radius: 50%;
   right: 1.9vw;
   top: 0;
   transition: 0.5s;
@@ -485,8 +485,8 @@ button:hover {
   }
   .body-container {
     align-items: center;
-    height: 94vh;
-    margin-top: 3vh;
+    height: 184vw;
+    margin-top: 6vw;
     border-radius: 9vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow-x: hidden;
@@ -499,18 +499,18 @@ button:hover {
     flex-direction: column;
     z-index: 9;
     width: 90%;
-    box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.3);
-    margin-top: 10vh;
+    box-shadow: 0 0 20vw 200vw rgba(0, 0, 0, 0.3);
+    margin-top: 20vw;
   }
   .body-toolbar hr {
     display: none;
   }
   .toolbar h1 {
-    font-size: 3vh;
+    font-size: 6vw;
     margin-bottom: 0.2vw;
   }
   .toolbar p {
-    font-size: 2.5vh;
+    font-size: 4vw;
     margin-top: 0.2vw;
   }
   #toolbar-profile {
@@ -519,36 +519,38 @@ button:hover {
   }
   #toolbar-plans > img {
     width: 6vw;
-    margin: 1vh 9% 0;
+    margin: 2vw 9% 0;
   }
   .info-container-wrapper {
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3vh;
+    margin-bottom: 8vw;
+  }
+  .info-container-wrapper > div:last-of-type > div {
+    margin: 6vw 0;
   }
   .info-container {
     flex-direction: column;
-    margin: 3vh 1vw;
+    margin: 6vw 1vw;
   }
   .info-container > div {
-    align-items: center;
     margin: 0 2vw;
     width: 80vw;
   }
   .info-container > div > h1 {
-    font-size: 3vh;
-    margin-top: 1vh;
+    font-size: 5vw;
+    margin-top: 2vw;
   }
   .info-container > div > p {
-    font-size: 2.5vh;
-    margin: 0.5vw 0 1vh;
+    font-size: 4vw;
+    margin: 1.5vw 0 2.5vw;
   }
   #profile-container {
     align-items: center;
     padding: 0 2vw;
   }
   .profile-buttons {
-    font-size: 2vh;
+    font-size: 4vw;
     padding: 1vw;
     height: fit-content;
     width: 18vw;
@@ -556,15 +558,16 @@ button:hover {
   }
   .body-container span {
     border-radius: 9vw;
-    font-size: 2vh;
+    font-size: 4vw;
     padding: 1vw;
   }
   #profile-picture {
-    height: 35vw;
-    width: 35vw;
+    height: 50vw;
+    width: 50vw;
   }
   #camera-icon {
     width: 8vw;
+    padding: 1vw;
   }
   .camera-icon-container {
     right: 0;
@@ -572,7 +575,7 @@ button:hover {
   }
   #edit-skills {
     border-radius: 5vw;
-    font-size: 2vh;
+    font-size: 4vw;
     height: fit-content;
     width: fit-content;
     padding: 1vw;
@@ -582,34 +585,36 @@ button:hover {
     right: 0;
     top: 0;
     border-radius: 5vw;
-    font-size: 2vh;
+    font-size: 4vw;
     height: fit-content;
     width: fit-content;
     padding: 1vw;
   }
   .curriculum-container {
+    align-items: flex-start;
     height: fit-content;
     width: 80vw;
-    margin: 3vh 1vw;
+    margin: 8vw 1vw;
     transition: 0.3s;
   }
   .curriculum-container h1 {
-    font-size: 3vh;
+    font-size: 5vw;
   }
   .curriculum-container p {
-    font-size: 2.5vh;
-    margin-top: 6vh;
+    font-size: 4vw;
+    margin-top: 4vw;
   }
   .curriculum-container span {
-    top: 6vh;
+    top: 12vw;
     right: 35vw;
   }
   .floating-button {
-    margin-top: -7vh;
+    margin-top: -14vw;
     width: fit-content;
-    font-size: 2vh;
+    font-size: 4vw;
     height: fit-content;
     padding-left: 2.5vw;
+    padding-right: 0;
   }
   .floating-button img {
     margin: 0 1vw;
@@ -623,36 +628,38 @@ button:hover {
     border-bottom-right-radius: 9vw;
   }
   .curriculum-container > textarea {
-    font-size: 2.5vh;
-    margin-top: 6vh;
-    border-radius: 3vw;
-    height: fit-content;
+    font-size: 4vw;
+    margin-top: 12vw;
+    border-radius: 6vw;
+    height: 30vw;
+    padding: 3vw;
   }
   /* Floating Pop Up */
   .popup {
     border-radius: 8vw;
-    top: 21.5vh;
-    box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.3);
+    top: 43vw;
+    box-shadow: 0 0 20vw 200vw rgba(0, 0, 0, 0.3);
     border: none;
-    padding: 3vh;
+    padding: 6vw;
     width: 90%;
     word-wrap: break-word;
   }
   .popup > div {
     display: flex;
     flex-direction: column;
-    gap: 3vh;
+    gap: 6vw;
   }
   .popup h1 {
-    margin-bottom: 3vh;
+    margin-bottom: 6vw;
   }
   .popup label {
     width: 20vw;
   }
   .popup button {
+    border-radius: 9vw;
     width: 50%;
-    height: fit-content;
-    margin: 3vh 0 0;
+    height: 9vw;
+    margin: 6vw 0 0;
   }
 }
 

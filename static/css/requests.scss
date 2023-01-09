@@ -112,7 +112,7 @@
 @media only screen and (max-width: 600px) {
     #new-request-button {
         border-radius: 9vw;
-        font-size: 5vw;
+        font-size: 4vw;
         height: fit-content;
         padding: 3vw;
         width: 100%;
@@ -123,12 +123,12 @@
         width: 80vw;
 
         h1 {
-            font-size: 5.5vw;
+            font-size: 5vw;
             margin-top: 18vw;
         }
 
         p {
-            font-size: 5vw;
+            font-size: 4vw;
             margin: 5vw 0 0;
             display: none;
         }
@@ -152,7 +152,7 @@
                 }
 
                 tbody td {
-                    font-size: 3vh;
+                    font-size: 4vw;
                 }
             }
 
@@ -167,13 +167,13 @@
                 border: #0C6397 solid 4px;
                 border-radius: 8vw;
                 margin: 20vw 0;
-                padding: 2vh 0;
+                padding: 4vw 0;
                 background-color: white;
-                box-shadow: 0 0 1.5vh 1.5vh rgba(0, 0, 0, 0.15);
+                box-shadow: 0 0 3vw 3vw rgba(0, 0, 0, 0.15);
             }
 
             table td img {
-                height: 6vh;
+                height: 10vw;
                 width: auto;
             }
 
