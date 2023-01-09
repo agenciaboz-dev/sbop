@@ -8,7 +8,6 @@
 
 body {
   justify-content: space-around;
-  align-items: space-around;
 }
 
 input:-webkit-autofill,
@@ -22,9 +21,9 @@ input:-webkit-autofill:active {
   display: flex;
   background-color: var(--primary-color);
   width: 70%;
-  height: 65vh;
+  height: 31vw;
   border-radius: 1.5vw;
-  margin-top: 16vh;
+  margin-top: 7vw;
 }
 
 .body-container > img {
@@ -56,12 +55,15 @@ input:-webkit-autofill:active {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 1vw;
 }
 
 .titles {
   display: flex;
   width: 100%;
   color: var(--secondary-text-color);
+  margin-top: 0;
+  margin-bottom: 0.5vw;
 }
 
 .titles hr {
@@ -76,6 +78,11 @@ input:-webkit-autofill:active {
   display: contents;
 }
 
+h1 {
+  font-size: 2.5vw;
+  margin: 1vw;
+}
+
 a > h1 {
   opacity: 0.5;
   transition: 0.3s;
@@ -86,13 +93,14 @@ a > h1:hover {
 }
 
 label {
+  font-size: 1.5vw;
   margin: 0;
   font-weight: bold;
 }
 
 input {
   border-radius: 1.5vw;
-  height: 6vh;
+  height: 3vw;
   background-color: var(--input-background);
   opacity: 0.7;
   border: none;
@@ -100,6 +108,8 @@ input {
   padding: 1vw;
   color: var(--primary-text-color);
   font-size: 1vw;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
 }
 
 ::placeholder {
@@ -113,9 +123,11 @@ button {
   border-radius: 1.5vw;
   border: none;
   color: white;
+  font-size: 1vw;
   font-weight: bold;
-  height: 6vh;
-  margin-bottom: 0;
+  height: 3vw;
+  margin-top: 1vw;
+  margin-bottom: 0.5vw;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -141,6 +153,7 @@ button {
 
 .container > p {
   margin-top: 0;
+  margin-bottom: 0;
   font-size: 1vw;
   color: var(--primary-text-color);
 }
@@ -155,8 +168,12 @@ button {
   z-index: 5;
   padding: 2vw;
   color: var(--secondary-text-color);
-  border: 1vh solid var(--primary-color);
+  outline: 0.5vw solid var(--primary-color);
   width: 50%;
+  box-shadow: 0 0 15vw 150vw rgba(0, 0, 0, 0.5);
+}
+.popup p {
+  font-size: 1.5vw;
 }
 
 .popup-top {
@@ -164,6 +181,9 @@ button {
   flex-direction: row;
   justify-content: space-between;
   margin: 0;
+}
+.popup-top h1 {
+  margin: auto;
 }
 
 #recover-form {
@@ -193,7 +213,7 @@ button {
 }
 
 .popup button {
-  padding: 1vh 2vw;
+  padding: 0.5vw 2vw;
 }
 
 @media only screen and (max-width: 600px) {
@@ -202,10 +222,10 @@ button {
     flex-direction: column;
     align-items: center;
     width: 95%;
-    height: 90vh;
+    height: 155vw;
     border-radius: 7vw;
     margin: 2vw;
-    padding-bottom: 1vh;
+    padding-bottom: 2vw;
   }
   .container {
     display: flex;
@@ -220,12 +240,15 @@ button {
     align-items: center;
     color: var(--primary-text-color);
   }
+  .container form {
+    margin: 3vw;
+  }
   .titles {
     display: flex;
     width: 90%;
     color: var(--secondary-text-color);
-    font-size: 70%;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 5vw;
   }
   .body-container > img {
     object-fit: contain;
@@ -233,49 +256,60 @@ button {
     height: auto;
     margin: 1vw 0;
   }
+  h1 {
+    font-size: 8vw;
+    margin: 1vw;
+  }
   label {
-    margin-top: 1vh;
+    margin-top: 3vw;
+    font-size: 4vw;
   }
   input {
     border-radius: 7vw;
-    height: 6vh;
+    height: 8vw;
     background-color: var(--input-background);
     opacity: 0.7;
     border: none;
     outline: none;
     padding-left: 3vw;
     color: var(--primary-text-color);
-    font-size: 2vh;
+    font-size: 4vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
   }
   ::placeholder {
     color: var(--primary-text-color);
     opacity: 0.9;
-    font-size: 2vh;
+    font-size: 4vw;
   }
   button {
     background-color: var(--primary-color);
     border-radius: 7vw;
     border: none;
     color: white;
+    font-size: 4vw;
     font-weight: bold;
-    height: 6vh;
-    margin: 2vh 0 0;
+    height: 8vw;
+    margin: 6vw 0 3vw;
     cursor: pointer;
     transition: 0.3s;
   }
   .container > .recover-password {
-    font-size: 2vh;
+    font-size: 4vw;
   }
   .container > p {
     margin-top: 0;
-    font-size: 2vh;
+    font-size: 4vw;
     color: var(--primary-text-color);
   }
   .popup {
-    width: 85%;
-    font-size: 80%;
+    width: 90vw;
     border-radius: 7vw;
-    box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15vw 150vw rgba(0, 0, 0, 0.5);
+    outline: 2vw solid var(--primary-color);
+  }
+  .popup p {
+    font-size: 4vw;
   }
 }
 

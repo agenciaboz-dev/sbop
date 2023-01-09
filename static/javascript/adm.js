@@ -10,6 +10,17 @@ const fromPython = (string) => {
     return data;
 }
 
+const deleteMember = (id) => {
+    $.ajax({
+        method: "POST",
+        url: "http://app.agenciaboz.com.br:4001/api/v1/sbop/delete_member", // nodejs
+        data: { id }
+    }).done(response => {
+        searchMember()
+        console.log(response)
+    })
+}
+
 const loadProfilePicture = (membro) => {
     profile_picture.attr('src', `/static/profile_pictures/${membro.id}`);
 
@@ -280,6 +291,13 @@ const onClickMemberType = (event) => {
 
 }
 
+$('#profile-delete-button').on('click', () => {
+    const id = current_id;
+    const member = members.find(item => item.id == id)
+    if (confirm(`Você tem certeza de que gostaria de deletar ${member.name}? As informações desse usuário não poderão ser recuperadas e essa ação ficará registrada em nosso histórico.`)) {
+        deleteMember(id)
+    }
+})
 $('#sair-button').on('click', () => { window.location.href = '/logout/' })
 $('#meu-perfil-button').on('click', () => { window.location.href = '/perfil/' })
 $('#ir-para-postagens-button').on('click', () => { window.location.href = '/adm_posts/' })

@@ -36,7 +36,6 @@ def home():
             connection = session.login(user, password, ip)
             if connection:
                 if connection[0]:
-                    print(connection[1].adm)
                     if connection[1].adm:
                         return redirect('/adm/')
                     return redirect('/perfil/')
@@ -439,7 +438,7 @@ def cancel_request():
 def new_request():
     solicitacao = session.database.fetchTable(
         1, 'available_requests', 'id', request.form['request'])[0][1]
-    request_id = len(session.database.fetchTable(0, 'Solicitacoes'))
+    request_id = session.database.run("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'Solicitacoes' AND table_schema = DATABASE();", json=True)[0]['AUTO_INCREMENT']
     time = datetime.today()
     day = time.day
     month = time.month
@@ -455,15 +454,27 @@ def new_request():
 
     protocolo = f'{request.form["id"]}.{request.form["request"]}.{request_id}.{day}.{month}.{year}'
 
+    status = 'Em Andamento'
+
     data = (request_id,
-            request.form['id'], solicitacao, 'Em Andamento', today, '', protocolo)
+            request.form['id'], solicitacao, status, today, '', protocolo)
+    
+    response = 'Sua solicitação foi registrada, me dá um email pra notificar'
+    
+    if solicitacao == "Certificado de Membro":
+        path = os.path.join(app.root_path, 'static', 'documents', str(request.form['id']))
+        data, response = session.newCertificate(list(data), path)
+    
     try:
         # ID, USUARIO, SOLICITACAO, SITUACAO, DATA, URL
         session.database.insertRequest(data)
         new = [request_id, request.form['id'],
-               solicitacao, 'Em Andamento', today, '', protocolo]
+               solicitacao, status, today, '', protocolo]
         session.getConnection(request.remote_addr).solicitacoes.insert(0, new)
-        return str(['Sucesso', 'Sua solicitação foi registrada, me dá um email pra notificar', solicitacao, today, protocolo])
+        session.sendNewRequestMail(data)
+        
+        return str(['Sucesso', response, solicitacao, today, protocolo, data[5], data[3]])
+    
     except Exception as error:
         return str([error, error, error, error, error])
 
@@ -567,7 +578,13 @@ def get_post():
 @app.route('/edit_post/', methods=['POST'])
 def edit_post():
     file = request.files.get('file')
-    data = json.loads(request.form.get('data'))
+    try:
+        data = json.loads(request.form.get('data'))
+    except:
+        data = request.get_json()
+    print()
+    print(data)
+    print()
     
     filename = data['id']
     if file:
@@ -639,6 +656,14 @@ def send_documents_titular():
     print(data)
 
     return json.dumps(response)
+
+@app.route('/conteudo/', methods=['GET'])
+def conteudos_page():
+    if request.method == 'GET':
+        param = request.args.get('id')
+        
+        return render_template('conteudo.html')
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="5001")

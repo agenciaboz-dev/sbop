@@ -4,13 +4,13 @@ const form_data = new FormData();
 let membro = {};
 let file = null;
 
-const request = (url, data, done, method='POST', content_type = {'Content-Type': 'application/json'}) => {
+const request = (url, data, done, method = 'POST', content_type = { 'Content-Type': 'application/json' }) => {
     const options = {
-    method: method,
+        method: method,
     };
 
     if (content_type) {
-    options.headers = content_type;
+        options.headers = content_type;
     }
 
     if (method == 'POST') {
@@ -18,41 +18,53 @@ const request = (url, data, done, method='POST', content_type = {'Content-Type':
     }
     console.log(options);
     fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => done(data))
-    .catch(err => console.error('error:' + err));
+        .then((response) => response.json())
+        .then((data) => done(data))
+        .catch(err => console.error('error:' + err));
 }
 
 $('document').ready(() => {
 
+    $.ajax({
+        method: 'GET',
+        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
+    })
+    .done(response => {
+        for (const categoria of response) {
+            const element = `<option value="${categoria.nome.toLowerCase()}" selected>${categoria.nome}</option>`
+            $('#category-input').append(element)
+        }
+    })
+
     if (!id) {
-        
+
         request('/get_member/', {}, (response) => {
             membro = response;
-    
-                for (let item in membro) {
-                    if (typeof membro[item] == 'string') {
-                        membro[item] = membro[item].replaceAll('False', false);
-                        membro[item] = membro[item].replaceAll('True', true);
-                        membro[item] = membro[item].replaceAll('None', null);
-                        try {
-                            membro[item] = JSON.parse(membro[item]);
-                        } catch {}
-                    }
+
+            for (let item in membro) {
+                if (typeof membro[item] == 'string') {
+                    membro[item] = membro[item].replaceAll('False', false);
+                    membro[item] = membro[item].replaceAll('True', true);
+                    membro[item] = membro[item].replaceAll('None', null);
+                    try {
+                        membro[item] = JSON.parse(membro[item]);
+                    } catch { }
                 }
-                $('#author').text(`Autor: ${membro.name}`);
-                console.log(membro);
-        }, method='GET');
+            }
+            $('#author').text(`Autor: ${membro.name}`);
+            console.log(membro);
+        }, method = 'GET');
 
     } else {
         $('#publish-button').text('Atualizar')
-        request('/get_post/', {id: id}, (response) => {
+        request('/get_post/', { id: id }, (response) => {
             console.log(response[0]);
             const post = response[0];
-            
+
             $('#title-area').val(post.titulo);
             $('#content-area').val(post.conteudo);
-            $('#membership-input').val(post.categoria);
+            $('#membership-input').val(post.assinatura);
+            $('#category-input').val(post.categoria);
             $('#summary-area').val(post.resumo);
             $('#author').text(`Autor: ${post.autor}`);
 
@@ -67,16 +79,18 @@ $('document').ready(() => {
 
 $('#publish-button').on('click', (event) => {
     if (id) {
+        const data = {
+            id: id,
+            titulo: $('#title-area').val(),
+            conteudo: $('#content-area').val(),
+            assinatura: $('#membership-input').val(),
+            resumo: $('#summary-area').val(),
+            categoria: $('#category-input').val().toLowerCase()
+        }
+
         if (file) {
             form_data.append('file', $('#upload-file')[0].files[0]);
 
-            const data = {
-                id: id,
-                titulo: $('#title-area').val(),
-                conteudo: $('#content-area').val(),
-                assinatura: $('#membership-input').val(),
-                resumo: $('#summary-area').val(),
-            }
 
             form_data.append('data', JSON.stringify(data));
             $.ajax({
@@ -86,19 +100,14 @@ $('#publish-button').on('click', (event) => {
                 processData: false,
                 contentType: false
             }).done((response) => {
-                window.location.href='/adm_posts/'
+                window.location.href = '/adm_posts/'
             });
-        } else {
 
-            request('/edit_post/', {
-                id: id,
-                titulo: $('#title-area').val(),
-                conteudo: $('#content-area').val(),
-                assinatura: $('#membership-input').val(),
-                resumo: $('#summary-area').val(),
-            }, (response) => {
+        } else {
+            console.log(data)
+            request('/edit_post/', data, (response) => {
                 console.log(response);
-                window.location.href='/adm_posts/'
+                window.location.href = '/adm_posts/'
             });
         }
 
@@ -132,10 +141,11 @@ $('#publish-button').on('click', (event) => {
         const today = new Date();
         const data = {
             video: $('input[name="post-input"]:checked').attr('id').split('-')[0] == 'video' ? true : false,
-            categoria: $('#membership-input').val(),
+            assinatura: $('#membership-input').val(),
             resumo: $('#summary-area').val(),
             titulo: $('#title-area').val(),
             conteudo: $('#content-area').val(),
+            categoria: $('#category-input').val().toLowerCase(),
             autor: membro.name,
             data: today.toLocaleDateString(),
         }
@@ -150,13 +160,13 @@ $('#publish-button').on('click', (event) => {
             processData: false,
             contentType: false
         }).done((response) => {
-            window.location.href='/adm_posts/'
+            window.location.href = '/adm_posts/'
         });
     }
 })
 
 $('#cancelar-button').on('click', () => {
-    window.location.href='/adm_posts/';
+    window.location.href = '/adm_posts/';
 })
 
 $('#upload-file').on('change', () => {

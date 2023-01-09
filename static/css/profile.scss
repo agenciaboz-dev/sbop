@@ -38,9 +38,9 @@ body {
     background-color: white;
     border-radius: 1.5vw;
     width: 90vw;
-    height: 81vh;
+    height: 40vw;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
-    margin-top: 8vh;
+    margin-top: 3vw;
 
 }
 
@@ -67,7 +67,7 @@ button {
     border: none;
     color: white;
     font-weight: bold;
-    height: 4vh;
+    height: 2vw;
     margin-bottom: 0;
     cursor: pointer;
     transition: 0.3s;
@@ -136,7 +136,7 @@ button:hover {
     z-index: 5;
     width: 1.5vw;
     margin: auto;
-    margin: 7vh 9% 0;
+    margin: 3.5vw 9% 0;
 }
 
 .toolbar-active {
@@ -172,7 +172,7 @@ button:hover {
 
 .popup button {
     width: 50%;
-    height: 3.5vh;
+    height: 1.5vw;
     flex-shrink: 0;
 }
 
@@ -200,7 +200,6 @@ button:hover {
 .info-container-wrapper {
     display: flex;
     justify-content: space-evenly;
-    margin: 2vw;
 }
 
 #profile-picture {
@@ -235,6 +234,7 @@ button:hover {
 
 #camera-icon {
     width: 2vw;
+    object-fit: contain;
     margin: 0.75vw;
 }
 
@@ -243,7 +243,7 @@ button:hover {
     align-self: flex-start;
     object-fit: cover;
     width: 15vw;
-    margin: -6vh 10px 0;
+    margin: -3vw 10px 0;
 } */
 
 .info-container {
@@ -274,7 +274,7 @@ button:hover {
     background-color: var(--public-info-color);
     border-radius: 2vw;
     color: white;
-    font-size: 1.5vh;
+    font-size: 0.75vw;
     padding: 0 0.5vw;
 }
 
@@ -282,7 +282,7 @@ button:hover {
     background-color: var(--private-info-color);
     border-radius: 2vw;
     color: white;
-    font-size: 1.5vh;
+    font-size: 0.75vw;
     padding: 0 0.5vw;
 }
 
@@ -294,12 +294,12 @@ button:hover {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
-    height: 2.15vh;
+    height: 1.2vw;
     width: 4vw;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 1.5vh;
-    margin-left: -0.15vw;
+    font-size: 0.75vw;
+    margin-left: 0;
 }
 
 #edit-skills:hover {
@@ -315,7 +315,7 @@ button:hover {
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 15vh;
+    height: 7vw;
     margin: 10px 5vw 5px;
     transition: 0.3s;
 }
@@ -373,17 +373,15 @@ button:hover {
 }
 
 #edit-curriculum {
-    position: absolute;
-    right: 30.5vw;
-    bottom: 11vh;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background-color: white;
-    height: 2.15vh;
+    height: 1.2vw;
     width: 4vw;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.5vh;
+    margin-left: 0;
 }
 
 #edit-curriculum:hover {
@@ -437,6 +435,7 @@ button:hover {
     transition: 0.3s;
     margin-top: 25vh;
     padding-left: 2vw;
+    padding-right: 0.5vw;
 }
 
 .floating-button img {
@@ -495,6 +494,7 @@ button:hover {
     }
 
     .body-container {
+        align-items: center;
         height: 94vh;
         margin-top: 3vh;
         border-radius: 9vw;
@@ -554,7 +554,7 @@ button:hover {
     .info-container>div {
         align-items: center;
         margin: 0 2vw;
-        width: 90vw;
+        width: 80vw;
     }
 
     .info-container>div>h1 {
@@ -568,6 +568,7 @@ button:hover {
     }
 
     #profile-container {
+        align-items: center;
         padding: 0 2vw;
     }
 
@@ -580,6 +581,7 @@ button:hover {
     }
 
     .body-container span {
+        border-radius: 9vw;
         font-size: 2vh;
         padding: 1vw;
     }
@@ -604,7 +606,7 @@ button:hover {
         height: fit-content;
         width: fit-content;
         padding: 1vw;
-        margin: 1vh 1vw;
+        margin: 0;
     }
 
     #edit-curriculum {
@@ -619,6 +621,7 @@ button:hover {
 
     .curriculum-container {
         height: fit-content;
+        width: 80vw;
         margin: 3vh 1vw;
         transition: 0.3s;
 

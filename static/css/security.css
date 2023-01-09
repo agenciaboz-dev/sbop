@@ -40,8 +40,12 @@
 
 @media only screen and (max-width: 600px) {
   #security-container {
+    align-items: center;
     flex-direction: column;
     padding: 0 2vw;
+  }
+  #security-container > form {
+    width: 80vw;
   }
   #security-container > form > h1 {
     font-size: 3vh;

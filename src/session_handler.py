@@ -6,7 +6,8 @@ from cryptography.fernet import Fernet
 import json
 import requests
 import geopy.distance
-from src.mail_templates import recoverPasswordTemplate
+from src.mail_templates import recoverPasswordTemplate, newRequestTemplate
+from src.certificate import generate as newCertificate
 
 
 class Connection():
@@ -304,13 +305,20 @@ class Session():
             location = response['results'][0]['geometry']['location']
 
             return (location['lat'], location['lng'])
+        
+    def sendNewRequestMail(self, data):
+        user = self.database.run(f"SELECT * FROM Membros WHERE id={data[1]}", json=True)[0]
+        message = newRequestTemplate(user)
+        sendMail("sbopmail@gmail.com", "Solicitação - [Protocolo]", html=message)
+        
 
     def trySendMail(self, encrypted, username):
         sql = f"SELECT * FROM Membros WHERE user='{username}' ;"
         result = self.database.run(sql, json=True)
 
         if result:
-            message = recoverPasswordTemplate(username, encrypted)
+            link = f"""http://sistema.sbop.com.br:5001/recover?user={encrypted}"""
+            message = recoverPasswordTemplate(username, link)
             sendMail(result[0]['email'],
                      "Sbop - Recuperar senha", html=message)
             return {'msg': f'Um link para redefinição de senha foi enviado para o e-mail do usuário'}
@@ -368,7 +376,8 @@ class Session():
     def editPost(self, data):
         sql = f"""UPDATE conteudos SET 
                 titulo = '{data['titulo']}',
-                categoria = '{data['assinatura']}',
+                assinatura = '{data['assinatura']}',
+                categoria = '{data['categoria']}',
                 conteudo = '{data['conteudo']}',
                 resumo = '{data['resumo']}'
                 
@@ -384,9 +393,9 @@ class Session():
     def newPost(self, data):
 
         sql = f"""INSERT INTO conteudos 
-            (video, categoria, resumo, titulo, conteudo, autor, data)
+            (video, assinatura, categoria, resumo, titulo, conteudo, autor, data)
             VALUES
-            ({data['video']}, '{data['categoria']}', '{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
+            ({data['video']}, '{data['assinatura']}', '{data['categoria']}' ,'{data['resumo']}', '{data['titulo']}', '{data['conteudo']}', '{data['autor']}', '{data['data']}' )
         """
         try:
             self.database.run(sql, commit=True)
@@ -411,14 +420,14 @@ class Session():
         sql = f"SELECT * FROM conteudos ORDER BY id DESC ;"
         data = self.database.run(sql, json=True)
         for post in data:
-            if post['categoria'] == 'Aspirante':
+            if post['assinatura'] == 'Aspirante':
                 posts.append(post)
 
-            if post['categoria'] == 'Associado':
+            if post['assinatura'] == 'Associado':
                 if assinatura == 'Associado' or assinatura == 'Titular':
                     posts.append(post)
 
-            if post['categoria'] == 'Titular':
+            if post['assinatura'] == 'Titular':
                 if assinatura == 'Titular':
                     posts.append(post)
 
@@ -428,3 +437,12 @@ class Session():
         sendMail('noreply@sbop.com.br',
                  f'Sbop - Documentação titularidade - {data["membro"]["nome"]}', json.dumps(data), attachment)
         return {'teste': 'teste'}
+
+    def newCertificate(self, data, path):
+        member = self.database.run(f"""SELECT assinatura, nome FROM Membros WHERE id = {int(data[1])} """, json=True)[0]
+
+        data[3] = 'Concluído'
+        data[5] = 'certificate.pdf'
+        
+        
+        return tuple(data), "Faça o download do certificado clicando no botão a direita"

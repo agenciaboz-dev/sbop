@@ -1,4 +1,5 @@
 $('.recover-password').on('click', (event) => {
+    $('#feedback').text('')
     $('.popup').fadeIn();
 })
 

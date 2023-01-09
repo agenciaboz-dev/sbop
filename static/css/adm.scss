@@ -24,7 +24,7 @@ img {
     width: 100%;
     height: 100%;
     align-items: center;
-    margin: 0 1vw;
+    margin-left: 1vw;
 
     img {
         position: absolute;
@@ -42,6 +42,7 @@ img {
             padding-left: 3vw;
             border: 0.25vw solid $background-color;
             font-family: Montserrats;
+            font-size: 2vh;
         }
     }
 }
@@ -49,7 +50,7 @@ img {
 .result-container {
     display: flex;
     height: 80%;
-    margin-top: 3vh;
+    margin-top: 2vh;
 }
 
 .list-wrapper {
@@ -62,6 +63,8 @@ img {
 
     h1 {
         color: $searched-title;
+        align-self: flex-start;
+        font-size: 4vh;
 
         span {
             color: $list-text-color;
@@ -193,6 +196,7 @@ h2 {
     height: 4vh;
     padding: 0 0.5vw;
     margin-top: 0.5vh;
+    font-size: 2vh;
 }
 
 #pais-input {
@@ -208,6 +212,7 @@ h2 {
     border: 0.2vw solid $background-color;
     padding: 2vw;
     padding-right: 1vw;
+    font-size: 2.5vh;
 }
 
 .profile-data-field {
@@ -226,23 +231,28 @@ h2 {
     padding-right: 1vw;
 
     button {
-        flex: 0.45;
+        flex: 0.3;
         border: none;
-        border-radius: 0.8vw;
+        border-radius: 4vw;
         color: white;
         background-color: $button-color;
         padding: 0.65vh 0;
         cursor: pointer;
         transition: 0.3s;
+        font-size: 2vh;
     }
 
     button:hover {
         background-color: $button-hovered-color;
     }
+}
 
-    button:first-of-type {
-        background-color: $button-secondary-color;
-    }
+#profile-delete-button {
+    background-color: #E12454;
+}
+
+#profile-reset-button {
+    background-color: $button-secondary-color;
 }
 
 .input-field {
@@ -259,6 +269,7 @@ h2 {
         height: 4vh;
         padding: 0 0.7vw;
         margin-top: 0.5vh;
+        font-size: 2vh;
     }
 }
 
@@ -388,22 +399,25 @@ h2 {
     }
 
     .top-container {
-        margin: 9vh 0 0 4vw;
+        margin: 18vw 0 0 4vw;
+        height: 17vw;
     }
 
     .result-container {
         display: flex;
         flex-direction: column;
         width: 100%;
+        margin-top: 4vw;
     }
 
     .list-wrapper {
         width: 100%;
         padding-right: 0;
-        padding-bottom: 2vh;
+        padding-bottom: 4vw;
 
         h1 {
-            font-size: 100%;
+            font-size: 6vw;
+            margin-left: 3vw;
 
             span {
                 font-size: 100%;
@@ -426,6 +440,7 @@ h2 {
                 padding-left: 8vw;
                 width: 54vw;
                 border: 1.5vw solid #E4E4E4;
+                font-size: 4vw;
             }
         }
     }
@@ -435,9 +450,10 @@ h2 {
         border-radius: 7vw;
         flex-direction: column;
         height: fit-content;
-        padding: 2vh;
-        padding-top: 11.5vh;
+        padding: 4vw;
+        padding-top: 23vw;
         border: 1.5vw solid #E4E4E4;
+        font-size: 3.2vw;
 
         hr {
             display: none;
@@ -445,30 +461,30 @@ h2 {
 
         img {
             position: absolute;
-            margin: 1vh 1vw;
+            margin: 2vw 1vw;
         }
 
         img:first-of-type {
             max-height: 40%;
-            top: 1vh;
+            top: 2vw;
             left: 2vw;
         }
 
         img:last-of-type {
             max-height: 20%;
-            bottom: 9vh;
+            bottom: 18vw;
             right: 5vw;
         }
 
         .member-info {
             position: absolute;
-            top: 1.5vh;
+            top: 3vw;
             left: 22vw;
             height: fit-content;
             width: fit-content;
             max-width: 67%;
             overflow-wrap: normal;
-            margin-bottom: 1.5vh;
+            margin-bottom: 3vw;
 
             div {
                 flex-direction: column;
@@ -479,13 +495,14 @@ h2 {
             }
 
             p {
-                margin: 0.5vh 0;
+                margin: 1vw 0;
             }
         }
 
         .member-type {
             width: fit-content;
-            padding: 1vh 3.5vw;
+            padding: 2vw 3.5vw;
+            font-size: 3.5vw;
         }
     }
 
@@ -498,6 +515,8 @@ h2 {
         width: 80vw;
         overflow-y: visible;
         padding-right: 0;
+        gap: 4vw;
+        margin-top: 4vw;
     }
 
     .active-type {
@@ -516,7 +535,6 @@ h2 {
     .profile-container {
         margin: 0;
         border: none;
-        // height: 80vh;
         width: 93vw;
         padding: 0;
     }
@@ -524,29 +542,31 @@ h2 {
     .profile-buttons-container {
         width: 90%;
         justify-content: space-between;
-        margin-top: 1.5vh;
-        margin-bottom: 1.5vh;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
 
         button {
             border-radius: 9vw;
-            padding: 1vh 0 0.65vh;
+            padding: 2vw 0 1.30vw;
         }
     }
 
     .bottom-container {
         position: absolute;
-        top: 1vh;
+        top: 2vw;
+        align-items: center;
         align-self: center;
         display: flex;
-        height: 10%;
-        margin: 2vh 0;
+        height: 10vw;
+        margin: 4vw 0;
         justify-content: space-between;
     }
 
     .bottom-button {
-        height: 50%;
+        height: 10vw;
         padding-left: 1.5vw;
         margin: 0 1.5vw;
+        font-size: 3.2vw;
 
         img {
             max-height: 90%;

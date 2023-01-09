@@ -7,8 +7,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 2vw 3vw;
-  height: 100%;
+  margin: 1vw 3vw;
+  height: 90%;
 }
 
 .plans-titles-container {
@@ -30,14 +30,13 @@
 }
 
 .vigencia-container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex: 0.4;
   background-color: var(--secondary-color);
   border-radius: 2vw;
   right: 0;
-  height: 8vh;
 }
 
 #vigencia-text {
@@ -67,6 +66,12 @@
 .deactivated-button {
   opacity: 0.5;
   pointer-events: none;
+}
+
+#upgrade-plan-button {
+  height: fit-content;
+  padding: 0.5vw;
+  margin-bottom: 6vw;
 }
 
 .regularize-button {
@@ -136,10 +141,11 @@
 .documents-container {
   position: absolute;
   width: 100%;
-  height: 63.9vh;
+  height: 70vh;
   background-color: white;
   z-index: 10;
-  left: -0.67vw;
+  left: -0.7vw;
+  top: 15vh;
   border-radius: 1.5vw;
 }
 
@@ -275,7 +281,7 @@
   justify-content: space-between;
   margin: 0;
   right: 4.5vw;
-  bottom: 3vh;
+  bottom: 7vh;
 }
 
 .plans-buttons-container button {
@@ -340,6 +346,7 @@
 .payment-body {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 1.5vh;
 }
 
 .qr-container {
@@ -475,7 +482,7 @@
     border-radius: 9vw;
   }
   #vigencia-text {
-    font-size: 2.5vh !important;
+    font-size: 5vw !important;
   }
   .plans-titles-container div {
     margin: 2vh 0;
@@ -576,6 +583,12 @@
   }
   .documents-container .plans-buttons-container button {
     width: 25vw;
+    border-radius: 9vw;
+  }
+  #upgrade-plan-button {
+    font-size: 5vw;
+    padding: 3vw;
+    margin-bottom: 6vw;
     border-radius: 9vw;
   }
   .payment-container h1 {

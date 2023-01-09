@@ -88,6 +88,7 @@ const copyToClipboard = (texto) => {
 }
 
 const tipoPagamento = (plano) => {
+    console.log(plano)
     const plan_name = $('.payment-header > div > h1 > span')
     const plan_value = $('.payment-header > div > h2 > span')
     const plan_qrcode = $('.qr-container > img')
@@ -143,7 +144,15 @@ const _get_member = setInterval(() => {
                 if (membro.pago) {
                     $('#upgrade-plan-button').on('click', (event) => {
                         if (membro.assinatura == 'Associado') {
-                            $('.documents-container').fadeToggle();
+                            if ($('.selected-plan').attr('id')) {
+                                $('.vigencia-container').toggle()
+                                $('.documents-container').fadeToggle();
+                            } else {
+                                $('.plans-panel').fadeOut(0, () => {
+                                    $('.payment-container').fadeIn();
+                                    tipoPagamento($('.active-plan').attr('id'))
+                                });
+                            }
 
                             if (mobile) {
                                 $('.plans-panel').hide();
@@ -157,29 +166,43 @@ const _get_member = setInterval(() => {
                         $('.selected-plan').removeClass('selected-plan');
                         $(event.target).closest('.plans').addClass('selected-plan');
                         $('#upgrade-plan-button').removeClass('deactivated-button');
+
                     })
+
+                    $('#upgrade-plan-button').on('click', () => {
+                        $('.plans-panel').fadeOut(0, () => {
+                            $('.payment-container').fadeIn();
+                            tipoPagamento($('.active-plan').attr('id'))
+                        });
+                    })
+
+                    
 
                 }
 
                 if (!(membro.assinatura == 'Associado')) {
                     $('.plans').on('click', (event) => {
                         if ($(event.target).closest('.plans').attr('id') == 'titular') {
-                            $('#upgrade-plan-button').addClass('deactivated-button');
+                            // $('#upgrade-plan-button').addClass('deactivated-button');
                         }
                     })
 
                     $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
-                            tipoPagamento($('.selected-plan').attr('id'))
+                            if ($('.selected-plan').attr('id')) {
+                                tipoPagamento($('.selected-plan').attr('id'))
+                            } else {
+                                tipoPagamento($('.active-plan').attr('id'))
+                            }
                         });
                     })
 
-                    $('.back-button').on('click', () => {
-                        $('.payment-container').fadeOut(0, () => {
-                            $('.plans-panel').fadeIn();
-                        })
-                    })
+                    // $('.back-button').on('click', () => {
+                    //     $('.payment-container').fadeOut(0, () => {
+                    //         $('.plans-panel').fadeIn();
+                    //     })
+                    // })
 
 
                 }
@@ -193,7 +216,7 @@ const _get_member = setInterval(() => {
                     $('#vigencia-text').text('Pagamento não confirmado');
                     $('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)');
 
-                    $('#toolbar-plans').trigger('click');
+                    if (!membro.temporario) $('#toolbar-plans').trigger('click');
                 }
             });
         }, 100)
@@ -201,6 +224,12 @@ const _get_member = setInterval(() => {
 
     }
 }, 100);
+
+$('.back-button').on('click', () => {
+    $('.payment-container').fadeOut(0, () => {
+        $('.plans-panel').fadeIn();
+    })
+})
 
 
 /* MOBILE STYLING */

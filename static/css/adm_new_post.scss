@@ -4,10 +4,14 @@
 .main-container {
     display: flex;
     flex-direction: column;
+
+    * {
+        // outline: none;
+    }
 }
 
 .columns-container {
-    height: 100%;
+    height: 95%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,7 +23,7 @@
     align-items: center;
     height: 10%;
     width: 100%;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
 }
 
 .column1 {
@@ -33,12 +37,12 @@
         background-color: #E4E4E4;
         border: none;
         border-radius: 2vw;
-        color: #8d8d8d;
+        color: #6b6b6b;
         font-family: Montserrats;
         height: 100%;
         width: 100%;
         margin-top: 1vh;
-        padding: 0.75vw;
+        padding: 1vw;
         resize: none;
     }
 }
@@ -65,7 +69,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    margin: 2vh 0 1vh 0;
+    margin: 1vh 0;
 
     input[type=radio] {
         border: 0px;
@@ -82,13 +86,13 @@ img {
         color: #6b6b6b;
         font-family: Montserrats;
         font-weight: 600;
-        font-size: 100%;
+        font-size: 2.5vh;
     }
 
     p {
         color: #8d8d8d;
         font-family: Montserrats;
-        font-size: 90%;
+        font-size: 2vh;
     }
 }
 
@@ -101,7 +105,7 @@ h1 {
     color: #6b6b6b;
     font-family: Montserrats;
     font-weight: 600;
-    font-size: 130%;
+    font-size: 3vh;
     margin-bottom: 0.75vh;
 }
 
@@ -109,19 +113,24 @@ h2 {
     color: #6b6b6b;
     font-family: Montserrats;
     font-weight: 600;
-    font-size: 110%;
+    font-size: 2.75vh;
 }
 
 p {
     color: #8d8d8d;
     font-family: Montserrats;
-    font-size: 100%;
+    font-size: 2vh;
+}
+
+::placeholder {
+    font-size: 2vh;
+    opacity: 0.5;
 }
 
 .dashed-box {
     justify-content: center;
     align-items: center;
-    margin: 3vh 0;
+    margin: 1vh 0 2vh;
     outline: #cfcfcf dashed 0.5vh;
     padding: 1vh 11vw;
     height: 120px;
@@ -151,17 +160,65 @@ p {
     }
 }
 
-.categories-container {
+.url-input-container {
+    display: none;
+    height: fit-content;
+    width: 100%;
+}
+
+#new-post-url-input {
+    background-color: #E4E4E4;
+    border: none;
+    border-radius: 2vw;
+    color: #6b6b6b;
+    font-family: Montserrats;
+    height: fit-content;
+    width: 100%;
+    margin-top: 1vh;
+    padding: 1vw;
+    resize: none;
+}
+
+.options-select {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1vh;
+}
+
+.membership-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
-    margin: 1vh 0 2vh;
+    width: 49%;
+    margin: 1vh 0;
 
     #membership-input {
         color: #656565;
         border: none;
         border-radius: 2vw;
+        font-size: 2vh;
+        font-weight: 600;
+        margin: 1vh 0;
+        border: #E4E4E4 solid 0.25vw;
+        padding: 1vh 2vh;
+        width: 100%;
+    }
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 49%;
+    margin: 1vh 0;
+
+    #category-input {
+        color: #656565;
+        border: none;
+        border-radius: 2vw;
+        font-size: 2vh;
         font-weight: 600;
         margin: 1vh 0;
         border: #E4E4E4 solid 0.25vw;
@@ -182,11 +239,12 @@ p {
         background-color: #E4E4E4;
         border: none;
         border-radius: 2vw;
+        color: #6b6b6b;
         font-family: Montserrats;
         height: 100%;
         width: 100%;
         margin-top: 1vh;
-        padding: 0.75vw;
+        padding: 1vw;
         resize: none;
     }
 
@@ -204,6 +262,7 @@ p {
 
     button {
         font-family: Montserrats;
+        font-size: 2vh;
         font-weight: 600;
         flex: 0.45;
         border: none;
@@ -230,6 +289,23 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 6vw;
+        margin-bottom: 1.5vw;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    p {
+        font-size: 4vw;
+    }
+
+    ::placeholder {
+        font-size: 4vw;
+    }
+
     .main-container {
         position: relative;
         overflow-y: scroll;
@@ -238,38 +314,77 @@ p {
     }
 
     .top-container {
-        margin-top: 2vh;
-        margin-bottom: 2vh;
+        height: 20vw;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
 
         img {
-            margin-right: 3vw;
+            max-height: 15vw;
+            margin-left: 3vw;
+            margin-right: 5vw;
         }
     }
 
     .dashed-box {
-        margin: 1vh 0;
-        padding: 2vh 11vw;
+        margin: 2vw 0 4vw;
+        padding: 7.5vw;
     }
 
     .search-box {
         border-radius: 5vw;
+        padding: 4vw 6vw;
     }
 
     .radios-container {
+        margin: 2vw 0;
+
         input[type=radio] {
+            height: 6vw;
             margin-right: 2vw;
         }
 
         p {
-            margin-top: 1vh;
+            margin-top: 2vw;
+            font-size: 4vw;
+        }
+
+        label {
+            font-size: 5vw;
         }
     }
 
-    .categories-container {
+    #new-post-url-input {
+        border-radius: 5vw;
+    }
+
+    .options-select {
+        flex-direction: column;
+        margin: 4vw 0;
+    }
+
+    .membership-container {
+        margin: 2vw 0;
+        width: 100%;
 
         #membership-input {
             border-radius: 5vw;
-            border: 1vw solid #E4E4E4
+            border: 1vw solid #E4E4E4;
+            font-size: 4vw;
+            margin: 2vw 0;
+            padding: 2vw 4vw;
+        }
+    }
+
+    .category-container {
+        margin: 2vw 0;
+        width: 100%;
+
+        #category-input {
+            border-radius: 5vw;
+            border: 1vw solid #E4E4E4;
+            font-size: 4vw;
+            margin: 2vw 0;
+            padding: 2vw 4vw;
         }
     }
 
@@ -282,6 +397,7 @@ p {
 
         textarea {
             padding: 2vw;
+            margin-top: 2vw;
         }
     }
 
@@ -290,6 +406,12 @@ p {
 
         textarea {
             padding: 2vw;
+            margin-top: 2vw;
+        }
+
+        #summary-area {
+            height: 60vw;
+            margin-bottom: 4vw;
         }
     }
 
@@ -298,21 +420,25 @@ p {
     }
 
     #title-area {
-        margin-bottom: 2vh;
+        margin-bottom: 4vw;
+        height: 20vw;
     }
 
     #content-area {
-        margin-bottom: 2vh;
+        height: 100vw;
+        margin-bottom: 15vw;
     }
 
     .buttons-container {
         position: absolute;
         align-self: center;
-        bottom: -90vh;
+        top: 400vw;
 
         button {
             border-radius: 9vw;
-            margin: 1vh 1vw;
+            margin: 2vw 1vw;
+            font-size: 4vw;
+            padding: 2vw 4vw;
         }
 
         button:first-of-type {

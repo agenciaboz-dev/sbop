@@ -21,7 +21,6 @@
         * {
             box-sizing: border-box;
             font-family: Montserrats;
-            width: 100%;
         }
 
         .main-container {
@@ -29,19 +28,14 @@
             width: 90%;
             background-color: white;
             border-radius: 2vw;
-            box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
-            margin: 7.5vh;
-            padding: 2vh 2vw 3vh;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 4vw;
+            padding: 2vw;
             outline: #0C6397 solid 0.4vw;
             word-wrap: break-word;
         }
 
-        .top-row {
-            display: flex;
-        }
-
         img {
-            align-self: flex-end;
             height: 100px;
             width: auto;
             margin: -20px 0;
@@ -50,7 +44,7 @@
 
         h1 {
             color: #0C6397;
-            margin: 2vh 0;
+            margin: 1vw 0;
         }
 
         h2 {
@@ -60,21 +54,15 @@
         a {
             color: #0C6397;
         }
-
-        p {
-            font-size: 120%;
-        }
     </style>
 </head>
 
 <body>
     <div class="main-container">
-        <div class="top-row">
-            <h1>Redefinição de senha - Sistema SBOP</h1>
-            <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
-        </div>
-        <h2>Nome de usuário: {nome}</h2>
-        <p>Clique no link para redefinir sua senha: <a href="{link}">{link}</a>
+        <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
+        <h1>Redefinição de senha - Sistema SBOP</h1>
+        <h2>Nome de usuário: {{nome}}</h2>
+        <p>Clique no link para redefinir sua senha: <a href="{{link}}">Clique aqui</a>
         </p>
     </div>
 </body>

@@ -23,7 +23,6 @@ def recoverPasswordTemplate(nome, link):
         * {{
             box-sizing: border-box;
             font-family: Montserrats;
-            width: 100%;
         }}
 
         .main-container {{
@@ -32,8 +31,8 @@ def recoverPasswordTemplate(nome, link):
             background-color: white;
             border-radius: 2vw;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            margin: 7.5vh;
-            padding: 2vh 2vw 3vh;
+            margin: 4vw;
+            padding: 2vw;
             outline: #0C6397 solid 0.4vw;
             word-wrap: break-word;
         }}
@@ -47,7 +46,7 @@ def recoverPasswordTemplate(nome, link):
 
         h1 {{
             color: #0C6397;
-            margin: 2vh 0;
+            margin: 1vw 0;
         }}
 
         h2 {{
@@ -65,8 +64,85 @@ def recoverPasswordTemplate(nome, link):
         <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
         <h1>Redefinição de senha - Sistema SBOP</h1>
         <h2>Nome de usuário: {nome}</h2>
-        <p>Clique no link para redefinir sua senha: <a href="{link}">{link}</a>
+        <p>Clique no link para redefinir sua senha: <a href="{link}">Clique aqui</a>
         </p>
+    </div>
+</body>
+
+</html>
+"""
+
+def newRequestTemplate(user):
+    return f"""
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Solicitação - SBOP</title>
+    <style>
+        @font-face {{
+            font-family: Montserrats;
+            src: url("/static/fonts/Montserrat-Regular.otf");
+        }}
+
+        @font-face {{
+            font-family: Montserrats;
+            src: url("/static/fonts/Montserrat-Bold.otf");
+            font-weight: bold;
+        }}
+
+        * {{
+            box-sizing: border-box;
+            font-family: Montserrats;
+        }}
+
+        .main-container {{
+            height: min-content;
+            width: 90%;
+            background-color: white;
+            border-radius: 2vw;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+            margin: 4vw;
+            padding: 2vw;
+            outline: #0C6397 solid 0.4vw;
+            word-wrap: break-word;
+        }}
+
+        img {{
+            height: 100px;
+            width: auto;
+            margin: -20px 0;
+            pointer-events: none;
+        }}
+
+        h1 {{
+            color: #0C6397;
+            margin: 1vw 0;
+        }}
+
+        h2 {{
+            color: #6B6B6B;
+        }}
+
+        a {{
+            color: #0C6397;
+        }}
+
+        p {{
+            font-size: 1.5vw;
+        }}
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <img src="https://sbop.com.br/wp-content/uploads/2020/08/SBOP-LOGO-AZUL-1x1-PNG.png" alt="">
+        <h1>Sistema SBOP</h1>
+        <h2>Nome de usuário: {user["nome"]}</h2>
+        <p>Nova solicitação feita com sucesso.</p>
     </div>
 </body>
 
