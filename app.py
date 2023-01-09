@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request
 from flask_cors import CORS
