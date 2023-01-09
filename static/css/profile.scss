@@ -495,8 +495,8 @@ button:hover {
 
     .body-container {
         align-items: center;
-        height: 94vh;
-        margin-top: 3vh;
+        height: 184vw;
+        margin-top: 6vw;
         border-radius: 9vw;
         box-shadow: 0 0 10px rgb(0 0 0 / 20%);
         overflow-x: hidden;
@@ -511,9 +511,9 @@ button:hover {
         flex-direction: column;
         z-index: 9;
         width: 90%;
-        box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20vw 200vw rgba(0, 0, 0, 0.3);
         // outline: var(--line-color) solid 2px;
-        margin-top: 10vh;
+        margin-top: 20vw;
 
         hr {
             display: none;
@@ -521,12 +521,12 @@ button:hover {
     }
 
     .toolbar h1 {
-        font-size: 3vh;
+        font-size: 6vw;
         margin-bottom: 0.2vw;
     }
 
     .toolbar p {
-        font-size: 2.5vh;
+        font-size: 4.5vw;
         margin-top: 0.2vw;
     }
 
@@ -537,18 +537,22 @@ button:hover {
 
     #toolbar-plans>img {
         width: 6vw;
-        margin: 1vh 9% 0;
+        margin: 2vw 9% 0;
     }
 
     .info-container-wrapper {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 3vh;
+        margin-bottom: 8vw;
+    }
+
+    .info-container-wrapper>div:last-of-type>div {
+        margin: 6vw 0;
     }
 
     .info-container {
         flex-direction: column;
-        margin: 3vh 1vw;
+        margin: 6vw 1vw;
     }
 
     .info-container>div {
@@ -558,13 +562,13 @@ button:hover {
     }
 
     .info-container>div>h1 {
-        font-size: 3vh;
-        margin-top: 1vh;
+        font-size: 5.5vw;
+        margin-top: 2vw;
     }
 
     .info-container>div>p {
-        font-size: 2.5vh;
-        margin: 0.5vw 0 1vh;
+        font-size: 4.5vw;
+        margin: 0.5vw 0 2vw;
     }
 
     #profile-container {
@@ -573,7 +577,7 @@ button:hover {
     }
 
     .profile-buttons {
-        font-size: 2vh;
+        font-size: 4vw;
         padding: 1vw;
         height: fit-content;
         width: 18vw;
@@ -582,7 +586,7 @@ button:hover {
 
     .body-container span {
         border-radius: 9vw;
-        font-size: 2vh;
+        font-size: 4vw;
         padding: 1vw;
     }
 
@@ -602,7 +606,7 @@ button:hover {
 
     #edit-skills {
         border-radius: 5vw;
-        font-size: 2vh;
+        font-size: 4vw;
         height: fit-content;
         width: fit-content;
         padding: 1vw;
@@ -613,7 +617,7 @@ button:hover {
         right: 0;
         top: 0;
         border-radius: 5vw;
-        font-size: 2vh;
+        font-size: 4vw;
         height: fit-content;
         width: fit-content;
         padding: 1vw;
@@ -622,28 +626,28 @@ button:hover {
     .curriculum-container {
         height: fit-content;
         width: 80vw;
-        margin: 3vh 1vw;
+        margin: 8vw 1vw;
         transition: 0.3s;
 
         h1 {
-            font-size: 3vh;
+            font-size: 5.5vw;
         }
 
         p {
-            font-size: 2.5vh;
-            margin-top: 6vh
+            font-size: 4.5vw;
+            margin-top: 4vw;
         }
 
         span {
-            top: 6vh;
+            top: 12vw;
             right: 35vw;
         }
     }
 
     .floating-button {
-        margin-top: -7vh;
+        margin-top: -14vw;
         width: fit-content;
-        font-size: 2vh;
+        font-size: 4vw;
         height: fit-content;
         padding-left: 2.5vw;
 
@@ -663,8 +667,8 @@ button:hover {
     }
 
     .curriculum-container>textarea {
-        font-size: 2.5vh;
-        margin-top: 6vh;
+        font-size: 4.5vw;
+        margin-top: 12vw;
         border-radius: 3vw;
         height: fit-content;
     }
@@ -672,21 +676,21 @@ button:hover {
     /* Floating Pop Up */
     .popup {
         border-radius: 8vw;
-        top: 21.5vh;
-        box-shadow: 0 0 10vh 100vh rgba(0, 0, 0, 0.3);
+        top: 43vw;
+        box-shadow: 0 0 20vw 200vw rgba(0, 0, 0, 0.3);
         border: none;
-        padding: 3vh;
+        padding: 6vw;
         width: 90%;
         word-wrap: break-word;
 
         >div {
             display: flex;
             flex-direction: column;
-            gap: 3vh;
+            gap: 6vw;
         }
 
         h1 {
-            margin-bottom: 3vh;
+            margin-bottom: 6vw;
         }
 
         label {
@@ -696,11 +700,7 @@ button:hover {
         button {
             width: 50%;
             height: fit-content;
-            margin: 3vh 0 0;
+            margin: 6vw 0 0;
         }
-    }
-
-    button {
-        border-radius: 9vw;
     }
 }
