@@ -45,7 +45,6 @@
 }
 
 #plans-container h1 {
-  color: var(--text-terciary);
   font-size: 1.1vw;
   margin: 0;
 }
@@ -452,42 +451,42 @@
 @media only screen and (max-width: 600px) {
   #plans-container {
     height: auto;
-    margin-bottom: 3vh;
+    margin-bottom: 6vw;
     padding: 0 2vw;
   }
   #plans-container h1 {
-    font-size: 4vh;
-    margin-bottom: 1vh;
+    font-size: 5vw;
+    margin-bottom: 2vw;
   }
   #plans-container p {
-    font-size: 3vh;
+    font-size: 4vw;
   }
   #plans-container p span {
-    font-size: 3vh;
-    margin-left: 1vh;
+    font-size: 4vw;
+    margin-left: 2vw;
   }
   .active-plan > .plan-title > p {
-    font-size: 3vh;
+    font-size: 4vw;
   }
   .requirements {
-    font-size: 3vh !important;
+    font-size: 4vw !important;
   }
   .plans-titles-container {
     flex-direction: column;
     margin: 0;
   }
   .vigencia-container {
-    padding: 1vh 3vw;
+    padding: 2vw 3vw;
     border-radius: 9vw;
   }
   #vigencia-text {
     font-size: 5vw !important;
   }
   .plans-titles-container div {
-    margin: 2vh 0;
+    margin: 4vw 0;
   }
   .plans {
-    margin: 3vh 0;
+    margin: 6vw 0;
     padding: 4vw;
     border-radius: 9vw;
   }
@@ -498,11 +497,12 @@
     border-radius: 9vw;
   }
   #active-plan-icon {
+    display: none;
     width: 4vw;
     right: 1vw;
   }
   .active-plan > div {
-    margin-bottom: 2vh;
+    margin-bottom: 4vw;
   }
   .documents-container {
     position: relative;
@@ -536,10 +536,10 @@
     height: 10vw;
   }
   .documents-container .docs-row2 .docs-row2-column1 .warning p {
-    font-size: 5vw !important;
+    font-size: 4vw !important;
   }
   .documents-container .docs-row2 .docs-row2-column1 h3 {
-    font-size: 6.5vw;
+    font-size: 5vw;
   }
   .documents-container .docs-row2 .docs-row2-column1 .license-info {
     flex-direction: column;
@@ -585,15 +585,15 @@
     border-radius: 9vw;
   }
   #upgrade-plan-button {
-    font-size: 5vw;
+    font-size: 4vw;
     padding: 3vw;
     border-radius: 9vw;
   }
   .payment-container h1 {
-    font-size: 2vh !important;
+    font-size: 4vw !important;
   }
   .payment-container h2 {
-    margin-bottom: 2vh;
+    margin-bottom: 4vw;
   }
   .payment-header div {
     display: flex;
@@ -602,7 +602,7 @@
     width: 100%;
   }
   .payment-header div * {
-    margin: 2vh 0;
+    margin: 4vw 0;
   }
   .logo {
     display: none;
@@ -614,15 +614,15 @@
     width: 100%;
   }
   .qr-container * {
-    margin: 1vh 0;
+    margin: 2vw 0;
   }
   .qr-container button {
     height: fit-content;
-    padding: 1vh 2vw;
+    padding: 2vw 2vw;
   }
   .hr-container {
     flex-direction: row;
-    margin: 6vh 0;
+    margin: 12vw 0;
   }
   .hr-container hr {
     height: 0;
@@ -633,7 +633,7 @@
     width: 100%;
   }
   .payment-form-container * {
-    margin: 0.5vh 0;
+    margin: 1vw 0;
   }
   .payment-form-container label {
     align-self: center;
@@ -642,7 +642,7 @@
     width: 100%;
   }
   .payment-form-container ::placeholder {
-    font-size: 2vh;
+    font-size: 4vw;
   }
   .payment-form-container .payment-form {
     display: flex;
