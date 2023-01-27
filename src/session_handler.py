@@ -351,10 +351,9 @@ class Session():
         return user
 
     def encrypt(self, text):
-        user = self.getUserFromRecovery(text)
         key = b'XJix9-kcLVndopzt3V61Mogzwn_e5xag1vsGlTIFeP4='
         cipher = Fernet(key)
-        encrypted = cipher.encrypt(user.encode())
+        encrypted = cipher.encrypt(text.encode())
 
         return encrypted
 

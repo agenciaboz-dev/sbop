@@ -531,9 +531,10 @@ def trocar_especialidade():
 @app.route('/recuperar/', methods=['POST'])
 def recuperar_route():
     data = request.get_json()
+    user = session.getUserFromRecovery(data['user'])
 
-    encrypted = session.encrypt(data['user'])
-    response = session.trySendMail(encrypted, data['user'])
+    encrypted = session.encrypt(user)
+    response = session.trySendMail(encrypted, user)
     print(response)
     return json.dumps(response)
 
