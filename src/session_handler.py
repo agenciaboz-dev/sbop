@@ -203,8 +203,8 @@ class Session():
             self.member_list.append(data)
 
             if not google_api:
-                self.database.run(f"update Membros set need_location = true where user = '{data['user']}'")
-                
+                self.database.run(f"update Membros set need_location = true where user = '{data['user']}'", commit=True)
+
             return {'success': 'Usuário cadastrado'}
 
     def get_blog(self, membro):
