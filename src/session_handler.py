@@ -346,7 +346,8 @@ class Session():
         if method == 'user':
             user = text
         else:
-            user = self.database.run(f"SELECT user FROM Membros WHERE {method} = '{text}';")[0]
+            user = self.database.run(f"SELECT user FROM Membros WHERE {method} = '{text}';", json=True)[0]
+            print(user)
 
         return user
 
