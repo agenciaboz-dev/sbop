@@ -346,9 +346,9 @@ class Session():
         if method == 'user':
             user = text
         else:
-            user = self.database.run(f"SELECT user FROM Membros WHERE {method} = '{text}';", json=True)[0]
+            user = self.database.run(f"SELECT user FROM Membros WHERE {method} = '{text}';", json=True)[0]['user']
 
-        return user['user']
+        return user
 
     def encrypt(self, text):
         user = self.getUserFromRecovery(text)
