@@ -191,13 +191,20 @@ class Session():
             raise ValueError('erro')
 
         except:
+            google_api = True
             try:
                 coords = self.getCoords(data['cep'])
                 data.update({'lat': coords[0], 'lng': coords[1]})
             except:
-                data.update({'lat': 0, 'lng': 0, 'need_location': True})
+                data.update({'lat': 0, 'lng': 0})
+                google_api = False
+
             self.database.insertMember(data)
             self.member_list.append(data)
+
+            if not google_api:
+                self.database.run(f"update Membros set need_location = true where user = '{data['user']}'")
+                
             return {'success': 'Usuário cadastrado'}
 
     def get_blog(self, membro):
