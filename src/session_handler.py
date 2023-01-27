@@ -330,10 +330,31 @@ class Session():
         else:
             return {'msg': 'Usuário não encontrado'}
 
+    def getUserFromRecovery(self, text):
+        method = 'user'
+
+        try:
+            number = int(text)
+            if len(text) == 11:
+                method = 'cpf'
+            else:
+                method = 'crm'
+        except:
+            if '@' in text:
+                method = 'email'
+
+        if method == 'user':
+            user = text
+        else:
+            user = self.database.run(f"SELECT user FROM Membros WHERE {method} = '{text}';")[0]
+
+        return user
+
     def encrypt(self, text):
+        user = self.getUserFromRecovery(text)
         key = b'XJix9-kcLVndopzt3V61Mogzwn_e5xag1vsGlTIFeP4='
         cipher = Fernet(key)
-        encrypted = cipher.encrypt(text.encode())
+        encrypted = cipher.encrypt(user.encode())
 
         return encrypted
 
