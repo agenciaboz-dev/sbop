@@ -183,8 +183,13 @@ class Session():
             if cpf:
                 return {'error': 'CPF já cadastrado'}
             
-            raise ValueError('erro')
+            crm = self.database.fetchTable(
+                1, 'Membros', 'crm', data['crm'])
+            if crm:
+                return {'error': 'CRM já cadastrado'}
             
+            raise ValueError('erro')
+
         except:
             coords = self.getCoords(data['cep'])
             data.update({'lat': coords[0], 'lng': coords[1]})
