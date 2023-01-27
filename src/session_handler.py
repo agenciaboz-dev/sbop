@@ -7,7 +7,7 @@ import json
 import requests
 import geopy.distance
 from src.mail_templates import recoverPasswordTemplate, newRequestTemplate
-from src.certificate import generate as newCertificate
+from src.certificate import generate as generateCertificate
 
 
 class Connection():
@@ -184,7 +184,7 @@ class Session():
                 return {'error': 'CPF já cadastrado'}
             
             raise ValueError('erro')
-
+            
         except:
             coords = self.getCoords(data['cep'])
             data.update({'lat': coords[0], 'lng': coords[1]})
@@ -442,7 +442,6 @@ class Session():
         member = self.database.run(f"""SELECT assinatura, nome FROM Membros WHERE id = {int(data[1])} """, json=True)[0]
 
         data[3] = 'Concluído'
-        data[5] = 'certificate.pdf'
-        
+        data[5] = generateCertificate(member['nome'], member['assinatura'], path)
         
         return tuple(data), "Faça o download do certificado clicando no botão a direita"

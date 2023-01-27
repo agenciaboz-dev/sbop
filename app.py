@@ -461,7 +461,7 @@ def new_request():
     data = (request_id,
             request.form['id'], solicitacao, status, today, '', protocolo)
     
-    response = 'Sua solicitação foi registrada, me dá um email pra notificar'
+    response = 'Sua solicitação foi registrada'
     
     if solicitacao == "Certificado de Membro":
         path = os.path.join(app.root_path, 'static', 'documents', str(request.form['id']))
