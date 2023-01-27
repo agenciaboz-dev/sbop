@@ -191,8 +191,11 @@ class Session():
             raise ValueError('erro')
 
         except:
-            coords = self.getCoords(data['cep'])
-            data.update({'lat': coords[0], 'lng': coords[1]})
+            try:
+                coords = self.getCoords(data['cep'])
+                data.update({'lat': coords[0], 'lng': coords[1]})
+            except:
+                data.update({'lat': 0, 'lng': 0, 'need_location': True})
             self.database.insertMember(data)
             self.member_list.append(data)
             return {'success': 'Usuário cadastrado'}
