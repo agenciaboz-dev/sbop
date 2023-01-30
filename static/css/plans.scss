@@ -366,13 +366,23 @@
         margin-top: 1vh;
         transition: 0.3s;
     }
+}
 
-    p {
-        margin: 0;
-        color: #E12454;
-        font-weight: 900;
-        opacity: 1;
-    }
+.receipt-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E12454;
+    border-radius: 2vw;
+    padding: 1vw;
+    
+        p {
+            margin: 0;
+            color: white;
+            font-weight: 900;
+            opacity: 1;
+        }
 }
 
 .qrc {
