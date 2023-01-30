@@ -30,7 +30,7 @@
 }
 
 .vigencia-container {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex: 0.4;
@@ -72,13 +72,13 @@
 }
 
 .regularize-button {
-  background-color: var(--secondary-color);
+  background-color: #5ca587;
   width: 50%;
   align-self: center;
 }
 
 .regularize-button:hover {
-  background-color: #5ca587;
+  background-color: var(--secondary-color);
 }
 
 .plans {
@@ -366,7 +366,7 @@
   align-items: center;
   background-color: #E12454;
   border-radius: 2vw;
-  padding: 1vw;
+  padding: 0.2vw 1vw;
 }
 .receipt-notice p {
   margin: 0;
