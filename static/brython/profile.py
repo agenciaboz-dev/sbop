@@ -274,7 +274,7 @@ def loadActivePlan(member):
     jQuery(icon).css('transform', f'translateY({height/4}px)')
 
     # text
-    jQuery('#vigencia-text > span').text('31/12/2012')
+    jQuery('#vigencia-text > span').text('31/12/2023')
     jQuery('.active-plan > .plan-title').append('<p>Plano Atual</p>')
     jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
@@ -407,6 +407,7 @@ def loadProfile():
     document['data-phone'].text = member.telefone
     document['data-address'].text = member.endereco_formatado
     document['data-username'].text = member.username
+    document['data-cpf'].text = member.cpf
     document['data-email'].text = member.email
     document['data-curriculum'].text = member.curriculum
 
