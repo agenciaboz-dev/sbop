@@ -150,7 +150,11 @@ const _get_member = setInterval(() => {
                             } else {
                                 $('.plans-panel').fadeOut(0, () => {
                                     $('.payment-container').fadeIn();
-                                    tipoPagamento($('.selected-plan').attr('id'))
+                                    if ($('.selected-plan').attr('id')) {
+                                        tipoPagamento($('.selected-plan').attr('id'))
+                                    } else {
+                                        tipoPagamento($('.active-plan').attr('id'))
+                                    }
                                 });
                             }
 
@@ -172,7 +176,11 @@ const _get_member = setInterval(() => {
                     $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
-                            tipoPagamento($('.selected-plan').attr('id'))
+                            if ($('.selected-plan').attr('id')) {
+                                tipoPagamento($('.selected-plan').attr('id'))
+                            } else {
+                                tipoPagamento($('.active-plan').attr('id'))
+                            }
                         });
                     })
 
@@ -234,6 +242,7 @@ $('.back-button').on('click', () => {
     } else {
         $('.payment-container').fadeOut(0, () => {
             $('.plans-panel').fadeIn();
+            console.log('temporario')
         })
     }
 })
