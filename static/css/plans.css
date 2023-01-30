@@ -358,9 +358,19 @@
   margin-top: 1vh;
   transition: 0.3s;
 }
-.qr-container p {
+
+.receipt-notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #E12454;
+  border-radius: 2vw;
+  padding: 1vw;
+}
+.receipt-notice p {
   margin: 0;
-  color: #E12454;
+  color: white;
   font-weight: 900;
   opacity: 1;
 }
