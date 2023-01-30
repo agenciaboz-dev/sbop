@@ -150,7 +150,7 @@ const _get_member = setInterval(() => {
                             } else {
                                 $('.plans-panel').fadeOut(0, () => {
                                     $('.payment-container').fadeIn();
-                                    tipoPagamento($('.active-plan').attr('id'))
+                                    tipoPagamento($('.selected-plan').attr('id'))
                                 });
                             }
 
@@ -172,7 +172,7 @@ const _get_member = setInterval(() => {
                     $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
-                            tipoPagamento($('.active-plan').attr('id'))
+                            tipoPagamento($('.selected-plan').attr('id'))
                         });
                     })
 
@@ -226,9 +226,16 @@ const _get_member = setInterval(() => {
 }, 100);
 
 $('.back-button').on('click', () => {
-    $('.payment-container').fadeOut(0, () => {
-        $('.plans-panel').fadeIn();
-    })
+    if (membro.temporary) {
+        $('.payment-container').fadeOut(0, () => {
+            $('.temporary-container').fadeIn();
+        })
+
+    } else {
+        $('.payment-container').fadeOut(0, () => {
+            $('.plans-panel').fadeIn();
+        })
+    }
 })
 
 
