@@ -65,6 +65,7 @@ button {
   border: none;
   color: white;
   font-weight: bold;
+  font-size: 1vw;
   height: 2vw;
   margin-bottom: 0;
   cursor: pointer;
@@ -326,7 +327,7 @@ button:hover {
 
 .profile-buttons {
   /* position:absolute;  */
-  padding: 5px;
+  font-size: 1vw;
   width: 4.5vw;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
@@ -362,7 +363,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 3vh 0;
+  margin: 1.5vw 0;
 }
 
 #edit-curriculum {
@@ -373,7 +374,7 @@ button:hover {
   width: 4vw;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 1.5vh;
+  font-size: 0.75vw;
   margin-left: 0;
 }
 
@@ -395,7 +396,7 @@ button:hover {
   font-family: Montserrats;
   padding: 0 2vw;
   width: 100%;
-  height: 8vh;
+  height: 4vw;
   text-align: justify;
   transition: 0.3s;
   resize: none;
@@ -403,7 +404,7 @@ button:hover {
 
 .curriculum-container > span {
   position: absolute;
-  top: 3.3vh;
+  top: 1.6vw;
 }
 
 .floating-button * {
@@ -421,18 +422,17 @@ button:hover {
   border-radius: 30vw;
   padding: 0 0.3vw 0 0.5vw;
   width: 11vw;
-  height: fit-content;
   background-color: white;
-  font-size: 1.6vh;
+  font-size: 0.8vw;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 25vh;
+  margin-top: 12vw;
+  padding: 1.5vw;
   padding-left: 2vw;
-  padding-right: 0.5vw;
 }
 
 .floating-button img {
-  max-height: 80%;
+  width: 33%;
   margin-left: 1vw;
   transition: 0.3s;
 }

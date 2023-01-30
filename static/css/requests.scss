@@ -9,6 +9,7 @@
 
 #requests-container>div {
     display: flex;
+    overflow-y: scroll;
 }
 
 #requests-container h1 {
@@ -37,6 +38,7 @@
 
 #new-request-button {
     width: 25%;
+    margin-bottom: 2vw;
 }
 
 .visualization-container {

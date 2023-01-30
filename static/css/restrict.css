@@ -22,7 +22,7 @@
 }
 
 #restrict-container > hr {
-  margin-top: 15vh;
+  margin-top: 7vw;
   height: 40%;
 }
 
@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: column;
   width: 15%;
-  margin-top: 13vh;
+  margin-top: 6vw;
 }
 
 .side-bar > h1 {
@@ -41,6 +41,7 @@
 
 .category-select h2 {
   color: var(--text-secondary);
+  font-size: 1.5vw;
   opacity: 0.3;
   transition: 0.3s;
   cursor: pointer;
@@ -85,7 +86,7 @@
 }
 
 .restrict-toolbar > hr {
-  margin: 1vh auto;
+  margin: 0.5vw auto;
 }
 
 .active-restrict-tool {
@@ -143,7 +144,7 @@
 
 .content-box {
   margin: 0;
-  height: 30vh;
+  height: 15vw;
   max-width: 100%;
   overflow-y: auto;
 }
