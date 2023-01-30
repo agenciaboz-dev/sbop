@@ -189,11 +189,13 @@ const _get_member = setInterval(() => {
                 }
 
                 if (!(membro.assinatura == 'Associado')) {
-                    $('.plans').on('click', (event) => {
-                        if ($(event.target).closest('.plans').attr('id') == 'titular') {
-                            // $('#upgrade-plan-button').addClass('deactivated-button');
-                        }
-                    })
+                    $('#titular').css("pointer-events", "none")
+                    
+                    // $('.plans').on('click', (event) => {
+                    //     if ($(event.target).closest('.plans').attr('id') == 'titular') {
+                    //         // $('#upgrade-plan-button').addClass('deactivated-button');
+                    //     }
+                    // })
 
                     $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
