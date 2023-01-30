@@ -251,7 +251,7 @@ def initialRender():
         jQuery('#temporary-container').show()
         jQuery('#stage-1-button').on('click', renderStage1)
         
-        if member.type:
+        if member.pago:
             jQuery('.temporary-stage-2').find('img').attr('src','/static/image/complete_icon.svg')
 
 
@@ -288,9 +288,6 @@ def loadActivePlan(member):
         jQuery('.active-plan > .plan-title > p').text('Plano Atual.')
         jQuery('.active-plan > .plan-title > p > span').css('color', 'var(--borda-plano-vencido)')
         jQuery('.active-plan > .plan-title > p > span').css('font-weight', 'bold')
-
-        jQuery('.plans:not(.active-plan)').css('cursor', 'not-allowed')
-        jQuery('.active-plan').css('cursor', 'auto')
 
         # jQuery('#plans-container > .plans-panel > button').removeClass('deactivated-button')
         jQuery('#plans-container > .plans-panel > button').addClass('regularize-button')
@@ -375,7 +372,7 @@ def renderStage2(ev):
             img = '<img src="/static/image/complete_icon.svg" alt="">'
             jQuery('.temporary-stage-1').append(img)
             
-            if member.type:
+            if member.pago:
                 jQuery('.temporary-stage-3').find('img').remove()
                 button = html.BUTTON('Finalizar', Id='finish-temporary-profile-button')
                 jQuery('.temporary-stage-3').append(button)

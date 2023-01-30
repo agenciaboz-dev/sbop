@@ -150,7 +150,11 @@ const _get_member = setInterval(() => {
                             } else {
                                 $('.plans-panel').fadeOut(0, () => {
                                     $('.payment-container').fadeIn();
-                                    tipoPagamento($('.active-plan').attr('id'))
+                                    if ($('.selected-plan').attr('id')) {
+                                        tipoPagamento($('.selected-plan').attr('id'))
+                                    } else {
+                                        tipoPagamento($('.active-plan').attr('id'))
+                                    }
                                 });
                             }
 
@@ -172,7 +176,11 @@ const _get_member = setInterval(() => {
                     $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
-                            tipoPagamento($('.active-plan').attr('id'))
+                            if ($('.selected-plan').attr('id')) {
+                                tipoPagamento($('.selected-plan').attr('id'))
+                            } else {
+                                tipoPagamento($('.active-plan').attr('id'))
+                            }
                         });
                     })
 
@@ -181,11 +189,13 @@ const _get_member = setInterval(() => {
                 }
 
                 if (!(membro.assinatura == 'Associado')) {
-                    $('.plans').on('click', (event) => {
-                        if ($(event.target).closest('.plans').attr('id') == 'titular') {
-                            // $('#upgrade-plan-button').addClass('deactivated-button');
-                        }
-                    })
+                    $('#titular').css("pointer-events", "none")
+                    
+                    // $('.plans').on('click', (event) => {
+                    //     if ($(event.target).closest('.plans').attr('id') == 'titular') {
+                    //         // $('#upgrade-plan-button').addClass('deactivated-button');
+                    //     }
+                    // })
 
                     $('#upgrade-plan-button').on('click', () => {
                         $('.plans-panel').fadeOut(0, () => {
@@ -226,9 +236,17 @@ const _get_member = setInterval(() => {
 }, 100);
 
 $('.back-button').on('click', () => {
-    $('.payment-container').fadeOut(0, () => {
-        $('.plans-panel').fadeIn();
-    })
+    if (membro.temporary) {
+        $('.payment-container').fadeOut(0, () => {
+            $('.temporary-container').fadeIn();
+        })
+
+    } else {
+        $('.payment-container').fadeOut(0, () => {
+            $('.plans-panel').fadeIn();
+            console.log('temporario')
+        })
+    }
 })
 
 
