@@ -215,6 +215,8 @@ button:hover {
 }
 
 .camera-icon-container {
+    display: flex;
+    justify-content: center;
     width: fit-content;
     height: fit-content;
     background-color: white;
@@ -224,7 +226,7 @@ button:hover {
     cursor: pointer;
     filter: drop-shadow(0 3px 20px rgba(0, 0, 0, 0.15));
     border-radius: 50%;
-    right: 1.9vw;
+    right: 1.5vw;
     top: 0;
     transition: 0.5s;
 }
@@ -236,7 +238,7 @@ button:hover {
 #camera-icon {
     width: 2vw;
     object-fit: contain;
-    margin: 0.75vw;
+    margin: 0.7vw 0.5vw;
 }
 
 /* #logo-icon {
@@ -435,7 +437,7 @@ button:hover {
     transition: 0.3s;
     margin-top: 12vw;
     padding: 1.5vw;
-    padding-left: 2vw;
+    padding-left: 2.5vw;
 }
 
 .floating-button img {
