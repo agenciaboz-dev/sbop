@@ -462,7 +462,7 @@
   width: 10vw;
   margin: 0.75vw 0;
 }
-.payment-form-container #payment-back-button {
+.payment-form-container .back-button {
   margin-top: 1vw;
 }
 
