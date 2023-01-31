@@ -403,10 +403,10 @@ button:hover {
     border: none;
     border-radius: 2vw;
     font-family: Montserrats;
-    padding: 0 2vw;
+    font-size: 1vw;
+    padding: 0.5vw 1vw;
     width: 100%;
     height: 4vw;
-    text-align: justify;
     transition: 0.3s;
     resize: none;
 }
@@ -414,6 +414,10 @@ button:hover {
 .curriculum-container>span {
     position: absolute;
     top: 1.6vw;
+}
+
+#data-curriculum {
+    width: 100%;
 }
 
 .floating-button * {
