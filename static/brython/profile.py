@@ -280,7 +280,7 @@ def loadActivePlan(member):
 
     # checar vencimento
     if not member.pago:
-        jQuery('#vigencia-text').text('Pagamento do dia 31/12/2022 atrasado!')
+        jQuery('#vigencia-text').text('Pagamento do dia 31/12/2022 pendente!')
         jQuery('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)')
         jQuery('#vigencia-text > span').hide()
         jQuery('.active-plan').css('outline-color', 'var(--borda-plano-vencido)')
