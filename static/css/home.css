@@ -93,7 +93,7 @@ a > h1:hover {
 }
 
 label {
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   margin: 0;
   font-weight: bold;
 }
@@ -173,7 +173,7 @@ button {
   box-shadow: 0 0 15vw 150vw rgba(0, 0, 0, 0.5);
 }
 .popup p {
-  font-size: 1.5vw;
+  font-size: 1.25vw;
 }
 
 .popup-top {
@@ -188,14 +188,13 @@ button {
 
 #recover-form {
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
 }
 
 #recover-input {
-  width: 100%;
-  margin-right: 2vw;
+  width: 50%;
 }
 
 #recover-submit {
