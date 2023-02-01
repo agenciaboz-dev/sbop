@@ -147,6 +147,7 @@ button:hover {
 
 /* Floating Pop Up */
 .popup {
+    font-size: 1.25vw;
     align-self: center;
     color: #6B6B6B;
     position: absolute;
@@ -167,13 +168,22 @@ button:hover {
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
 }
 
+#floating-popup input {
+    background-color: var(--input-background);
+    border: none;
+    border-radius: 9vw;
+    height: 2vw;
+    padding: 0 1vw;
+}
+
 .popup label {
     width: 20vw;
 }
 
 .popup button {
+    height: 2vw;
+    margin-top: 2vw;
     width: 50%;
-    height: 1.5vw;
     flex-shrink: 0;
 }
 
