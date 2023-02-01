@@ -257,7 +257,7 @@
                 <label for="input-new-password-confirmation">Confirmar nova senha</label>
                 <input type="password" id="input-new-password-confirmation" required>
 
-                <button type="submit" id="change-password-button" name="change-password">Redefinir Senha</button>
+                <button type="submit" class="redefinition-button" id="change-password-button" name="change-password">Redefinir Senha</button>
             </form>
             <form action="javascript:void(0);">
                 <h1>Redefinir e-mail</h1>
@@ -270,7 +270,7 @@
                 <label for="input-new-email-confirmation">Confirmar novo e-mail</label>
                 <input type="email" id="input-new-email-confirmation" placeholder="novo_email@sbop.com.br" required>
 
-                <button type="submit" id="change-email-button" name="change email">Redefinir E-mail</button>
+                <button type="submit" class="redefinition-button" id="change-email-button" name="change email">Redefinir E-mail</button>
             </form>
         </div>
         <!-- PLANS CONTAINER -->
@@ -514,10 +514,10 @@
         </div>
         <!-- REQUESTS CONTAINER -->
         <div id="requests-container" class="main-container">
+            <button class="requests-toggle-button" id="new-request-button">Incluir Solicitação</button>
+            <h1>Histórico de Solicitações:</h1>
+            <p>Para visualizar os detalhes de cada solicitação, clique no seu número.</p>
             <div class="visualization-container">
-                <button class="requests-toggle-button" id="new-request-button">Incluir Solicitação</button>
-                <h1>Histórico de Solicitações:</h1>
-                <p>Para visualizar os detalhes de cada solicitação, clique no seu número.</p>
                 <div class="requests-history">
                     <table id="requests-history">
                         <tr>

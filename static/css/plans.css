@@ -41,7 +41,7 @@
 
 #vigencia-text {
   color: white !important;
-  font-size: 3vh !important;
+  font-size: 1.25vw !important;
 }
 
 #plans-container h1 {
@@ -95,7 +95,7 @@
   display: flex;
   flex-direction: row;
   margin: 0 -0.5vw;
-  padding: 10px;
+  padding: 0.5vw;
   border-top-left-radius: 1.5vw;
   border-top-right-radius: 1.5vw;
 }
@@ -138,11 +138,11 @@
 .documents-container {
   position: absolute;
   width: 100%;
-  height: 70vh;
+  height: 35vw;
   background-color: white;
   z-index: 10;
   left: -0.7vw;
-  top: 15vh;
+  top: 7.5vw;
   border-radius: 1.5vw;
 }
 
@@ -170,17 +170,17 @@
 .docs-row1-column1 h2 {
   color: #6b6b6b;
   font-weight: 600;
-  margin-bottom: 0.75vh;
+  margin-bottom: 0.3vw;
 }
 
 .docs-row1-column1 h4 {
   color: #6b6b6b;
-  margin-top: 0.75vh;
+  margin-top: 0.3vw;
   margin-bottom: 0;
 }
 
 .docs-row1-column2 img {
-  height: 8vh;
+  height: 4vw;
 }
 
 .docs-row2-column1 {
@@ -192,7 +192,7 @@
 
 .docs-row2-column1 h3 {
   color: #6b6b6b;
-  margin-bottom: 0.5vh;
+  margin-bottom: 0.25vw;
 }
 
 .requirements {
@@ -215,7 +215,7 @@
 }
 
 .warning img {
-  height: 3vh;
+  height: 1.5vw;
 }
 
 .warning p {
@@ -225,7 +225,7 @@
 .license-info {
   display: flex;
   flex-direction: row;
-  margin-top: 6vh;
+  margin-top: 3vw;
 }
 
 .dashed-box {
@@ -233,7 +233,7 @@
   height: 90%;
   width: 100%;
   margin: 0 7vw 0 0;
-  padding: 10vh 9vw;
+  padding: 5vw 9vw;
 }
 
 .search-box {
@@ -243,7 +243,7 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 1vh 1vh;
+  padding: 0.5vw;
   cursor: pointer;
 }
 
@@ -262,7 +262,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  height: 5.5vh;
+  height: 2.75vw;
   width: 5vw;
   border-radius: 50%;
   background-color: rgba(245, 245, 245, 0.75);
@@ -278,7 +278,7 @@
   justify-content: space-between;
   margin: 0;
   right: 4.5vw;
-  bottom: 7vh;
+  bottom: 3.5vw;
 }
 
 .plans-buttons-container button {
@@ -286,7 +286,7 @@
   border-radius: 0.8vw;
   color: white;
   background-color: #0C6397;
-  padding: 0.65vh 1vw;
+  padding: 0.3vw 1vw;
   cursor: pointer;
   transition: 0.3s;
   width: 8vw;
@@ -314,12 +314,12 @@
   margin: 0;
 }
 .payment-container h1 {
-  font-size: 4vh !important;
+  font-size: 2vw !important;
 }
 .payment-container h2 {
   color: var(--text-terciary);
-  font-size: 3vh;
-  margin-top: 0.5vh;
+  font-size: 1.5vw;
+  margin-top: 0.25vw;
 }
 .payment-container span {
   font-size: inherit;
@@ -334,7 +334,7 @@
 }
 
 .logo {
-  height: 8vh;
+  height: 4vw;
   object-fit: contain;
   margin-left: auto;
   margin-right: 3vw;
@@ -343,7 +343,7 @@
 .payment-body {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 0.5vh;
+  margin-bottom: 0.25vw;
 }
 
 .qr-container {
@@ -353,9 +353,9 @@
   width: 25vw;
 }
 .qr-container button {
-  height: 4vh;
+  height: 2vw;
   padding: 0 1vw;
-  margin-top: 1vh;
+  margin-top: 0.5vw;
   transition: 0.3s;
 }
 
@@ -376,7 +376,7 @@
 }
 
 .qrc {
-  height: 30vh;
+  height: 15vw;
   object-fit: contain;
 }
 
@@ -387,12 +387,12 @@
   justify-content: space-evenly;
 }
 .hr-container hr {
-  height: 15vh;
+  height: 7.5vw;
   border: none;
   border-left: 2px solid var(--line-color);
 }
 .hr-container h2 {
-  margin: 2vh 0;
+  margin: 1vw 0;
 }
 
 .payment-form-container {
@@ -401,12 +401,15 @@
   align-items: center;
   width: 50vw;
 }
-.payment-form-container * :not(.back-button) {
+.payment-form-container * :not(#payment-back-button) {
   opacity: 0.5;
   pointer-events: none;
 }
 .payment-form-container .payment-form {
   width: 100%;
+}
+.payment-form-container .payment-form *:not(h2) {
+  font-size: 1vw;
 }
 .payment-form-container .data-slot {
   display: flex;
@@ -416,7 +419,7 @@
 }
 .payment-form-container .data-slot > label {
   font-weight: 500;
-  margin: 0.5vh 0;
+  margin: 0.25vw 0;
 }
 .payment-form-container .data-column {
   display: flex;
@@ -424,7 +427,7 @@
 }
 .payment-form-container .data-column > label {
   font-weight: 500;
-  margin: 0.5vh 0;
+  margin: 0.25vw 0;
 }
 .payment-form-container .t-quarters {
   width: 74%;
@@ -446,10 +449,10 @@
   background-color: var(--input-background, 0.4);
   border: none;
   border-radius: 2vw;
-  padding: 0.5vh 1vw;
+  padding: 0.25vw 1vw;
 }
 .payment-form-container hr {
-  margin: 3vh 0;
+  margin: 1.5vw 0;
   border: none;
   border-top: 2px solid var(--line-color);
   opacity: 0.5;
@@ -457,7 +460,10 @@
 }
 .payment-form-container .pay-button {
   width: 10vw;
-  margin: 1.5vh 0;
+  margin: 0.75vw 0;
+}
+.payment-form-container .back-button {
+  margin-top: 1vw;
 }
 
 @media only screen and (max-width: 600px) {

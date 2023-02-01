@@ -9,6 +9,7 @@
 
 #requests-container>div {
     display: flex;
+    overflow-y: scroll;
 }
 
 #requests-container h1 {
@@ -32,11 +33,12 @@
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.15));
     outline: none;
     border: 1px solid var(--input-background);
-    padding: 1vh 1vw;
+    padding: 0.5vw 1vw;
 }
 
 #new-request-button {
     width: 25%;
+    margin-bottom: 2vw;
 }
 
 .visualization-container {
@@ -45,7 +47,7 @@
 }
 
 .visualization-container>h1 {
-    margin-top: 4vh;
+    margin-top: 2vw;
     margin-bottom: 0;
 }
 
@@ -63,7 +65,7 @@
 }
 
 .table-header th {
-    padding: 1vh 2vw;
+    padding: 0.5vw 2vw;
     background-color: #0C6397;
     color: white;
 }

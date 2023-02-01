@@ -16,7 +16,7 @@
 
 #security-container>form>input {
     border-radius: 1.5vw;
-    height: 6vh;
+    height: 3vw;
     background-color: var(--input-background);
     border: none;
     outline: none;
@@ -37,6 +37,10 @@
 
 ::placeholder {
     opacity: 0.4;
+}
+
+.redefinition-button {
+    margin-top: 2vw;
 }
 
 @media only screen and (max-width: 600px) {
