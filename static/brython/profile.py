@@ -497,7 +497,7 @@ def loadSafety():
 
 
 def loadRestrict(member):
-    jQuery('#videos-container').hide()
+    jQuery('#publicacoes-container').hide()
 
     for element in document.select('.restrict-toolbar > h1'):
         tool = RestrictTool(element, element.attrs['name'][:-5])
