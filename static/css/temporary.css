@@ -75,6 +75,7 @@
 
 .stage-1-container > form {
     display: flex;
+    flex-direction: column;
     overflow-y: scroll;
 }
 
@@ -111,14 +112,16 @@
 
 #submit-stage-1-button {
     margin-top: 1vw;
-    height: 4vw;
+    height: 5vw;
     width: 10vw;
     align-self: center;
 }
 
 .temp-logout-button {
+    position: absolute;
+    bottom: 0.5vw;
+    left: 0;
     width: 10vw;
-    margin-top: 7vw;
 }
 
 @media only screen and (max-width: 600px) {
@@ -126,14 +129,14 @@
     body {
         overflow-y: scroll;
     }
-
-    .body-container {
-        height: 163vw;
-    }
-
+    
     #temporary-container {
         font-size: 4vw;
         height: 100%;
+    }
+    
+    #menu-button {
+        display: none;
     }
     
     .temporary-stages {
@@ -168,13 +171,44 @@
         margin-bottom: 0;
     }
 
-    .temp-logout-button {
-        width: 20vw;
-        margin-top: 15vw;
-        margin-left: 5vw;
+    .stage-1-container label {
+        font-size: 5vw;
     }
 
-    #menu-button {
-        display: none;
+    .stages-container input {
+        font-size: 4vw;
+        margin-top: 0.5vw;
+        margin-bottom: 3vw;
+        padding-left: 2vw;
+        border-radius: 5vw;
+        height: 8vw;
     }
+
+    .temp-skills-p {
+        font-size: 5vw;
+        color: var(--text-terciary);
+        opacity: 1;
+    }
+
+    .temp-skills-select {
+        margin: 1vw 0 3vw;
+        padding: 2vw 0;
+    }
+
+    .stage-1-container > form > div > div > div > input {
+        height: 3vw;
+    }
+
+    #submit-stage-1-button {
+        margin-top: 5vw;
+        height: 7vw;
+        width: 30vw;
+    }
+
+    .temp-logout-button {
+        width: 20vw;
+        bottom: 5vw;
+        left: 5vw;
+    }
+
 }

@@ -98,7 +98,6 @@
                     <img src="/static/image/incomplete_icon.svg" alt="">
                 </div>
             </div>
-            <button class="temp-logout-button" onclick="window.location.href = '/logout/'">Sair</button>
             <div class="stage-1-container stages-container">
                 <h1>Atualize seu perfil</h1>
                 <form action="javascript:void(0);">
@@ -112,8 +111,8 @@
                         <input type="text" id="member-input-email">
                         <label for="member-input-crm">CRM</label>
                         <input type="text" id="member-input-crm">
-                        <p>Especialidades</p>
-                        <div>
+                        <p class="temp-skills-p">Especialidades</p>
+                        <div class="temp-skills-select">
                             <div>
                                 <label for="member-input-oftalmologia">Oftalmologia Pediátrica</label>
                                 <input type="checkbox" value="Oftalmologia Pediátrica" class="checkbox"
@@ -169,13 +168,14 @@
                         <label for="member-input-uf">Estado</label>
                         <input type="text" id="member-input-uf">
                     </div>
+                    <button id="submit-stage-1-button">Enviar</button>
                 </form>
-                <button id="submit-stage-1-button">Enviar</button>
             </div>
             <div class="stage-2-container stages-container">
                 <h1>fase 2</h1>
             </div>
         </div>
+        <button class="temp-logout-button" onclick="window.location.href = '/logout/'">Sair</button>
         <!-- PROFILE CONTAINER -->
         <div id="profile-container" class="main-container">
             <div class="info-container-wrapper">

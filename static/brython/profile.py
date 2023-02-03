@@ -249,6 +249,7 @@ def initialRender():
         jQuery('.main-container').hide()
         toggleContainer(selection=['.body-toolbar'], mode='blur')
         jQuery('#temporary-container').show()
+        jQuery('.temp-logout-button').show()
         jQuery('#stage-1-button').on('click', renderStage1)
         
         if member.pago:
