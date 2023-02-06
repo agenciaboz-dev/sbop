@@ -385,7 +385,7 @@
 }
 
 .qrc {
-    height: 75vw;
+    height: 15vw;
     object-fit: contain;
 }
 
@@ -713,6 +713,10 @@
             height: fit-content;
             padding: 2vw 2vw;
         }
+    }
+
+    .qrc {
+        height: 75vw;
     }
 
     .hr-container {
