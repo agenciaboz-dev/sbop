@@ -385,7 +385,7 @@
 }
 
 .qrc {
-    height: 15vw;
+    height: 75vw;
     object-fit: contain;
 }
 
@@ -670,30 +670,15 @@
     }
 
     .payment-container {
-        //     display: flex;
-        //     flex-direction: column;
-        //     height: 100%;
-        //     margin: 0;
-
-        //     * {
-        //         margin: 0;
-        //     }
 
         h1 {
-            font-size: 4vw !important;
+            font-size: 5vw !important;
         }
-
+        
         h2 {
-            //         color: var(--text-terciary);
-            //         font-size: 5vw;
-            //         margin-top: 2vw;
+            font-size: 5vw !important;
             margin-bottom: 4vw;
         }
-
-        //     label {
-        //         color: #8D8D8D;
-        //     }
-
     }
 
     .payment-header {
@@ -714,15 +699,10 @@
     }
 
     .payment-body {
-        // display: flex;
-        // justify-content: space-around;
         flex-direction: column;
     }
 
     .qr-container {
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
         width: 100%;
 
         * {
@@ -732,25 +712,11 @@
         button {
             height: fit-content;
             padding: 2vw 2vw;
-            // margin-top: 2vw;
-            // transition: 0.3s;
         }
-
-        // p {
-        //     margin: 0;
-        // }
     }
 
-    // .qrc {
-    //     height: 60vw;
-    //     object-fit: contain;
-    // }
-
     .hr-container {
-        // display: flex;
         flex-direction: row;
-        // align-items: center;
-        // justify-content: space-around;
         margin: 12vw 0;
 
         hr {
@@ -758,16 +724,9 @@
             width: 30vw;
             border-top: 2px solid var(--line-color);
         }
-
-        // h2 {
-        //     margin: 4vw 0;
-        // }
     }
 
     .payment-form-container {
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
         width: 100%;
 
         * {
@@ -787,7 +746,6 @@
         }
 
         .payment-form {
-            // width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -795,26 +753,7 @@
 
         .data-slot {
             align-items: center;
-            //         display: flex;
-            //         flex-direction: column;
-            //         margin: 0;
-            //         width: 100%;
-
-            //         >label {
-            //             font-weight: 500;
-            //             margin: 1vw 0;
-            //         }
         }
-
-        //     .data-column {
-        //         display: flex;
-        //         flex-direction: column;
-
-        //         >label {
-        //             font-weight: 500;
-        //             margin: 1vw 0;
-        //         }
-        //     }
 
         .t-quarters {
             width: 100%;
@@ -829,33 +768,9 @@
         }
 
         .data-row {
-            //         display: flex;
             flex-direction: column;
             align-items: center;
-            //         justify-content: space-between;
-            //         width: 100%;
         }
-
-        //     input {
-        //         color: #8D8D8D;
-        //         background-color: var(--input-background, 0.4);
-        //         border: none;
-        //         border-radius: 2vw;
-        //         padding: 1vw 1vw;
-        //     }
-
-        //     hr {
-        //         margin: 6vw 0;
-        //         border: none;
-        //         border-top: 2px solid var(--line-color);
-        //         opacity: 0.5;
-        //         width: 45vw;
-        //     }
-
-        //     .payment-buttons {
-        //         align-self: flex-end;
-        //         margin-top: 4vw;
-        //     }
 
         button {
             border-radius: 9vw;

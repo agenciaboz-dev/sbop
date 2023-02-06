@@ -376,7 +376,7 @@
 }
 
 .qrc {
-  height: 15vw;
+  height: 75vw;
   object-fit: contain;
 }
 
@@ -608,9 +608,10 @@
     border-radius: 9vw;
   }
   .payment-container h1 {
-    font-size: 4vw !important;
+    font-size: 5vw !important;
   }
   .payment-container h2 {
+    font-size: 5vw !important;
     margin-bottom: 4vw;
   }
   .payment-header div {
