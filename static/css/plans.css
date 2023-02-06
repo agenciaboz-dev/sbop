@@ -376,7 +376,7 @@
 }
 
 .qrc {
-  height: 75vw;
+  height: 15vw;
   object-fit: contain;
 }
 
@@ -638,6 +638,9 @@
   .qr-container button {
     height: fit-content;
     padding: 2vw 2vw;
+  }
+  .qrc {
+    height: 75vw;
   }
   .hr-container {
     flex-direction: row;
