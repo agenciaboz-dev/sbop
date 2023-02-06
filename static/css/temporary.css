@@ -76,6 +76,7 @@
 .stage-1-container > form {
     display: flex;
     flex-direction: column;
+    height: 21vw;
     overflow-y: scroll;
 }
 
@@ -122,6 +123,7 @@
 
 .temp-logout-button {
     width: 10vw;
+    margin-bottom: 0.5vw;
 }
 
 @media only screen and (max-width: 600px) {
