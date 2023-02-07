@@ -26,7 +26,7 @@ $('form').on('submit', (event) => {
         bairro: $('#bairro').val(),
         cidade: $('#cidade').val(),
         pais: $('#pais').val(),
-        crm: $('#crm').val(),
+        crm: `${$('#crm').val()}-${$('#uf').val()}`,
         curriculum: $('#curriculum').val(),
         pessoa: $('input[name="pessoa"]:checked').val(),
         temporario: 'True',
