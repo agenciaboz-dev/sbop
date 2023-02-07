@@ -74,7 +74,7 @@ body {
     display: none;
   }
 }
-.fr-wrapper .show-placeholder a {
+.fr-wrapper > div > a {
   display: none !important;
 }
 

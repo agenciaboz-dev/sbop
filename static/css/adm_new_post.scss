@@ -1,9 +1,12 @@
 @import 'colors';
 @import 'adm_container';
 
-.fr-wrapper .show-placeholder {
-    a {
-        display: none!important;
+.fr-wrapper {
+
+    > div {
+        > a {
+            display: none!important;
+        }
     }
 }
 
