@@ -42,7 +42,7 @@ def home():
             if connection:
                 if connection[0]:
                     if connection[1].adm:
-                        return redirect('/adm/')
+                        return redirect(f'/adm/?id={connection[0]}')
                     return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'
