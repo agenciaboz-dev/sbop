@@ -33,7 +33,7 @@ body {
 }
 
 .body-container {
-    position: relative;
+    // position: relative;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -512,7 +512,7 @@ button:hover {
 
     .body-container {
         align-items: center;
-        height: 163vw;
+        height: 88vh;
         margin-top: 6vw;
         border-radius: 9vw;
         box-shadow: 0 0 10px rgb(0 0 0 / 20%);

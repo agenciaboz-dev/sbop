@@ -255,6 +255,10 @@ def initialRender():
         if member.pago:
             jQuery('.temporary-stage-2').find('img').attr('src','/static/image/complete_icon.svg')
 
+    else:
+        jQuery('.temp-logout-button').hide()
+
+
 
 def loadActivePlan(member):
     member_type = f'#{member.type.lower()}'

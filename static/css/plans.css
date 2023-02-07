@@ -401,7 +401,7 @@
   align-items: center;
   width: 50vw;
 }
-.payment-form-container * :not(#payment-back-button) {
+.payment-form-container * {
   opacity: 0.5;
   pointer-events: none;
 }
@@ -462,7 +462,8 @@
   width: 10vw;
   margin: 0.75vw 0;
 }
-.payment-form-container .back-button {
+
+.back-button {
   margin-top: 1vw;
 }
 

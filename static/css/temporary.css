@@ -76,7 +76,6 @@
 .stage-1-container > form {
     display: flex;
     flex-direction: column;
-    height: 21vw;
     overflow-y: scroll;
 }
 
@@ -122,8 +121,14 @@
 }
 
 .temp-logout-button {
+    background-color: #656565;
+    position: absolute;
+    bottom: -3vw;
     width: 10vw;
-    margin-bottom: 0.5vw;
+}
+
+.temp-logout-button:hover {
+    background-color: #8D8D8D;
 }
 
 @media only screen and (max-width: 600px) {
@@ -134,7 +139,7 @@
     
     #temporary-container {
         font-size: 4vw;
-        height: 90%;
+        height: 95%;
     }
     
     #menu-button {
@@ -202,14 +207,14 @@
     }
 
     #submit-stage-1-button {
-        margin: 3vw 0;
+        margin-top: 3vw;
         height: 8vw;
         width: 30vw;
     }
 
     .temp-logout-button {
         width: 20vw;
-        margin: 2vw 0;
+        bottom: 1.5vw;
     }
 
 }

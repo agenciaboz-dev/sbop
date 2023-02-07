@@ -413,7 +413,7 @@
     width: 50vw;
 
     // Desativado por enquanto:
-    * :not(#payment-back-button) {
+    * {
         opacity: 0.5;
         pointer-events: none;
     }
@@ -487,10 +487,10 @@
         width: 10vw;
         margin: 0.75vw 0;
     }
+}
 
-    .back-button {
-        margin-top: 1vw;
-    }
+.back-button {
+    margin-top: 1vw;
 }
 
 @media only screen and (max-width: 600px) {
