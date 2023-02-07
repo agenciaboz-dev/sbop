@@ -74,6 +74,10 @@ body {
     display: none;
   }
 }
+.fr-wrapper .show-placeholder a {
+  display: none !important;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -472,6 +476,6 @@ p {
     margin-right: 25vw;
   }
 }
-/*# sourceMappingURL=adm_new_post.css.map */
+
 
 /*# sourceMappingURL=adm_new_post.css.map */

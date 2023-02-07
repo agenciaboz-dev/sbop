@@ -1,6 +1,12 @@
 @import 'colors';
 @import 'adm_container';
 
+.fr-wrapper .show-placeholder {
+    a {
+        display: none!important;
+    }
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
