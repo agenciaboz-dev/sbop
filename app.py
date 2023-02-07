@@ -296,7 +296,7 @@ def members():
 
         # name search request
         if request.form['search'] == 'name':
-            searched = request.form['value'].lower().split(' ')
+            searched = request.form['value'].lower().strip().split(' ')
             for item in searched:
                 sql = f"SELECT * FROM `Membros` WHERE nome like '%{item}%' AND assinatura = 'Titular' ORDER BY nome ASC"
                 if adm:
