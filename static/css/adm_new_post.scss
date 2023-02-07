@@ -51,6 +51,10 @@ img {
     max-height: 100%;
 }
 
+.cloud-icon {
+    height: 1.5vw;
+}
+
 .img-container {
     display: flex;
     align-items: center;
@@ -131,15 +135,15 @@ p {
     justify-content: center;
     align-items: center;
     margin: 1vh 0 2vh;
-    outline: #cfcfcf dashed 0.5vh;
-    padding: 1vh 11vw;
+    // outline: #cfcfcf dashed 0.5vh;
+    outline: none;
     height: 120px;
     width: 100%;
 }
 
 .search-box {
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: #e4e4e4;
     border-radius: 2vw;
     display: flex;
     flex-direction: column;
