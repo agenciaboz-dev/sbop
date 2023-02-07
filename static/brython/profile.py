@@ -357,7 +357,7 @@ def renderStage2(ev):
     member.cpf = jQuery('#member-input-cpf').val()
     member.telefone = jQuery('#member-input-telefone').val()
     member.email = jQuery('#member-input-email').val()
-    member.crm = jQuery('#member-input-crm').val()
+    member.crm = f"{jQuery('#member-input-crm').val()}-{jQuery('#member-input-crm-uf').val()}"
     member.curriculum = jQuery('#member-input-curriculum').val()
     member.cep = jQuery('#member-input-cep').val()
     member.rua = jQuery('#member-input-endereco').val()
