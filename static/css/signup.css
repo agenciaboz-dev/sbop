@@ -160,23 +160,23 @@ label {
   margin-bottom: 1vh;
 }
 
+.data-row {
+  margin-top: 1.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .t-quarters {
   width: 74%;
 }
 
 .half {
-  margin-top: 1.5vh;
   width: 49%;
 }
 
 .quarter {
   width: 24%;
-}
-
-.data-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 input {

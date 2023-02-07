@@ -608,6 +608,9 @@
     padding: 3vw;
     border-radius: 9vw;
   }
+  .payment-container {
+    margin-top: 3vw;
+  }
   .payment-container h1 {
     font-size: 5vw !important;
   }
@@ -642,6 +645,10 @@
   }
   .qrc {
     height: 75vw;
+  }
+  .receipt-notice {
+    padding: 1vw 4vw;
+    border-radius: 8vw;
   }
   .hr-container {
     flex-direction: row;
@@ -693,6 +700,9 @@
   }
   .payment-form-container .pay-button {
     width: 40vw;
+  }
+  .back-button {
+    margin-top: 3vw;
   }
 }
 

@@ -209,12 +209,13 @@
     #submit-stage-1-button {
         margin-top: 3vw;
         height: 8vw;
-        width: 30vw;
+        width: 75vw;
     }
 
     .temp-logout-button {
         width: 20vw;
         bottom: 1.5vw;
+        left: 1.5vw;
     }
 
 }
