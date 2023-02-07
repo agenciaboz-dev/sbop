@@ -184,7 +184,9 @@ const _get_member = setInterval(() => {
                         });
                     })
 
-                    
+                    if (!$('.selected-plan').attr('id') && !$('.active-plan').attr('id')) {
+                        $('#upgrade-plan-button').addClass('deactivated-button');
+                    }
 
                 }
 
