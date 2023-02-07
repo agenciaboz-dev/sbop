@@ -4,6 +4,12 @@ const form_data = new FormData();
 let membro = {};
 let file = null;
 
+const editor = new FroalaEditor('#froala', {
+    language: 'pt_br',
+    charCounterCount: false,
+    toolbarSticky: true,
+});
+
 const request = (url, data, done, method = 'POST', content_type = { 'Content-Type': 'application/json' }) => {
     const options = {
         method: method,
@@ -62,7 +68,7 @@ $('document').ready(() => {
             const post = response[0];
 
             $('#title-area').val(post.titulo);
-            $('#content-area').val(post.conteudo);
+            $('#content-area').val(editor.html.set(post.conteudo));
             $('#membership-input').val(post.assinatura);
             $('#category-input').val(post.categoria);
             $('#summary-area').val(post.resumo);
@@ -82,7 +88,7 @@ $('#publish-button').on('click', (event) => {
         const data = {
             id: id,
             titulo: $('#title-area').val(),
-            conteudo: $('#content-area').val(),
+            conteudo: editor.html.get(),
             assinatura: $('#membership-input').val(),
             resumo: $('#summary-area').val(),
             categoria: $('#category-input').val().toLowerCase()
@@ -132,11 +138,6 @@ $('#publish-button').on('click', (event) => {
             return false;
         }
 
-        if (!$('#content-area').val()) {
-            alert('Preencha o Conteúdo');
-            return false;
-        }
-
         form_data.append('file', $('#upload-file')[0].files[0]);
         const today = new Date();
         const data = {
@@ -144,7 +145,7 @@ $('#publish-button').on('click', (event) => {
             assinatura: $('#membership-input').val(),
             resumo: $('#summary-area').val(),
             titulo: $('#title-area').val(),
-            conteudo: $('#content-area').val(),
+            conteudo: editor.html.get(),
             categoria: $('#category-input').val().toLowerCase(),
             autor: membro.name,
             data: today.toLocaleDateString(),

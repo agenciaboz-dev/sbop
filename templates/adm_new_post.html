@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/adm_new_post.css">
+    <link href="/static/froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/froala-editor/js/froala_editor.pkgd.min.js"></script>
+    <script type="text/javascript" src="/static/froala-editor/js/languages/pt_br.js"></script>
     <title>Sbop - ADM - Nova Postagem</title>
 </head>
 
@@ -74,7 +77,8 @@
                 <textarea name="summary-area" id="summary-area" cols="30" rows="10" placeholder="Resumo"></textarea>
                 <h2>Conteúdo da Postagem</h2>
                 <p>Conteúdo que será exibido quando é clicado no <u>Saiba mais</u></p>
-                <textarea name="content-area" id="content-area" cols="30" rows="10" placeholder="Conteúdo"></textarea>
+                <!-- <textarea name="content-area" id="content-area" cols="30" rows="10" placeholder="Conteúdo"></textarea> -->
+                <div id="froala"></div>
             </div>
         </div>
         <div class="buttons-container">
