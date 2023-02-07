@@ -4,7 +4,7 @@ from src.mail_sender import sendMail
 import json, requests
 
 database = Mysql(database_auth, 'nada')
-error = False
+error = []
 def start():
     database.connect()
     
@@ -13,12 +13,12 @@ def start():
         cep_str = member['cep']
         try:
             cep = int(cep_str)
-            updateMember(member['id'], cep)
+            updateMember(member, cep)
         except:
             continue
 
     if error:
-        sendMail("luiz@agenciazop.com.br", "GOOGLE API precisa de pagamento", "GOOGLE API precisa de pagamento")
+        sendMail("luiz@agenciazop.com.br", "GOOGLE API precisa de pagamento", f"Olá, não foi possível validar algum(ns) endereço(s) no sistema devido a um erro nas requisições do Google Maps API.\nCadastros com erro:\n{error}")
 
 def getCoords(cep):
     try:
@@ -27,14 +27,17 @@ def getCoords(cep):
         
         return (location['lat'], location['lng'])
     except Exception as error:
-        error = True
         return None
 
-def updateMember(id, cep):
+def updateMember(member, cep):
+    global error
+    id = member['id']
     coords = getCoords(cep)
     if coords:
         print(id, coords)
         sql = f"UPDATE Membros SET lat = {coords[0]}, lng = {coords[1]}, need_location = false WHERE id = {id}"
         database.run(sql)
+    else:
+        error.append(member['nome'])
 
 start()
