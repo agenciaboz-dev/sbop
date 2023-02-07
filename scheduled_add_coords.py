@@ -1,8 +1,10 @@
 from burgos.mysql_handler import Mysql
 from src.config import database_auth, google_api_key
+from src.mail_sender import sendMail
 import json, requests
 
 database = Mysql(database_auth, 'nada')
+error = False
 def start():
     database.connect()
     
@@ -15,6 +17,9 @@ def start():
         except:
             continue
 
+    if error:
+        sendMail("luiz@agenciazop.com.br", "GOOGLE API precisa de pagamento", "GOOGLE API precisa de pagamento")
+
 def getCoords(cep):
     try:
         url = f'https://maps.googleapis.com/maps/api/geocode/json?address={cep}&key={google_api_key}'
@@ -22,7 +27,7 @@ def getCoords(cep):
         
         return (location['lat'], location['lng'])
     except Exception as error:
-        print(error)
+        error = True
         return None
 
 def updateMember(id, cep):
