@@ -1,3 +1,6 @@
+const searchParams = new URLSearchParams(window.location.search);
+const adm_id = searchParams.get('id');
+
 let members = [];
 let current_id;
 const profile_picture = $('#profile-picture')
@@ -14,7 +17,7 @@ const deleteMember = (id) => {
     $.ajax({
         method: "POST",
         url: "http://app.agenciaboz.com.br:4001/api/v1/sbop/delete_member", // nodejs
-        data: { id }
+        data: { id, adm_id }
     }).done(response => {
         searchMember()
         console.log(response)

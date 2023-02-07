@@ -42,7 +42,7 @@ def home():
             if connection:
                 if connection[0]:
                     if connection[1].adm:
-                        return redirect('/adm/')
+                        return redirect(f'/adm/?id={connection[0]}')
                     return redirect('/perfil/')
             else:
                 error = 'Usuário ou senha inválidos'
@@ -296,7 +296,7 @@ def members():
 
         # name search request
         if request.form['search'] == 'name':
-            searched = request.form['value'].lower().split(' ')
+            searched = request.form['value'].lower().strip().split(' ')
             for item in searched:
                 sql = f"SELECT * FROM `Membros` WHERE nome like '%{item}%' AND assinatura = 'Titular' ORDER BY nome ASC"
                 if adm:
