@@ -457,10 +457,6 @@ p {
     margin-bottom: 4vw;
     height: 20vw;
   }
-  #content-area {
-    height: 100vw;
-    margin-bottom: 15vw;
-  }
   .buttons-container {
     position: absolute;
     align-self: center;
@@ -476,6 +472,6 @@ p {
     margin-right: 25vw;
   }
 }
-
+/*# sourceMappingURL=adm_new_post.css.map */
 
 /*# sourceMappingURL=adm_new_post.css.map */
