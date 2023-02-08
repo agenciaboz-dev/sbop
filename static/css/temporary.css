@@ -53,9 +53,9 @@
     height: 100%;
 }
 
-.stages-container input {
+.stages-container input, select {
     font-size: 1.25vw;
-    margin-top: -0.5vw;
+    margin-top: 0;
     padding: 1vw;
     border-radius: 2vw;
     outline: none;
@@ -75,7 +75,6 @@
 
 .stage-1-container > form {
     display: flex;
-    flex-direction: column;
     overflow-y: scroll;
 }
 
@@ -85,28 +84,35 @@
     flex-direction: column;
 }
 
-.stage-1-container > form > div > div {
+/* .stage-1-container > form > div > div */
+.temp-skills-select {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--text-terciary);
-    border-radius: 2vw;
-    min-height: 12vw;
+    border: 1px solid var(--text-secondary);
+    border-radius: 0.7vw;
+    min-height: 13vw;
     overflow-y: auto;
 }
 
-.stage-1-container > form > div > div > div {
+.temp-skills-select div {
+    display: flex;
+    align-items: center;
+}
+
+/* .stage-1-container > form > div > div > div {
     margin: 0.1vw 2vw;
     display: flex;
     padding: 0 3vw;
     flex-direction: row;
-}
+} */
 
-.stage-1-container > form > div > div > div > * {
+/* .stage-1-container > form > div > div > div > * {
     flex: 1;
-}
+} */
 
-.stage-1-container > form > div > div > div > input {
-    margin-top: 10px;
+/* .stage-1-container > form > div > div > div > input */
+.temp-skills-select input {
+    margin-top: 0.5vw;
     height: 1vw;
 }
 
@@ -118,6 +124,19 @@
     margin-top: 1vw;
     width: 10vw;
     align-self: center;
+}
+
+.crm-uf-input {
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.input-column {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 49%;
 }
 
 .temp-logout-button {
@@ -150,6 +169,10 @@
         flex-direction: column;
         gap: 8vw;
         padding-top: 2vw;
+    }
+
+    .stage-1-container > form {
+        flex-direction: column;
     }
 
     .circle-number {
@@ -191,6 +214,23 @@
         height: 8vw;
     }
 
+    .crm-uf-input {
+        flex-direction: column;
+    }
+
+    .input-column {
+        width: 100%;
+    }
+
+    .input-column input,select {
+        font-size: 4vw;
+        margin-top: 0.5vw;
+        margin-bottom: 3vw;
+        padding-left: 2vw;
+        border-radius: 5vw;
+        height: 8vw;
+    }
+
     .temp-skills-p {
         font-size: 5vw;
         color: var(--text-terciary);
@@ -199,15 +239,16 @@
 
     .temp-skills-select {
         margin: 1vw 0 3vw;
-        padding: 2vw 0;
+        padding: 2vw;
+        border-radius: 3vw;
     }
 
-    .stage-1-container > form > div > div > div > input {
-        height: 3vw;
+    .temp-skills-select input {
+        margin: 0 0 0 3vw;
     }
 
     #submit-stage-1-button {
-        margin-top: 3vw;
+        margin-top: 7vw;
         height: 8vw;
         width: 75vw;
     }
