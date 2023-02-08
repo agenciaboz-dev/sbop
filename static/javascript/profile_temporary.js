@@ -5,8 +5,10 @@ const get_stage_2 = setInterval(() => {
         clearInterval(get_stage_2);
 
         $('#stage-2-button').on('click', () => {
-            $('#temporary-container').hide()
-            $('#plans-container').show()
+            $('#temporary-container').fadeOut(() => {
+                $('#plans-container').fadeIn()
+            })
+            
         })
     }
 }, 100);
