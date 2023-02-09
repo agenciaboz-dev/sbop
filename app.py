@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request, send_from_directory
 from flask_cors import CORS
+from OpenSSL import SSL
 from werkzeug.utils import secure_filename
 from src.session_handler import Session
 from src.mysql_handler import Mysql
@@ -677,4 +678,9 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         dev = True if sys.argv[1] == '-dev' else False
 
-    app.run(debug=True, host="0.0.0.0", port="5001", ssl_context=('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem') if dev else None)
+    else:
+        context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
+        context.use_privatekey_file('/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem')
+        context.use_certificate_file('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem') 
+
+    app.run(debug=True, host="0.0.0.0", port="5001", ssl_context = None if dev else context)
