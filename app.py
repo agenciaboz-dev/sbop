@@ -2,6 +2,7 @@ from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request, send_from_directory
 from flask_cors import CORS
 from OpenSSL import SSL
+from flask_talisman import Talisman
 from werkzeug.utils import secure_filename
 from src.session_handler import Session
 from src.mysql_handler import Mysql
@@ -12,6 +13,12 @@ session = Session()
 app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = 'conteudos'
+dev = False
+
+if len(sys.argv) > 1:
+    dev = True if sys.argv[1] == '-dev' else False
+else:
+    Talisman(app, content_security_policy=None)
 
 @app.before_request
 def before_request():
@@ -685,8 +692,4 @@ def conteudos_page():
     
 
 if __name__ == '__main__':
-    dev = False
-    if len(sys.argv) > 1:
-        dev = True if sys.argv[1] == '-dev' else False
-
     app.run(debug=True, host="0.0.0.0", port="5001", ssl_context=None if dev else ('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem'))
