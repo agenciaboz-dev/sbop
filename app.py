@@ -5,8 +5,7 @@ from werkzeug.utils import secure_filename
 from src.session_handler import Session
 from src.mysql_handler import Mysql
 import src.config as cfg
-import os
-import json
+import os, sys, json
 
 session = Session()
 app = Flask(__name__)
@@ -674,4 +673,4 @@ def conteudos_page():
     
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port="5001")
+    app.run(debug=True, host="0.0.0.0", port="5001", ssl_context=None if sys.argv[1] == '-dev' else ('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem'))
