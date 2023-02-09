@@ -678,9 +678,4 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         dev = True if sys.argv[1] == '-dev' else False
 
-    else:
-        context = SSL.Context(SSL.PROTOCOL_TLS_SERVER)
-        context.use_privatekey_file('/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem')
-        context.use_certificate_file('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem') 
-
-    app.run(debug=True, host="0.0.0.0", port="5001", ssl_context = None if dev else context)
+    app.run(debug=True, host="0.0.0.0", port="5001", ssl_context=None if dev else ('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem'))
