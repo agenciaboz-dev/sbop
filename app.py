@@ -13,6 +13,17 @@ app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = 'conteudos'
 
+@app.before_request
+def before_request():
+    if app.env == "development":
+        return
+    if request.is_secure:
+        return
+
+    url = request.url.replace("http://", "https://", 1)
+    code = 301
+    return redirect(url, code=code)
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
