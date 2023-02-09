@@ -679,7 +679,7 @@ if __name__ == '__main__':
         dev = True if sys.argv[1] == '-dev' else False
 
     else:
-        context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
+        context = SSL.Context(SSL.PROTOCOL_TLS_SERVER)
         context.use_privatekey_file('/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem')
         context.use_certificate_file('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem') 
 
