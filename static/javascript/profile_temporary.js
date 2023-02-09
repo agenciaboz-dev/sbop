@@ -12,3 +12,4 @@ const get_stage_2 = setInterval(() => {
         })
     }
 }, 100);
+
