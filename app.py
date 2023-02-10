@@ -17,10 +17,10 @@ CORS(app)
 app.config['UPLOAD_FOLDER'] = 'conteudos'
 dev = False
 
-# if len(sys.argv) > 1:
-#     dev = True if sys.argv[1] == '-dev' else False
-# else:
-#     Talisman(app, content_security_policy=None)
+if len(sys.argv) > 1:
+    dev = True if sys.argv[1] == '-dev' else False
+else:
+    Talisman(app, content_security_policy=None)
 
 @app.before_request
 def force_https():
