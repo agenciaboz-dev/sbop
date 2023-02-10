@@ -33,7 +33,7 @@ $('document').ready(() => {
 
     $.ajax({
         method: 'GET',
-        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
+        url: 'https://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
     })
     .done(response => {
         for (const categoria of response) {

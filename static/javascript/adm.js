@@ -16,7 +16,7 @@ const fromPython = (string) => {
 const deleteMember = (id) => {
     $.ajax({
         method: "POST",
-        url: "http://app.agenciaboz.com.br:4001/api/v1/sbop/delete_member", // nodejs
+        url: "https://app.agenciaboz.com.br:4001/api/v1/sbop/delete_member", // nodejs
         data: { id, adm_id }
     }).done(response => {
         searchMember()

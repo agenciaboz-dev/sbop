@@ -1,7 +1,7 @@
 const id = new URLSearchParams(window.location.search).get('id');
 
 $.ajax({
-    url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_content/post',
+    url: 'https://app.agenciaboz.com.br:4001/api/v1/sbop/get_content/post',
     method: 'POST',
     data: {
         id: id,

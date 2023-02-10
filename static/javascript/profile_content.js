@@ -16,7 +16,7 @@ $('document').ready(() => {
 const getCategoryList = () => {
     $.ajax({
         method: 'GET',
-        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
+        url: 'https://app.agenciaboz.com.br:4001/api/v1/sbop/get_category',
     })
         .done(response => {
             for (const categoria of response) {
@@ -40,7 +40,7 @@ const getCategoryList = () => {
 const getContentList = (membro) => {
     $.ajax({
         method: 'POST',
-        url: 'http://app.agenciaboz.com.br:4001/api/v1/sbop/get_content',
+        url: 'https://app.agenciaboz.com.br:4001/api/v1/sbop/get_content',
         contentType: 'application/json',
         data: JSON.stringify({ assinatura: membro.assinatura, categoria: $('.selected-category').attr('value') })
     })

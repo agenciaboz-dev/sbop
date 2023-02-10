@@ -332,7 +332,7 @@ class Session():
         result = self.database.run(sql, json=True)
 
         if result:
-            link = f"""http://sistema.sbop.com.br:5001/recover?user={encrypted}"""
+            link = f"""https://sistema.sbop.com.br:5001/recover?user={encrypted}"""
             message = recoverPasswordTemplate(username, link)
             sendMail(result[0]['email'],
                      "Sbop - Recuperar senha", html=message)
