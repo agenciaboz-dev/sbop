@@ -11,8 +11,17 @@ from src.mysql_handler import Mysql
 import src.config as cfg
 import os, sys, json
 
+class ForceHttpsRedirects:
+    def __init__(self, app):
+        self.app = app
+    
+    def __call__(self, environ, start_response):
+        environ["wsgi.url_scheme"] = "https"
+        return self.app(environ, start_response)
+
 session = Session()
 app = Flask(__name__)
+app.wsgi_app = ForceHttpsRedirects(app.wsgi_app)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = 'conteudos'
 dev = False
@@ -22,16 +31,6 @@ dev = False
 # else:
 #     Talisman(app, content_security_policy=None)
 
-def https_redirect() -> Optional[Response]:
-    if request.scheme == 'http':
-        return redirect(url_for(request.endpoint,
-                                _scheme='https',
-                                _external=True),
-                        HTTPStatus.PERMANENT_REDIRECT)
-
-
-# if app.env == 'production':
-app.before_request(https_redirect)
 
 @app.route('/favicon.ico')
 def favicon():
