@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import Flask, request, url_for, redirect, render_template, request, send_from_directory
 from flask_cors import CORS
 from OpenSSL import SSL
-from talisman import Talisman
+from flask_talisman import Talisman
 from werkzeug.utils import secure_filename
 from src.session_handler import Session
 from src.mysql_handler import Mysql
