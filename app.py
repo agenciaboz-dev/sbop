@@ -22,11 +22,24 @@ dev = False
 # else:
 #     Talisman(app, content_security_policy=None)
 
-@app.after_request
-def adjust_response(response):
-    if response.location:
-        response.location = response.location.replace("http://", "https://", 1)
-    return response
+@app.before_request
+def before_request():
+    # If the request is sicure it should already be https, so no need to redirect
+    if not request.is_secure:
+        currentUrl = request.url
+        if currentUrl.startswith('http://'):
+            # http://example.com -> https://example.com
+            # http://www.example.com -> https://www.example.com
+            redirectUrl = currentUrl.replace('http://', 'https://', 1)
+        elif currentUrl.startswith('www'):
+            # Here we redirect the case in which the user access the site without typing any http or https
+            # www.example.com -> https://www.example.com
+            redirectUrl = currentUrl.replace('www', 'https://www', 1)
+        else:
+            # I do not now when this may happen, just for safety
+            redirectUrl = 'https://www.example.com'
+        code = 301
+        return redirect(redirectUrl, code=code)
 
 @app.route('/favicon.ico')
 def favicon():
