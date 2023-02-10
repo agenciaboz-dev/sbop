@@ -1,5 +1,7 @@
 from datetime import datetime
-from flask import Flask, request, url_for, redirect, render_template, request, send_from_directory
+from http import HTTPStatus
+from typing import Optional
+from flask import Flask, request, url_for, redirect, render_template, request, send_from_directory, Response
 from flask_cors import CORS
 from OpenSSL import SSL
 from flask_talisman import Talisman
@@ -20,16 +22,16 @@ dev = False
 # else:
 #     Talisman(app, content_security_policy=None)
 
-@app.before_request
-def before_request():
-    if app.env == "development":
-        return
-    if request.is_secure:
-        return
+def https_redirect() -> Optional[Response]:
+    if request.scheme == 'http':
+        return redirect(url_for(request.endpoint,
+                                _scheme='https',
+                                _external=True),
+                        HTTPStatus.PERMANENT_REDIRECT)
 
-    url = request.url.replace("http://", "https://", 1)
-    code = 301
-    return redirect(url, code=code)
+
+# if app.env == 'production':
+app.before_request(https_redirect)
 
 @app.route('/favicon.ico')
 def favicon():
