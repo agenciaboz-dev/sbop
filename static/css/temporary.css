@@ -161,10 +161,6 @@
         height: 95%;
     }
     
-    #menu-button {
-        display: none;
-    }
-    
     .temporary-stages {
         flex-direction: column;
         gap: 8vw;
