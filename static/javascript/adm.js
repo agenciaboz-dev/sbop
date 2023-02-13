@@ -186,6 +186,12 @@ const buildProfile = (member) => {
 
     }
 
+    if (!member.member) {
+        $('#pago-input').prop("disabled", true)
+    } else {
+        $('#pago-input').prop("disabled", false)
+    }
+
     $('#temporario-input').val(member.temporario);
     $('#primeiro_acesso-input').val(member.primeiro_acesso);
     $('#especialidades-input').val(member.especialidades);
