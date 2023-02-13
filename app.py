@@ -17,11 +17,6 @@ CORS(app)
 app.config['UPLOAD_FOLDER'] = 'conteudos'
 dev = False
 
-# if len(sys.argv) > 1:
-#     dev = True if sys.argv[1] == '-dev' else False
-# else:
-#     Talisman(app, content_security_policy=None)
-
 @app.before_request
 def force_https():
     if request.endpoint in app.view_functions and not request.is_secure:
@@ -688,4 +683,7 @@ def conteudos_page():
     
 
 if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        dev = True if sys.argv[1] == '-dev' else False
+    
     app.run(debug=True, host="0.0.0.0", port="5001", ssl_context=None if dev else ('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem'))
