@@ -169,7 +169,7 @@ button:hover {
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
 }
 
-#floating-popup input {
+.popup input {
     background-color: var(--input-background);
     border: none;
     border-radius: 9vw;
@@ -695,26 +695,24 @@ button:hover {
 
     /* Floating Pop Up */
     .popup {
+        font-size: 4vw;
         border-radius: 8vw;
-        top: 43vw;
+        top: 20vw;
         box-shadow: 0 0 20vw 200vw rgba(0, 0, 0, 0.3);
         border: none;
         padding: 6vw;
         width: 90%;
         word-wrap: break-word;
+        gap: 3vw;
+        text-align: center;
 
-        >div {
-            display: flex;
-            flex-direction: column;
-            gap: 6vw;
-        }
-
-        h1 {
-            margin-bottom: 6vw;
+        input {
+            height: 8vw;
+            padding: 0 3vw;
         }
 
         label {
-            width: 20vw;
+            width: 80vw;
         }
 
         button {
