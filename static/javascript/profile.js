@@ -230,6 +230,10 @@ const _get_member = setInterval(() => {
 
                     if (!membro.temporario) $('#toolbar-plans').trigger('click');
                 }
+
+                if (membro.temporario) {
+                    $('#menu-button').hide();
+                }
             });
         }, 100)
         clearInterval(_get_member);
