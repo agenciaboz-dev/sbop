@@ -7,4 +7,13 @@
     "account_id":"ACCO_26B8D8F3-E74D-48B9-A28B-4FD876FE6E65",
     "client_type":"confidential"
 }
+
+{
+	"access_token": "a952087e-25e6-4c94-bf83-3b74c0dc295453c659624aee9d0888be9810c7e2d2b2544c-3d56-4f35-af0f-11aee3e576ac",
+	"token_type": "Bearer",
+	"expires_in": 31536000,
+	"refresh_token": "1e8ea744-34ad-431a-8612-627cda35cfdd57c02ed04681b0e65fc74fa11fcf6e1a4763-81ef-46f7-82e2-9cd02772250c",
+	"scope": "payments.create",
+	"account_id": "ACCO_26B8D8F3-E74D-48B9-A28B-4FD876FE6E65"
+}
   
