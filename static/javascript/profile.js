@@ -152,8 +152,8 @@ const tipoPagamento = (plano, membro) => {
         plan_value.text(200)
         plan_qrcode.attr('src', '/static/image/QR Code 200.svg')
         copyToClipboard('00020126920014BR.GOV.BCB.PIX0114650851360001970252Pagamento referente a anuidade como membro aspirante5204000053039865406200.005802BR5904SBOP6009SAO PAULO622605226efbqxL6fjSRPouvW6fhzT6304D7C9')
-    }
-    else {
+        
+    } else {
         plan_value.text(400)
         plan_qrcode.attr('src', '/static/image/QR Code 400.svg')
         copyToClipboard('00020126990014BR.GOV.BCB.PIX0114650851360001970259Valor referente a anuidade como membro associado e/ou titul5204000053039865406400.005802BR5904SBOP6009SAO PAULO622505218gOyl59TrT3LUh1fuyTln63047347')

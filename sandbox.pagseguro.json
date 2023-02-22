@@ -5,5 +5,13 @@
     "client_secret": "b3809021-711e-43c6-b766-a1ae9b9aa788",
     "site": "https://sistema.sbop.com.br",
     "account_id": "ACCO_A6C705C3-09F0-412E-A226-6AC9FE56A99E",
-    "client_type": "confidential"
+    "client_type": "confidential",
+
+    "application" : {
+        "name":"sbop",
+        "client_id":"ba81ed9f-b5d9-4752-baaf-97d37860a97b",
+        "site":"https://sistema.sbop.com.br",
+        "account_id":"ACCO_A6C705C3-09F0-412E-A226-6AC9FE56A99E",
+        "client_type":"confidential"
+    }
   }
