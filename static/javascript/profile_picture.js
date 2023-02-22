@@ -15,6 +15,10 @@ const loadProfilePicture = (membro) => {
     setTimeout(() => {
         $('.body-container').show()
         $('#loading-screen').fadeToggle('slow')
+
+        if (membro.pago) {
+            $('#profile-picture').addClass('pfp-pago')
+        }
     }, 300);
 
     profile_picture.on('error', () => {
@@ -22,6 +26,7 @@ const loadProfilePicture = (membro) => {
         profile_picture.attr('src', '/static/image/doctor_icon.svg');
 
         // profile_picture.on('error', null);
+
     });
 };
 

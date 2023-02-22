@@ -3,6 +3,10 @@
 #security-container {
     display: flex;
     margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -42%);
+    width: 100%;
 }
 
 #security-container>form {
@@ -10,8 +14,8 @@
     display: flex;
     flex-direction: column;
     margin: 4vw;
-    margin-top: 2vw;
     font-size: 0.9vw;
+    gap: 0.5vw;
 }
 
 #security-container>form>input {
@@ -27,6 +31,7 @@
 
 #security-container>form>h1 {
     font-size: 1.5vw;
+    margin-bottom: 1.5vw;
 }
 
 #security-container>form>label {
@@ -41,6 +46,7 @@
 
 .redefinition-button {
     margin-top: 2vw;
+    height: 3vw;
 }
 
 @media only screen and (max-width: 600px) {

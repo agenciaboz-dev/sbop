@@ -23,7 +23,10 @@ input:-webkit-autofill:active {
     width: 70%;
     height: 31vw;
     border-radius: 1.5vw;
-    margin-top: 7vw;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 .body-container>img {
