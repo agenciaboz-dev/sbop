@@ -87,25 +87,14 @@ const copyToClipboard = (texto) => {
     })
 }
 
-const tipoPagamento = (plano) => {
+const tipoPagamento = (plano, id) => {
     console.log(plano)
     const plan_name = $('.payment-header > div > h1 > span')
-    const plan_value = $('.payment-header > div > h2 > span')
-    const plan_qrcode = $('.qr-container > img')
 
     const inicial = plano.slice(0, 1).toUpperCase()
     plan_name.text(inicial + plano.slice(1))
 
-    if (plano == 'aspirante') {
-        plan_value.text(200)
-        plan_qrcode.attr('src', '/static/image/QR Code 200.svg')
-        copyToClipboard('00020126920014BR.GOV.BCB.PIX0114650851360001970252Pagamento referente a anuidade como membro aspirante5204000053039865406200.005802BR5904SBOP6009SAO PAULO622605226efbqxL6fjSRPouvW6fhzT6304D7C9')
-    }
-    else {
-        plan_value.text(400)
-        plan_qrcode.attr('src', '/static/image/QR Code 400.svg')
-        copyToClipboard('00020126990014BR.GOV.BCB.PIX0114650851360001970259Valor referente a anuidade como membro associado e/ou titul5204000053039865406400.005802BR5904SBOP6009SAO PAULO622505218gOyl59TrT3LUh1fuyTln63047347')
-    }
+    $('#payment-iframe').attr('src', `https://sistema.sbop.com.br/pagseguro/${id}/${plano}`)
 
 }
 
@@ -151,9 +140,9 @@ const _get_member = setInterval(() => {
                                 $('.plans-panel').fadeOut(0, () => {
                                     $('.payment-container').fadeIn();
                                     if ($('.selected-plan').attr('id')) {
-                                        tipoPagamento($('.selected-plan').attr('id'))
+                                        tipoPagamento($('.selected-plan').attr('id'), membro.id)
                                     } else {
-                                        tipoPagamento($('.active-plan').attr('id'))
+                                        tipoPagamento($('.active-plan').attr('id'), membro.id)
                                     }
                                 });
                             }
@@ -177,9 +166,9 @@ const _get_member = setInterval(() => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
                             if ($('.selected-plan').attr('id')) {
-                                tipoPagamento($('.selected-plan').attr('id'))
+                                tipoPagamento($('.selected-plan').attr('id'), membro.id)
                             } else {
-                                tipoPagamento($('.active-plan').attr('id'))
+                                tipoPagamento($('.active-plan').attr('id'), membro.id)
                             }
                         });
                     })
@@ -203,9 +192,9 @@ const _get_member = setInterval(() => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
                             if ($('.selected-plan').attr('id')) {
-                                tipoPagamento($('.selected-plan').attr('id'))
+                                tipoPagamento($('.selected-plan').attr('id'), membro.id)
                             } else {
-                                tipoPagamento($('.active-plan').attr('id'))
+                                tipoPagamento($('.active-plan').attr('id'), membro.id)
                             }
                         });
                     })
