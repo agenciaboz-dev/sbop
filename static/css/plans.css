@@ -330,23 +330,23 @@
 
 .payment-header {
   display: flex;
-  margin: 0;
+  margin-top: 1vw;
 }
 
 .logo {
   height: 4vw;
   object-fit: contain;
   margin-left: auto;
-  margin-right: 3vw;
 }
 
 #payment-iframe {
   height: 25vw;
-  margin: 2vw 0;
+  margin-top: 1vw;
 }
 
 .back-button {
   margin-top: 1vw;
+  width: 12vw;
 }
 
 @media only screen and (max-width: 600px) {
