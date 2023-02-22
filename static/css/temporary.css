@@ -142,7 +142,8 @@
 .temp-logout-button {
     background-color: #656565;
     position: absolute;
-    bottom: -3vw;
+    bottom: -2.25vw;
+    left: -0.5vw;
     width: 10vw;
 }
 
