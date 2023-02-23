@@ -55,6 +55,9 @@
         align-items: center;
         flex-direction: column;
         padding: 0 2vw;
+        position: relative;
+        top: 0;
+        transform: none;
 
         >form {
             width: 80vw;

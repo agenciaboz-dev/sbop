@@ -336,7 +336,7 @@ button:hover {
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 7vw;
+    height: 12vw;
     margin: 10px 5vw 5px;
     transition: 0.3s;
 }
@@ -518,9 +518,11 @@ button:hover {
     }
 
     .body-container {
+        position: relative;
+        transform: none;
         align-items: center;
-        height: 88vh;
         margin-top: 6vw;
+        height: 93vh;
         border-radius: 9vw;
         box-shadow: 0 0 10px rgb(0 0 0 / 20%);
         overflow-x: hidden;

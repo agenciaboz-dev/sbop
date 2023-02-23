@@ -1,7 +1,7 @@
 #temporary-container {
     display: flex;
     margin-top: 5vw;
-    height: 75%;
+    height: 80%;
     flex-direction: column;
     color: var(--text-terciary);
     font-size: 1.25vw;
@@ -56,12 +56,19 @@
 .stages-container input, select {
     font-size: 1.25vw;
     margin-top: 0;
-    padding: 1vw;
     border-radius: 2vw;
     outline: none;
     border: none;
     height: 2.5vw;
     background-color: var(--input-background);
+}
+
+.stages-container input {
+    padding: 1vw;
+}
+
+.stages-container select {
+    padding-left: 0.7vw;
 }
 
 .stage-1-container {
@@ -142,8 +149,8 @@
 .temp-logout-button {
     background-color: #656565;
     position: absolute;
-    bottom: -2.25vw;
-    left: -0.5vw;
+    bottom: 0.25vw;
+    left: 4.5vw;
     width: 10vw;
 }
 
@@ -252,8 +259,8 @@
 
     .temp-logout-button {
         width: 20vw;
-        bottom: 1.5vw;
-        left: 1.5vw;
+        bottom: 0.5vw;
+        left: 5vw;
     }
 
 }
