@@ -130,7 +130,7 @@
   width: fit-content;
 }
 #videos-container a img {
-  width: 40vw;
+  width: 20vw;
 }
 
 #videos-container > hr {
@@ -138,8 +138,13 @@
   margin: 1vw auto;
 }
 
-.video-wrapper {
+.video-content-wrapper {
   display: flex;
+}
+
+.video-content-texts {
+  display: flex;
+  flex-direction: column;
 }
 
 .content-box {

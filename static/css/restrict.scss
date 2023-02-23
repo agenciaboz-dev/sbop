@@ -135,7 +135,7 @@
         width: fit-content;
 
         img {
-            width: 40vw;
+            width: 20vw;
         }
     }
 }
@@ -145,12 +145,13 @@
     margin: 1vw auto;
 }
 
-// #videos-container>hr:last-of-type {
-//     display: none;
-// }
-
-.video-wrapper {
+.video-content-wrapper {
     display: flex;
+}
+
+.video-content-texts {
+    display: flex;
+    flex-direction: column;
 }
 
 .content-box {
