@@ -146,6 +146,17 @@
   display: flex;
   flex-direction: column;
 }
+.video-content-texts * {
+  text-decoration: none;
+}
+
+.view-video {
+  transition: 0.3s;
+}
+
+.view-video:hover {
+  transform: scale(1.05);
+}
 
 .content-box {
   margin: 0;

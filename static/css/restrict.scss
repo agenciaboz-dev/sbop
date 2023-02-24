@@ -152,6 +152,18 @@
 .video-content-texts {
     display: flex;
     flex-direction: column;
+
+    * {
+        text-decoration: none;
+    }
+}
+
+.view-video {
+    transition: 0.3s;
+}
+
+.view-video:hover {
+    transform: scale(1.05);
 }
 
 .content-box {
