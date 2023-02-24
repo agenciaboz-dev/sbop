@@ -517,10 +517,10 @@
   }
   #payment-iframe {
     height: 70vh;
+    align-items: center;
   }
   .back-button {
     margin-top: 3vw;
-    margin-left: 3vw;
     padding: 2vw;
     width: fit-content;
   }
