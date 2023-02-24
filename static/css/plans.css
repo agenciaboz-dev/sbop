@@ -341,6 +341,7 @@
 
 #payment-iframe {
   height: 25vw;
+  width: 100%;
   margin-top: 1vw;
 }
 
@@ -511,81 +512,17 @@
     margin: 4vw 0;
   }
   .logo {
-    display: none;
+    margin-left: 2vw;
+    height: 10vw;
   }
-  .payment-body {
-    flex-direction: column;
-  }
-  .qr-container {
-    width: 100%;
-  }
-  .qr-container * {
-    margin: 2vw 0;
-  }
-  .qr-container button {
-    height: fit-content;
-    padding: 2vw 2vw;
-  }
-  .qrc {
-    height: 75vw;
-  }
-  .receipt-notice {
-    padding: 1vw 4vw;
-    border-radius: 8vw;
-  }
-  .hr-container {
-    flex-direction: row;
-    margin: 12vw 0;
-  }
-  .hr-container hr {
-    height: 0;
-    width: 30vw;
-    border-top: 2px solid var(--line-color);
-  }
-  .payment-form-container {
-    width: 100%;
-  }
-  .payment-form-container * {
-    margin: 1vw 0;
-  }
-  .payment-form-container label {
-    align-self: center;
-  }
-  .payment-form-container input {
-    width: 100%;
-  }
-  .payment-form-container ::placeholder {
-    font-size: 4vw;
-  }
-  .payment-form-container .payment-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .payment-form-container .data-slot {
-    align-items: center;
-  }
-  .payment-form-container .t-quarters {
-    width: 100%;
-  }
-  .payment-form-container .half {
-    width: 100%;
-  }
-  .payment-form-container .quarter {
-    width: 100%;
-  }
-  .payment-form-container .data-row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .payment-form-container button {
-    border-radius: 9vw;
-  }
-  .payment-form-container .pay-button {
-    width: 40vw;
+  #payment-iframe {
+    height: 70vh;
   }
   .back-button {
     margin-top: 3vw;
+    margin-left: 3vw;
+    padding: 2vw;
+    width: fit-content;
   }
 }
 
