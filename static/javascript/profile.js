@@ -96,7 +96,7 @@ const tipoPagamento = (plano, membro) => {
     const inicial = plano.slice(0, 1).toUpperCase()
     plan_name.text(inicial + plano.slice(1))
 
-    $('#payment-iframe').attr('src', `https://sistema.sbop.com.br/pagseguro/${id}/${plano}`)
+    $('#payment-iframe').attr('src', `https://sistema.sbop.com.br/pagseguro/${membro.id}/${plano}`)
     
 
 }
