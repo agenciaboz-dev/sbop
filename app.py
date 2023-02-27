@@ -15,7 +15,7 @@ if len(sys.argv) > 1:
 
 @app.before_request
 def force_https():
-    if request.endpoint in app.view_functions and not request.is_secure:
+    if request.endpoint in app.view_functions and not request.is_secure and not dev:
         return redirect(request.url.replace('http://', 'https://'))
 
 @app.route('/favicon.ico')

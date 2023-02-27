@@ -3,12 +3,12 @@ const especialidades_button = $('#edit-skills')
 const popup = $('#js-floating-popup')
 var membro = {}
 
-const request = (url, data, done) => {
-    const options = {
+const request = (url, data, done, _options = null) => {
+    const options = _options || {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
-    };
+    }
 
     fetch(url, options)
         .then((response) => response.json())
@@ -87,14 +87,25 @@ const copyToClipboard = (texto) => {
     })
 }
 
-const tipoPagamento = (plano, id) => {
+
+const tipoPagamento = (plano, membro) => {
+
     console.log(plano)
     const plan_name = $('.payment-header > div > h1 > span')
 
     const inicial = plano.slice(0, 1).toUpperCase()
     plan_name.text(inicial + plano.slice(1))
 
-    $('#payment-iframe').attr('src', `https://sistema.sbop.com.br/pagseguro/${id}/${plano}`)
+    if (plano == 'aspirante') {
+        plan_value.text(200)
+        plan_qrcode.attr('src', '/static/image/QR Code 200.svg')
+        copyToClipboard('00020126920014BR.GOV.BCB.PIX0114650851360001970252Pagamento referente a anuidade como membro aspirante5204000053039865406200.005802BR5904SBOP6009SAO PAULO622605226efbqxL6fjSRPouvW6fhzT6304D7C9')
+        
+    } else {
+        plan_value.text(400)
+        plan_qrcode.attr('src', '/static/image/QR Code 400.svg')
+        copyToClipboard('00020126990014BR.GOV.BCB.PIX0114650851360001970259Valor referente a anuidade como membro associado e/ou titul5204000053039865406400.005802BR5904SBOP6009SAO PAULO622505218gOyl59TrT3LUh1fuyTln63047347')
+    }
 
 }
 
@@ -140,9 +151,9 @@ const _get_member = setInterval(() => {
                                 $('.plans-panel').fadeOut(0, () => {
                                     $('.payment-container').fadeIn();
                                     if ($('.selected-plan').attr('id')) {
-                                        tipoPagamento($('.selected-plan').attr('id'), membro.id)
+                                        tipoPagamento($('.selected-plan').attr('id'), membro)
                                     } else {
-                                        tipoPagamento($('.active-plan').attr('id'), membro.id)
+                                        tipoPagamento($('.active-plan').attr('id'), membro)
                                     }
                                 });
                             }
@@ -166,9 +177,9 @@ const _get_member = setInterval(() => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
                             if ($('.selected-plan').attr('id')) {
-                                tipoPagamento($('.selected-plan').attr('id'), membro.id)
+                                tipoPagamento($('.selected-plan').attr('id'), membro)
                             } else {
-                                tipoPagamento($('.active-plan').attr('id'), membro.id)
+                                tipoPagamento($('.active-plan').attr('id'), membro)
                             }
                         });
                     })
@@ -192,9 +203,9 @@ const _get_member = setInterval(() => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
                             if ($('.selected-plan').attr('id')) {
-                                tipoPagamento($('.selected-plan').attr('id'), membro.id)
+                                tipoPagamento($('.selected-plan').attr('id'), membro)
                             } else {
-                                tipoPagamento($('.active-plan').attr('id'), membro.id)
+                                tipoPagamento($('.active-plan').attr('id'), membro)
                             }
                         });
                     })
