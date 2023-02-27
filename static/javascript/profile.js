@@ -3,12 +3,12 @@ const especialidades_button = $('#edit-skills')
 const popup = $('#js-floating-popup')
 var membro = {}
 
-const request = (url, data, done) => {
-    const options = {
+const request = (url, data, done, _options = null) => {
+    const options = _options || {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
-    };
+    }
 
     fetch(url, options)
         .then((response) => response.json())
@@ -87,7 +87,9 @@ const copyToClipboard = (texto) => {
     })
 }
 
-const tipoPagamento = (plano, id) => {
+
+const tipoPagamento = (plano, membro) => {
+
     console.log(plano)
     const plan_name = $('.payment-header > div > h1 > span')
 
@@ -141,9 +143,9 @@ const _get_member = setInterval(() => {
                                 $('.plans-panel').fadeOut(0, () => {
                                     $('.payment-container').fadeIn();
                                     if ($('.selected-plan').attr('id')) {
-                                        tipoPagamento($('.selected-plan').attr('id'), membro.id)
+                                        tipoPagamento($('.selected-plan').attr('id'), membro)
                                     } else {
-                                        tipoPagamento($('.active-plan').attr('id'), membro.id)
+                                        tipoPagamento($('.active-plan').attr('id'), membro)
                                     }
                                 });
                             }
@@ -167,9 +169,9 @@ const _get_member = setInterval(() => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
                             if ($('.selected-plan').attr('id')) {
-                                tipoPagamento($('.selected-plan').attr('id'), membro.id)
+                                tipoPagamento($('.selected-plan').attr('id'), membro)
                             } else {
-                                tipoPagamento($('.active-plan').attr('id'), membro.id)
+                                tipoPagamento($('.active-plan').attr('id'), membro)
                             }
                         });
                     })
@@ -193,9 +195,9 @@ const _get_member = setInterval(() => {
                         $('.plans-panel').fadeOut(0, () => {
                             $('.payment-container').fadeIn();
                             if ($('.selected-plan').attr('id')) {
-                                tipoPagamento($('.selected-plan').attr('id'), membro.id)
+                                tipoPagamento($('.selected-plan').attr('id'), membro)
                             } else {
-                                tipoPagamento($('.active-plan').attr('id'), membro.id)
+                                tipoPagamento($('.active-plan').attr('id'), membro)
                             }
                         });
                     })
