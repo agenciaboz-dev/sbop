@@ -89,56 +89,6 @@ const copyToClipboard = (texto) => {
 
 
 const tipoPagamento = (plano, membro) => {
-    const order_options = {
-
-        method: 'POST',
-        url: 'https://api.pagseguro.com/orders',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer a952087e-25e6-4c94-bf83-3b74c0dc295453c659624aee9d0888be9810c7e2d2b2544c-3d56-4f35-af0f-11aee3e576ac',
-          'content-type': 'application/json'
-        },
-        data: {
-            reference_id: membro.id,
-            customer: {
-                name: membro.nome,
-                email: membro.email,
-                tax_id: membro.cpf,
-
-                phone: [],
-
-                items: [
-                    {
-                        name: plano,
-                    },
-                ],
-
-                shipping: {
-                    address: {
-                        street: membro.endereco,
-                        number: membro.numero,
-                        complement: membro.complemento,
-                        locality: membro.bairro,
-                        city: membro.cidade,
-                        region_code: membro.uf,
-                        country: "BRA",
-                        postal_code: membro.cep,
-                    }
-                },
-                
-                qr_codes: [
-                    {
-                        amount: {
-                            value: plano == 'aspirante' ? 200 : 400
-                        }
-                    }
-                ],
-
-            },
-        }
-    }
-
-    request('https://api.pagseguro.com/orders', order_options.data, () => console.log(data), order_options)
 
     console.log(plano)
     const plan_name = $('.payment-header > div > h1 > span')
