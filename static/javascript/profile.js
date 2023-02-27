@@ -95,6 +95,7 @@ const tipoPagamento = (plano, id) => {
     plan_name.text(inicial + plano.slice(1))
 
     $('#payment-iframe').attr('src', `https://sistema.sbop.com.br/pagseguro/${id}/${plano}`)
+    
 
 }
 
