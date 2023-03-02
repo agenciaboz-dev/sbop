@@ -396,10 +396,12 @@ abbr {
 }
 
 .doctor-icon {
-  width: fit-content;
+  width: 5vw;
+  height: 5vw;
   margin-left: auto;
   margin-right: -1vh;
-  height: 10vh;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .member-data-container {
@@ -601,6 +603,7 @@ input {
     height: 100%;
   }
   .map-body-container {
+    position: fixed;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
@@ -635,7 +638,7 @@ input {
   #result {
     border-radius: 7vw;
     margin-top: 1vw;
-    height: 45vw;
+    height: 60vw;
     padding: 1vw;
   }
   .map-status {
@@ -668,7 +671,7 @@ input {
   }
   .map-container svg {
     position: fixed;
-    top: 47vw;
+    top: 65vw;
     transform: scale(0.6) !important;
     margin: 0;
   }
@@ -682,7 +685,8 @@ input {
   .doctor-icon {
     align-self: center;
     margin: 0 0 2vh 0;
-    border-radius: 50%;
+    width: 5vw;
+    height: 5vw;
   }
   #reset-button {
     border-radius: 8vw;
