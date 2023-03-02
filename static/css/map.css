@@ -685,8 +685,8 @@ input {
   .doctor-icon {
     align-self: center;
     margin: 0 0 2vh 0;
-    width: 5vw;
-    height: 5vw;
+    width: 20vw;
+    height: 20vw;
   }
   #reset-button {
     border-radius: 8vw;
