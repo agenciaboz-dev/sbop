@@ -13,3 +13,7 @@ const get_stage_2 = setInterval(() => {
     }
 }, 100);
 
+$('#back-from-plans-button').on('click', () => {
+    $('#plans-container').hide()
+    $('#temporary-container').show()
+})
