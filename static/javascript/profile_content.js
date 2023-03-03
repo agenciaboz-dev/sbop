@@ -11,6 +11,8 @@ const get_member = setInterval(() => {
 
 $('document').ready(() => {
     getCategoryList()
+    hideSideBar()
+
 })
 
 const getCategoryList = () => {
@@ -95,5 +97,17 @@ const getContentList = (membro) => {
             })
         });
 }
+
+const hideSideBar = () => {
+    $('.side-bar').hide();
+    $('.side-bar + hr').hide();
+}
+
+$('.content-videos-button').on('click', () => hideSideBar())
+
+$('.content-publicacoes-button').on('click', () => {
+    $('.side-bar').show();
+    $('.side-bar + hr').show();
+})
 
 
