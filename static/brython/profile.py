@@ -241,19 +241,19 @@ def initialRender():
 
     # jQuery('#loading-screen').fadeToggle('slow')
 
-    if member.primeiro_acesso:
-        toggleContainer(selection=['#temporary-container'], mode='blur')
-        member.updatePassword()
+    # if member.primeiro_acesso:
+    #     toggleContainer(selection=['#temporary-container'], mode='blur')
+    #     member.updatePassword()
 
     if member.temporario:
         jQuery('.main-container').hide()
         toggleContainer(selection=['.body-toolbar'], mode='blur')
         jQuery('#temporary-container').show()
-        jQuery('.temp-logout-button').show()
-        jQuery('#stage-1-button').on('click', renderStage1)
+        # jQuery('.temp-logout-button').show()
+        # jQuery('#stage-1-button').on('click', renderStage1)
         
-        if member.pago:
-            jQuery('.temporary-stage-2').find('img').attr('src','/static/image/complete_icon.svg')
+        # if member.pago:
+        #     jQuery('.temporary-stage-2').find('img').attr('src','/static/image/complete_icon.svg')
 
     else:
         jQuery('.temp-logout-button').hide()

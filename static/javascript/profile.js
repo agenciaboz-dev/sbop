@@ -87,6 +87,10 @@ const copyToClipboard = (texto) => {
     })
 }
 
+const handleTemporaryIframe = (membro) => {
+
+}
+
 
 const tipoPagamento = (plano, membro) => {
 
@@ -125,6 +129,10 @@ const _get_member = setInterval(() => {
 
                 membro.exists = true;
                 console.log(membro);
+
+                if (membro.temporario) {
+                    $('#temporary-iframe').attr('src', `http://localhost:3000/temporario/${membro.id}`)
+                }
 
                 if (membro.adm) {
                     $('.adm-button').css('visibility', 'visible');
