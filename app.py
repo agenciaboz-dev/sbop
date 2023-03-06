@@ -679,4 +679,7 @@ def conteudos_page():
     
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port="5001", ssl_context="adhoc" if dev else ('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem'))
+    if dev:
+        app.run(debug=True, host="0.0.0.0", port="5001")
+    else:
+        app.run(debug=True, host="0.0.0.0", port="5001", ssl_context="adhoc" if dev else ('/etc/letsencrypt/live/sistema.sbop.com.br/cert.pem', '/etc/letsencrypt/live/sistema.sbop.com.br/privkey.pem'))
