@@ -1,11 +1,11 @@
 #temporary-container {
     display: flex;
     margin: auto 0;
-    height: 80%;
+    height: 90%;
     flex-direction: column;
     color: var(--text-terciary);
     font-size: 1.25vw;
-    /* overflow: hidden; */
+    justify-content: center;
 }
 
 .temporary-stages {
