@@ -284,22 +284,22 @@ def loadActivePlan(member):
     jQuery('.active-plan > .plan-title > p').css('color', 'var(--primary-color)')
 
     # checar vencimento
-    if not member.pago:
-        jQuery('#vigencia-text').text('Pagamento do dia 31/12/2022 pendente!')
-        jQuery('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)')
-        jQuery('#vigencia-text > span').hide()
-        jQuery('.active-plan').css('outline-color', 'var(--borda-plano-vencido)')
-        jQuery('#active-plan-icon').attr('src', '/static/image/alert.svg')
-        jQuery('.active-plan > .plan-title > p').text('Plano Atual.')
-        jQuery('.active-plan > .plan-title > p > span').css('color', 'var(--borda-plano-vencido)')
-        jQuery('.active-plan > .plan-title > p > span').css('font-weight', 'bold')
+    # if not member.pago:
+    #     jQuery('#vigencia-text').text('Pagamento do dia 31/12/2022 pendente!')
+    #     jQuery('.vigencia-container').css('background-color', 'var(--borda-plano-vencido)')
+    #     jQuery('#vigencia-text > span').hide()
+    #     jQuery('.active-plan').css('outline-color', 'var(--borda-plano-vencido)')
+    #     jQuery('#active-plan-icon').attr('src', '/static/image/alert.svg')
+    #     jQuery('.active-plan > .plan-title > p').text('Plano Atual.')
+    #     jQuery('.active-plan > .plan-title > p > span').css('color', 'var(--borda-plano-vencido)')
+    #     jQuery('.active-plan > .plan-title > p > span').css('font-weight', 'bold')
 
-        # jQuery('#plans-container > .plans-panel > button').removeClass('deactivated-button')
-        jQuery('#plans-container > .plans-panel > button').addClass('regularize-button')
-        jQuery('#plans-container > .plans-panel > button').text('Regularize Já!')
+    #     # jQuery('#plans-container > .plans-panel > button').removeClass('deactivated-button')
+    #     jQuery('#plans-container > .plans-panel > button').addClass('regularize-button')
+    #     jQuery('#plans-container > .plans-panel > button').text('Regularize Já!')
         
-    else:
-        jQuery('#toolbar-plans > img').hide()
+    # else:
+    #     jQuery('#toolbar-plans > img').hide()
         
 
     # iterate plans divs
