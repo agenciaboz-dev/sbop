@@ -1,6 +1,6 @@
 #temporary-container {
     display: flex;
-    margin-top: 5vw;
+    margin: auto 0;
     height: 80%;
     flex-direction: column;
     color: var(--text-terciary);
