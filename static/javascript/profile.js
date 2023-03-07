@@ -131,7 +131,7 @@ const _get_member = setInterval(() => {
                 console.log(membro);
 
                 if (membro.temporario) {
-                    $('#temporary-iframe').attr('src', `http://localhost:3000/temporario/${membro.id}`)
+                    $('#temporary-iframe').attr('src', `http://sistema.sbop.com.br/temporario/${membro.id}`)
                 }
 
                 if (membro.adm) {
