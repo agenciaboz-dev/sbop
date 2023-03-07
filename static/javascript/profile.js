@@ -129,6 +129,7 @@ const _get_member = setInterval(() => {
 
                 membro.exists = true;
                 console.log(membro);
+                $('#plans-iframe').attr('src', `https://sistema.sbop.com.br/plans/${membro.id}`)
 
                 if (membro.temporario) {
                     $('#temporary-iframe').attr('src', `https://sistema.sbop.com.br/temporario/${membro.id}`)
