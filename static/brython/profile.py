@@ -625,7 +625,7 @@ def loadRequests(req):
 def loadMember():
     loadProfile()
     loadSafety()
-    loadActivePlan(member)
+    # loadActivePlan(member)
     loadRestrict(member)
     _ajax('/available_requests/', loadRequests)
 
