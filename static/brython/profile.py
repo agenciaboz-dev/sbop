@@ -259,8 +259,8 @@ def initialRender():
         jQuery('.temp-logout-button').hide()
 
 
-
 def loadActivePlan(member):
+
     member_type = f'#{member.type.lower()}'
     jQuery(member_type).addClass('active-plan')
     
