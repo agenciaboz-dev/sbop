@@ -25,3 +25,18 @@ $('#recover-form').on('submit', (event) => {
     })
     .catch(err => console.error('error:' + err));
 })
+
+// Listen for messages from the parent document
+window.addEventListener('message', event => {
+    // Check the origin of the message to prevent unauthorized access
+    // if (event.origin !== 'https://your-react-app.com') return;
+  
+    // Handle the message
+    const {type, user, password} = event.data;
+    if (type === 'login') {
+      document.getElementById('user-input').value = user;
+      document.getElementById('password-input').value = password;
+      document.getElementById('login-form').submit();
+    }
+  });
+  
