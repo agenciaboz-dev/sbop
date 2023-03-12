@@ -37,6 +37,8 @@ window.addEventListener('message', event => {
         $('#username-input').val(user)
         $('#password-input').val(password)
         $('#login-form > button').trigger('click')
+        
+        event.source.postMessage('Message received!', event.origin)
     }
   });
   
