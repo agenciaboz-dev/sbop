@@ -35,9 +35,9 @@ window.addEventListener('message', event => {
     const {type, user, password} = event.data;
     console.log(type, user, password)
     if (type === 'login') {
-      document.getElementById('user-input').value = user;
-      document.getElementById('password-input').value = password;
-      document.getElementById('login-form').submit();
+        document.getElementById('username-input').value = user;
+        document.getElementById('password-input').value = password;
+        document.getElementById('login-form').submit();
     }
   });
   
