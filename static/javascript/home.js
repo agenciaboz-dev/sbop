@@ -33,11 +33,10 @@ window.addEventListener('message', event => {
   
     // Handle the message
     const {type, user, password} = event.data;
-    console.log(type, user, password)
     if (type === 'login') {
         $('#username-input').val(user)
-        document.getElementById('password-input').value = password;
-        document.getElementById('login-form').submit();
+        $('#password-input').val(password)
+        $('#login-form > button').trigger('click')
     }
   });
   
