@@ -30,15 +30,15 @@ $('#recover-form').on('submit', (event) => {
 window.addEventListener('message', event => {
     // Check the origin of the message to prevent unauthorized access
     // if (event.origin !== 'https://your-react-app.com') return;
-  
+    
     // Handle the message
     const {type, user, password} = event.data;
     if (type === 'login') {
         $('#username-input').val(user)
         $('#password-input').val(password)
+        event.source.postMessage('Message received!', event.origin)
         $('#login-form > button').trigger('click')
         
-        event.source.postMessage('Message received!', event.origin)
     }
   });
   
