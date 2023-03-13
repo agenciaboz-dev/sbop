@@ -26,7 +26,7 @@ const getCategoryList = () => {
                 $('.category-select').append(element)
             }
 
-            $($('.category-select').children()[0]).addClass('selected-category')
+            $($('.category-select').children()[1]).addClass('selected-category')
 
             $('.category-select').children().on('click', (event) => {
                 $('.selected-category').removeClass('selected-category')
