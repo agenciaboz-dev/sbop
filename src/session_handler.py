@@ -225,6 +225,7 @@ class Session():
         self.database.insertPost(data)
 
     def editMember(self, data):
+        print(data)
         try:
             if not self.database.connection.is_connected():
                 self.reconnectDatabase()
@@ -263,9 +264,9 @@ class Session():
                 bairro='{data['bairro']}', 
                 cidade='{data['cidade']}', 
                 especialidades='{data[especialidades]}', 
-                temporario='{data['temporario']}', 
-                pago='{data['pago']}', 
-                primeiro_acesso='{data['primeiro_acesso']}' 
+                temporario={json.dumps(data['temporario'])}, 
+                pago={json.dumps(data['pago'])}, 
+                primeiro_acesso={json.dumps(data['primeiro_acesso'])} 
                 WHERE id={data['id']}"""
                 
             print(sql)
