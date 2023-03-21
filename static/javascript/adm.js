@@ -59,6 +59,7 @@ const loadList = () => {
     $.ajax('/membros/').done((html) => {
         data = fromPython(html);
         members = data;
+        console.log(members)
 
         buildList(members);
         getEspecialidades();
