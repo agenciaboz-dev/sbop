@@ -187,6 +187,13 @@ const buildProfile = (member) => {
 
     }
 
+    if (member.adm) {
+        $('#adm-input').prop("checked", true);
+    } else {
+        $('#adm-input').prop("checked", false);
+
+    }
+
     if (!member.member) {
         $('#pago-input').prop("disabled", true)
     } else {
@@ -231,6 +238,7 @@ const onClickSave = (event) => {
     member.temporario = Boolean($('#temporario-input:checked')[0]);
     member.primeiro_acesso = Boolean($('#primeiro_acesso-input:checked')[0]);
     member.pago = Boolean($('#pago-input:checked')[0]);
+    member.adm = Boolean($('#adm-input:checked')[0]);
     console.log(member)
 
     const requisicaoUngida = () => {

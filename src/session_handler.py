@@ -266,7 +266,8 @@ class Session():
                 especialidades='{data[especialidades]}', 
                 temporario={json.dumps(data['temporario'])}, 
                 pago={json.dumps(data['pago'])}, 
-                primeiro_acesso={json.dumps(data['primeiro_acesso'])} 
+                primeiro_acesso={json.dumps(data['primeiro_acesso'])},
+                adm={json.dumps(data['adm'])}
                 WHERE id={data['id']}"""
                 
             print(sql)
