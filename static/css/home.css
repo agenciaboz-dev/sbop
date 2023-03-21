@@ -166,7 +166,6 @@ button {
   display: flex;
   flex-direction: column;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 2vw;
   z-index: 5;
   padding: 2vw;
@@ -174,6 +173,7 @@ button {
   outline: 0.5vw solid var(--primary-color);
   width: 50%;
   box-shadow: 0 0 15vw 150vw rgba(0, 0, 0, 0.5);
+  transform: translateY(50vh);
 }
 .popup p {
   font-size: 1.25vw;
@@ -197,7 +197,7 @@ button {
 }
 
 #recover-input {
-  width: 50%;
+  width: 80%;
 }
 
 #recover-submit {
@@ -304,6 +304,7 @@ button {
     color: var(--primary-text-color);
   }
   .popup {
+    gap: 4vw;
     width: 90vw;
     border-radius: 7vw;
     box-shadow: 0 0 15vw 150vw rgba(0, 0, 0, 0.5);
@@ -311,6 +312,17 @@ button {
   }
   .popup p {
     font-size: 4vw;
+    text-align: center;
+  }
+  .popup #recover-form {
+    flex-direction: column;
+  }
+  .popup #recover-form label {
+    text-align: center;
+    width: 100%;
+  }
+  .popup #recover-form #recover-input {
+    width: 100%;
   }
 }
 
