@@ -166,7 +166,7 @@ const buildProfile = (member) => {
         $(`input[value="${especialidade}"]`).prop('checked', true);
     }
 
-    if (member.temporario === true || member.temporario === "true") {
+    if (member.temporario) {
         $('#temporario-input').prop("checked", true);
     } else {
         $('#temporario-input').prop("checked", false);

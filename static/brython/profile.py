@@ -34,8 +34,8 @@ class Member():
         self.solicitacoes = data['solicitacoes']
         self.especialidades = data['especialidades']
         self.especialidades_str = None
-        self.temporario = json.loads(data['temporario'])
-        self.primeiro_acesso = json.loads(data['primeiro_acesso'])
+        self.temporario = data['temporario']
+        self.primeiro_acesso = data['primeiro_acesso']
         self.pago = data['pago']
 
         self.member_container_wrapper = None
@@ -621,7 +621,7 @@ def loadMember():
 def preLoad(req):
     global member
 
-    data = eval(req.text.replace('null', 'None'))
+    data = eval(req.text)
     member = Member(data)
 
     if member.type:
