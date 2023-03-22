@@ -342,16 +342,19 @@ h2 {
   flex-direction: column;
   color: #8D8D8D;
 }
+.input-field ::placeholder {
+  opacity: 0.4;
+}
 .input-field input {
+  color: black;
   border-radius: 2vw;
   border: none;
-  opacity: 40%;
   outline: none;
   background-color: #E4E4E4;
   height: 4vh;
   padding: 0 0.7vw;
   margin-top: 0.5vh;
-  font-size: 2vh;
+  font-size: 2.25vh;
 }
 
 .checkbox-input {

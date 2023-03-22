@@ -284,16 +284,20 @@ h2 {
     flex-direction: column;
     color: $profile-text-color;
 
+    ::placeholder {
+        opacity: 0.4;
+    }
+
     input {
+        color: black;
         border-radius: 2vw;
         border: none;
-        opacity: 40%;
         outline: none;
         background-color: $background-color;
         height: 4vh;
         padding: 0 0.7vw;
         margin-top: 0.5vh;
-        font-size: 2vh;
+        font-size: 2.25vh;
     }
 }
 
