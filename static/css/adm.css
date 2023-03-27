@@ -252,11 +252,10 @@ h2 {
   border: none;
   outline: none;
   background-color: #E4E4E4;
-  opacity: 40%;
   height: 4vh;
   padding: 0 0.5vw;
   margin-top: 0.5vh;
-  font-size: 2vh;
+  font-size: 2.25vh;
 }
 
 #crmuf-input {
@@ -264,11 +263,10 @@ h2 {
   border: none;
   outline: none;
   background-color: #E4E4E4;
-  opacity: 40%;
   height: 4vh;
   padding: 0 0.5vw;
   margin-top: 0.5vh;
-  font-size: 2vh;
+  font-size: 2.25vh;
 }
 
 .crm-uf-input {
@@ -284,8 +282,8 @@ h2 {
 }
 
 #pais-input {
-  opacity: 25%;
   pointer-events: none;
+  color: black;
 }
 
 .profile-container {
