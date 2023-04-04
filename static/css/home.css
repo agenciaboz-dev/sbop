@@ -87,7 +87,7 @@ h1 {
 }
 
 a > h1 {
-  opacity: 0.5;
+  opacity: 0.6;
   transition: 0.3s;
 }
 
@@ -109,8 +109,8 @@ input {
   border: none;
   outline: none;
   padding: 1vw;
-  color: var(--primary-text-color);
-  font-size: 1vw;
+  color: black;
+  font-size: 1.2vw;
   margin-top: 0.5vw;
   margin-bottom: 0.5vw;
 }
@@ -118,7 +118,7 @@ input {
 ::placeholder {
   color: var(--primary-text-color);
   opacity: 0.9;
-  font-size: 1vw;
+  font-size: 1.2vw;
 }
 
 button {
@@ -144,13 +144,14 @@ button {
   text-decoration: none;
   color: var(--primary-text-color);
   font-weight: bold;
-  opacity: 0.5;
-  font-size: 1vw;
+  opacity: 0.8;
+  font-size: 1.1vw;
   transition: 0.3s;
   cursor: pointer;
 }
 
 .container > .recover-password:hover {
+  color: black;
   opacity: 1;
 }
 

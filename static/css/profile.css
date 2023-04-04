@@ -114,11 +114,13 @@ button:hover {
 }
 
 .toolbar h1 {
+  color: var(--text-terciary);
   font-size: 1vw;
   margin-bottom: 0.2vw;
 }
 
 .toolbar p {
+  color: var(--text-terciary);
   font-size: 0.8vw;
   margin-top: 0.2vw;
 }
